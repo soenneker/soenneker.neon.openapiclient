@@ -22,6 +22,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreatedAt { get; set; }
 #endif
+        /// <summary>Incremental storage size in bytes since the previous scheduled snapshot, when the snapshot is billed on incremental (diff) usage.When absent, either the incremental size has not been calculated yet and the snapshot is not being charged, or the snapshot is charged at full logical size (in that case `full_size` is set).</summary>
+        public long? DiffSize { get; set; }
         /// <summary>The expires_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +32,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ExpiresAt { get; set; }
 #endif
+        /// <summary>Full logical size of the snapshot in bytes at the time it was taken.When absent, the logical size has not been calculated yet and the snapshot is not being charged.When present, a value of 0 means the snapshot is not being charged.</summary>
+        public long? FullSize { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +102,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "diff_size", n => { DiffSize = n.GetLongValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
+                { "full_size", n => { FullSize = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "lsn", n => { Lsn = n.GetStringValue(); } },
                 { "manual", n => { Manual = n.GetBoolValue(); } },
@@ -115,7 +121,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteLongValue("diff_size", DiffSize);
             writer.WriteStringValue("expires_at", ExpiresAt);
+            writer.WriteLongValue("full_size", FullSize);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("lsn", Lsn);
             writer.WriteBoolValue("manual", Manual);

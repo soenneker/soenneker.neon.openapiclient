@@ -58,6 +58,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
+        /// <summary>The application name used in auth emails and communications. Defaults to the Neon project name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>The owned_by property</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthProviderProjectOwnedBy? OwnedBy { get; set; }
         /// <summary>The transfer_status property</summary>
@@ -94,6 +102,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "db_name", n => { DbName = n.GetStringValue(); } },
                 { "jwks_url", n => { JwksUrl = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "owned_by", n => { OwnedBy = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthProviderProjectOwnedBy>(); } },
                 { "transfer_status", n => { TransferStatus = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthProviderProjectTransferStatus>(); } },
             };
@@ -112,6 +121,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("db_name", DbName);
             writer.WriteStringValue("jwks_url", JwksUrl);
+            writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthProviderProjectOwnedBy>("owned_by", OwnedBy);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthProviderProjectTransferStatus>("transfer_status", TransferStatus);
             writer.WriteAdditionalData(AdditionalData);

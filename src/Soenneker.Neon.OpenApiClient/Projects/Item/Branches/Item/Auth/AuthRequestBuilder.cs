@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_localhost;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Config;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_and_password;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider;
@@ -30,6 +31,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_localhost.Allow_localhostRequestBuilder Allow_localhost
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_localhost.Allow_localhostRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The config property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Config.ConfigRequestBuilder Config
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Config.ConfigRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The domains property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains.DomainsRequestBuilder Domains
