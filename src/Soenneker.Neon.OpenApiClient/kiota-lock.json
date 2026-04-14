@@ -2,7 +2,7 @@
   "descriptionHash": "E5FF1BAF1BD0CD3C2831760138C9CB580A3B83A12E4289734BA67A641C102DEFCD3CB2F82E447B612B47296F39B55DCE1F9D1B864FF4EF29C37477F1EF754668",
   "descriptionLocation": "../../openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.0",
+  "kiotaVersion": "1.31.1",
   "clientClassName": "NeonOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Neon.OpenApiClient",
