@@ -32,5 +32,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         OrganizationInvitationAccepted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "phone_number.verified")]
+        #pragma warning disable CS1591
+        Phone_numberVerified,
+        #pragma warning restore CS1591
     }
 }

@@ -3307,6 +3307,86 @@
                 }
             }
         },
+        "/projects/{project_id}/branches/{branch_id}/auth/plugins/phone_number": {
+            "parameters": [
+                {
+                    "name": "project_id",
+                    "in": "path",
+                    "description": "The Neon project ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    }
+                },
+                {
+                    "name": "branch_id",
+                    "in": "path",
+                    "description": "The Neon branch ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    }
+                }
+            ],
+            "get": {
+                "summary": "Get phone number plugin configuration",
+                "description": "Returns the phone number plugin configuration for Neon Auth.\nThe phone number plugin enables phone-based OTP authentication.\n",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "getNeonAuthPhoneNumberPlugin",
+                "responses": {
+                    "200": {
+                        "description": "Returns the phone number plugin configuration",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update phone number plugin configuration",
+                "description": "Updates the phone number plugin configuration for Neon Auth.\nThe phone number plugin enables phone-based OTP authentication.\nOTP codes are delivered via the `send.otp` webhook event with `delivery_preference: \"sms\"`.\nA webhook must be configured with the `send.otp` event enabled for SMS delivery to work.\n",
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "updateNeonAuthPhoneNumberPlugin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "The phone number plugin configuration has been updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            }
+        },
         "/projects/{project_id}/branches/{branch_id}/auth/webhooks": {
             "parameters": [
                 {
@@ -7453,6 +7533,8 @@
         },
         "/users/me/projects/transfer": {
             "post": {
+                "deprecated": true,
+                "x-sunset": "2026-07-01",
                 "summary": "Transfer projects from personal account to organization",
                 "description": "Transfers selected projects, identified by their IDs, from your personal account to a specified organization.\n",
                 "requestBody": {
@@ -8836,6 +8918,7 @@
                     "sync_dbs_and_roles_from_compute",
                     "apply_schema_from_branch",
                     "timeline_mark_invisible",
+                    "timeline_update_protected_config",
                     "prewarm_replica",
                     "promote_replica",
                     "set_storage_non_dirty",
@@ -13556,6 +13639,33 @@
                     }
                 }
             },
+            "NeonAuthPhoneNumberConfig": {
+                "type": "object",
+                "required": [
+                    "enabled"
+                ],
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the phone number plugin is enabled",
+                        "default": false
+                    },
+                    "otp_expires_in": {
+                        "type": "integer",
+                        "description": "Time in seconds before the OTP expires",
+                        "default": 300,
+                        "minimum": 60,
+                        "maximum": 600
+                    },
+                    "allowed_attempts": {
+                        "type": "integer",
+                        "description": "Maximum number of OTP verification attempts before lockout",
+                        "default": 3,
+                        "minimum": 1,
+                        "maximum": 10
+                    }
+                }
+            },
             "NeonAuthTransferAuthProviderProjectRequest": {
                 "type": "object",
                 "required": [
@@ -13622,6 +13732,9 @@
                     "magic_link": {
                         "$ref": "#/components/schemas/NeonAuthMagicLinkConfig"
                     },
+                    "phone_number": {
+                        "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
+                    },
                     "email_provider": {
                         "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
                     },
@@ -13661,7 +13774,8 @@
                                 "send.otp",
                                 "send.magic_link",
                                 "organization.invitation.created",
-                                "organization.invitation.accepted"
+                                "organization.invitation.accepted",
+                                "phone_number.verified"
                             ]
                         }
                     },

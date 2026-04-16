@@ -43,6 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse">When receiving a 406 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,6 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -89,6 +91,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer.TransferRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer.TransferRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer.TransferRequestBuilder(rawUrl, RequestAdapter);

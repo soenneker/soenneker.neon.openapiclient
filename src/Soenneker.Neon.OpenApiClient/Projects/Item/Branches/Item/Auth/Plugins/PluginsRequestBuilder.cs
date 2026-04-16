@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.MagicLink;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Organization;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -28,6 +29,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Organization.OrganizationRequestBuilder Organization
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Organization.OrganizationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The phone_number property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder Phone_number
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PluginsRequestBuilder"/> and sets the default values.

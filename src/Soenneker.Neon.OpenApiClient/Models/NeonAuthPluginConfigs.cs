@@ -57,6 +57,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig Organization { get; set; }
 #endif
+        /// <summary>The phone_number property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig? PhoneNumber { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig PhoneNumber { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPluginConfigs"/> and sets the default values.
         /// </summary>
@@ -88,6 +96,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "magic_link", n => { MagicLink = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig.CreateFromDiscriminatorValue); } },
                 { "oauth_providers", n => { OauthProviders = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig.CreateFromDiscriminatorValue); } },
+                { "phone_number", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -103,6 +112,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>("magic_link", MagicLink);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider>("oauth_providers", OauthProviders);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>("organization", Organization);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

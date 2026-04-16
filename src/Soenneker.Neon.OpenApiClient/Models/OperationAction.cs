@@ -107,6 +107,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Timeline_mark_invisible,
         #pragma warning restore CS1591
+        [EnumMember(Value = "timeline_update_protected_config")]
+        #pragma warning disable CS1591
+        Timeline_update_protected_config,
+        #pragma warning restore CS1591
         [EnumMember(Value = "prewarm_replica")]
         #pragma warning disable CS1591
         Prewarm_replica,
