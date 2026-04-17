@@ -47,5 +47,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Sponsorship,
         #pragma warning restore CS1591
+        [EnumMember(Value = "shared_payment_token")]
+        #pragma warning disable CS1591
+        Shared_payment_token,
+        #pragma warning restore CS1591
     }
 }

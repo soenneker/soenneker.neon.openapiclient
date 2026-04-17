@@ -11886,7 +11886,8 @@
                     "vercel_mp",
                     "staff",
                     "trial",
-                    "sponsorship"
+                    "sponsorship",
+                    "shared_payment_token"
                 ]
             },
             "Database": {
