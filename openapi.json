@@ -11841,6 +11841,12 @@
                     },
                     "plan_details": {
                         "$ref": "#/components/schemas/PlanDetails"
+                    },
+                    "spending_limit_cents": {
+                        "description": "Monthly spending cap in cents for V3 paid plans. When set,\nnotifications are sent at 80% and 100% of this limit. `null`\nmeans no limit is configured.\n",
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
                     }
                 }
             },

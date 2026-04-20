@@ -114,6 +114,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The last time the quota was reset. Defaults to the date-time the account is created.</summary>
         public DateTimeOffset? QuotaResetAtLast { get; set; }
+        /// <summary>Monthly spending cap in cents for V3 paid plans. When set,notifications are sent at 80% and 100% of this limit. `null`means no limit is configured.</summary>
+        public long? SpendingLimitCents { get; set; }
         /// <summary>State of the billing account.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BillingAccountState? State { get; set; }
         /// <summary>Type of subscription to Neon Cloud.Notice that for users without billing account this will be &quot;UNKNOWN&quot;</summary>
@@ -173,6 +175,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "payment_source", n => { PaymentSource = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSource>(global::Soenneker.Neon.OpenApiClient.Models.PaymentSource.CreateFromDiscriminatorValue); } },
                 { "plan_details", n => { PlanDetails = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PlanDetails>(global::Soenneker.Neon.OpenApiClient.Models.PlanDetails.CreateFromDiscriminatorValue); } },
                 { "quota_reset_at_last", n => { QuotaResetAtLast = n.GetDateTimeOffsetValue(); } },
+                { "spending_limit_cents", n => { SpendingLimitCents = n.GetLongValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BillingAccountState>(); } },
                 { "subscription_type", n => { SubscriptionType = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BillingSubscriptionType>(); } },
                 { "tax_id", n => { TaxId = n.GetStringValue(); } },
@@ -200,6 +203,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSource>("payment_source", PaymentSource);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PlanDetails>("plan_details", PlanDetails);
             writer.WriteDateTimeOffsetValue("quota_reset_at_last", QuotaResetAtLast);
+            writer.WriteLongValue("spending_limit_cents", SpendingLimitCents);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BillingAccountState>("state", State);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BillingSubscriptionType>("subscription_type", SubscriptionType);
             writer.WriteStringValue("tax_id", TaxId);
