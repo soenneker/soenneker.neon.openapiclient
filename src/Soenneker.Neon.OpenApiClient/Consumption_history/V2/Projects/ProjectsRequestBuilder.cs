@@ -117,7 +117,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             /// <summary>Specify a value from 1 to 100 to limit number of projects in the response.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Specify a list of metrics to include in the response.Possible values:- `compute_unit_seconds`- `root_branch_bytes_month`- `child_branch_bytes_month`- `instant_restore_bytes_month`- `public_network_transfer_bytes`- `private_network_transfer_bytes`- `extra_branches_month`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=compute_unit_seconds&amp;metrics=extra_branches_month`- As a comma-separated list in a single parameter value: `metrics=compute_unit_seconds,extra_branches_month`</summary>
+            /// <summary>Specify a list of metrics to include in the response.Possible values:- `compute_unit_seconds`- `root_branch_bytes_month`- `child_branch_bytes_month`- `instant_restore_bytes_month`- `public_network_transfer_bytes`- `private_network_transfer_bytes`- `extra_branches_month`- `snapshot_storage_bytes_month`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=compute_unit_seconds&amp;metrics=extra_branches_month`- As a comma-separated list in a single parameter value: `metrics=compute_unit_seconds,extra_branches_month`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metrics")]

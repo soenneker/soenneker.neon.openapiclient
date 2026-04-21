@@ -897,46 +897,6 @@
                 }
             }
         },
-        "/projects/{project_id}/restore": {
-            "parameters": [
-                {
-                    "name": "project_id",
-                    "in": "path",
-                    "description": "The Neon project ID",
-                    "required": true,
-                    "schema": {
-                        "type": "string",
-                        "pattern": "^[a-z0-9-]{1,60}$"
-                    }
-                }
-            ],
-            "post": {
-                "summary": "Restore a deleted project",
-                "description": "DEPRECATED, use `/projects/{project_id}/recover` instead. Restores a deleted project during the deletion grace period.\nYou can obtain a `project_id` by listing the projects for your Neon account.\n",
-                "tags": [
-                    "Project"
-                ],
-                "operationId": "restoreProject",
-                "deprecated": true,
-                "x-stability-level": "beta",
-                "x-sunset": "2026-02-06",
-                "responses": {
-                    "200": {
-                        "description": "Returned the restored project",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ProjectRecoverResponse"
-                                }
-                            }
-                        }
-                    },
-                    "default": {
-                        "$ref": "#/components/responses/GeneralError"
-                    }
-                }
-            }
-        },
         "/projects/{project_id}/recover": {
             "parameters": [
                 {
@@ -6592,7 +6552,7 @@
                     {
                         "name": "metrics",
                         "required": true,
-                        "description": "Specify a list of metrics to include in the response.\nPossible values:\n- `compute_unit_seconds`\n- `root_branch_bytes_month`\n- `child_branch_bytes_month`\n- `instant_restore_bytes_month`\n- `public_network_transfer_bytes`\n- `private_network_transfer_bytes`\n- `extra_branches_month`\n\nA list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: `metrics=compute_unit_seconds&metrics=extra_branches_month`\n- As a comma-separated list in a single parameter value: `metrics=compute_unit_seconds,extra_branches_month`\n",
+                        "description": "Specify a list of metrics to include in the response.\nPossible values:\n- `compute_unit_seconds`\n- `root_branch_bytes_month`\n- `child_branch_bytes_month`\n- `instant_restore_bytes_month`\n- `public_network_transfer_bytes`\n- `private_network_transfer_bytes`\n- `extra_branches_month`\n- `snapshot_storage_bytes_month`\n\nA list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: `metrics=compute_unit_seconds&metrics=extra_branches_month`\n- As a comma-separated list in a single parameter value: `metrics=compute_unit_seconds,extra_branches_month`\n",
                         "in": "query",
                         "schema": {
                             "$ref": "#/components/schemas/ConsumptionHistoryQueryMetrics"

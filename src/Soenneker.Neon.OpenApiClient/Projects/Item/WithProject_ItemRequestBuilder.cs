@@ -15,7 +15,6 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Jwks;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Operations;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Permissions;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Recover;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Transfer_requests;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Vpc_endpoints;
@@ -86,11 +85,6 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Recover.RecoverRequestBuilder Recover
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Recover.RecoverRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The restore property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Restore.RestoreRequestBuilder Restore
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Restore.RestoreRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The snapshots property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.SnapshotsRequestBuilder Snapshots
