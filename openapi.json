@@ -3536,6 +3536,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/LimitParam"
+                    },
+                    {
+                        "name": "include_deleted",
+                        "description": "If true, return recoverable deleted branches too (soft-deleted within the recovery window).\nIf false or not provided, return only active (non-deleted) branches.\n\nThis parameter is part of the Branch Recovery feature, which is in preview and not available to all users.\n",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
                     }
                 ],
                 "responses": {
@@ -3826,11 +3835,23 @@
             },
             "delete": {
                 "summary": "Delete branch",
-                "description": "Deletes the specified branch from a project, and places\nall compute endpoints into an idle state, breaking existing client connections.\nYou can obtain a `project_id` by listing the projects for your Neon account.\nYou can obtain a `branch_id` by listing the project's branches.\nFor related information, see [Manage branches](https://neon.tech/docs/manage/branches/).\n\nWhen a successful response status is received, the compute endpoints are still active,\nand the branch is not yet deleted from storage.\nThe deletion occurs after all operations finish.\nYou cannot delete a project's root or default branch, and you cannot delete a branch that has a child branch.\nA project must have at least one branch.\n",
+                "description": "Deletes the specified branch from a project, and places\nall compute endpoints into an idle state, breaking existing client connections.\nYou can obtain a `project_id` by listing the projects for your Neon account.\nYou can obtain a `branch_id` by listing the project's branches.\nFor related information, see [Manage branches](https://neon.tech/docs/manage/branches/).\n\nWhen a successful response status is received, the compute endpoints are still active,\nand the branch is not yet deleted from storage.\nThe deletion occurs after all operations finish.\nYou cannot delete a project's root or default branch, and you cannot delete a branch that has a child branch.\nA project must have at least one branch.\n\nBy default, deleted branches can be recovered within a 7-day grace period.\nUse the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.\n\nSoft delete and branch recovery are in preview and not available to all users.\n",
                 "tags": [
                     "Branch"
                 ],
                 "operationId": "deleteProjectBranch",
+                "parameters": [
+                    {
+                        "name": "hard_delete",
+                        "in": "query",
+                        "description": "If true, the branch is permanently deleted immediately without a recovery window.\nIf false (default), the branch can be recovered within 7 days via the recover endpoint.\n\nThis parameter is part of the Branch Recovery feature, which is in preview and not available to all users.\n",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Deleted the specified branch",
@@ -4433,6 +4454,54 @@
                                         "init_source": "parent-data"
                                     },
                                     "operations": []
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            }
+        },
+        "/projects/{project_id}/branches/{branch_id}/recover": {
+            "parameters": [
+                {
+                    "name": "project_id",
+                    "in": "path",
+                    "description": "The Neon project ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    }
+                },
+                {
+                    "name": "branch_id",
+                    "in": "path",
+                    "description": "The branch ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    }
+                }
+            ],
+            "post": {
+                "summary": "Recover a deleted branch",
+                "description": "Recovers a deleted branch during the deletion grace period (7 days).\nThe branch must have been soft deleted and not yet permanently deleted.\nRecovery restores the branch and its endpoints to an idle state.\nConnection strings remain valid after recovery.\nTTL branches become non-TTL branches after recovery.\n\nThis endpoint is in preview and not available to all users.\n",
+                "tags": [
+                    "Branch"
+                ],
+                "operationId": "recoverProjectBranch",
+                "x-stability-level": "beta",
+                "responses": {
+                    "200": {
+                        "description": "Recovered the specified branch",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BranchRecoverResponse"
                                 }
                             }
                         }
@@ -14121,6 +14190,16 @@
                     },
                     {
                         "$ref": "#/components/schemas/OperationsResponse"
+                    }
+                ]
+            },
+            "BranchRecoverResponse": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/BranchResponse"
+                    },
+                    {
+                        "$ref": "#/components/schemas/EndpointsOptionalResponse"
                     }
                 ]
             },

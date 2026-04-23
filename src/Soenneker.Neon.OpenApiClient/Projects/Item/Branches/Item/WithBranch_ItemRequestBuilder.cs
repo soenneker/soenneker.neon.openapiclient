@@ -14,6 +14,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema;
@@ -82,6 +83,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The recover property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder Recover
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The restore property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore.RestoreRequestBuilder Restore
         {
@@ -112,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBranch_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}", pathParameters)
+        public WithBranch_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}{?hard_delete*}", pathParameters)
         {
         }
         /// <summary>
@@ -120,11 +126,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBranch_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}", rawUrl)
+        public WithBranch_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}{?hard_delete*}", rawUrl)
         {
         }
         /// <summary>
-        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.
+        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -132,11 +138,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder.WithBranch_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder.WithBranch_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -195,17 +201,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.
+        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder.WithBranch_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder.WithBranch_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -262,6 +268,16 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithBranch_ItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>If true, the branch is permanently deleted immediately without a recovery window.If false (default), the branch can be recovered within 7 days via the recover endpoint.This parameter is part of the Branch Recovery feature, which is in preview and not available to all users.</summary>
+            [QueryParameter("hard_delete")]
+            public bool? HardDelete { get; set; }
         }
     }
 }

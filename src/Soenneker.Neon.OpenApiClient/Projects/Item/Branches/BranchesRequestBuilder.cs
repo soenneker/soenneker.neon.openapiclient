@@ -41,7 +41,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BranchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches{?cursor*,limit*,search*,sort_by*,sort_order*}", pathParameters)
+        public BranchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches{?cursor*,include_deleted*,limit*,search*,sort_by*,sort_order*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BranchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches{?cursor*,limit*,search*,sort_by*,sort_order*}", rawUrl)
+        public BranchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches{?cursor*,include_deleted*,limit*,search*,sort_by*,sort_order*}", rawUrl)
         {
         }
         /// <summary>
@@ -166,6 +166,9 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
+            /// <summary>If true, return recoverable deleted branches too (soft-deleted within the recovery window).If false or not provided, return only active (non-deleted) branches.This parameter is part of the Branch Recovery feature, which is in preview and not available to all users.</summary>
+            [QueryParameter("include_deleted")]
+            public bool? IncludeDeleted { get; set; }
             /// <summary>The maximum number of records to be returned in the response</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
