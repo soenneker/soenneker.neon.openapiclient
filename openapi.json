@@ -6905,6 +6905,102 @@
                 }
             }
         },
+        "/organizations/{org_id}/billing/spending_limit": {
+            "parameters": [
+                {
+                    "name": "org_id",
+                    "in": "path",
+                    "description": "The Neon organization ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    }
+                }
+            ],
+            "get": {
+                "summary": "Retrieve the organization's monthly spending limit",
+                "description": "Returns the configured spending limit for a V3 paid organization.\n`spending_limit_cents: null` indicates that no limit is currently\nset. Available to organization members with read access on Launch\nand Scale plans only.\n",
+                "tags": [
+                    "Organizations"
+                ],
+                "x-stability-level": "beta",
+                "operationId": "getOrganizationSpendingLimit",
+                "responses": {
+                    "200": {
+                        "description": "The organization's current spending limit.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpendingLimitResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Set the organization's monthly spending limit",
+                "description": "Sets the spending limit for a V3 paid organization. To remove a\npreviously configured limit, send a DELETE request to this endpoint.\nWhen a limit is configured, email notifications are sent at 80% and\n100% of the limit. Computes are not suspended by this feature.\nAvailable to organization admins on Launch and Scale plans only.\n",
+                "tags": [
+                    "Organizations"
+                ],
+                "x-stability-level": "beta",
+                "operationId": "setOrganizationSpendingLimit",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SpendingLimitUpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The updated spending limit value.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SpendingLimitResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Clear the organization's monthly spending limit",
+                "description": "Removes a previously configured spending limit for a V3 paid\norganization. Idempotent \u2014 deleting an already-unset limit still\nsucceeds. Available to organization admins on Launch and Scale plans\nonly.\n",
+                "tags": [
+                    "Organizations"
+                ],
+                "x-stability-level": "beta",
+                "operationId": "deleteOrganizationSpendingLimit",
+                "responses": {
+                    "200": {
+                        "description": "The spending limit has been cleared.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmptyResponse"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "$ref": "#/components/responses/GeneralError"
+                    }
+                }
+            }
+        },
         "/organizations/{org_id}/members": {
             "parameters": [
                 {
@@ -11873,6 +11969,34 @@
                     },
                     "spending_limit_cents": {
                         "description": "Monthly spending cap in cents for V3 paid plans. When set,\nnotifications are sent at 80% and 100% of this limit. `null`\nmeans no limit is configured.\n",
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    }
+                }
+            },
+            "SpendingLimitUpdateRequest": {
+                "type": "object",
+                "required": [
+                    "spending_limit_cents"
+                ],
+                "properties": {
+                    "spending_limit_cents": {
+                        "description": "Monthly spending cap in cents. Must be positive. To remove a\npreviously configured limit, send a DELETE request to the\nspending_limit endpoint \u2014 `0` and `null` are rejected here.\nThe cap is alert-only: notifications fire at 80% and 100%, but\ncomputes are not suspended. Setting a cap below the period's\nalready-accrued spend is permitted and will trigger the\nover-limit notification on the next worker run.\n",
+                        "type": "integer",
+                        "format": "int64",
+                        "minimum": 1
+                    }
+                }
+            },
+            "SpendingLimitResponse": {
+                "type": "object",
+                "required": [
+                    "spending_limit_cents"
+                ],
+                "properties": {
+                    "spending_limit_cents": {
+                        "description": "Monthly spending cap in cents. `null` indicates that no limit\nis currently configured.\n",
                         "type": "integer",
                         "format": "int64",
                         "nullable": true

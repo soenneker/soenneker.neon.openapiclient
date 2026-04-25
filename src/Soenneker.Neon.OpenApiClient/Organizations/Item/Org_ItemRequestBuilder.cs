@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys;
+using Soenneker.Neon.OpenApiClient.Organizations.Item.Billing;
 using Soenneker.Neon.OpenApiClient.Organizations.Item.Invitations;
 using Soenneker.Neon.OpenApiClient.Organizations.Item.Members;
 using Soenneker.Neon.OpenApiClient.Organizations.Item.Projects;
@@ -26,6 +27,11 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item
         public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Api_keysRequestBuilder Api_keys
         {
             get => new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Api_keysRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The billing property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.BillingRequestBuilder Billing
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The invitations property</summary>
         public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder Invitations
