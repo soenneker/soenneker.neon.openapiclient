@@ -41,7 +41,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Whether to enable connection pooling for the compute endpoint</summary>
         [Obsolete("")]
         public bool? PoolerEnabled { get; set; }
-        /// <summary>The connection pooler mode. Neon supports PgBouncer in `transaction` mode only.</summary>
+        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
         /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>The connection pooler mode. Neon supports PgBouncer in `transaction` mode only.</summary>
+    /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    [Obsolete("")]
     public enum EndpointPoolerMode
     {
         [EnumMember(Value = "transaction")]

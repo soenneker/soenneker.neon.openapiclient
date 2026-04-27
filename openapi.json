@@ -9047,7 +9047,8 @@
                     "prewarm_replica",
                     "promote_replica",
                     "set_storage_non_dirty",
-                    "swap_binding_id"
+                    "swap_binding_id",
+                    "finalize_migration"
                 ]
             },
             "OperationStatus": {
@@ -11133,6 +11134,9 @@
                         "type": "boolean"
                     },
                     "pooler_mode": {
+                        "deprecated": true,
+                        "x-sunset": "2026-06-20",
+                        "description": "DEPRECATED. The connection pooler mode. This field is deprecated and will be removed after 2026-06-20.\n",
                         "$ref": "#/components/schemas/EndpointPoolerMode"
                     },
                     "disabled": {
@@ -11232,7 +11236,9 @@
                 ]
             },
             "EndpointPoolerMode": {
-                "description": "The connection pooler mode. Neon supports PgBouncer in `transaction` mode only.\n",
+                "deprecated": true,
+                "x-sunset": "2026-06-20",
+                "description": "DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.\n",
                 "type": "string",
                 "enum": [
                     "transaction"
@@ -11348,6 +11354,9 @@
                                 "type": "boolean"
                             },
                             "pooler_mode": {
+                                "deprecated": true,
+                                "x-sunset": "2026-06-20",
+                                "description": "DEPRECATED. The connection pooler mode. This field is deprecated and will be removed after 2026-06-20.\n",
                                 "$ref": "#/components/schemas/EndpointPoolerMode"
                             },
                             "disabled": {
@@ -11406,6 +11415,9 @@
                                 "type": "boolean"
                             },
                             "pooler_mode": {
+                                "deprecated": true,
+                                "x-sunset": "2026-06-20",
+                                "description": "DEPRECATED. The connection pooler mode. This field is deprecated and will be removed after 2026-06-20.\n",
                                 "$ref": "#/components/schemas/EndpointPoolerMode"
                             },
                             "disabled": {
@@ -12948,6 +12960,9 @@
                         "$ref": "#/components/schemas/PgSettingsData"
                     },
                     "pgbouncer_settings": {
+                        "deprecated": true,
+                        "x-sunset": "2026-06-20",
+                        "description": "DEPRECATED. PgBouncer settings for the compute endpoint. This field is deprecated and will be removed after 2026-06-20.\n",
                         "$ref": "#/components/schemas/PgbouncerSettingsData"
                     },
                     "preload_libraries": {
@@ -12999,6 +13014,9 @@
                         "$ref": "#/components/schemas/PgSettingsData"
                     },
                     "pgbouncer_settings": {
+                        "deprecated": true,
+                        "x-sunset": "2026-06-20",
+                        "description": "DEPRECATED. PgBouncer settings for the compute endpoint. This field is deprecated and will be removed after 2026-06-20.\n",
                         "$ref": "#/components/schemas/PgbouncerSettingsData"
                     },
                     "autoscaling_limit_min_cu": {
@@ -13022,7 +13040,9 @@
                 }
             },
             "PgbouncerSettingsData": {
-                "description": "A raw representation of PgBouncer settings",
+                "deprecated": true,
+                "x-sunset": "2026-06-20",
+                "description": "DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.\n",
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"

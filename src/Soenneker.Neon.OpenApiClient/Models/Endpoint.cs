@@ -80,7 +80,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? PendingState { get; set; }
         /// <summary>Whether connection pooling is enabled for the compute endpoint</summary>
         public bool? PoolerEnabled { get; set; }
-        /// <summary>The connection pooler mode. Neon supports PgBouncer in `transaction` mode only.</summary>
+        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
         /// <summary>The ID of the project to which the compute endpoint belongs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

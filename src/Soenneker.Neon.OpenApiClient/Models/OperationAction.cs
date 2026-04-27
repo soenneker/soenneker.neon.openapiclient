@@ -127,5 +127,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Swap_binding_id,
         #pragma warning restore CS1591
+        [EnumMember(Value = "finalize_migration")]
+        #pragma warning disable CS1591
+        Finalize_migration,
+        #pragma warning restore CS1591
     }
 }
