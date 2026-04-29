@@ -120,6 +120,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether the branch is protected</summary>
         public bool? Protected { get; set; }
+        /// <summary>Recovery information for a deleted branch. Only present when listing deleted brancheswith `include_deleted=true`.This is part of the Branch Recovery feature, which is in preview and not available to all users.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo? Recovery { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo Recovery { get; set; }
+#endif
         /// <summary>ID of the target branch which was replaced when this branch was restored</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,6 +215,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "primary", n => { Primary = n.GetBoolValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "protected", n => { Protected = n.GetBoolValue(); } },
+                { "recovery", n => { Recovery = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo>(global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo.CreateFromDiscriminatorValue); } },
                 { "restore_status", n => { RestoreStatus = n.GetStringValue(); } },
                 { "restored_as", n => { RestoredAs = n.GetStringValue(); } },
                 { "restored_from", n => { RestoredFrom = n.GetStringValue(); } },
@@ -246,6 +255,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteBoolValue("primary", Primary);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteBoolValue("protected", Protected);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo>("recovery", Recovery);
             writer.WriteStringValue("restored_as", RestoredAs);
             writer.WriteStringValue("restored_from", RestoredFrom);
             writer.WriteStringValue("restore_status", RestoreStatus);
