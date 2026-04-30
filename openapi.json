@@ -9048,7 +9048,8 @@
                     "promote_replica",
                     "set_storage_non_dirty",
                     "swap_binding_id",
-                    "finalize_migration"
+                    "finalize_migration",
+                    "mark_migration_prepared"
                 ]
             },
             "OperationStatus": {
