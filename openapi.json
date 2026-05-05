@@ -12324,6 +12324,11 @@
                     "has_mfa": {
                         "type": "boolean",
                         "description": "Whether the member has MFA (TOTP) enabled"
+                    },
+                    "deactivated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp of when the user account was deactivated.\nAbsent for active users. When present, the UI should render a\n\"Deactivated\" badge inline next to the member.\n"
                     }
                 }
             },

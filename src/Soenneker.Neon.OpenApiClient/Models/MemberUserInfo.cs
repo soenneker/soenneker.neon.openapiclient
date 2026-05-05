@@ -14,6 +14,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Timestamp of when the user account was deactivated.Absent for active users. When present, the UI should render a&quot;Deactivated&quot; badge inline next to the member.</summary>
+        public DateTimeOffset? DeactivatedAt { get; set; }
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "deactivated_at", n => { DeactivatedAt = n.GetDateTimeOffsetValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "has_mfa", n => { HasMfa = n.GetBoolValue(); } },
             };
@@ -60,6 +63,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("deactivated_at", DeactivatedAt);
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("has_mfa", HasMfa);
             writer.WriteAdditionalData(AdditionalData);
