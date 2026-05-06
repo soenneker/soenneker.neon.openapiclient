@@ -58,6 +58,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Plan { get; set; }
 #endif
+        /// <summary>If true, all members must have MFA enabled to access this organization</summary>
+        public bool? RequireMfa { get; set; }
         /// <summary>A timestamp indicating when the organization was updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -92,6 +94,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "managed_by", n => { ManagedBy = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "plan", n => { Plan = n.GetStringValue(); } },
+                { "require_mfa", n => { RequireMfa = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -109,6 +112,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("managed_by", ManagedBy);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("plan", Plan);
+            writer.WriteBoolValue("require_mfa", RequireMfa);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
