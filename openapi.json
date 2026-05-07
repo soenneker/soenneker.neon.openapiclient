@@ -3267,7 +3267,7 @@
                 }
             }
         },
-        "/projects/{project_id}/branches/{branch_id}/auth/plugins/phone_number": {
+        "/projects/{project_id}/branches/{branch_id}/auth/plugins/phone-number": {
             "parameters": [
                 {
                     "name": "project_id",
@@ -3313,9 +3313,9 @@
                     }
                 }
             },
-            "put": {
+            "patch": {
                 "summary": "Update phone number plugin configuration",
-                "description": "Updates the phone number plugin configuration for Neon Auth.\nThe phone number plugin enables phone-based OTP authentication.\nOTP codes are delivered via the `send.otp` webhook event with `delivery_preference: \"sms\"`.\nA webhook must be configured with the `send.otp` event enabled for SMS delivery to work.\n",
+                "description": "Updates the phone number plugin configuration for Neon Auth.\nOnly the fields provided in the request body are updated; omitted fields retain their current values.\nThe phone number plugin enables phone-based OTP authentication.\nOTP codes are delivered via the `send.otp` webhook event with `delivery_preference: \"sms\"`.\nA webhook must be configured with the `send.otp` event enabled for SMS delivery to work.\n",
                 "tags": [
                     "Auth"
                 ],
@@ -3324,7 +3324,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
+                                "$ref": "#/components/schemas/NeonAuthPhoneNumberConfigUpdate"
                             }
                         }
                     },
@@ -13880,13 +13880,21 @@
                         "default": 300,
                         "minimum": 60,
                         "maximum": 600
+                    }
+                }
+            },
+            "NeonAuthPhoneNumberConfigUpdate": {
+                "type": "object",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the phone number plugin is enabled"
                     },
-                    "allowed_attempts": {
+                    "otp_expires_in": {
                         "type": "integer",
-                        "description": "Maximum number of OTP verification attempts before lockout",
-                        "default": 3,
-                        "minimum": 1,
-                        "maximum": 10
+                        "description": "Time in seconds before the OTP expires",
+                        "minimum": 60,
+                        "maximum": 600
                     }
                 }
             },

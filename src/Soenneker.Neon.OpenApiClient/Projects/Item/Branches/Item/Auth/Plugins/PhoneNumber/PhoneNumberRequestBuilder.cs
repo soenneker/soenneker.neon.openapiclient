@@ -9,28 +9,28 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number
+namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\auth\plugins\phone_number
+    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\auth\plugins\phone-number
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Phone_numberRequestBuilder : BaseRequestBuilder
+    public partial class PhoneNumberRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber.PhoneNumberRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numberRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/plugins/phone_number", pathParameters)
+        public PhoneNumberRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/plugins/phone-number", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber.PhoneNumberRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numberRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/plugins/phone_number", rawUrl)
+        public PhoneNumberRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/plugins/phone-number", rawUrl)
         {
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the phone number plugin configuration for Neon Auth.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
+        /// Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig"/></returns>
         /// <param name="body">The request body</param>
@@ -66,15 +66,15 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig?> PutAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfigUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig> PutAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfigUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
@@ -101,22 +101,22 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
             return requestInfo;
         }
         /// <summary>
-        /// Updates the phone number plugin configuration for Neon Auth.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
+        /// Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfigUpdate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfigUpdate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -125,11 +125,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber.PhoneNumberRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber.PhoneNumberRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Phone_number.Phone_numberRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber.PhoneNumberRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }
