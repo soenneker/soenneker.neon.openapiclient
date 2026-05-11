@@ -13277,7 +13277,7 @@
                     "jwt_role_claim_key": {
                         "type": "string",
                         "description": "JWT claim key to use for role extraction",
-                        "default": ".\"role\""
+                        "default": ".role"
                     },
                     "jwt_cache_max_lifetime": {
                         "type": "integer",

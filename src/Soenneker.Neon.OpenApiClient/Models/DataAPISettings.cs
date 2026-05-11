@@ -78,7 +78,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             DbAnonRole = "anonymous";
-            JwtRoleClaimKey = ".\"role\"";
+            JwtRoleClaimKey = ".role";
             OpenapiMode = "disabled";
         }
         /// <summary>
