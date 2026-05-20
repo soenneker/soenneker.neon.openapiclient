@@ -9860,6 +9860,46 @@
                     "periods"
                 ]
             },
+            "ConsumptionHistoryPerBranchV2Response": {
+                "type": "object",
+                "properties": {
+                    "branches": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConsumptionHistoryPerBranchV2"
+                        }
+                    }
+                },
+                "required": [
+                    "branches"
+                ]
+            },
+            "ConsumptionHistoryPerBranchV2": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "description": "The project that owns the branch",
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    },
+                    "branch_id": {
+                        "description": "The branch ID",
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]{1,60}$"
+                    },
+                    "periods": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ConsumptionHistoryPerPeriodV2"
+                        }
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "branch_id",
+                    "periods"
+                ]
+            },
             "ConsumptionHistoryPerPeriod": {
                 "type": "object",
                 "properties": {
