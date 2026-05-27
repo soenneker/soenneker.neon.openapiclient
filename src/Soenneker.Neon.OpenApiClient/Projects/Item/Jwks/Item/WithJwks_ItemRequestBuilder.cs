@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item
         {
         }
         /// <summary>
-        /// Deletes a JWKS URL from the specified project
+        /// Removes the specified JWKS URL from the project.JWTs signed by keys from the removed URL can no longer authenticate to the project&apos;s endpoints.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.JWKS"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.JWKS>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.JWKS.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a JWKS URL from the specified project
+        /// Removes the specified JWKS URL from the project.JWTs signed by keys from the removed URL can no longer authenticate to the project&apos;s endpoints.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

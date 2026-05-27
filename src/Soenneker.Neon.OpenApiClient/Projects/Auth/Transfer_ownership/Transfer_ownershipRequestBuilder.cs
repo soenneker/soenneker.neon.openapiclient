@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Auth.Transfer_ownership
         {
         }
         /// <summary>
-        /// Transfer ownership of your Neon-managed auth project to your own auth provider account.
+        /// Transfers ownership of your Neon-managed auth project to your own auth provider account.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthTransferAuthProviderProjectResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Auth.Transfer_ownership
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthTransferAuthProviderProjectResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthTransferAuthProviderProjectResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Transfer ownership of your Neon-managed auth project to your own auth provider account.
+        /// Transfers ownership of your Neon-managed auth project to your own auth provider account.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         {
         }
         /// <summary>
-        /// Retrieves a list of branches for the specified project.You can obtain a `project_id` by listing the projects for your Neon account.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Retrieves a list of branches for the specified project.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a branch in the specified project.You can obtain a `project_id` by listing the projects for your Neon account.This method does not require a request body, but you can specify one to create a compute endpoint for the branch or to select a non-default parent branch.By default, the branch is created from the project&apos;s default branch with no compute endpoint, and the branch name is auto-generated.To access the branch, you must add an endpoint object. A `read_write` endpoint allows you to perform read and write operations on the branch.Each branch supports one read-write endpoint and multiple read-only endpoints.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Creates a branch in the specified project.No request body is required, but you can specify one to create a compute endpoint or select a non-default parent branch.By default, the branch is created from the project&apos;s default branch with no compute endpoint, and the branch name is auto-generated.To access the branch, add a `read_write` endpoint.Each branch supports one read-write endpoint and multiple read-only endpoints.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of branches for the specified project.You can obtain a `project_id` by listing the projects for your Neon account.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Retrieves a list of branches for the specified project.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -120,7 +120,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             return requestInfo;
         }
         /// <summary>
-        /// Creates a branch in the specified project.You can obtain a `project_id` by listing the projects for your Neon account.This method does not require a request body, but you can specify one to create a compute endpoint for the branch or to select a non-default parent branch.By default, the branch is created from the project&apos;s default branch with no compute endpoint, and the branch name is auto-generated.To access the branch, you must add an endpoint object. A `read_write` endpoint allows you to perform read and write operations on the branch.Each branch supports one read-write endpoint and multiple read-only endpoints.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Creates a branch in the specified project.No request body is required, but you can specify one to create a compute endpoint or select a non-default parent branch.By default, the branch is created from the project&apos;s default branch with no compute endpoint, and the branch name is auto-generated.To access the branch, add a `read_write` endpoint.Each branch supports one read-write endpoint and multiple read-only endpoints.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -151,7 +151,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a list of branches for the specified project.You can obtain a `project_id` by listing the projects for your Neon account.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Retrieves a list of branches for the specified project.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class BranchesRequestBuilderGetQueryParameters 

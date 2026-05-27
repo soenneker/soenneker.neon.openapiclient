@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles.Item.Re
         {
         }
         /// <summary>
-        /// Resets the password for the specified Postgres role.Returns a new password and operations. The new password is ready to use when the last operation finishes.The old password remains valid until last operation finishes.Connections to the compute endpoint are dropped. If idle,the compute endpoint becomes active for a short period of time.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.You can obtain the `role_name` by listing the roles for a branch.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).
+        /// Resets the password for the specified Postgres role.Returns a new password and operations. The new password is ready to use when the last operation finishes.The old password remains valid until last operation finishes.Connections to the compute endpoint are dropped. If idle,the compute endpoint becomes active for a short period of time.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.RoleOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles.Item.Re
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.RoleOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.RoleOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Resets the password for the specified Postgres role.Returns a new password and operations. The new password is ready to use when the last operation finishes.The old password remains valid until last operation finishes.Connections to the compute endpoint are dropped. If idle,the compute endpoint becomes active for a short period of time.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.You can obtain the `role_name` by listing the roles for a branch.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).
+        /// Resets the password for the specified Postgres role.Returns a new password and operations. The new password is ready to use when the last operation finishes.The old password remains valid until last operation finishes.Connections to the compute endpoint are dropped. If idle,the compute endpoint becomes active for a short period of time.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count
         {
         }
         /// <summary>
-        /// Retrieves the total number of branches in the specified project.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Retrieves the total number of branches in the specified project.Supports an optional `search` parameter to count branches matching a name filter.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the total number of branches in the specified project.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Retrieves the total number of branches in the specified project.Supports an optional `search` parameter to count branches matching a name filter.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count.CountRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the total number of branches in the specified project.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Retrieves the total number of branches in the specified project.Supports an optional `search` parameter to count branches matching a name filter.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CountRequestBuilderGetQueryParameters 

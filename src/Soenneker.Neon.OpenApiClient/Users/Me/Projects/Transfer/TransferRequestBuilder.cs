@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer
         {
         }
         /// <summary>
-        /// Transfers selected projects, identified by their IDs, from your personal account to a specified organization.
+        /// DEPRECATED. Personal accounts have been migrated to organizations, making this operation no longer applicable.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Transfers selected projects, identified by their IDs, from your personal account to a specified organization.
+        /// DEPRECATED. Personal accounts have been migrated to organizations, making this operation no longer applicable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

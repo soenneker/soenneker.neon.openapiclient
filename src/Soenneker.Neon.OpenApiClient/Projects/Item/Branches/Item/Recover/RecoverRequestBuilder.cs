@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover
         {
         }
         /// <summary>
-        /// Recovers a deleted branch during the deletion grace period (7 days).The branch must have been soft deleted and not yet permanently deleted.Recovery restores the branch and its endpoints to an idle state.Connection strings remain valid after recovery.TTL branches become non-TTL branches after recovery.This endpoint is in preview and not available to all users.
+        /// Recovers a deleted branch within the 7-day deletion recovery period.The branch must have been soft deleted and not yet permanently deleted.Recovery restores the branch and its endpoints to an idle state.Connection strings remain valid after recovery.TTL branches become non-TTL branches after recovery.To list deleted branches available for recovery, use `GET /projects/{project_id}/branches?include_deleted=true`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchRecoverResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoverResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchRecoverResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Recovers a deleted branch during the deletion grace period (7 days).The branch must have been soft deleted and not yet permanently deleted.Recovery restores the branch and its endpoints to an idle state.Connection strings remain valid after recovery.TTL branches become non-TTL branches after recovery.This endpoint is in preview and not available to all users.
+        /// Recovers a deleted branch within the 7-day deletion recovery period.The branch must have been soft deleted and not yet permanently deleted.Recovery restores the branch and its endpoints to an idle state.Connection strings remain valid after recovery.TTL branches become non-TTL branches after recovery.To list deleted branches available for recovery, use `GET /projects/{project_id}/branches?include_deleted=true`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

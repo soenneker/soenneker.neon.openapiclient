@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_tes
         {
         }
         /// <summary>
-        /// Sends a test email to the specified email address.
+        /// Sends a test email using the configured email server settings to verify SMTP connectivity and credentials.The request body must include the SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_tes
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sends a test email to the specified email address.
+        /// Sends a test email using the configured email server settings to verify SMTP connectivity and credentials.The request body must include the SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

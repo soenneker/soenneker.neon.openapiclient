@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Recover
         {
         }
         /// <summary>
-        /// Recovers a deleted project during the deletion grace period.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Recovers a deleted project within the 7-day deletion recovery period.Restores branches, endpoints, settings, and connection strings.Some integrations require manual reconfiguration after recovery.To list recoverable projects, use `GET /projects?recoverable=true`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectRecoverResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Recover
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectRecoverResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectRecoverResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Recovers a deleted project during the deletion grace period.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Recovers a deleted project within the 7-day deletion recovery period.Restores branches, endpoints, settings, and connection strings.Some integrations require manual reconfiguration after recovery.To list recoverable projects, use `GET /projects?recoverable=true`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

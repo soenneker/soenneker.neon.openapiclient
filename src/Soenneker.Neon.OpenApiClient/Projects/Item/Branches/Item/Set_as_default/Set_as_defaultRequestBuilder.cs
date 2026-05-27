@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Set_as_defaul
         {
         }
         /// <summary>
-        /// Sets the specified branch as the project&apos;s default branch.The default designation is automatically removed from the previous default branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For more information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Sets the specified branch as the project&apos;s default branch.The default designation is automatically removed from the previous default branch.For more information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Set_as_defaul
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets the specified branch as the project&apos;s default branch.The default designation is automatically removed from the previous default branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For more information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Sets the specified branch as the project&apos;s default branch.The default designation is automatically removed from the previous default branch.For more information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

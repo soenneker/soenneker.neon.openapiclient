@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Operations.Item
         {
         }
         /// <summary>
-        /// Retrieves details for the specified operation.An operation is an action performed on a Neon project resource.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `operation_id` by listing operations for the project.
+        /// Retrieves details for the specified operation.An operation is an action performed on a Neon project resource.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OperationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Operations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OperationResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OperationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves details for the specified operation.An operation is an action performed on a Neon project resource.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `operation_id` by listing operations for the project.
+        /// Retrieves details for the specified operation.An operation is an action performed on a Neon project resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

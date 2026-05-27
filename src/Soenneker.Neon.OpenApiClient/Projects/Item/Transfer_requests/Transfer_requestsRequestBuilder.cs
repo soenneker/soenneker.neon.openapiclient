@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Transfer_requests
         {
         }
         /// <summary>
-        /// Creates a transfer request for the specified project. A transfer request allowsthe project to be transferred to another account or organization. The requesthas an expiration time after which it can no longer be used. To accept/claimthe transfer request, the recipient user/organization must call the`/projects/{project_id}/transfer_requests/{request_id}` API endpoint, or visit`https://console.neon.tech/app/claim?p={project_id}&amp;tr={request_id}&amp;ru={redirect_url}`in the Neon Console. The `ru` parameter is optional and can be used to redirectthe user after accepting the transfer request.
+        /// Creates a transfer request for the specified project. The request expires after a set period.To accept the request, the recipient calls `PUT /projects/{project_id}/transfer_requests/{request_id}`or uses the Neon Console claim link.The optional `ru` parameter redirects the recipient after acceptance.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectTransferRequestResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Transfer_requests
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectTransferRequestResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectTransferRequestResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a transfer request for the specified project. A transfer request allowsthe project to be transferred to another account or organization. The requesthas an expiration time after which it can no longer be used. To accept/claimthe transfer request, the recipient user/organization must call the`/projects/{project_id}/transfer_requests/{request_id}` API endpoint, or visit`https://console.neon.tech/app/claim?p={project_id}&amp;tr={request_id}&amp;ru={redirect_url}`in the Neon Console. The `ru` parameter is optional and can be used to redirectthe user after accepting the transfer request.
+        /// Creates a transfer request for the specified project. The request expires after a set period.To accept the request, the recipient calls `PUT /projects/{project_id}/transfer_requests/{request_id}`or uses the Neon Console claim link.The optional `ru` parameter redirects the recipient after acceptance.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

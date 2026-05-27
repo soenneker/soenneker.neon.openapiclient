@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Permissions
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissions>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissions.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Grants project access to the account associated with the specified email address
+        /// Grants project access to the account associated with the specified email address.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Permissions
             return requestInfo;
         }
         /// <summary>
-        /// Grants project access to the account associated with the specified email address
+        /// Grants project access to the account associated with the specified email address.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

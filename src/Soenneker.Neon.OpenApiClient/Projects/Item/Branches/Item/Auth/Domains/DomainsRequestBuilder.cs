@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
         {
         }
         /// <summary>
-        /// Deletes a domain from the redirect_uri whitelist for the specified project.
+        /// Removes a domain from the redirect URI whitelist for the specified branch.After removal, the domain can no longer be used as a redirect target after authentication.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the domains in the redirect_uri whitelist for the specified project.
+        /// Lists the trusted domains in the redirect URI whitelist for the specified branch.Only domains in this list are permitted as redirect targets after authentication.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthRedirectURIWhitelistResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthRedirectURIWhitelistResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthRedirectURIWhitelistResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds a domain to the redirect_uri whitelist for the specified project.
+        /// Adds a domain to the redirect URI whitelist for the specified branch.Only domains in this list are permitted as redirect targets after authentication.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a domain from the redirect_uri whitelist for the specified project.
+        /// Removes a domain from the redirect URI whitelist for the specified branch.After removal, the domain can no longer be used as a redirect target after authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
             return requestInfo;
         }
         /// <summary>
-        /// Lists the domains in the redirect_uri whitelist for the specified project.
+        /// Lists the trusted domains in the redirect URI whitelist for the specified branch.Only domains in this list are permitted as redirect targets after authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -147,7 +147,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains
             return requestInfo;
         }
         /// <summary>
-        /// Adds a domain to the redirect_uri whitelist for the specified project.
+        /// Adds a domain to the redirect URI whitelist for the specified branch.Only domains in this list are permitted as redirect targets after authentication.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

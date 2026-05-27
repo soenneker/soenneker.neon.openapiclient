@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Api_keys.Item
         {
         }
         /// <summary>
-        /// Revokes the specified API key.An API key that is no longer needed can be revoked.This action cannot be reversed.You can obtain `key_id` values by listing the API keys for your Neon account.API keys can also be managed in the Neon Console.See [Manage API keys](https://neon.tech/docs/manage/api-keys/).
+        /// Revokes the specified API key.An API key that is no longer needed can be revoked.This action cannot be reversed.API keys can also be managed in the Neon Console.See [Manage API keys](https://neon.com/docs/manage/api-keys/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ApiKeyRevokeResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Api_keys.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ApiKeyRevokeResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ApiKeyRevokeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Revokes the specified API key.An API key that is no longer needed can be revoked.This action cannot be reversed.You can obtain `key_id` values by listing the API keys for your Neon account.API keys can also be managed in the Neon Console.See [Manage API keys](https://neon.tech/docs/manage/api-keys/).
+        /// Revokes the specified API key.An API key that is no longer needed can be revoked.This action cannot be reversed.API keys can also be managed in the Neon Console.See [Manage API keys](https://neon.com/docs/manage/api-keys/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

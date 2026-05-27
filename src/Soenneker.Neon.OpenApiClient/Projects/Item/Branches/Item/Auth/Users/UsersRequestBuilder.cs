@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users
         {
         }
         /// <summary>
-        /// Creates a new user in Neon Auth.
+        /// Creates a new user in the Neon Auth user directory for the specified branch.The user is created in the `neon_auth.users_sync` table and can immediately authenticateusing the branch&apos;s configured auth providers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateNewUserResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateNewUserResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateNewUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new user in Neon Auth.
+        /// Creates a new user in the Neon Auth user directory for the specified branch.The user is created in the `neon_auth.users_sync` table and can immediately authenticateusing the branch&apos;s configured auth providers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Provisioner { get; set; }
 #endif
-        /// <summary>The region identifier. Refer to our [Regions](https://neon.tech/docs/introduction/regions) documentation for supported regions. Values are specified in this format: `aws-us-east-1`</summary>
+        /// <summary>The region identifier. Refer to our [Regions](https://neon.com/docs/introduction/regions) documentation for supported regions. Values are specified in this format: `aws-us-east-1`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionId { get; set; }

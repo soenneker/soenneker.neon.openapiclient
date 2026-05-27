@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles
         {
         }
         /// <summary>
-        /// Retrieves a list of Postgres roles from the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).
+        /// Retrieves a list of Postgres roles from the specified branch.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.RolesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.RolesResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.RolesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a Postgres role in the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).Connections established to the active compute endpoint will be dropped.If the compute endpoint is idle, the endpoint becomes active for a short period of time and is suspended afterward.
+        /// Creates a Postgres role in the specified branch.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).Connections established to the active compute endpoint will be dropped.If the compute endpoint is idle, the endpoint becomes active for a short period of time and is suspended afterward.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.RoleOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.RoleOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.RoleOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of Postgres roles from the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).
+        /// Retrieves a list of Postgres roles from the specified branch.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles
             return requestInfo;
         }
         /// <summary>
-        /// Creates a Postgres role in the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For related information, see [Manage roles](https://neon.tech/docs/manage/roles/).Connections established to the active compute endpoint will be dropped.If the compute endpoint is idle, the endpoint becomes active for a short period of time and is suspended afterward.
+        /// Creates a Postgres role in the specified branch.For related information, see [Manage roles](https://neon.com/docs/manage/roles/).Connections established to the active compute endpoint will be dropped.If the compute endpoint is idle, the endpoint becomes active for a short period of time and is suspended afterward.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

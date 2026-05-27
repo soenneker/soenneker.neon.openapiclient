@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints
         {
         }
         /// <summary>
-        /// Retrieves a list of compute endpoints for the specified branch.Neon permits only one read-write compute endpoint per branch.A branch can have multiple read-only compute endpoints.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.
+        /// Retrieves a list of compute endpoints for the specified branch.Neon permits only one read-write compute endpoint per branch.A branch can have multiple read-only compute endpoints.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of compute endpoints for the specified branch.Neon permits only one read-write compute endpoint per branch.A branch can have multiple read-only compute endpoints.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.
+        /// Retrieves a list of compute endpoints for the specified branch.Neon permits only one read-write compute endpoint per branch.A branch can have multiple read-only compute endpoints.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

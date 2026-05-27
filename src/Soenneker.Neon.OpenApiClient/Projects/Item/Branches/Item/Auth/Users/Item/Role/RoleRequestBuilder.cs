@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users.It
         {
         }
         /// <summary>
-        /// Updates the role of an auth user for the specified project.
+        /// Updates the role of a user in the Neon Auth user directory for the specified branch.The role controls the user&apos;s level of access within the Neon Auth integration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.UpdateNeonAuthUserRoleResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users.It
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.UpdateNeonAuthUserRoleResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.UpdateNeonAuthUserRoleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the role of an auth user for the specified project.
+        /// Updates the role of a user in the Neon Auth user directory for the specified branch.The role controls the user&apos;s level of access within the Neon Auth integration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

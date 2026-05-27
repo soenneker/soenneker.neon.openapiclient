@@ -118,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         {
         }
         /// <summary>
-        /// Deletes the specified project.You can obtain a `project_id` by listing the projects for your Neon account.Deleting a project is a permanent action.Deleting a project also deletes endpoints, branches, databases, and users that belong to the project.
+        /// Deletes the specified project and all its endpoints, branches, databases, and users.Deleted projects can be recovered within 7 days using `POST /projects/{project_id}/recover`.To list recoverable projects, use `GET /projects?recoverable=true`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -141,7 +141,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified project.You can obtain a `project_id` by listing the projects for an organization.
+        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -164,7 +164,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified project.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Updates the specified project.Configurable properties include the project name, default compute settings, history retention period, and IP allowlist.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -189,7 +189,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the specified project.You can obtain a `project_id` by listing the projects for your Neon account.Deleting a project is a permanent action.Deleting a project also deletes endpoints, branches, databases, and users that belong to the project.
+        /// Deletes the specified project and all its endpoints, branches, databases, and users.Deleted projects can be recovered within 7 days using `POST /projects/{project_id}/recover`.To list recoverable projects, use `GET /projects?recoverable=true`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -208,7 +208,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified project.You can obtain a `project_id` by listing the projects for an organization.
+        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +227,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the specified project.You can obtain a `project_id` by listing the projects for your Neon account.
+        /// Updates the specified project.Configurable properties include the project name, default compute settings, history retention period, and IP allowlist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

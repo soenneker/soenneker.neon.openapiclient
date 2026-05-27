@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
         {
         }
         /// <summary>
-        /// Retrieves a list of compute endpoints for the specified project.A compute endpoint is a Neon compute instance.You can obtain a `project_id` by listing the projects for your Neon account.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Retrieves a list of compute endpoints for the specified project.A compute endpoint is a Neon compute instance.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a compute endpoint for the specified branch.An endpoint is a Neon compute instance.There is a maximum of one read-write compute endpoint per branch.If the specified branch already has a read-write compute endpoint, the operation fails.A branch can have multiple read-only compute endpoints.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain `branch_id` by listing the project&apos;s branches.A `branch_id` has a `br-` prefix.For supported regions and `region_id` values, see [Regions](https://neon.tech/docs/introduction/regions/).For more information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Creates a compute endpoint for the specified branch.A compute endpoint is a Neon compute instance.There is a maximum of one read-write compute endpoint per branch.If the specified branch already has a read-write compute endpoint, the operation fails.A branch can have multiple read-only compute endpoints.For more information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of compute endpoints for the specified project.A compute endpoint is a Neon compute instance.You can obtain a `project_id` by listing the projects for your Neon account.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Retrieves a list of compute endpoints for the specified project.A compute endpoint is a Neon compute instance.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
             return requestInfo;
         }
         /// <summary>
-        /// Creates a compute endpoint for the specified branch.An endpoint is a Neon compute instance.There is a maximum of one read-write compute endpoint per branch.If the specified branch already has a read-write compute endpoint, the operation fails.A branch can have multiple read-only compute endpoints.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain `branch_id` by listing the project&apos;s branches.A `branch_id` has a `br-` prefix.For supported regions and `region_id` values, see [Regions](https://neon.tech/docs/introduction/regions/).For more information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Creates a compute endpoint for the specified branch.A compute endpoint is a Neon compute instance.There is a maximum of one read-write compute endpoint per branch.If the specified branch already has a read-write compute endpoint, the operation fails.A branch can have multiple read-only compute endpoints.For more information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

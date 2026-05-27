@@ -46,7 +46,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me
         {
         }
         /// <summary>
-        /// Retrieves information about the current Neon user account.
+        /// Retrieves information about the currently authenticated Neon user,including account identifiers, plan details, and linked auth accounts.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CurrentUserInfoResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CurrentUserInfoResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CurrentUserInfoResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the current Neon user account.
+        /// Retrieves information about the currently authenticated Neon user,including account identifiers, plan details, and linked auth accounts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

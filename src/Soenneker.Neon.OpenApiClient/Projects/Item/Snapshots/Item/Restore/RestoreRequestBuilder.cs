@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
         {
         }
         /// <summary>
-        /// Restore the specified snapshot to a new branch and optionally finalize the restore operation.**Note**: This endpoint is currently in Beta.
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Restore the specified snapshot to a new branch and optionally finalize the restore operation.**Note**: This endpoint is currently in Beta.
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -90,7 +90,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Restore the specified snapshot to a new branch and optionally finalize the restore operation.**Note**: This endpoint is currently in Beta.
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RestoreRequestBuilderPostQueryParameters 

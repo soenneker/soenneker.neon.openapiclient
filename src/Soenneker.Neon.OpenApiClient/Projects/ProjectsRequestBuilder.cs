@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
         {
         }
         /// <summary>
-        /// Retrieves a list of projects for an organization.You may need to specify an org_id parameter depending on your API key type.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a Neon project within an organization.You may need to specify an org_id parameter depending on your API key type.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, and 17.For supported regions and `region_id` values, see [Regions](https://neon.tech/docs/introduction/regions/).
+        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of projects for an organization.You may need to specify an org_id parameter depending on your API key type.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return requestInfo;
         }
         /// <summary>
-        /// Creates a Neon project within an organization.You may need to specify an org_id parameter depending on your API key type.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, and 17.For supported regions and `region_id` values, see [Regions](https://neon.tech/docs/introduction/regions/).
+        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return new global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a list of projects for an organization.You may need to specify an org_id parameter depending on your API key type.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProjectsRequestBuilderGetQueryParameters 

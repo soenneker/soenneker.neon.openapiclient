@@ -130,7 +130,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         {
         }
         /// <summary>
-        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
+        /// Deletes the specified branch from a project and places all compute endpoints into an idle state, breaking existing client connections.The deletion completes after all operations finish.You cannot delete a project&apos;s root or default branch, or a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -153,7 +153,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -176,7 +176,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_GetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For more information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Updates the specified branch.For more information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -201,7 +201,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
+        /// Deletes the specified branch from a project and places all compute endpoints into an idle state, breaking existing client connections.The deletion completes after all operations finish.You cannot delete a project&apos;s root or default branch, or a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -220,7 +220,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +239,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the specified branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.For more information, see [Manage branches](https://neon.tech/docs/manage/branches/).
+        /// Updates the specified branch.For more information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -270,7 +270,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranch_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Deletes the specified branch from a project, and placesall compute endpoints into an idle state, breaking existing client connections.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain a `branch_id` by listing the project&apos;s branches.For related information, see [Manage branches](https://neon.tech/docs/manage/branches/).When a successful response status is received, the compute endpoints are still active,and the branch is not yet deleted from storage.The deletion occurs after all operations finish.You cannot delete a project&apos;s root or default branch, and you cannot delete a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately without a recovery window.Soft delete and branch recovery are in preview and not available to all users.
+        /// Deletes the specified branch from a project and places all compute endpoints into an idle state, breaking existing client connections.The deletion completes after all operations finish.You cannot delete a project&apos;s root or default branch, or a branch that has a child branch.A project must have at least one branch.By default, deleted branches can be recovered within a 7-day grace period.Use the `hard_delete` parameter to permanently delete the branch immediately.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithBranch_ItemRequestBuilderDeleteQueryParameters 

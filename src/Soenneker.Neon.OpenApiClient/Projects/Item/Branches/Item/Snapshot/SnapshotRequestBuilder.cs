@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
         {
         }
         /// <summary>
-        /// Create a snapshot from the specified branch using the provided parameters.This endpoint may initiate an asynchronous operation.**Note**: This endpoint is currently in Beta.
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a snapshot from the specified branch using the provided parameters.This endpoint may initiate an asynchronous operation.**Note**: This endpoint is currently in Beta.
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Create a snapshot from the specified branch using the provided parameters.This endpoint may initiate an asynchronous operation.**Note**: This endpoint is currently in Beta.
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SnapshotRequestBuilderPostQueryParameters 

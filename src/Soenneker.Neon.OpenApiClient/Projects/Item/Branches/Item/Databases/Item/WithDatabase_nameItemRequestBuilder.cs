@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
         {
         }
         /// <summary>
-        /// Deletes the specified database from the branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Deletes the specified database from the branch.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified database.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Retrieves information about the specified database.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DatabaseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DatabaseResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DatabaseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified database in the branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Updates the specified database in the branch.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DatabaseOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the specified database from the branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Deletes the specified database from the branch.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified database.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Retrieves information about the specified database.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Updates the specified database in the branch.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` and `database_name` by listing the branch&apos;s databases.For related information, see [Manage databases](https://neon.tech/docs/manage/databases/).
+        /// Updates the specified database in the branch.For related information, see [Manage databases](https://neon.com/docs/manage/databases/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Auth
         {
         }
         /// <summary>
-        /// Returns auth information about the passed credentials. It can refer to an API key, Bearer token or OAuth session.
+        /// Returns authentication details for the credentials used in the request,including the credential type (API key, Bearer token, or OAuth session)and the associated identity.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Auth
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns auth information about the passed credentials. It can refer to an API key, Bearer token or OAuth session.
+        /// Returns authentication details for the credentials used in the request,including the credential type (API key, Bearer token, or OAuth session)and the associated identity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

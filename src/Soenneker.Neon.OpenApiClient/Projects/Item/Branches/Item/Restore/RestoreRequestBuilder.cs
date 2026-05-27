@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore
         {
         }
         /// <summary>
-        /// Restores a branch to an earlier state in its own or another branch&apos;s history
+        /// Restores a branch to an earlier state in its own or another branch&apos;s historyby specifying an LSN or timestamp.Creates a new branch from the historical state.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Restores a branch to an earlier state in its own or another branch&apos;s history
+        /// Restores a branch to an earlier state in its own or another branch&apos;s historyby specifying an LSN or timestamp.Creates a new branch from the historical state.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

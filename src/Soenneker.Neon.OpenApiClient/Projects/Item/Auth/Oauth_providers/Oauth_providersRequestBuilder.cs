@@ -72,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Oauth_providers
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// DEPRECATED, use `/projects/{project_id}/branches/{branch_id}/auth/oauth_providers` instead. Adds a OAuth provider to the specified project.
+        /// DEPRECATED, use `/projects/{project_id}/branches/{branch_id}/auth/oauth_providers` instead.Adds an OAuth provider to the specified project.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider"/></returns>
         /// <param name="body">The request body</param>
@@ -118,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Oauth_providers
             return requestInfo;
         }
         /// <summary>
-        /// DEPRECATED, use `/projects/{project_id}/branches/{branch_id}/auth/oauth_providers` instead. Adds a OAuth provider to the specified project.
+        /// DEPRECATED, use `/projects/{project_id}/branches/{branch_id}/auth/oauth_providers` instead.Adds an OAuth provider to the specified project.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

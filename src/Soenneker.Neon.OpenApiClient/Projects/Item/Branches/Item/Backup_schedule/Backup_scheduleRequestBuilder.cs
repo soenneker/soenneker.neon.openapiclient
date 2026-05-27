@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedu
         {
         }
         /// <summary>
-        /// View the backup schedule for the specified branch.**Note**: This endpoint is currently in Beta.
+        /// Returns the backup schedule for the specified branch, including the configured snapshot frequencies.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BackupSchedule"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedu
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BackupSchedule>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BackupSchedule.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the backup schedule for the specified branch.**Note** : This endpoint is currently in Beta.
+        /// Updates the backup schedule for the specified branch.The schedule defines how often automatic snapshots are created (e.g., `hourly`, `daily`).**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedu
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// View the backup schedule for the specified branch.**Note**: This endpoint is currently in Beta.
+        /// Returns the backup schedule for the specified branch, including the configured snapshot frequencies.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedu
             return requestInfo;
         }
         /// <summary>
-        /// Update the backup schedule for the specified branch.**Note** : This endpoint is currently in Beta.
+        /// Updates the backup schedule for the specified branch.The schedule defines how often automatic snapshots are created (e.g., `hourly`, `daily`).**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

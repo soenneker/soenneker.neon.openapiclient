@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item
         {
         }
         /// <summary>
-        /// Delete the specified snapshot.**Note**: This endpoint is currently in Beta.
+        /// Deletes the specified snapshot.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the specified snapshot.**Note**: This endpoint is currently in Beta.
+        /// Updates the specified snapshot.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.WithSnapshot_PatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -88,7 +88,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.WithSnapshot_PatchResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.WithSnapshot_PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete the specified snapshot.**Note**: This endpoint is currently in Beta.
+        /// Deletes the specified snapshot.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update the specified snapshot.**Note**: This endpoint is currently in Beta.
+        /// Updates the specified snapshot.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

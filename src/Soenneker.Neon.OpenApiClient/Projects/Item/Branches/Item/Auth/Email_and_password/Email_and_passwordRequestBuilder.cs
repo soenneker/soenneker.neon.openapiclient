@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_an
         {
         }
         /// <summary>
-        /// Gets the email and password authentication configuration for Neon Auth
+        /// Retrieves the email and password authentication configuration for the specified branch&apos;s Neon Auth integration,including whether it is enabled and the email verification method.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_an
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the email and password authentication configuration for Neon Auth
+        /// Updates the email and password authentication configuration for the specified branch&apos;s Neon Auth integration.Only the fields provided in the request body are updated.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_an
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets the email and password authentication configuration for Neon Auth
+        /// Retrieves the email and password authentication configuration for the specified branch&apos;s Neon Auth integration,including whether it is enabled and the email verification method.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_an
             return requestInfo;
         }
         /// <summary>
-        /// Updates the email and password authentication configuration for Neon Auth
+        /// Updates the email and password authentication configuration for the specified branch&apos;s Neon Auth integration.Only the fields provided in the request body are updated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

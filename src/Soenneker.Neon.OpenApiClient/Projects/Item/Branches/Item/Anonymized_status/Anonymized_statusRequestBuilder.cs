@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymized_st
         {
         }
         /// <summary>
-        /// Retrieves the current status of an anonymized branch, including its state and progress information.This endpoint allows you to monitor the anonymization process from initialization through completion.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.Only anonymized branches will have status information available.**Note**: This endpoint is currently in Beta.
+        /// Retrieves the current status of an anonymized branch, including its state and progress information.This endpoint allows you to monitor the anonymization process from initialization through completion.Only anonymized branches will have status information available.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymized_st
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the current status of an anonymized branch, including its state and progress information.This endpoint allows you to monitor the anonymization process from initialization through completion.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.Only anonymized branches will have status information available.**Note**: This endpoint is currently in Beta.
+        /// Retrieves the current status of an anonymized branch, including its state and progress information.This endpoint allows you to monitor the anonymization process from initialization through completion.Only anonymized branches will have status information available.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

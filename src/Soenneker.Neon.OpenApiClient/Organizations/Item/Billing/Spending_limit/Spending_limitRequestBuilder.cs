@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         {
         }
         /// <summary>
-        /// Removes a previously configured spending limit for a V3 paidorganization. Idempotent — deleting an already-unset limit stillsucceeds. Available to organization admins on Launch and Scale plansonly.
+        /// Removes the configured monthly spending limit for the specified organization.Idempotent — removing an already-unset limit still succeeds.Available to organization admins on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the configured spending limit for a V3 paid organization.`spending_limit_cents: null` indicates that no limit is currentlyset. Available to organization members with read access on Launchand Scale plans only.
+        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets the spending limit for a V3 paid organization. To remove apreviously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and100% of the limit. Computes are not suspended by this feature.Available to organization admins on Launch and Scale plans only.
+        /// Sets the monthly spending limit for the specified organization.To remove a previously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and 100% of the limit.Computes are not suspended when the limit is reached.Available to organization admins on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes a previously configured spending limit for a V3 paidorganization. Idempotent — deleting an already-unset limit stillsucceeds. Available to organization admins on Launch and Scale plansonly.
+        /// Removes the configured monthly spending limit for the specified organization.Idempotent — removing an already-unset limit still succeeds.Available to organization admins on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return requestInfo;
         }
         /// <summary>
-        /// Returns the configured spending limit for a V3 paid organization.`spending_limit_cents: null` indicates that no limit is currentlyset. Available to organization members with read access on Launchand Scale plans only.
+        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return requestInfo;
         }
         /// <summary>
-        /// Sets the spending limit for a V3 paid organization. To remove apreviously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and100% of the limit. Computes are not suspended by this feature.Available to organization admins on Launch and Scale plans only.
+        /// Sets the monthly spending limit for the specified organization.To remove a previously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and 100% of the limit.Computes are not suspended when the limit is reached.Available to organization admins on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

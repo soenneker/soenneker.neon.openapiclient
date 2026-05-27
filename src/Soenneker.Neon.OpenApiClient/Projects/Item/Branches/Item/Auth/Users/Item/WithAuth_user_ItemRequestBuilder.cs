@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users.It
         {
         }
         /// <summary>
-        /// Deletes the auth user for the specified project.
+        /// Deletes the specified user from the Neon Auth user directory for the specified branch.Removes the user record from `neon_auth.users_sync`. This action cannot be undone.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Users.It
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the auth user for the specified project.
+        /// Deletes the specified user from the Neon Auth user directory for the specified branch.Removes the user record from `neon_auth.users_sync`. This action cannot be undone.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

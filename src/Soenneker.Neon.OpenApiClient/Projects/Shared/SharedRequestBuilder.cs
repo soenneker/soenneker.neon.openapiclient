@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Shared
         {
         }
         /// <summary>
-        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Shared.SharedGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Shared
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Shared.SharedGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Shared.SharedGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Shared
             return new global::Soenneker.Neon.OpenApiClient.Projects.Shared.SharedRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.tech/docs/manage/projects/).
+        /// Retrieves a list of projects shared with your Neon account.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SharedRequestBuilderGetQueryParameters 

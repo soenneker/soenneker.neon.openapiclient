@@ -89,7 +89,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ParentId { get; set; }
 #endif
-        /// <summary>The Log Sequence Number (LSN) on the parent branch from which this branch was created.When restoring a branch using the [Restore branch](https://api-docs.neon.tech/reference/restoreprojectbranch) endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.</summary>
+        /// <summary>The Log Sequence Number (LSN) on the parent branch from which this branch was created.When restoring a branch using the `POST /projects/{project_id}/branches/{branch_id}/restore` endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ParentLsn { get; set; }
@@ -97,7 +97,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ParentLsn { get; set; }
 #endif
-        /// <summary>The point in time on the parent branch from which this branch was created.When restoring a branch using the [Restore branch](https://api-docs.neon.tech/reference/restoreprojectbranch) endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.After all the operations completed, this value might stay empty.</summary>
+        /// <summary>The point in time on the parent branch from which this branch was created.When restoring a branch using the `POST /projects/{project_id}/branches/{branch_id}/restore` endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.After all the operations completed, this value might stay empty.</summary>
         public DateTimeOffset? ParentTimestamp { get; set; }
         /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival storage. Expect slow query response times.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

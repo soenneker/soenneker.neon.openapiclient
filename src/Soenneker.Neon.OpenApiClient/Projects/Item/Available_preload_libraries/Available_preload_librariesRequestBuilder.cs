@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries
         {
         }
         /// <summary>
-        /// Return available shared preload libraries
+        /// Returns the shared preload libraries available for the specified project&apos;s Postgres version.Shared preload libraries are Postgres extensions that require the `shared_preload_libraries`setting and a compute restart to activate.Use this list to determine which libraries can be enabled in the project&apos;s`settings.preload_libraries` configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.AvailablePreloadLibraries"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.AvailablePreloadLibraries>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.AvailablePreloadLibraries.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return available shared preload libraries
+        /// Returns the shared preload libraries available for the specified project&apos;s Postgres version.Shared preload libraries are Postgres extensions that require the `shared_preload_libraries`setting and a compute restart to activate.Use this list to determine which libraries can be enabled in the project&apos;s`settings.preload_libraries` configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

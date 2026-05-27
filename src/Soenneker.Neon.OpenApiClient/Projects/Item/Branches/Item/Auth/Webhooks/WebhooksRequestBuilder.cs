@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Webhooks
         {
         }
         /// <summary>
-        /// Returns the webhook configuration for Neon Auth.
+        /// Returns the webhook configuration for the specified branch&apos;s Neon Auth integration,including the endpoint URL and the events that trigger it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the webhook configuration for Neon Auth on a specific branch.
+        /// Updates the webhook configuration for the specified branch&apos;s Neon Auth integration.Webhooks notify an external endpoint when auth events occur, such as user creation or sign-in.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the webhook configuration for Neon Auth.
+        /// Returns the webhook configuration for the specified branch&apos;s Neon Auth integration,including the endpoint URL and the events that trigger it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Webhooks
             return requestInfo;
         }
         /// <summary>
-        /// Updates the webhook configuration for Neon Auth on a specific branch.
+        /// Updates the webhook configuration for the specified branch&apos;s Neon Auth integration.Webhooks notify an external endpoint when auth events occur, such as user creation or sign-in.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

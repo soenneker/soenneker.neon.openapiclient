@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item
         {
         }
         /// <summary>
-        /// Retrieves information about the specified organization.
+        /// Retrieves details for the specified organization, including its name, plan, and configuration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.Organization"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.Organization>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.Organization.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified organization.
+        /// Retrieves details for the specified organization, including its name, plan, and configuration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

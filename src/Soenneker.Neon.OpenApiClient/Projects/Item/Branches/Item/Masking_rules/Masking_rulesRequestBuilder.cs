@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules
         {
         }
         /// <summary>
-        /// Retrieves the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.**Note**: This endpoint is currently in Beta.
+        /// Retrieves the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.**Note**: This endpoint is currently in Beta.
+        /// Updates the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.MaskingRulesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.**Note**: This endpoint is currently in Beta.
+        /// Retrieves the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules
             return requestInfo;
         }
         /// <summary>
-        /// Updates the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `branch_id` by listing the project&apos;s branches.**Note**: This endpoint is currently in Beta.
+        /// Updates the masking rules for the specified anonymized branch.Masking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

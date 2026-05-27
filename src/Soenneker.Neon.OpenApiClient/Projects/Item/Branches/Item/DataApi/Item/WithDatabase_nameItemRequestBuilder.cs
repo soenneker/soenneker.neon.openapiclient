@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
         {
         }
         /// <summary>
-        /// Deletes the Neon Data API for the specified branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Deletes the Neon Data API for the specified branch.Existing connections using the Data API endpoint will fail after deletion.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the Neon Data API for the specified branch.
+        /// Retrieves the Neon Data API configuration for the specified branch,including endpoint URL, enabled state, and database settings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DataAPIReponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DataAPIReponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DataAPIReponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the Neon Data API configuration for the specified branch.You can optionally provide settings to update the Data API configuration.The schema cache is always refreshed as part of this operation.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Updates the Neon Data API configuration for the specified branch.You can optionally provide settings to update the Data API configuration.The schema cache is always refreshed as part of this operation.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="body">Update Neon Data API</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new instance of Neon Data API in the specified branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Creates a new instance of Neon Data API in the specified branch.The Data API exposes a REST interface over the branch database. The `database_name` path parameter determines which database the API serves.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DataAPICreateResponse"/></returns>
         /// <param name="body">Create Neon Data API</param>
@@ -130,7 +130,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DataAPICreateResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DataAPICreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes the Neon Data API for the specified branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Deletes the Neon Data API for the specified branch.Existing connections using the Data API endpoint will fail after deletion.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +149,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves the Neon Data API for the specified branch.
+        /// Retrieves the Neon Data API configuration for the specified branch,including endpoint URL, enabled state, and database settings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -168,7 +168,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the Neon Data API configuration for the specified branch.You can optionally provide settings to update the Data API configuration.The schema cache is always refreshed as part of this operation.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Updates the Neon Data API configuration for the specified branch.You can optionally provide settings to update the Data API configuration.The schema cache is always refreshed as part of this operation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Update Neon Data API</param>
@@ -190,7 +190,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new instance of Neon Data API in the specified branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Creates a new instance of Neon Data API in the specified branch.The Data API exposes a REST interface over the branch database. The `database_name` path parameter determines which database the API serves.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Create Neon Data API</param>

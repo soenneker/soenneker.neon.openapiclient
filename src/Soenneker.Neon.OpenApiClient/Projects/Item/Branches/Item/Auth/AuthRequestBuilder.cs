@@ -94,7 +94,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
         {
         }
         /// <summary>
-        /// Disables Neon Auth for the branch
+        /// Disables the Neon Auth integration for the specified branch, removing the connectionto the authentication provider.If `delete_data` is `true`, also deletes the `neon_auth` schema and all associated tablesfrom the branch database.The integration can be re-enabled by calling `POST /projects/{project_id}/branches/{branch_id}/auth`.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -119,7 +119,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// / Fetches the details of the Neon Auth for the specified branch. You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Retrieves the Neon Auth integration details for the specified branch,including the auth provider type and integration status.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthIntegration"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthIntegration>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthIntegration.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enables Neon Auth integrationfor the branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Enables Neon Auth for the specified branch by connecting it to an authentication provider.Creating the integration provisions the `neon_auth` schema in the branch database, which stores user identity data synchronized from the provider.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateIntegrationResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -167,7 +167,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateIntegrationResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthCreateIntegrationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Disables Neon Auth for the branch
+        /// Disables the Neon Auth integration for the specified branch, removing the connectionto the authentication provider.If `delete_data` is `true`, also deletes the `neon_auth` schema and all associated tablesfrom the branch database.The integration can be re-enabled by calling `POST /projects/{project_id}/branches/{branch_id}/auth`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -189,7 +189,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             return requestInfo;
         }
         /// <summary>
-        /// / Fetches the details of the Neon Auth for the specified branch. You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Retrieves the Neon Auth integration details for the specified branch,including the auth provider type and integration status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -208,7 +208,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             return requestInfo;
         }
         /// <summary>
-        /// Enables Neon Auth integrationfor the branch.You can obtain the `project_id` and `branch_id` by listing the projects and branches for your Neon account.
+        /// Enables Neon Auth for the specified branch by connecting it to an authentication provider.Creating the integration provisions the `neon_auth` schema in the branch database, which stores user identity data synchronized from the provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

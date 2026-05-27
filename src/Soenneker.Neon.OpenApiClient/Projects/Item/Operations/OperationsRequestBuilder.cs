@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Operations
         {
         }
         /// <summary>
-        /// Retrieves a list of operations for the specified Neon project.You can obtain a `project_id` by listing the projects for your Neon account.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
+        /// Retrieves a list of operations for the specified Neon project.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Operations.OperationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Operations
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Operations.OperationsGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Operations.OperationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a list of operations for the specified Neon project.You can obtain a `project_id` by listing the projects for your Neon account.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
+        /// Retrieves a list of operations for the specified Neon project.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Operations
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Operations.OperationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a list of operations for the specified Neon project.You can obtain a `project_id` by listing the projects for your Neon account.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
+        /// Retrieves a list of operations for the specified Neon project.The number of operations returned can be large.To paginate the response, issue an initial request with a `limit` value.Then, add the `cursor` value that was returned in the response to the next request.Operations older than 6 months may be deleted from our systems.If you need more history than that, you should store your own history.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OperationsRequestBuilderGetQueryParameters 

@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
         {
         }
         /// <summary>
-        /// Gets the email provider configuration for the specified branch.
+        /// Retrieves the email provider configuration for the specified branch&apos;s Neon Auth integration,including the provider type and server settings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the email provider configuration for the specified branch.
+        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets the email provider configuration for the specified branch.
+        /// Retrieves the email provider configuration for the specified branch&apos;s Neon Auth integration,including the provider type and server settings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             return requestInfo;
         }
         /// <summary>
-        /// Updates the email provider configuration for the specified branch.
+        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
         {
         }
         /// <summary>
-        /// Lists the OAuth providers for the specified project and branch.
+        /// Lists the OAuth providers configured for the specified branch&apos;s Neon Auth integration.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds a OAuth provider to the specified project.
+        /// Adds an OAuth provider configuration to the specified branch&apos;s Neon Auth integration.After adding, users can authenticate using the configured provider.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the OAuth providers for the specified project and branch.
+        /// Lists the OAuth providers configured for the specified branch&apos;s Neon Auth integration.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return requestInfo;
         }
         /// <summary>
-        /// Adds a OAuth provider to the specified project.
+        /// Adds an OAuth provider configuration to the specified branch&apos;s Neon Auth integration.After adding, users can authenticate using the configured provider.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

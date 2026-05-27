@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.Suspend
         {
         }
         /// <summary>
-        /// Suspend the specified compute endpointYou can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Suspends the specified compute endpoint.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.Suspend
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Suspend the specified compute endpointYou can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Suspends the specified compute endpoint.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

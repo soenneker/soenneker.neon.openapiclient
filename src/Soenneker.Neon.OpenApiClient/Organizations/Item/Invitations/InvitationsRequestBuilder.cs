@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Invitations
         {
         }
         /// <summary>
-        /// Retrieves information about extended invitations for the specified organization
+        /// Retrieves pending and accepted invitations for the specified organization.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrganizationInvitationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Invitations
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OrganizationInvitationsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OrganizationInvitationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about extended invitations for the specified organization
+        /// Retrieves pending and accepted invitations for the specified organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

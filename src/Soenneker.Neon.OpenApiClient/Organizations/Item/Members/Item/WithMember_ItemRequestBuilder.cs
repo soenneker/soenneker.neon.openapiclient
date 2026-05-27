@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
         {
         }
         /// <summary>
-        /// Remove member from the organization.Only an admin of the organization can perform this action.If another admin is being removed, it will not be allows in case it is the only admin left in the organization.
+        /// Removes the specified member from the organization.Only organization admins can perform this action.The last admin in an organization cannot be removed.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.Member>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.Member.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Only an admin can perform this action.
+        /// Updates the role of an existing member in the specified organization.Supported roles are `admin` and `member`.Only organization admins can call this endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.Member"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.Member>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.Member.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Remove member from the organization.Only an admin of the organization can perform this action.If another admin is being removed, it will not be allows in case it is the only admin left in the organization.
+        /// Removes the specified member from the organization.Only organization admins can perform this action.The last admin in an organization cannot be removed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
             return requestInfo;
         }
         /// <summary>
-        /// Only an admin can perform this action.
+        /// Updates the role of an existing member in the specified organization.Supported roles are `admin` and `member`.Only organization admins can call this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

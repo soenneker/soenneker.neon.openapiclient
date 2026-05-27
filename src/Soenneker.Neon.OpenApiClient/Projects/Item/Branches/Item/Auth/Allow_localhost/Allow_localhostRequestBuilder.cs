@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
         {
         }
         /// <summary>
-        /// Get the allow localhost configuration for the specified branch.
+        /// Retrieves the localhost allow setting for the specified branch&apos;s Neon Auth integration.When enabled, authentication flows work from `localhost` without adding it to the redirect URI whitelist.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the allow localhost configuration for the specified branch.
+        /// Updates the localhost allow setting for the specified branch&apos;s Neon Auth integration.When enabled, authentication flows work from `localhost` without adding it to the redirect URI whitelist.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAllowLocalhostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the allow localhost configuration for the specified branch.
+        /// Retrieves the localhost allow setting for the specified branch&apos;s Neon Auth integration.When enabled, authentication flows work from `localhost` without adding it to the redirect URI whitelist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
             return requestInfo;
         }
         /// <summary>
-        /// Updates the allow localhost configuration for the specified branch.
+        /// Updates the localhost allow setting for the specified branch&apos;s Neon Auth integration.When enabled, authentication flows work from `localhost` without adding it to the redirect URI whitelist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

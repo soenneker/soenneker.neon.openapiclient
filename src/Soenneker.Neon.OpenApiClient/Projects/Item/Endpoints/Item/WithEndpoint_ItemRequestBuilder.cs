@@ -52,7 +52,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
         {
         }
         /// <summary>
-        /// Delete the specified compute endpoint.A compute endpoint is a Neon compute instance.Deleting a compute endpoint drops existing network connections to the compute endpoint.The deletion is completed when last operation in the chain finishes successfully.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Deletes the specified compute endpoint.A compute endpoint is a Neon compute instance.Deleting a compute endpoint drops existing network connections to the compute endpoint.The deletion is completed when the last operation in the chain finishes successfully.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -75,7 +75,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified compute endpoint.A compute endpoint is a Neon compute instance.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Retrieves information about the specified compute endpoint.A compute endpoint is a Neon compute instance.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified compute endpoint.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` and `branch_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix. A `branch_id` has a `br-` prefix. For more information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).If the returned list of operations is not empty, the compute endpoint is not ready to use.The client must wait for the last operation to finish before using the compute endpoint.If the compute endpoint was idle before the update, it becomes active for a short period of time,and the control plane suspends it again after the update.
+        /// Updates the specified compute endpoint.An `endpoint_id` has an `ep-` prefix. A `branch_id` has a `br-` prefix.For more information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).If the returned list of operations is not empty, the compute endpoint is not ready to use.The client must wait for the last operation to finish before using the compute endpoint.If the compute endpoint was idle before the update, it becomes active for a short period of time,and the control plane suspends it again after the update.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations"/></returns>
         /// <param name="body">The request body</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EndpointOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete the specified compute endpoint.A compute endpoint is a Neon compute instance.Deleting a compute endpoint drops existing network connections to the compute endpoint.The deletion is completed when last operation in the chain finishes successfully.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Deletes the specified compute endpoint.A compute endpoint is a Neon compute instance.Deleting a compute endpoint drops existing network connections to the compute endpoint.The deletion is completed when the last operation in the chain finishes successfully.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified compute endpoint.A compute endpoint is a Neon compute instance.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).
+        /// Retrieves information about the specified compute endpoint.A compute endpoint is a Neon compute instance.An `endpoint_id` has an `ep-` prefix.For information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -161,7 +161,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the specified compute endpoint.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain an `endpoint_id` and `branch_id` by listing your project&apos;s compute endpoints.An `endpoint_id` has an `ep-` prefix. A `branch_id` has a `br-` prefix. For more information about compute endpoints, see [Manage computes](https://neon.tech/docs/manage/endpoints/).If the returned list of operations is not empty, the compute endpoint is not ready to use.The client must wait for the last operation to finish before using the compute endpoint.If the compute endpoint was idle before the update, it becomes active for a short period of time,and the control plane suspends it again after the update.
+        /// Updates the specified compute endpoint.An `endpoint_id` has an `ep-` prefix. A `branch_id` has a `br-` prefix.For more information about compute endpoints, see [Manage computes](https://neon.com/docs/manage/endpoints/).If the returned list of operations is not empty, the compute endpoint is not ready to use.The client must wait for the last operation to finish before using the compute endpoint.If the compute endpoint was idle before the update, it becomes active for a short period of time,and the control plane suspends it again after the update.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

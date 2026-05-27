@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
         {
         }
         /// <summary>
-        /// Retrieves a connection URI for the specified database.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `database_name` by listing the databases for a branch.You can obtain a `role_name` by listing the roles for a branch.
+        /// Retrieves a connection URI for the specified database.The URI uses the standard PostgreSQL connection string format. Set `pooled=true` to include the `-pooler` suffix for a connection pooler URI.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a connection URI for the specified database.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `database_name` by listing the databases for a branch.You can obtain a `role_name` by listing the roles for a branch.
+        /// Retrieves a connection URI for the specified database.The URI uses the standard PostgreSQL connection string format. Set `pooled=true` to include the `-pooler` suffix for a connection pooler URI.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri.Connection_uriRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a connection URI for the specified database.You can obtain a `project_id` by listing the projects for your Neon account.You can obtain the `database_name` by listing the databases for a branch.You can obtain a `role_name` by listing the roles for a branch.
+        /// Retrieves a connection URI for the specified database.The URI uses the standard PostgreSQL connection string format. Set `pooled=true` to include the `-pooler` suffix for a connection pooler URI.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Connection_uriRequestBuilderGetQueryParameters 
