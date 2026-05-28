@@ -9,9 +9,19 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BranchAnonymizedCreateRequest : global::Soenneker.Neon.OpenApiClient.Models.AnnotationCreateValueRequest, IParsable
+    public partial class BranchAnonymizedCreateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Annotation properties.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value? AnnotationValue { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value AnnotationValue { get; set; }
+#endif
         /// <summary>The branch_create property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,11 +41,18 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>If true, automatically start anonymization after the branch is created.Defaults to false.</summary>
         public bool? StartAnonymization { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest"/> and sets the default values.
+        /// </summary>
+        public BranchAnonymizedCreateRequest()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest();
@@ -44,10 +61,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "annotation_value", n => { AnnotationValue = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value>(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value.CreateFromDiscriminatorValue); } },
                 { "branch_create", n => { BranchCreate = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest.CreateFromDiscriminatorValue); } },
                 { "masking_rules", n => { MaskingRules = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>(global::Soenneker.Neon.OpenApiClient.Models.MaskingRule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_anonymization", n => { StartAnonymization = n.GetBoolValue(); } },
@@ -57,13 +75,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value>("annotation_value", AnnotationValue);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest>("branch_create", BranchCreate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>("masking_rules", MaskingRules);
             writer.WriteBoolValue("start_anonymization", StartAnonymization);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

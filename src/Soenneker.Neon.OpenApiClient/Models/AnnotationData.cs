@@ -29,10 +29,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Annotation properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationValueData? Value { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData_value? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationValueData Value { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData_value Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.AnnotationData"/> and sets the default values.
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "object", n => { Object = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationObjectData>(global::Soenneker.Neon.OpenApiClient.Models.AnnotationObjectData.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationValueData>(global::Soenneker.Neon.OpenApiClient.Models.AnnotationValueData.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationData_value>(global::Soenneker.Neon.OpenApiClient.Models.AnnotationData_value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationObjectData>("object", Object);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationValueData>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AnnotationData_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

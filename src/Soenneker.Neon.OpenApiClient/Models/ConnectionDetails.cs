@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters ConnectionParameters { get; set; }
 #endif
-        /// <summary>The connection URI is defined as specified here: [Connection URIs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS)The connection URI can be used to connect to a Postgres database with psql or defined in a DATABASE_URL environment variable.When creating a branch from a parent with more than one role or database, the response body does not include a connection URI.</summary>
+        /// <summary>&quot;The connection URI is defined as specified here: [Connection URIs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS)The connection URI can be used to connect to a Postgres database with psql or defined in a DATABASE_URL environment variable.When creating a branch from a parent with more than one role or database, the response body does not include a connection URI.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConnectionUri { get; set; }

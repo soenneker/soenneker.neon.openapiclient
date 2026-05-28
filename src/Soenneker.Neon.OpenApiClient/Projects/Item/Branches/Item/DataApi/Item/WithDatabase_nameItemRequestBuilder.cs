@@ -36,17 +36,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
         /// <summary>
         /// Deletes the Neon Data API for the specified branch.Existing connections using the Data API endpoint will fail after deletion.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameDeleteResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the Neon Data API configuration for the specified branch,including endpoint URL, enabled state, and database settings.
@@ -82,18 +82,18 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
         /// <summary>
         /// Updates the Neon Data API configuration for the specified branch.You can optionally provide settings to update the Data API configuration.The schema cache is always refreshed as part of this operation.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_namePatchResponse"/></returns>
         /// <param name="body">Update Neon Data API</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.DataAPIUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_namePatchResponse?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.DataAPIUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.DataAPIUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_namePatchResponse> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.DataAPIUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -102,7 +102,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_namePatchResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_namePatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new instance of Neon Data API in the specified branch.The Data API exposes a REST interface over the branch database. The `database_name` path parameter determines which database the API serves.

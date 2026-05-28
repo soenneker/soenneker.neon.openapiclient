@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymize
         {
         }
         /// <summary>
-        /// Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.This will apply all defined masking rules to anonymize sensitive data in the branch databases.The branch must be an anonymized branch to start anonymization.**Note**: This endpoint is currently in Beta.
+        /// &quot;Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.This will apply all defined masking rules to anonymize sensitive data in the branch databases.The branch must be an anonymized branch to start anonymization.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymize
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.AnonymizedBranchStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.This will apply all defined masking rules to anonymize sensitive data in the branch databases.The branch must be an anonymized branch to start anonymization.**Note**: This endpoint is currently in Beta.
+        /// &quot;Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.This will apply all defined masking rules to anonymize sensitive data in the branch databases.The branch must be an anonymized branch to start anonymization.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

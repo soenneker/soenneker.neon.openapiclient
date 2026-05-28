@@ -42,7 +42,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>The current state of the anonymized branch. Possible values: created, initialized, initialization_error, anonymizing, anonymized, error</summary>
+        /// <summary>&quot;The current state of the anonymized branch. Possible values: created, initialized, initialization_error, anonymizing, anonymized, error&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }

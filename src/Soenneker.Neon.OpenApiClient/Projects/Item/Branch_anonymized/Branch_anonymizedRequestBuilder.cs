@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
         {
         }
         /// <summary>
-        /// Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.
+        /// &quot;Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.
+        /// &quot;Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

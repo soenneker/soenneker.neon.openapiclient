@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The project property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest_project? Project { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequestProject? Project { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest_project Project { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequestProject Project { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "project", n => { Project = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest_project>(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest_project.CreateFromDiscriminatorValue); } },
+                { "project", n => { Project = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequestProject>(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequestProject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest_project>("project", Project);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequestProject>("project", Project);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

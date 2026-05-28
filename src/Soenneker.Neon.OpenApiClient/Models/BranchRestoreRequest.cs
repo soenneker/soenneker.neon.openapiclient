@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SourceLsn { get; set; }
 #endif
-        /// <summary>A timestamp identifying a point in time on the source branch. The branch will be restored with data starting from this point in time.The timestamp must be provided in ISO 8601 format; for example: `2024-02-26T12:00:00Z`.</summary>
+        /// <summary>&quot;A timestamp identifying a point in time on the source branch. The branch will be restored with data starting from this point in time.The timestamp must be provided in ISO 8601 format; for example: `2024-02-26T12:00:00Z`.&quot;</summary>
         public DateTimeOffset? SourceTimestamp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchRestoreRequest"/> and sets the default values.

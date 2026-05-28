@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email</summary>
+    /// <summary>&quot;The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NeonAuthEmailVerificationMethod
     {

@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The snapshot property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest_snapshot? Snapshot { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot? Snapshot { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest_snapshot Snapshot { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot Snapshot { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "snapshot", n => { Snapshot = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest_snapshot>(global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest_snapshot.CreateFromDiscriminatorValue); } },
+                { "snapshot", n => { Snapshot = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot>(global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequest_snapshot>("snapshot", Snapshot);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot>("snapshot", Snapshot);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

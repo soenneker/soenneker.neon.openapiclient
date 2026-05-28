@@ -9,9 +9,41 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class OrgApiKeysListResponseItem : global::Soenneker.Neon.OpenApiClient.Models.ApiKeysListResponseItem, IParsable
+    public partial class OrgApiKeysListResponseItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A timestamp indicating when the API key was created</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The user data of the user that created this API key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData? CreatedBy { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData CreatedBy { get; set; }
+#endif
+        /// <summary>The API key ID</summary>
+        public long? Id { get; set; }
+        /// <summary>A timestamp indicating when the API was last used</summary>
+        public DateTimeOffset? LastUsedAt { get; set; }
+        /// <summary>The IP address from which the API key was last used</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastUsedFromAddr { get; set; }
+#nullable restore
+#else
+        public string LastUsedFromAddr { get; set; }
+#endif
+        /// <summary>The user-specified API key name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>If set, the API key can access only this project</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,11 +53,18 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string ProjectId { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrgApiKeysListResponseItem"/> and sets the default values.
+        /// </summary>
+        public OrgApiKeysListResponseItem()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrgApiKeysListResponseItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Neon.OpenApiClient.Models.OrgApiKeysListResponseItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.OrgApiKeysListResponseItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Neon.OpenApiClient.Models.OrgApiKeysListResponseItem();
@@ -34,10 +73,16 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData>(global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetLongValue(); } },
+                { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
+                { "last_used_from_addr", n => { LastUsedFromAddr = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
@@ -45,11 +90,17 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData>("created_by", CreatedBy);
+            writer.WriteLongValue("id", Id);
+            writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
+            writer.WriteStringValue("last_used_from_addr", LastUsedFromAddr);
+            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

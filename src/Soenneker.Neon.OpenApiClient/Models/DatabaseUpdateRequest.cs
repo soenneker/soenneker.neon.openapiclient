@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The database property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest_database? Database { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequestDatabase? Database { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest_database Database { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequestDatabase Database { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "database", n => { Database = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest_database>(global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest_database.CreateFromDiscriminatorValue); } },
+                { "database", n => { Database = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequestDatabase>(global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequestDatabase.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequest_database>("database", Database);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DatabaseUpdateRequestDatabase>("database", Database);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

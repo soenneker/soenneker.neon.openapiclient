@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON_tables_constraints_referenced_table ReferencedTable { get; set; }
 #endif
-        /// <summary>Type of constraint. Possible values: `primary_key`, `unique`, `foreign_key`</summary>
+        /// <summary>&quot;Type of constraint. Possible values: `primary_key`, `unique`, `foreign_key`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }

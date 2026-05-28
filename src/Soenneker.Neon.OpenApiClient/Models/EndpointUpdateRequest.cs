@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest_endpoint? Endpoint { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint? Endpoint { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest_endpoint Endpoint { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint Endpoint { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "endpoint", n => { Endpoint = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest_endpoint>(global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest_endpoint.CreateFromDiscriminatorValue); } },
+                { "endpoint", n => { Endpoint = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint>(global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequest_endpoint>("endpoint", Endpoint);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint>("endpoint", Endpoint);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

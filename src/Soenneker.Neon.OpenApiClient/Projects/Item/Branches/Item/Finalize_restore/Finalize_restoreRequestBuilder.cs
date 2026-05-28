@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_rest
         {
         }
         /// <summary>
-        /// Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.**Note**: This endpoint is currently in Beta.
+        /// &quot;Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -43,11 +43,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_rest
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore.Finalize_restorePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.FinalizeRestoreBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore.Finalize_restorePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.FinalizeRestoreBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,18 +59,18 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_rest
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.**Note**: This endpoint is currently in Beta.
+        /// &quot;Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore.Finalize_restorePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.FinalizeRestoreBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore.Finalize_restorePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.FinalizeRestoreBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

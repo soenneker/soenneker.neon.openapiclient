@@ -36,17 +36,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count
         /// <summary>
         /// Retrieves the total number of branches in the specified project.Supports an optional `search` parameter to count branches matching a name filter.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CountProjectBranches200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CountProjectBranches200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CountProjectBranches200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Count
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchesCountResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CountProjectBranches200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CountProjectBranches200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the total number of branches in the specified project.Supports an optional `search` parameter to count branches matching a name filter.

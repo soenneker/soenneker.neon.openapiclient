@@ -15,22 +15,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.</summary>
-        [Obsolete("")]
+        /// <summary>The pgbouncer_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData? PgbouncerSettings { get; set; }
+        public string? PgbouncerSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData PgbouncerSettings { get; set; }
+        public string PgbouncerSettings { get; set; }
 #endif
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings? PgSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings PgSettings { get; set; }
 #endif
         /// <summary>The shared libraries to preload into the project&apos;s compute instances.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,8 +64,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData.CreateFromDiscriminatorValue); } },
-                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData.CreateFromDiscriminatorValue); } },
+                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings>(global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings.CreateFromDiscriminatorValue); } },
+                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetStringValue(); } },
                 { "preload_libraries", n => { PreloadLibraries = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>(global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,8 +76,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData>("pgbouncer_settings", PgbouncerSettings);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData>("pg_settings", PgSettings);
+            writer.WriteStringValue("pgbouncer_settings", PgbouncerSettings);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings>("pg_settings", PgSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>("preload_libraries", PreloadLibraries);
             writer.WriteAdditionalData(AdditionalData);
         }

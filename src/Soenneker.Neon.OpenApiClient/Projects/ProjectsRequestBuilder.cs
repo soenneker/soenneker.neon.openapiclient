@@ -61,17 +61,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects
         /// <summary>
         /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListProjects200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,7 +79,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.ProjectsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjects200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).

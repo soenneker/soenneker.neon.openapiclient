@@ -55,17 +55,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         /// <summary>
         /// Retrieves a list of branches for the specified project.Each Neon project has a root branch named `main`.A `branch_id` value has a `br-` prefix.A project may contain child branches that were branched from `main` or from another branch.A parent branch is identified by the `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranches200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder.BranchesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranches200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder.BranchesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder.BranchesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranches200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder.BranchesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,7 +73,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranches200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranches200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a branch in the specified project.No request body is required, but you can specify one to create a compute endpoint or select a non-default parent branch.By default, the branch is created from the project&apos;s default branch with no compute endpoint, and the branch name is auto-generated.To access the branch, add a `read_write` endpoint.Each branch supports one read-write endpoint and multiple read-only endpoints.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
@@ -85,11 +85,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -127,11 +127,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranch body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranch body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

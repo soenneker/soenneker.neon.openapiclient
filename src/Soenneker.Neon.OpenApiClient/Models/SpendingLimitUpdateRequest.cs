@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Monthly spending cap in cents. Must be positive. To remove apreviously configured limit, send a DELETE request to thespending_limit endpoint — `0` and `null` are rejected here.The cap is alert-only: notifications fire at 80% and 100%, butcomputes are not suspended. Setting a cap below the period&apos;salready-accrued spend is permitted and will trigger theover-limit notification on the next worker run.</summary>
+        /// <summary>&quot;Monthly spending cap in cents. Must be positive. To remove apreviously configured limit, send a DELETE request to thespending_limit endpoint — `0` and `null` are rejected here.The cap is alert-only: notifications fire at 80% and 100%, butcomputes are not suspended. Setting a cap below the period&apos;salready-accrued spend is permitted and will trigger theover-limit notification on the next worker run.&quot;</summary>
         public long? SpendingLimitCents { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitUpdateRequest"/> and sets the default values.

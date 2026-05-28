@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration</summary>
+    /// <summary>&quot;How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BranchRecoveryInfo_deletion_method
     {

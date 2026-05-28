@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
         /// <summary>
         /// Transfers selected projects, identified by their IDs, from your organization to another specified organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
                 { "422", global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.EmptyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Transfers selected projects, identified by their IDs, from your organization to another specified organization.

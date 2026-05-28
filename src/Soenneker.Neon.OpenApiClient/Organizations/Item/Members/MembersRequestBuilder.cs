@@ -49,17 +49,17 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
         /// <summary>
         /// Retrieves a paginated list of members for the specified organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of members for the specified organization.

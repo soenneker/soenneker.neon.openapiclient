@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? AutoSignInAfterVerification { get; set; }
         /// <summary>Whether to disable new user sign ups</summary>
         public bool? DisableSignUp { get; set; }
-        /// <summary>The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email</summary>
+        /// <summary>&quot;The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod? EmailVerificationMethod { get; set; }
         /// <summary>Whether email and password authentication is enabled</summary>
         public bool? Enabled { get; set; }

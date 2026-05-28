@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Neon.OpenApiClient.Consumption_history.Account;
 using Soenneker.Neon.OpenApiClient.Consumption_history.Projects;
 using Soenneker.Neon.OpenApiClient.Consumption_history.V2;
 using System.Collections.Generic;
@@ -17,11 +16,6 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Consumption_historyRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The account property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Consumption_history.Account.AccountRequestBuilder Account
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Consumption_history.Account.AccountRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The projects property</summary>
         public global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder Projects
         {

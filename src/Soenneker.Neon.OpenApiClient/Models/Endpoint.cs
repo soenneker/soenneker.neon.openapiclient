@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Host { get; set; }
 #endif
-        /// <summary>The compute endpoint ID. Compute endpoint IDs have an `ep-` prefix. For example: `ep-little-smoke-851426`</summary>
+        /// <summary>&quot;The compute endpoint ID. Compute endpoint IDs have an `ep-` prefix. For example: `ep-little-smoke-851426`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -80,9 +80,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? PendingState { get; set; }
         /// <summary>Whether connection pooling is enabled for the compute endpoint</summary>
         public bool? PoolerEnabled { get; set; }
-        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
-        [Obsolete("")]
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
+        /// <summary>The pooler_mode property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PoolerMode { get; set; }
+#nullable restore
+#else
+        public string PoolerMode { get; set; }
+#endif
         /// <summary>The ID of the project to which the compute endpoint belongs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,7 +178,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "passwordless_access", n => { PasswordlessAccess = n.GetBoolValue(); } },
                 { "pending_state", n => { PendingState = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointState>(); } },
                 { "pooler_enabled", n => { PoolerEnabled = n.GetBoolValue(); } },
-                { "pooler_mode", n => { PoolerMode = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode>(); } },
+                { "pooler_mode", n => { PoolerMode = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "provisioner", n => { Provisioner = n.GetStringValue(); } },
                 { "proxy_host", n => { ProxyHost = n.GetStringValue(); } },
@@ -208,7 +213,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteBoolValue("passwordless_access", PasswordlessAccess);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointState>("pending_state", PendingState);
             writer.WriteBoolValue("pooler_enabled", PoolerEnabled);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode>("pooler_mode", PoolerMode);
+            writer.WriteStringValue("pooler_mode", PoolerMode);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("provisioner", Provisioner);
             writer.WriteStringValue("proxy_host", ProxyHost);

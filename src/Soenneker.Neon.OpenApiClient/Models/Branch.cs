@@ -26,10 +26,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The resolved user model that contains details of the user/org/integration/api_key used for branch creation. This field is filled only in listing/get/create/get/update/delete methods, if it is empty when calling other handlers, it does not mean that it is empty in the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.Branch_created_by? CreatedBy { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy? CreatedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.Branch_created_by CreatedBy { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy CreatedBy { get; set; }
 #endif
         /// <summary>The branch creation source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? Default { get; set; }
         /// <summary>The timestamp when the branch is scheduled to expire and be automatically deleted. Must be set by the client following the [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) format with precision up to seconds (such as 2025-06-09T18:02:16Z). Deletion is performed by a background job and may not occur exactly at the specified time.Access to this feature is currently limited to participants in the Early Access Program.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The branch ID. This value is generated when a branch is created. A `branch_id` value has a `br` prefix. For example: `br-small-term-683261`.</summary>
+        /// <summary>&quot;The branch ID. This value is generated when a branch is created. A `branch_id` value has a `br` prefix. For example: `br-small-term-683261`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -197,7 +197,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "compute_time_seconds", n => { ComputeTimeSeconds = n.GetLongValue(); } },
                 { "cpu_used_sec", n => { CpuUsedSec = n.GetLongValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.Branch_created_by>(global::Soenneker.Neon.OpenApiClient.Models.Branch_created_by.CreateFromDiscriminatorValue); } },
+                { "created_by", n => { CreatedBy = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy.CreateFromDiscriminatorValue); } },
                 { "creation_source", n => { CreationSource = n.GetStringValue(); } },
                 { "current_state", n => { CurrentState = n.GetStringValue(); } },
                 { "data_transfer_bytes", n => { DataTransferBytes = n.GetLongValue(); } },
@@ -237,7 +237,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteLongValue("compute_time_seconds", ComputeTimeSeconds);
             writer.WriteLongValue("cpu_used_sec", CpuUsedSec);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.Branch_created_by>("created_by", CreatedBy);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy>("created_by", CreatedBy);
             writer.WriteStringValue("creation_source", CreationSource);
             writer.WriteStringValue("current_state", CurrentState);
             writer.WriteLongValue("data_transfer_bytes", DataTransferBytes);

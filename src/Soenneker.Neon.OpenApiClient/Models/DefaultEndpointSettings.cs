@@ -19,22 +19,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.</summary>
-        [Obsolete("")]
+        /// <summary>The pgbouncer_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData? PgbouncerSettings { get; set; }
+        public string? PgbouncerSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData PgbouncerSettings { get; set; }
+        public string PgbouncerSettings { get; set; }
 #endif
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings? PgSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings PgSettings { get; set; }
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
         public long? SuspendTimeoutSeconds { get; set; }
@@ -65,8 +64,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 { "autoscaling_limit_max_cu", n => { AutoscalingLimitMaxCu = n.GetDoubleValue(); } },
                 { "autoscaling_limit_min_cu", n => { AutoscalingLimitMinCu = n.GetDoubleValue(); } },
-                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData.CreateFromDiscriminatorValue); } },
-                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData.CreateFromDiscriminatorValue); } },
+                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings.CreateFromDiscriminatorValue); } },
+                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetStringValue(); } },
                 { "suspend_timeout_seconds", n => { SuspendTimeoutSeconds = n.GetLongValue(); } },
             };
         }
@@ -79,8 +78,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("autoscaling_limit_max_cu", AutoscalingLimitMaxCu);
             writer.WriteDoubleValue("autoscaling_limit_min_cu", AutoscalingLimitMinCu);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgbouncerSettingsData>("pgbouncer_settings", PgbouncerSettings);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PgSettingsData>("pg_settings", PgSettings);
+            writer.WriteStringValue("pgbouncer_settings", PgbouncerSettings);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings>("pg_settings", PgSettings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
             writer.WriteAdditionalData(AdditionalData);
         }

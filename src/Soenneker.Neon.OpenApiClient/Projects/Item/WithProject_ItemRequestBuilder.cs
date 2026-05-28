@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Advisors;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Auth;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches;
@@ -35,11 +34,6 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder Advisors
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The auth property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.AuthRequestBuilder Auth
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The available_preload_libraries property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries.Available_preload_librariesRequestBuilder Available_preload_libraries
@@ -166,18 +160,18 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         /// <summary>
         /// Updates the specified project.Configurable properties include the project name, default compute settings, history retention period, and IP allowlist.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.UpdateProject200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.UpdateProject200?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.UpdateProject200> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -186,7 +180,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.UpdateProject200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.UpdateProject200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the specified project and all its endpoints, branches, databases, and users.Deleted projects can be recovered within 7 days using `POST /projects/{project_id}/recover`.To list recoverable projects, use `GET /projects?recoverable=true`.

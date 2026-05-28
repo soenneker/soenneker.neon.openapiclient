@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
         {
         }
         /// <summary>
-        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
+        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -43,11 +43,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.RestoreSnapshot body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.RestoreSnapshot body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,18 +59,18 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
+        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.RestoreSnapshot body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestorePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.RestoreSnapshot body, Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder.RestoreRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -90,7 +90,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.
+        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RestoreRequestBuilderPostQueryParameters 

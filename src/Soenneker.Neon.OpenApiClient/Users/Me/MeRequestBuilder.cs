@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Users.Me.Organizations;
-using Soenneker.Neon.OpenApiClient.Users.Me.Projects;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -23,11 +22,6 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me
         public global::Soenneker.Neon.OpenApiClient.Users.Me.Organizations.OrganizationsRequestBuilder Organizations
         {
             get => new global::Soenneker.Neon.OpenApiClient.Users.Me.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Users.Me.MeRequestBuilder"/> and sets the default values.

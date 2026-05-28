@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
         /// <summary>
         /// Retrieves consumption metrics for Scale, Business, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 403 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
                 { "429", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves consumption metrics for Scale, Business, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
@@ -114,14 +114,14 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
             /// <summary>Specify the granularity of consumption metrics.Hourly, daily, and monthly metrics are available for the last 168 hours, 60 days,and 1 year, respectively.</summary>
             [QueryParameter("granularity")]
             public global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryGranularity? Granularity { get; set; }
-            /// <summary>The field is deprecated. Please use `metrics` instead.If `metrics` is specified, this field is ignored.Include metrics utilized in previous pricing models.- **data_storage_bytes_hour**: The sum of the maximum observed storage values for each hour,  which never decreases.</summary>
+            /// <summary>&quot;The field is deprecated. Please use `metrics` instead.If `metrics` is specified, this field is ignored.Include metrics utilized in previous pricing models.- **data_storage_bytes_hour**: The sum of the maximum observed storage values for each hour,  which never decreases.&quot;</summary>
             [Obsolete("")]
             [QueryParameter("include_v1_metrics")]
             public bool? IncludeV1Metrics { get; set; }
             /// <summary>Specify a value from 1 to 100 to limit number of projects in the response.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Specify a list of metrics to include in the response.If omitted, active_time, compute_time, written_data, synthetic_storage_size are returned.Possible values:- `active_time_seconds`- `compute_time_seconds`- `written_data_bytes`- `synthetic_storage_size_bytes`- `data_storage_bytes_hour`- `logical_size_bytes`- `logical_size_bytes_hour`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=cpu_seconds&amp;metrics=ram_bytes`- As a comma-separated list in a single parameter value: `metrics=cpu_seconds,ram_bytes`</summary>
+            /// <summary>&quot;Specify a list of metrics to include in the response.If omitted, active_time, compute_time, written_data, synthetic_storage_size are returned.Possible values:- `active_time_seconds`- `compute_time_seconds`- `written_data_bytes`- `synthetic_storage_size_bytes`- `data_storage_bytes_hour`- `logical_size_bytes`- `logical_size_bytes_hour`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=cpu_seconds&amp;metrics=ram_bytes`- As a comma-separated list in a single parameter value: `metrics=cpu_seconds,ram_bytes`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metrics")]
@@ -141,7 +141,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
 #endif
-            /// <summary>Specify a list of project IDs to filter the response.If omitted, the response will contain all projects.A list of project IDs can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `project_ids=cold-poetry-09157238%20&amp;project_ids=quiet-snow-71788278`- As a comma-separated list in a single parameter value: `project_ids=cold-poetry-09157238,quiet-snow-71788278`</summary>
+            /// <summary>&quot;Specify a list of project IDs to filter the response.If omitted, the response will contain all projects.A list of project IDs can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `project_ids=cold-poetry-09157238%20&amp;project_ids=quiet-snow-71788278`- As a comma-separated list in a single parameter value: `project_ids=cold-poetry-09157238,quiet-snow-71788278`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("project_ids")]

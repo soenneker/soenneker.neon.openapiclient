@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
+        /// &quot;Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: \&quot;sms\&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig"/></returns>
         /// <param name="body">The request body</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.
             return requestInfo;
         }
         /// <summary>
-        /// Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: &quot;sms&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.
+        /// &quot;Updates the phone number plugin configuration for Neon Auth.Only the fields provided in the request body are updated; omitted fields retain their current values.The phone number plugin enables phone-based OTP authentication.OTP codes are delivered via the `send.otp` webhook event with `delivery_preference: \&quot;sms\&quot;`.A webhook must be configured with the `send.otp` event enabled for SMS delivery to work.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

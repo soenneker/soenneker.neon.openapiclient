@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest_branch? Branch { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch? Branch { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest_branch Branch { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch Branch { get; set; }
 #endif
         /// <summary>The endpoints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "branch", n => { Branch = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest_branch>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest_branch.CreateFromDiscriminatorValue); } },
+                { "branch", n => { Branch = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch.CreateFromDiscriminatorValue); } },
                 { "endpoints", n => { Endpoints = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest_branch>("branch", Branch);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch>("branch", Branch);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions>("endpoints", Endpoints);
             writer.WriteAdditionalData(AdditionalData);
         }
