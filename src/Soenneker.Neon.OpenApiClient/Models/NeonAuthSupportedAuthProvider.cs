@@ -16,10 +16,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Stack,
         #pragma warning restore CS1591
-        [EnumMember(Value = "stack_v2")]
-        #pragma warning disable CS1591
-        Stack_v2,
-        #pragma warning restore CS1591
         [EnumMember(Value = "better_auth")]
         #pragma warning disable CS1591
         Better_auth,

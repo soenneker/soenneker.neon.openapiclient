@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
         {
         }
         /// <summary>
-        /// Retrieves consumption metrics for Launch, Scale, Agent, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
+        /// Returns consumption metrics for up to `limit` projects per page. If `project_ids` is omitted,projects in the organization are included across pages (use `cursor`). If `project_ids` isprovided, the response is limited to those projects (up to 100). Available for accounts onLaunch, Scale, Agent, Business, and Enterprise plans.History starts when the account upgrades to an eligible plan.The `metrics` query parameter is required. Supported values:`compute_unit_seconds`, `root_branch_bytes_month`, `child_branch_bytes_month`,`instant_restore_bytes_month`, `public_network_transfer_bytes`, `private_network_transfer_bytes`,`extra_branches_month`, `snapshot_storage_bytes_month`.Consumption metrics within each project are returned in ascending time order (oldest first).This request does not wake project computes.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves consumption metrics for Launch, Scale, Agent, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
+        /// Returns consumption metrics for up to `limit` projects per page. If `project_ids` is omitted,projects in the organization are included across pages (use `cursor`). If `project_ids` isprovided, the response is limited to those projects (up to 100). Available for accounts onLaunch, Scale, Agent, Business, and Enterprise plans.History starts when the account upgrades to an eligible plan.The `metrics` query parameter is required. Supported values:`compute_unit_seconds`, `root_branch_bytes_month`, `child_branch_bytes_month`,`instant_restore_bytes_month`, `public_network_transfer_bytes`, `private_network_transfer_bytes`,`extra_branches_month`, `snapshot_storage_bytes_month`.Consumption metrics within each project are returned in ascending time order (oldest first).This request does not wake project computes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,12 +93,12 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             return new global::Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects.ProjectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves consumption metrics for Launch, Scale, Agent, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
+        /// Returns consumption metrics for up to `limit` projects per page. If `project_ids` is omitted,projects in the organization are included across pages (use `cursor`). If `project_ids` isprovided, the response is limited to those projects (up to 100). Available for accounts onLaunch, Scale, Agent, Business, and Enterprise plans.History starts when the account upgrades to an eligible plan.The `metrics` query parameter is required. Supported values:`compute_unit_seconds`, `root_branch_bytes_month`, `child_branch_bytes_month`,`instant_restore_bytes_month`, `public_network_transfer_bytes`, `private_network_transfer_bytes`,`extra_branches_month`, `snapshot_storage_bytes_month`.Consumption metrics within each project are returned in ascending time order (oldest first).This request does not wake project computes.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProjectsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Specify the cursor value from the previous response to get the next batch of projects.</summary>
+            /// <summary>Cursor from the previous response (`pagination.cursor`). Pass it to fetch the next pageof projects. Pages are ordered by project creation order (newest first).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("cursor")]
@@ -108,16 +108,16 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
-            /// <summary>Specify the start `date-time` for the consumption period.The `date-time` value is rounded according to the specified `granularity`.For example, `2024-03-15T15:30:00Z` for `daily` granularity will be rounded to `2024-03-15T00:00:00Z`.The specified `date-time` value must respect the specified `granularity`:- For `hourly`, consumption metrics are limited to the last 168 hours.- For `daily`, consumption metrics are limited to the last 60 days.- For `monthly`, consumption metrics are limited to the last year.The consumption history is available starting from `March 1, 2024, at 00:00:00 UTC`.</summary>
+            /// <summary>Specify the start `date-time` for the consumption period.The `date-time` value is rounded according to the specified `granularity`.For example, `2024-03-15T15:30:00Z` for `daily` granularity will be rounded to `2024-03-15T00:00:00Z`.The specified `date-time` value must respect the specified `granularity`:- For `hourly`, consumption metrics are limited to the last 168 hours.- For `daily`, consumption metrics are limited to the last 60 days.- For `monthly`, consumption metrics are limited to the last year.The earliest allowed `from` value is `March 1, 2024, at 00:00:00 UTC`.Metrics are returned from when the account upgraded to an eligible plan, which may belater than that date.</summary>
             [QueryParameter("from")]
             public DateTimeOffset? From { get; set; }
             /// <summary>Specify the granularity of consumption metrics.Hourly, daily, and monthly metrics are available for the last 168 hours, 60 days,and 1 year, respectively.</summary>
             [QueryParameter("granularity")]
             public global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryGranularity? Granularity { get; set; }
-            /// <summary>Specify a value from 1 to 100 to limit number of projects in the response.</summary>
+            /// <summary>&quot;Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.&quot;</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>&quot;Specify a list of metrics to include in the response.Possible values:- `compute_unit_seconds`- `root_branch_bytes_month`- `child_branch_bytes_month`- `instant_restore_bytes_month`- `public_network_transfer_bytes`- `private_network_transfer_bytes`- `extra_branches_month`- `snapshot_storage_bytes_month`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=compute_unit_seconds&amp;metrics=extra_branches_month`- As a comma-separated list in a single parameter value: `metrics=compute_unit_seconds,extra_branches_month`&quot;</summary>
+            /// <summary>Required. List the metrics to return. Supported values:- `compute_unit_seconds`- `root_branch_bytes_month`- `child_branch_bytes_month`- `instant_restore_bytes_month`- `public_network_transfer_bytes`- `private_network_transfer_bytes`- `extra_branches_month`- `snapshot_storage_bytes_month`Pass multiple values as repeated query parameters or a comma-separated list:- `metrics=compute_unit_seconds&amp;metrics=extra_branches_month`- `metrics=compute_unit_seconds,extra_branches_month`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metrics")]
@@ -127,7 +127,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             [QueryParameter("metrics")]
             public string[] Metrics { get; set; }
 #endif
-            /// <summary>Specify the organization for which the project consumption metrics should be returned.If this parameter is not provided, the endpoint will return the metrics for theauthenticated user&apos;s projects.</summary>
+            /// <summary>Organization ID. Metrics are returned for projects in this organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("org_id")]
@@ -137,7 +137,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
 #endif
-            /// <summary>&quot;Specify a list of project IDs to filter the response.If omitted, the response will contain all projects.A list of project IDs can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `project_ids=cold-poetry-09157238%20&amp;project_ids=quiet-snow-71788278`- As a comma-separated list in a single parameter value: `project_ids=cold-poetry-09157238,quiet-snow-71788278`&quot;</summary>
+            /// <summary>Optional project IDs to filter the response (up to 100). If omitted, projects in theorganization are included across pages (use `cursor` and `limit`).Pass multiple IDs as repeated query parameters or a comma-separated list:- `project_ids=cold-poetry-09157238&amp;project_ids=quiet-snow-71788278`- `project_ids=cold-poetry-09157238,quiet-snow-71788278`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("project_ids")]
@@ -147,7 +147,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             [QueryParameter("project_ids")]
             public string[] ProjectIds { get; set; }
 #endif
-            /// <summary>Specify the end `date-time` for the consumption period.The `date-time` value is rounded according to the specified granularity.For example, `2024-03-15T15:30:00Z` for `daily` granularity will be rounded to `2024-03-15T00:00:00Z`.The specified `date-time` value must respect the specified `granularity`:- For `hourly`, consumption metrics are limited to the last 168 hours.- For `daily`, consumption metrics are limited to the last 60 days.- For `monthly`, consumption metrics are limited to the last year.</summary>
+            /// <summary>Specify the end `date-time` for the consumption period.The `date-time` value is rounded according to the specified `granularity`.For example, `2024-03-15T15:30:00Z` for `daily` granularity will be rounded to `2024-03-15T00:00:00Z`.The specified `date-time` value must respect the specified `granularity`:- For `hourly`, consumption metrics are limited to the last 168 hours.- For `daily`, consumption metrics are limited to the last 60 days.- For `monthly`, consumption metrics are limited to the last year.</summary>
             [QueryParameter("to")]
             public DateTimeOffset? To { get; set; }
         }
