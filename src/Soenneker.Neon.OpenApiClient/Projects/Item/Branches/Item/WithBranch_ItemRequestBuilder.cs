@@ -8,7 +8,6 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymize;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymized_status;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
@@ -53,11 +52,6 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule.Backup_scheduleRequestBuilder Backup_schedule
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule.Backup_scheduleRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The buckets property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.BucketsRequestBuilder Buckets
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The compare_schema property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema.Compare_schemaRequestBuilder Compare_schema
