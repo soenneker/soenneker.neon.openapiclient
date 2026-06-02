@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\compare_schema
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\compare_schema
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Compare_schemaRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schem
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Compare_schemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/compare_schema?db_name={db_name}{&base_branch_id*,base_lsn*,base_timestamp*,lsn*,timestamp*}", pathParameters)
+        public Compare_schemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/compare_schema?db_name={db_name}{&base_branch_id*,base_lsn*,base_timestamp*,lsn*,timestamp*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schem
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Compare_schemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/compare_schema?db_name={db_name}{&base_branch_id*,base_lsn*,base_timestamp*,lsn*,timestamp*}", rawUrl)
+        public Compare_schemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/compare_schema?db_name={db_name}{&base_branch_id*,base_lsn*,base_timestamp*,lsn*,timestamp*}", rawUrl)
         {
         }
         /// <summary>

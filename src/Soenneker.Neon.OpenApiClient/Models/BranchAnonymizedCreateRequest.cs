@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Annotation properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value? AnnotationValue { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue? AnnotationValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value AnnotationValue { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue AnnotationValue { get; set; }
 #endif
         /// <summary>The branch_create property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotation_value", n => { AnnotationValue = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value>(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value.CreateFromDiscriminatorValue); } },
+                { "annotation_value", n => { AnnotationValue = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue>(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue.CreateFromDiscriminatorValue); } },
                 { "branch_create", n => { BranchCreate = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest>(global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest.CreateFromDiscriminatorValue); } },
                 { "masking_rules", n => { MaskingRules = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>(global::Soenneker.Neon.OpenApiClient.Models.MaskingRule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start_anonymization", n => { StartAnonymization = n.GetBoolValue(); } },
@@ -78,7 +78,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest_annotation_value>("annotation_value", AnnotationValue);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue>("annotation_value", AnnotationValue);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest>("branch_create", BranchCreate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>("masking_rules", MaskingRules);
             writer.WriteBoolValue("start_anonymization", StartAnonymization);

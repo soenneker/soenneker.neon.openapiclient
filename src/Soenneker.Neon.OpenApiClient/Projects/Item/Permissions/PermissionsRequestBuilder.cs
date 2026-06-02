@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Permissions
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\permissions
+    /// Builds and executes requests for operations under \projects\{projectId}\permissions
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PermissionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item.permissions.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermission_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermission_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermissionItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermissionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("permission_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermission_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("permissionId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Permissions.Item.WithPermissionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Permissions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/permissions", pathParameters)
+        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/permissions", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Permissions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/permissions", rawUrl)
+        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/permissions", rawUrl)
         {
         }
         /// <summary>

@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
         /// <summary>
         /// Retrieves consumption metrics for Scale, Business, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 403 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
                 { "429", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProject200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves consumption metrics for Scale, Business, and Enterprise plan projects. History begins at the time of upgrade.Results are ordered by time in ascending order (oldest to newest).Issuing a call to this API does not wake a project&apos;s compute endpoint.

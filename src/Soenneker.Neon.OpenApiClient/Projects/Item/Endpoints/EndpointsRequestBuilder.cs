@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\endpoints
+    /// Builds and executes requests for operations under \projects\{projectId}\endpoints
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EndpointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item.endpoints.item collection</summary>
         /// <param name="position">The endpoint ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpoint_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpoint_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpointItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpointItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("endpoint_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpoint_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("endpointId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints.Item.WithEndpointItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EndpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/endpoints", pathParameters)
+        public EndpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/endpoints", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EndpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/endpoints", rawUrl)
+        public EndpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/endpoints", rawUrl)
         {
         }
         /// <summary>

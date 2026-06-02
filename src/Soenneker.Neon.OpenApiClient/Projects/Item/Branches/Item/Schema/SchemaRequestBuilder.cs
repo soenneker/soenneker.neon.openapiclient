@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\schema
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\schema
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SchemaRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SchemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/schema?db_name={db_name}{&format*,lsn*,timestamp*}", pathParameters)
+        public SchemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/schema?db_name={db_name}{&format*,lsn*,timestamp*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SchemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/schema?db_name={db_name}{&format*,lsn*,timestamp*}", rawUrl)
+        public SchemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/schema?db_name={db_name}{&format*,lsn*,timestamp*}", rawUrl)
         {
         }
         /// <summary>

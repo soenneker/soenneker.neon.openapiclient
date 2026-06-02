@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The json property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON? Json { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson? Json { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON Json { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson Json { get; set; }
 #endif
         /// <summary>The sql property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "json", n => { Json = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON>(global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON.CreateFromDiscriminatorValue); } },
+                { "json", n => { Json = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson>(global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson.CreateFromDiscriminatorValue); } },
                 { "sql", n => { Sql = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJSON>("json", Json);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson>("json", Json);
             writer.WriteStringValue("sql", Sql);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\auth\oauth_providers
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\auth\oauth_providers
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Oauth_providersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item.branches.item.auth.oauth_providers.item collection</summary>
         /// <param name="position">The OAuth provider ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOauth_provider_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOauth_provider_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOAuthProviderItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOAuthProviderItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("oauth_provider_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOauth_provider_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("oAuthProviderId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Item.WithOAuthProviderItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Oauth_providersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/oauth_providers", pathParameters)
+        public Oauth_providersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/auth/oauth_providers", pathParameters)
         {
         }
         /// <summary>
@@ -43,23 +43,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Oauth_providersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/oauth_providers", rawUrl)
+        public Oauth_providersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/auth/oauth_providers", rawUrl)
         {
         }
         /// <summary>
         /// Lists the OAuth providers configured for the specified branch&apos;s Neon Auth integration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOAuthProvidersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOAuthProvidersResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOAuthProvidersResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,23 +67,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOauthProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOAuthProvidersResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListNeonAuthOAuthProvidersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds an OAuth provider configuration to the specified branch&apos;s Neon Auth integration.After adding, users can authenticate using the configured provider.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAddOAuthProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAddOAuthProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAddOAuthProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthAddOAuthProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,7 +92,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProvider.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the OAuth providers configured for the specified branch&apos;s Neon Auth integration.

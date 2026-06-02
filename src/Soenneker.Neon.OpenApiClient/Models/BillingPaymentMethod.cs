@@ -9,7 +9,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "UNKNOWN")]
         #pragma warning disable CS1591
-        UNKNOWN,
+        Unknown,
         #pragma warning restore CS1591
         [EnumMember(Value = "none")]
         #pragma warning disable CS1591
@@ -21,19 +21,19 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "direct_payment")]
         #pragma warning disable CS1591
-        Direct_payment,
+        DirectPayment,
         #pragma warning restore CS1591
         [EnumMember(Value = "aws_mp")]
         #pragma warning disable CS1591
-        Aws_mp,
+        AwsMp,
         #pragma warning restore CS1591
         [EnumMember(Value = "azure_mp")]
         #pragma warning disable CS1591
-        Azure_mp,
+        AzureMp,
         #pragma warning restore CS1591
         [EnumMember(Value = "vercel_mp")]
         #pragma warning disable CS1591
-        Vercel_mp,
+        VercelMp,
         #pragma warning restore CS1591
         [EnumMember(Value = "staff")]
         #pragma warning disable CS1591
@@ -49,7 +49,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "shared_payment_token")]
         #pragma warning disable CS1591
-        Shared_payment_token,
+        SharedPaymentToken,
         #pragma warning restore CS1591
     }
 }

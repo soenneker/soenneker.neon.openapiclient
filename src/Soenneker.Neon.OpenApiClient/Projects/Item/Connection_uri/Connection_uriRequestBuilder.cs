@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\connection_uri
+    /// Builds and executes requests for operations under \projects\{projectId}\connection_uri
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Connection_uriRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connection_uriRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/connection_uri?database_name={database_name}&role_name={role_name}{&branch_id*,endpoint_id*,pooled*}", pathParameters)
+        public Connection_uriRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/connection_uri?database_name={database_name}&role_name={role_name}{&branch_id*,endpoint_id*,pooled*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Connection_uriRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/connection_uri?database_name={database_name}&role_name={role_name}{&branch_id*,endpoint_id*,pooled*}", rawUrl)
+        public Connection_uriRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/connection_uri?database_name={database_name}&role_name={role_name}{&branch_id*,endpoint_id*,pooled*}", rawUrl)
         {
         }
         /// <summary>
         /// Retrieves a connection URI for the specified database.The URI uses the standard PostgreSQL connection string format. Set `pooled=true` to include the `-pooler` suffix for a connection pooler URI.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConnectionUriResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri.Connection_uriRequestBuilder.Connection_uriRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ConnectionUriResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri.Connection_uriRequestBuilder.Connection_uriRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri.Connection_uriRequestBuilder.Connection_uriRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ConnectionUriResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri.Connection_uriRequestBuilder.Connection_uriRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ConnectionURIResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ConnectionUriResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ConnectionUriResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a connection URI for the specified database.The URI uses the standard PostgreSQL connection string format. Set `pooled=true` to include the `-pooler` suffix for a connection pooler URI.

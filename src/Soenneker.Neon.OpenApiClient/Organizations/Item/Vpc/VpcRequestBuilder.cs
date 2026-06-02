@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\vpc
+    /// Builds and executes requests for operations under \organizations\{org-id}\vpc
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VpcRequestBuilder : BaseRequestBuilder
@@ -31,7 +31,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VpcRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/vpc", pathParameters)
+        public VpcRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc", pathParameters)
         {
         }
         /// <summary>
@@ -39,7 +39,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VpcRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/vpc", rawUrl)
+        public VpcRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc", rawUrl)
         {
         }
     }

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\billing\spending_limit
+    /// Builds and executes requests for operations under \organizations\{org-id}\billing\spending_limit
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Spending_limitRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spending_limitRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/billing/spending_limit", pathParameters)
+        public Spending_limitRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/billing/spending_limit", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spending_limitRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/billing/spending_limit", rawUrl)
+        public Spending_limitRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/billing/spending_limit", rawUrl)
         {
         }
         /// <summary>
         /// Removes the configured monthly spending limit for the specified organization.Idempotent — removing an already-unset limit still succeeds.Available to organization admins on Launch and Scale plans only.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit.Spending_limitDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit.Spending_limitDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit.Spending_limitDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit.Spending_limitDeleteResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit.Spending_limitDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.&quot;

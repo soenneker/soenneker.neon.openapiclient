@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\members
+    /// Builds and executes requests for operations under \organizations\{org-id}\members
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.organizations.item.members.item collection</summary>
         /// <param name="position">The Neon organization member ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMember_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMember_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMemberItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMemberItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("member_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMember_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("memberId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item.WithMemberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/members{?cursor*,limit*,sort_by*,sort_order*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/members{?cursor*,limit*,sort_by*,sort_order*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,23 +43,23 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/members{?cursor*,limit*,sort_by*,sort_order*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/members{?cursor*,limit*,sort_by*,sort_order*}", rawUrl)
         {
         }
         /// <summary>
         /// Retrieves a paginated list of members for the specified organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of members for the specified organization.
@@ -118,10 +118,10 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members
             public int? Limit { get; set; }
             /// <summary>Sort the members by the specified field. Defaults to `joined_at`.</summary>
             [QueryParameter("sort_by")]
-            public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.GetSort_byQueryParameterType? SortBy { get; set; }
+            public global::Soenneker.Neon.OpenApiClient.Models.GetOrganizationMembersSortByParameter? SortBy { get; set; }
             /// <summary>Defines the sorting order of entities.</summary>
             [QueryParameter("sort_order")]
-            public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Members.GetSort_orderQueryParameterType? SortOrder { get; set; }
+            public global::Soenneker.Neon.OpenApiClient.Models.SortOrderParam? SortOrder { get; set; }
         }
     }
 }

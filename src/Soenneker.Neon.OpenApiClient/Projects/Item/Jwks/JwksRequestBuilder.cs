@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\jwks
+    /// Builds and executes requests for operations under \projects\{projectId}\jwks
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JwksRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item.jwks.item collection</summary>
         /// <param name="position">The JWKS ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwks_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwks_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwksItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwksItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("jwks_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwks_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jwksId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.Item.WithJwksItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JwksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/jwks", pathParameters)
+        public JwksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/jwks", pathParameters)
         {
         }
         /// <summary>
@@ -43,23 +43,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public JwksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/jwks", rawUrl)
+        public JwksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/jwks", rawUrl)
         {
         }
         /// <summary>
         /// Returns the JWKS URLs available for verifying JWTs used as the authentication mechanism for the specified project.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectJWKSResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectJwksResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ProjectJWKSResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ProjectJwksResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ProjectJWKSResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ProjectJwksResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,23 +67,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectJWKSResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectJWKSResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectJwksResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectJwksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a JWKS URL to the specified project for verifying JWTs used as the authentication mechanism.The URL must be a valid HTTPS URL that returns a JSON Web Key Set.The `provider_name` field allows you to specify which authentication provider you&apos;re using (e.g., Clerk, Auth0, AWS Cognito).The `branch_id` scopes the JWKS URL to specific branches; if not specified, it applies to all branches.The `role_names` scopes the URL to specific roles; if not specified, default roles are used (`authenticator`, `authenticated`, `anonymous`).The `jwt_audience` specifies which `aud` values are accepted in JWTs.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.JWKSCreationOperation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.JwksCreationOperation"/></returns>
         /// <param name="body">Add a new JWKS to a specific endpoint of a project</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.JWKSCreationOperation?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJWKSRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.JwksCreationOperation?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJwksRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.JWKSCreationOperation> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJWKSRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.JwksCreationOperation> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJwksRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,7 +92,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.JWKSCreationOperation>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.JWKSCreationOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.JwksCreationOperation>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.JwksCreationOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the JWKS URLs available for verifying JWTs used as the authentication mechanism for the specified project.
@@ -121,11 +121,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Jwks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJWKSRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJwksRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJWKSRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.AddProjectJwksRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

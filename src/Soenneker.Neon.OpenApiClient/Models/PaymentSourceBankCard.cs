@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Brand of credit card.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCard_brand? Brand { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCardBrand? Brand { get; set; }
         /// <summary>Credit card expiration month</summary>
         public long? ExpMonth { get; set; }
         /// <summary>Credit card expiration year</summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "brand", n => { Brand = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCard_brand>(); } },
+                { "brand", n => { Brand = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCardBrand>(); } },
                 { "exp_month", n => { ExpMonth = n.GetLongValue(); } },
                 { "exp_year", n => { ExpYear = n.GetLongValue(); } },
                 { "last4", n => { Last4 = n.GetStringValue(); } },
@@ -66,7 +66,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCard_brand>("brand", Brand);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCardBrand>("brand", Brand);
             writer.WriteLongValue("exp_month", ExpMonth);
             writer.WriteLongValue("exp_year", ExpYear);
             writer.WriteStringValue("last4", Last4);

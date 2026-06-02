@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_localhost
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\auth\allow_localhost
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\auth\allow_localhost
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Allow_localhostRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Allow_localhostRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/allow_localhost", pathParameters)
+        public Allow_localhostRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/auth/allow_localhost", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Allow_lo
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Allow_localhostRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/auth/allow_localhost", rawUrl)
+        public Allow_localhostRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/auth/allow_localhost", rawUrl)
         {
         }
         /// <summary>

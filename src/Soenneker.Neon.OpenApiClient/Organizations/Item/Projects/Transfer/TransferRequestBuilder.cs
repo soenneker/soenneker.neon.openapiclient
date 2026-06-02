@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\projects\transfer
+    /// Builds and executes requests for operations under \organizations\{org-id}\projects\transfer
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransferRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/projects/transfer", pathParameters)
+        public TransferRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/projects/transfer", pathParameters)
         {
         }
         /// <summary>
@@ -30,13 +30,13 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransferRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/projects/transfer", rawUrl)
+        public TransferRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/projects/transfer", rawUrl)
         {
         }
         /// <summary>
         /// Transfers selected projects, identified by their IDs, from your organization to another specified organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsFromOrgToOrg200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -45,11 +45,11 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsFromOrgToOrg200Response?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsFromOrgToOrg200Response> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsToOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer
                 { "422", global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Organizations.Item.Projects.Transfer.TransferPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsFromOrgToOrg200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TransferProjectsFromOrgToOrg200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Transfers selected projects, identified by their IDs, from your organization to another specified organization.

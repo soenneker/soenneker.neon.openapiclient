@@ -32,14 +32,14 @@ namespace Soenneker.Neon.OpenApiClient.Projects
         }
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item collection</summary>
         /// <param name="position">The Neon project ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProjectItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProjectItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("project_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProject_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("projectId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.WithProjectItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -61,17 +61,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects
         /// <summary>
         /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListProjects200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,23 +79,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjects200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -104,7 +104,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.ProjectsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a list of projects for the specified organization.If using a personal API key, include the `org_id` parameter to specify which organization to work with.If using an org API key, `org_id` is automatically inferred from the key.For more information, see [Manage organizations using the Neon API](https://neon.com/docs/manage/orgs-api)and [Manage projects](https://neon.com/docs/manage/projects/).

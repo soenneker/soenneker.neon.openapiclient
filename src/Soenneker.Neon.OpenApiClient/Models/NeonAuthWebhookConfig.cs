@@ -19,10 +19,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The enabled_events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig_enabled_events?>? EnabledEvents { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem?>? EnabledEvents { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig_enabled_events?> EnabledEvents { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem?> EnabledEvents { get; set; }
 #endif
         /// <summary>The timeout_seconds property</summary>
         public int? TimeoutSeconds { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "enabled_events", n => { EnabledEvents = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig_enabled_events>()?.AsList(); } },
+                { "enabled_events", n => { EnabledEvents = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem>()?.AsList(); } },
                 { "timeout_seconds", n => { TimeoutSeconds = n.GetIntValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -73,7 +73,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfig_enabled_events>("enabled_events", EnabledEvents);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem>("enabled_events", EnabledEvents);
             writer.WriteIntValue("timeout_seconds", TimeoutSeconds);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

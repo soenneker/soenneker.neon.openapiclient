@@ -31,7 +31,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string ClientSecret { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProviderId? Id { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? Id { get; set; }
         /// <summary>The microsoft_tenant_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProviderId>(); } },
+                { "id", n => { Id = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>(); } },
                 { "microsoft_tenant_id", n => { MicrosoftTenantId = n.GetStringValue(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOauthProviderId>("id", Id);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>("id", Id);
             writer.WriteStringValue("microsoft_tenant_id", MicrosoftTenantId);
             writer.WriteAdditionalData(AdditionalData);
         }

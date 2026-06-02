@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branches\{branch_id}\data-api
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\data-api
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DataApiRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.projects.item.branches.item.dataApi.item collection</summary>
         /// <param name="position">The database name</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabaseNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabaseNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("database_name", position);
-                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabase_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("databaseName", position);
+                return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.Item.WithDatabaseNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DataApiRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/data-api", pathParameters)
+        public DataApiRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/data-api", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DataApiRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branches/{branch_id}/data-api", rawUrl)
+        public DataApiRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/data-api", rawUrl)
         {
         }
     }

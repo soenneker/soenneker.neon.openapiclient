@@ -31,7 +31,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string AuthData { get; set; }
 #endif
         /// <summary>The auth_method property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse_auth_method? AuthMethod { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponseAuthMethod? AuthMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "auth_data", n => { AuthData = n.GetStringValue(); } },
-                { "auth_method", n => { AuthMethod = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse_auth_method>(); } },
+                { "auth_method", n => { AuthMethod = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponseAuthMethod>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("auth_data", AuthData);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponse_auth_method>("auth_method", AuthMethod);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AuthDetailsResponseAuthMethod>("auth_method", AuthMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

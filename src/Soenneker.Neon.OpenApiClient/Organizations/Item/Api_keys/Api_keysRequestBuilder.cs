@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\api_keys
+    /// Builds and executes requests for operations under \organizations\{org-id}\api_keys
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Api_keysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.organizations.item.api_keys.item collection</summary>
         /// <param name="position">The API key ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKey_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKeyItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKey_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("keyId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Item.WithKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Api_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/api_keys", pathParameters)
+        public Api_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/api_keys", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Api_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/api_keys", rawUrl)
+        public Api_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/api_keys", rawUrl)
         {
         }
         /// <summary>

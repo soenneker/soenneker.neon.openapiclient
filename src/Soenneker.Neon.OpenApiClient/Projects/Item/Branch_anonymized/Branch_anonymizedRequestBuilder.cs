@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\branch_anonymized
+    /// Builds and executes requests for operations under \projects\{projectId}\branch_anonymized
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Branch_anonymizedRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Branch_anonymizedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branch_anonymized", pathParameters)
+        public Branch_anonymizedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branch_anonymized", pathParameters)
         {
         }
         /// <summary>
@@ -30,24 +30,24 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Branch_anonymizedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/branch_anonymized", rawUrl)
+        public Branch_anonymizedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branch_anonymized", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreatedBranchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CreatedBranchResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.CreatedBranchResponse> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized.Branch_anonymizedPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CreatedBranchResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CreatedBranchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.This allows developers to work with masked production data.Optionally, provide `masking_rules` to set initial masking rules for the branchand `start_anonymization` to automatically start anonymization after creation. Thiscombines functionality of updating masking rules and starting anonymization into thebranch creation request.**Note**: This endpoint is currently in Beta.&quot;

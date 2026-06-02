@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The role assigned to the user who creates an organization</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig_creator_role? CreatorRole { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole? CreatorRole { get; set; }
         /// <summary>Whether the organization plugin is enabled</summary>
         public bool? Enabled { get; set; }
         /// <summary>Maximum number of members per organization</summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public NeonAuthOrganizationConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            CreatorRole = global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig_creator_role.Owner;
+            CreatorRole = global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole.Owner;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "creator_role", n => { CreatorRole = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig_creator_role>(); } },
+                { "creator_role", n => { CreatorRole = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "membership_limit", n => { MembershipLimit = n.GetIntValue(); } },
                 { "organization_limit", n => { OrganizationLimit = n.GetIntValue(); } },
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig_creator_role>("creator_role", CreatorRole);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole>("creator_role", CreatorRole);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteIntValue("membership_limit", MembershipLimit);
             writer.WriteIntValue("organization_limit", OrganizationLimit);

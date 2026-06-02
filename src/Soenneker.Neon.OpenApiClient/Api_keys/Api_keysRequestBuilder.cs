@@ -20,14 +20,14 @@ namespace Soenneker.Neon.OpenApiClient.Api_keys
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.api_keys.item collection</summary>
         /// <param name="position">The API key ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKey_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKey_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKeyItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("key_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKey_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("keyId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Api_keys.Item.WithKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

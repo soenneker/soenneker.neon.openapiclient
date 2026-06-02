@@ -10,7 +10,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "base")]
         #pragma warning disable CS1591
-        Base,
+        BaseValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "extended")]
         #pragma warning disable CS1591

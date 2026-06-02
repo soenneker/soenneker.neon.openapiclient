@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "better_auth")]
         #pragma warning disable CS1591
-        Better_auth,
+        BetterAuth,
         #pragma warning restore CS1591
     }
 }

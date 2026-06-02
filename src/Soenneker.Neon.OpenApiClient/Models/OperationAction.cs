@@ -9,131 +9,131 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "create_compute")]
         #pragma warning disable CS1591
-        Create_compute,
+        CreateCompute,
         #pragma warning restore CS1591
         [EnumMember(Value = "create_timeline")]
         #pragma warning disable CS1591
-        Create_timeline,
+        CreateTimeline,
         #pragma warning restore CS1591
         [EnumMember(Value = "start_compute")]
         #pragma warning disable CS1591
-        Start_compute,
+        StartCompute,
         #pragma warning restore CS1591
         [EnumMember(Value = "suspend_compute")]
         #pragma warning disable CS1591
-        Suspend_compute,
+        SuspendCompute,
         #pragma warning restore CS1591
         [EnumMember(Value = "apply_config")]
         #pragma warning disable CS1591
-        Apply_config,
+        ApplyConfig,
         #pragma warning restore CS1591
         [EnumMember(Value = "check_availability")]
         #pragma warning disable CS1591
-        Check_availability,
+        CheckAvailability,
         #pragma warning restore CS1591
         [EnumMember(Value = "delete_timeline")]
         #pragma warning disable CS1591
-        Delete_timeline,
+        DeleteTimeline,
         #pragma warning restore CS1591
         [EnumMember(Value = "create_branch")]
         #pragma warning disable CS1591
-        Create_branch,
+        CreateBranch,
         #pragma warning restore CS1591
         [EnumMember(Value = "import_data")]
         #pragma warning disable CS1591
-        Import_data,
+        ImportData,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant_ignore")]
         #pragma warning disable CS1591
-        Tenant_ignore,
+        TenantIgnore,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant_attach")]
         #pragma warning disable CS1591
-        Tenant_attach,
+        TenantAttach,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant_detach")]
         #pragma warning disable CS1591
-        Tenant_detach,
+        TenantDetach,
         #pragma warning restore CS1591
         [EnumMember(Value = "tenant_reattach")]
         #pragma warning disable CS1591
-        Tenant_reattach,
+        TenantReattach,
         #pragma warning restore CS1591
         [EnumMember(Value = "replace_safekeeper")]
         #pragma warning disable CS1591
-        Replace_safekeeper,
+        ReplaceSafekeeper,
         #pragma warning restore CS1591
         [EnumMember(Value = "disable_maintenance")]
         #pragma warning disable CS1591
-        Disable_maintenance,
+        DisableMaintenance,
         #pragma warning restore CS1591
         [EnumMember(Value = "apply_storage_config")]
         #pragma warning disable CS1591
-        Apply_storage_config,
+        ApplyStorageConfig,
         #pragma warning restore CS1591
         [EnumMember(Value = "prepare_secondary_pageserver")]
         #pragma warning disable CS1591
-        Prepare_secondary_pageserver,
+        PrepareSecondaryPageserver,
         #pragma warning restore CS1591
         [EnumMember(Value = "switch_pageserver")]
         #pragma warning disable CS1591
-        Switch_pageserver,
+        SwitchPageserver,
         #pragma warning restore CS1591
         [EnumMember(Value = "detach_parent_branch")]
         #pragma warning disable CS1591
-        Detach_parent_branch,
+        DetachParentBranch,
         #pragma warning restore CS1591
         [EnumMember(Value = "timeline_archive")]
         #pragma warning disable CS1591
-        Timeline_archive,
+        TimelineArchive,
         #pragma warning restore CS1591
         [EnumMember(Value = "timeline_unarchive")]
         #pragma warning disable CS1591
-        Timeline_unarchive,
+        TimelineUnarchive,
         #pragma warning restore CS1591
         [EnumMember(Value = "start_reserved_compute")]
         #pragma warning disable CS1591
-        Start_reserved_compute,
+        StartReservedCompute,
         #pragma warning restore CS1591
         [EnumMember(Value = "sync_dbs_and_roles_from_compute")]
         #pragma warning disable CS1591
-        Sync_dbs_and_roles_from_compute,
+        SyncDbsAndRolesFromCompute,
         #pragma warning restore CS1591
         [EnumMember(Value = "apply_schema_from_branch")]
         #pragma warning disable CS1591
-        Apply_schema_from_branch,
+        ApplySchemaFromBranch,
         #pragma warning restore CS1591
         [EnumMember(Value = "timeline_mark_invisible")]
         #pragma warning disable CS1591
-        Timeline_mark_invisible,
+        TimelineMarkInvisible,
         #pragma warning restore CS1591
         [EnumMember(Value = "timeline_update_protected_config")]
         #pragma warning disable CS1591
-        Timeline_update_protected_config,
+        TimelineUpdateProtectedConfig,
         #pragma warning restore CS1591
         [EnumMember(Value = "prewarm_replica")]
         #pragma warning disable CS1591
-        Prewarm_replica,
+        PrewarmReplica,
         #pragma warning restore CS1591
         [EnumMember(Value = "promote_replica")]
         #pragma warning disable CS1591
-        Promote_replica,
+        PromoteReplica,
         #pragma warning restore CS1591
         [EnumMember(Value = "set_storage_non_dirty")]
         #pragma warning disable CS1591
-        Set_storage_non_dirty,
+        SetStorageNonDirty,
         #pragma warning restore CS1591
         [EnumMember(Value = "swap_binding_id")]
         #pragma warning disable CS1591
-        Swap_binding_id,
+        SwapBindingId,
         #pragma warning restore CS1591
         [EnumMember(Value = "finalize_migration")]
         #pragma warning disable CS1591
-        Finalize_migration,
+        FinalizeMigration,
         #pragma warning restore CS1591
         [EnumMember(Value = "mark_migration_prepared")]
         #pragma warning disable CS1591
-        Mark_migration_prepared,
+        MarkMigrationPrepared,
         #pragma warning restore CS1591
     }
 }

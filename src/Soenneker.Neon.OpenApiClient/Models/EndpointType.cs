@@ -9,11 +9,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "read_only")]
         #pragma warning disable CS1591
-        Read_only,
+        ReadOnlyValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "read_write")]
         #pragma warning disable CS1591
-        Read_write,
+        ReadWrite,
         #pragma warning restore CS1591
     }
 }

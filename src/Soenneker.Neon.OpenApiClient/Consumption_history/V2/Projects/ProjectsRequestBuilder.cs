@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
         /// <summary>
         /// Returns consumption metrics for up to `limit` projects per page. If `project_ids` is omitted,projects in the organization are included across pages (use `cursor`). If `project_ids` isprovided, the response is limited to those projects (up to 100). Available for accounts onLaunch, Scale, Agent, Business, and Enterprise plans.History starts when the account upgrades to an eligible plan.The `metrics` query parameter is required. Supported values:`compute_unit_seconds`, `root_branch_bytes_month`, `child_branch_bytes_month`,`instant_restore_bytes_month`, `public_network_transfer_bytes`, `private_network_transfer_bytes`,`extra_branches_month`, `snapshot_storage_bytes_month`.Consumption metrics within each project are returned in ascending time order (oldest first).This request does not wake project computes.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 403 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects.ProjectsRequestBuilder.ProjectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
                 { "429", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetConsumptionHistoryPerProjectV2200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns consumption metrics for up to `limit` projects per page. If `project_ids` is omitted,projects in the organization are included across pages (use `cursor`). If `project_ids` isprovided, the response is limited to those projects (up to 100). Available for accounts onLaunch, Scale, Agent, Business, and Enterprise plans.History starts when the account upgrades to an eligible plan.The `metrics` query parameter is required. Supported values:`compute_unit_seconds`, `root_branch_bytes_month`, `child_branch_bytes_month`,`instant_restore_bytes_month`, `public_network_transfer_bytes`, `private_network_transfer_bytes`,`extra_branches_month`, `snapshot_storage_bytes_month`.Consumption metrics within each project are returned in ascending time order (oldest first).This request does not wake project computes.

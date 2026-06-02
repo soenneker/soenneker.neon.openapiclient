@@ -17,10 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Annotation properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch_annotations? Annotations { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch_annotations Annotations { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations Annotations { get; set; }
 #endif
         /// <summary>The database name. If not specified, the default database name, `neondb`, will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch_annotations>(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch_annotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations>(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations.CreateFromDiscriminatorValue); } },
                 { "database_name", n => { DatabaseName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "role_name", n => { RoleName = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch_annotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations>("annotations", Annotations);
             writer.WriteStringValue("database_name", DatabaseName);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("role_name", RoleName);

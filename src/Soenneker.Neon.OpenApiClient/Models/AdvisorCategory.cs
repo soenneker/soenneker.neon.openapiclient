@@ -9,11 +9,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "SECURITY")]
         #pragma warning disable CS1591
-        SECURITY,
+        Security,
         #pragma warning restore CS1591
         [EnumMember(Value = "PERFORMANCE")]
         #pragma warning disable CS1591
-        PERFORMANCE,
+        Performance,
         #pragma warning restore CS1591
     }
 }

@@ -20,10 +20,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The reasons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError_reasons>? Reasons { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>? Reasons { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError_reasons> Reasons { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem> Reasons { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reasons", n => { Reasons = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError_reasons>(global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError_reasons.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reasons", n => { Reasons = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>(global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanError_reasons>("reasons", Reasons);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>("reasons", Reasons);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

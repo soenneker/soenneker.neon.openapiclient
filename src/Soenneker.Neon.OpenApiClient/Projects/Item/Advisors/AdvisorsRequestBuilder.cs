@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{project_id}\advisors
+    /// Builds and executes requests for operations under \projects\{projectId}\advisors
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdvisorsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AdvisorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/advisors{?branch_id*,category*,database_name*,min_severity*}", pathParameters)
+        public AdvisorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/advisors{?branch_id*,category*,database_name*,min_severity*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,23 +30,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AdvisorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{project_id}/advisors{?branch_id*,category*,database_name*,min_severity*}", rawUrl)
+        public AdvisorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/advisors{?branch_id*,category*,database_name*,min_severity*}", rawUrl)
         {
         }
         /// <summary>
         /// Analyzes the database for security and performance issues.Returns a list of issues categorized by severity (ERROR, WARN, INFO).Requires read access to the project and Data API enabled.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssues200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder.AdvisorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssues200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder.AdvisorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder.AdvisorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssues200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder.AdvisorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsGetResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssues200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssues200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Analyzes the database for security and performance issues.Returns a list of issues categorized by severity (ERROR, WARN, INFO).Requires read access to the project and Data API enabled.
@@ -115,7 +115,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
 #endif
             /// <summary>Minimum severity level to include. For example, WARN returns WARN and ERROR issues, excluding INFO.</summary>
             [QueryParameter("min_severity")]
-            public global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.GetMin_severityQueryParameterType? MinSeverity { get; set; }
+            public global::Soenneker.Neon.OpenApiClient.Models.GetProjectAdvisorSecurityIssuesMinSeverityParameter? MinSeverity { get; set; }
         }
     }
 }

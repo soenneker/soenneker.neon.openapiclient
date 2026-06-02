@@ -9,27 +9,27 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         [EnumMember(Value = "UNKNOWN")]
         #pragma warning disable CS1591
-        UNKNOWN,
+        Unknown,
         #pragma warning restore CS1591
         [EnumMember(Value = "direct_sales")]
         #pragma warning disable CS1591
-        Direct_sales,
+        DirectSales,
         #pragma warning restore CS1591
         [EnumMember(Value = "direct_sales_v3")]
         #pragma warning disable CS1591
-        Direct_sales_v3,
+        DirectSalesV3,
         #pragma warning restore CS1591
         [EnumMember(Value = "aws_marketplace")]
         #pragma warning disable CS1591
-        Aws_marketplace,
+        AwsMarketplace,
         #pragma warning restore CS1591
         [EnumMember(Value = "free_v2")]
         #pragma warning disable CS1591
-        Free_v2,
+        FreeV2,
         #pragma warning restore CS1591
         [EnumMember(Value = "free_v3")]
         #pragma warning disable CS1591
-        Free_v3,
+        FreeV3,
         #pragma warning restore CS1591
         [EnumMember(Value = "launch")]
         #pragma warning disable CS1591
@@ -37,7 +37,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "launch_v3")]
         #pragma warning disable CS1591
-        Launch_v3,
+        LaunchV3,
         #pragma warning restore CS1591
         [EnumMember(Value = "scale")]
         #pragma warning disable CS1591
@@ -45,7 +45,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "scale_v3")]
         #pragma warning disable CS1591
-        Scale_v3,
+        ScaleV3,
         #pragma warning restore CS1591
         [EnumMember(Value = "business")]
         #pragma warning disable CS1591
@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "vercel_pg_legacy")]
         #pragma warning disable CS1591
-        Vercel_pg_legacy,
+        VercelPgLegacy,
         #pragma warning restore CS1591
     }
 }

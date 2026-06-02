@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org_-id}\vpc\region\{region_id}\vpc_endpoints
+    /// Builds and executes requests for operations under \organizations\{org-id}\vpc\region\{regionId}\vpc_endpoints
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Vpc_endpointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.organizations.item.vpc.region.item.vpc_endpoints.item collection</summary>
         /// <param name="position">The VPC endpoint ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpc_endpoint_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpc_endpoint_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpcEndpointItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpcEndpointItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("vpc_endpoint_id", position);
-                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpc_endpoint_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("vpcEndpointId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_endpoints.Item.WithVpcEndpointItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_en
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Vpc_endpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/vpc/region/{region_id}/vpc_endpoints", pathParameters)
+        public Vpc_endpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc/region/{regionId}/vpc_endpoints", pathParameters)
         {
         }
         /// <summary>
@@ -43,23 +43,23 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_en
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Vpc_endpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org_%2Did}/vpc/region/{region_id}/vpc_endpoints", rawUrl)
+        public Vpc_endpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc/region/{regionId}/vpc_endpoints", rawUrl)
         {
         }
         /// <summary>
         /// Retrieves the list of VPC endpoints for the specified Neon organization.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.VPCEndpointsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.VpcEndpointsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.VPCEndpointsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.VpcEndpointsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.VPCEndpointsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.VpcEndpointsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item.Vpc_en
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.VPCEndpointsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.VPCEndpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.VpcEndpointsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.VpcEndpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the list of VPC endpoints for the specified Neon organization.

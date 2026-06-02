@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string Detail { get; set; }
 #endif
         /// <summary>Whether this issue affects external API exposure or is internal only</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_facing? Facing { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueFacing? Facing { get; set; }
         /// <summary>Severity level of the issue</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,10 +59,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Additional context-specific metadata</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_metadata? Metadata { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_metadata Metadata { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>Unique identifier for the issue type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,9 +117,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "categories", n => { Categories = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.AdvisorCategory>()?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "facing", n => { Facing = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_facing>(); } },
+                { "facing", n => { Facing = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueFacing>(); } },
                 { "level", n => { Level = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_metadata>(global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueMetadataProperty>(global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "remediation", n => { Remediation = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -136,9 +136,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.AdvisorCategory>("categories", Categories);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_facing>("facing", Facing);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueFacing>("facing", Facing);
             writer.WriteStringValue("level", Level);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssue_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AdvisorIssueMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("remediation", Remediation);
             writer.WriteStringValue("title", Title);

@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Timestamp when the branch was deleted</summary>
         public DateTimeOffset? DeletedAt { get; set; }
         /// <summary>&quot;How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration&quot;</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo_deletion_method? DeletionMethod { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod? DeletionMethod { get; set; }
         /// <summary>Timestamp when the recovery window expires and the branch will be permanently deleted</summary>
         public DateTimeOffset? RecoverableUntil { get; set; }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
-                { "deletion_method", n => { DeletionMethod = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo_deletion_method>(); } },
+                { "deletion_method", n => { DeletionMethod = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod>(); } },
                 { "recoverable_until", n => { RecoverableUntil = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("deleted_at", DeletedAt);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo_deletion_method>("deletion_method", DeletionMethod);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod>("deletion_method", DeletionMethod);
             writer.WriteDateTimeOffsetValue("recoverable_until", RecoverableUntil);
             writer.WriteAdditionalData(AdditionalData);
         }

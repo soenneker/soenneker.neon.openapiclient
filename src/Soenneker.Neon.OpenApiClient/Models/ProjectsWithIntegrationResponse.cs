@@ -20,10 +20,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The projects property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse_projects>? Projects { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem>? Projects { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse_projects> Projects { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem> Projects { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse_projects>(global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse_projects.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "projects", n => { Projects = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem>(global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponse_projects>("projects", Projects);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem>("projects", Projects);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

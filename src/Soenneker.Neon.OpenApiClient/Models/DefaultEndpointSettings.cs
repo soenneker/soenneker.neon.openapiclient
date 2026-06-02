@@ -30,10 +30,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings? PgSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings PgSettings { get; set; }
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
         public long? SuspendTimeoutSeconds { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 { "autoscaling_limit_max_cu", n => { AutoscalingLimitMaxCu = n.GetDoubleValue(); } },
                 { "autoscaling_limit_min_cu", n => { AutoscalingLimitMinCu = n.GetDoubleValue(); } },
-                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings.CreateFromDiscriminatorValue); } },
+                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings.CreateFromDiscriminatorValue); } },
                 { "pgbouncer_settings", n => { PgbouncerSettings = n.GetStringValue(); } },
                 { "suspend_timeout_seconds", n => { SuspendTimeoutSeconds = n.GetLongValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteDoubleValue("autoscaling_limit_max_cu", AutoscalingLimitMaxCu);
             writer.WriteDoubleValue("autoscaling_limit_min_cu", AutoscalingLimitMinCu);
             writer.WriteStringValue("pgbouncer_settings", PgbouncerSettings);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings_pg_settings>("pg_settings", PgSettings);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings>("pg_settings", PgSettings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
             writer.WriteAdditionalData(AdditionalData);
         }

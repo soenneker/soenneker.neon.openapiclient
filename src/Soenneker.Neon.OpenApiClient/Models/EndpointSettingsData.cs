@@ -26,10 +26,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings? PgSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings PgSettings { get; set; }
 #endif
         /// <summary>The shared libraries to preload into the project&apos;s compute instances.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings>(global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings.CreateFromDiscriminatorValue); } },
+                { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings>(global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings.CreateFromDiscriminatorValue); } },
                 { "pgbouncer_settings", n => { PgbouncerSettings = n.GetStringValue(); } },
                 { "preload_libraries", n => { PreloadLibraries = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>(global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries.CreateFromDiscriminatorValue); } },
             };
@@ -77,7 +77,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("pgbouncer_settings", PgbouncerSettings);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData_pg_settings>("pg_settings", PgSettings);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings>("pg_settings", PgSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>("preload_libraries", PreloadLibraries);
             writer.WriteAdditionalData(AdditionalData);
         }

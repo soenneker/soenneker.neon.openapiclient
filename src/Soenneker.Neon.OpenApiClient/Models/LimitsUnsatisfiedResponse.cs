@@ -18,10 +18,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The limits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse_limits>? Limits { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponseLimitsItem>? Limits { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse_limits> Limits { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponseLimitsItem> Limits { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "limits", n => { Limits = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse_limits>(global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse_limits.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "limits", n => { Limits = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponseLimitsItem>(global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponseLimitsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponse_limits>("limits", Limits);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.LimitsUnsatisfiedResponseLimitsItem>("limits", Limits);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
