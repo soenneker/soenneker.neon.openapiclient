@@ -24,6 +24,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public NeonAuthPhoneNumberConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            Enabled = false;
+            OtpExpiresIn = 300;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

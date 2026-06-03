@@ -26,6 +26,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public NeonAuthMagicLinkConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            DisableSignUp = false;
+            Enabled = false;
+            ExpiresIn = 5;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

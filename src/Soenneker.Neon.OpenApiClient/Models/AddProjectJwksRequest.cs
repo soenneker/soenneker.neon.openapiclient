@@ -64,6 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public AddProjectJwksRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            SkipRoleCreation = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

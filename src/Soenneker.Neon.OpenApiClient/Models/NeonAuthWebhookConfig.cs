@@ -40,6 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public NeonAuthWebhookConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            TimeoutSeconds = 5;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

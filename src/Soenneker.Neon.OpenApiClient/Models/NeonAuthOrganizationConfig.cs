@@ -31,6 +31,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CreatorRole = global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole.Owner;
+            Enabled = true;
+            MembershipLimit = 100;
+            OrganizationLimit = 10;
+            SendInvitationEmail = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -118,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBranchItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}{?hard_delete*}", pathParameters)
+        public WithBranchItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}", pathParameters)
         {
         }
         /// <summary>
@@ -126,7 +126,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithBranchItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}{?hard_delete*}", rawUrl)
+        public WithBranchItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}", rawUrl)
         {
         }
         /// <summary>

@@ -38,6 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public RestoreSnapshotRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            FinalizeRestore = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
