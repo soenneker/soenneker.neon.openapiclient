@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.BranchesRequestBuilder.BranchesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/projects/{projectId}/branches{?cursor*,include_deleted*,limit*,search*,sort_by*,sort_order*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -135,7 +135,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/projects/{projectId}/branches", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

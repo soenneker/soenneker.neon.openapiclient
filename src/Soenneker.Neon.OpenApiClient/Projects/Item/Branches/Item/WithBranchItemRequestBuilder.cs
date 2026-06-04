@@ -214,7 +214,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranchItemRequestBuilder.WithBranchItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/projects/{projectId}/branches/{branchId}{?hard_delete*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
