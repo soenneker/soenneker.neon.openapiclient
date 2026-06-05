@@ -8311,6 +8311,9 @@
             "type": "string",
             "description": "A timestamp indicating the project will be recoverable until this date and time.",
             "format": "date-time"
+          },
+          "effective_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
           }
         },
         "description": "Essential data about the project. Full data is available at the getProject endpoint.\n",
@@ -8779,6 +8782,34 @@
         "x-sensitive": [
           "email"
         ]
+      },
+      "ProjectPermissionLevel": {
+        "enum": [
+          "CAN_VIEW",
+          "CAN_EDIT",
+          "CAN_MANAGE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The caller\u0027s effective permission for a project list item when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "x-ms-enum": {
+          "name": "ProjectPermissionLevel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CAN_VIEW",
+              "name": "CanView"
+            },
+            {
+              "value": "CAN_EDIT",
+              "name": "CanEdit"
+            },
+            {
+              "value": "CAN_MANAGE",
+              "name": "CanManage"
+            }
+          ]
+        }
       },
       "ConsumptionHistoryPerAccountResponse": {
         "required": [

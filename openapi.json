@@ -9386,6 +9386,9 @@
                         "description": "A timestamp indicating the project will be recoverable until this date and time.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "effective_project_permission": {
+                        "$ref": "#/components/schemas/ProjectPermissionLevel"
                     }
                 },
                 "example": {
@@ -9949,6 +9952,15 @@
                         "maxLength": 256
                     }
                 }
+            },
+            "ProjectPermissionLevel": {
+                "type": "string",
+                "enum": [
+                    "CAN_VIEW",
+                    "CAN_EDIT",
+                    "CAN_MANAGE"
+                ],
+                "description": "The caller's effective permission for a project list item when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n"
             },
             "ConsumptionHistoryPerAccountResponse": {
                 "type": "object",
