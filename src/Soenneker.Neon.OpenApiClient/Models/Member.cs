@@ -26,7 +26,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The role of the organization member</summary>
+        /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.MemberRole? Role { get; set; }
         /// <summary>The user_id property</summary>
         public Guid? UserId { get; set; }

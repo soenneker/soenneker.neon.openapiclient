@@ -11355,11 +11355,14 @@
       "MemberRole": {
         "enum": [
           "admin",
-          "member"
+          "member",
+          "editor",
+          "viewer",
+          "collaborator"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The role of the organization member",
+        "description": "The role of the organization member. Some role values may not be\navailable for all organizations.\n",
         "x-ms-enum": {
           "name": "MemberRole",
           "modelAsString": false,
@@ -11371,6 +11374,18 @@
             {
               "value": "member",
               "name": "Member"
+            },
+            {
+              "value": "editor",
+              "name": "Editor"
+            },
+            {
+              "value": "viewer",
+              "name": "Viewer"
+            },
+            {
+              "value": "collaborator",
+              "name": "Collaborator"
             }
           ]
         }
@@ -16012,6 +16027,10 @@
     {
       "name": "Auth (legacy)",
       "description": "These methods allow you to create and manage Neon Auth projects. Deprecated. See routes with the \u0060Auth\u0060 tag instead."
+    },
+    {
+      "name": "Storage",
+      "description": "These methods allow you to inspect branchable object-storage state for Neon branches."
     }
   ]
 }

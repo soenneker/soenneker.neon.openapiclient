@@ -84,6 +84,10 @@
         {
             "name": "Auth (legacy)",
             "description": "These methods allow you to create and manage Neon Auth projects. Deprecated. See routes with the `Auth` tag instead."
+        },
+        {
+            "name": "Storage",
+            "description": "These methods allow you to inspect branchable object-storage state for Neon branches."
         }
     ],
     "paths": {
@@ -12500,11 +12504,14 @@
                 }
             },
             "MemberRole": {
-                "description": "The role of the organization member",
+                "description": "The role of the organization member. Some role values may not be\navailable for all organizations.\n",
                 "type": "string",
                 "enum": [
                     "admin",
-                    "member"
+                    "member",
+                    "editor",
+                    "viewer",
+                    "collaborator"
                 ]
             },
             "Member": {

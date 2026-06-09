@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The role of the organization member</summary>
+        /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.MemberRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrganizationMemberUpdateRequest"/> and sets the default values.

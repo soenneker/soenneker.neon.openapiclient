@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>The role of the organization member</summary>
+    /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MemberRole
     {
@@ -14,6 +14,18 @@ namespace Soenneker.Neon.OpenApiClient.Models
         [EnumMember(Value = "member")]
         #pragma warning disable CS1591
         Member,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "editor")]
+        #pragma warning disable CS1591
+        Editor,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "viewer")]
+        #pragma warning disable CS1591
+        Viewer,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "collaborator")]
+        #pragma warning disable CS1591
+        Collaborator,
         #pragma warning restore CS1591
     }
 }
