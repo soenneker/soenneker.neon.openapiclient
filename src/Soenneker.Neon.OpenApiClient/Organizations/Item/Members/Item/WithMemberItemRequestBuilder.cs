@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.Member>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.Member.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the role of an existing member in the specified organization.Supported roles are `admin` and `member`.Only organization admins can call this endpoint.
+        /// Updates the role of an existing member in the specified organization.The requested role must be valid for the organization.Only organization admins can call this endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.Member"/></returns>
         /// <param name="body">The request body</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Members.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the role of an existing member in the specified organization.Supported roles are `admin` and `member`.Only organization admins can call this endpoint.
+        /// Updates the role of an existing member in the specified organization.The requested role must be valid for the organization.Only organization admins can call this endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

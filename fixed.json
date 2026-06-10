@@ -6304,7 +6304,7 @@
           "Organizations"
         ],
         "summary": "Update role for organization member",
-        "description": "Updates the role of an existing member in the specified organization.\nSupported roles are \u0060admin\u0060 and \u0060member\u0060.\nOnly organization admins can call this endpoint.\n",
+        "description": "Updates the role of an existing member in the specified organization.\nThe requested role must be valid for the organization.\nOnly organization admins can call this endpoint.\n",
         "operationId": "UpdateOrganizationMember",
         "requestBody": {
           "content": {
@@ -6313,7 +6313,7 @@
                 "$ref": "#/components/schemas/OrganizationMemberUpdateRequest"
               },
               "example": {
-                "role": "admin"
+                "role": "member"
               }
             }
           }

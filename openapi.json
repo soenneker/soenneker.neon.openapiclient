@@ -7342,7 +7342,7 @@
             },
             "patch": {
                 "summary": "Update role for organization member",
-                "description": "Updates the role of an existing member in the specified organization.\nSupported roles are `admin` and `member`.\nOnly organization admins can call this endpoint.\n",
+                "description": "Updates the role of an existing member in the specified organization.\nThe requested role must be valid for the organization.\nOnly organization admins can call this endpoint.\n",
                 "tags": [
                     "Organizations"
                 ],
@@ -7355,7 +7355,7 @@
                                 "$ref": "#/components/schemas/OrganizationMemberUpdateRequest"
                             },
                             "example": {
-                                "role": "admin"
+                                "role": "member"
                             }
                         }
                     }
