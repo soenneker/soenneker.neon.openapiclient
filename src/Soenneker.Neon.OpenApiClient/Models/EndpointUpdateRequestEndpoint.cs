@@ -39,7 +39,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>NOT YET IMPLEMENTED. Whether to permit passwordless access to the compute endpoint.</summary>
         public bool? PasswordlessAccess { get; set; }
-        /// <summary>Whether to enable connection pooling for the compute endpoint</summary>
+        /// <summary>DEPRECATED. Whether to enable connection pooling for the compute endpoint.The recommended way to enable connection pooling is to append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
         [Obsolete("")]
         public bool? PoolerEnabled { get; set; }
         /// <summary>The pooler_mode property</summary>

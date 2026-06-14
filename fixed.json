@@ -10181,7 +10181,8 @@
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "Whether connection pooling is enabled for the compute endpoint\n"
+            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
+            "deprecated": true
           },
           "pooler_mode": {
             "type": "string"
@@ -14547,7 +14548,7 @@
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "Whether to enable connection pooling for the compute endpoint\n",
+            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
             "deprecated": true
           },
           "pooler_mode": {
@@ -14602,7 +14603,7 @@
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "Whether to enable connection pooling for the compute endpoint\n",
+            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
             "deprecated": true
           },
           "pooler_mode": {
