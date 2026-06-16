@@ -8811,20 +8811,6 @@
           ]
         }
       },
-      "ConsumptionHistoryPerAccountResponse": {
-        "required": [
-          "periods"
-        ],
-        "type": "object",
-        "properties": {
-          "periods": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsumptionHistoryPerPeriod"
-            }
-          }
-        }
-      },
       "ConsumptionHistoryPerProjectResponse": {
         "required": [
           "projects"
@@ -15404,7 +15390,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Required. Communication protocol used to send telemetry data. Options: grpc, http.\n\u0022",
+        "description": "\u0022Required. Communication protocol used to send telemetry data. Options: grpc, http.\nFor gRPC, the endpoint must include an explicit port.\n\u0022",
         "x-ms-enum": {
           "name": "TelemetryConnectionProtocol",
           "modelAsString": false,
