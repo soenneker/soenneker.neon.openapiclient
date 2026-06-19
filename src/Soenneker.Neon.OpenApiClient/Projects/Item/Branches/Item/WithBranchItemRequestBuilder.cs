@@ -14,7 +14,6 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema;
@@ -82,11 +81,6 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder Masking_rules
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The recover property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder Recover
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The restore property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore.RestoreRequestBuilder Restore

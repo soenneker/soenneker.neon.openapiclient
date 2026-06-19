@@ -3663,53 +3663,6 @@
         }
       ]
     },
-    "/projects/{projectId}/branches/{branchId}/recover": {
-      "post": {
-        "tags": [
-          "Branch"
-        ],
-        "summary": "Recover a deleted branch",
-        "description": "Recovers a deleted branch within the 7-day deletion recovery period.\nThe branch must have been soft deleted and not yet permanently deleted.\nRecovery restores the branch and its endpoints to an idle state.\nConnection strings remain valid after recovery.\nTTL branches become non-TTL branches after recovery.\n\nTo list deleted branches available for recovery, use \u0060GET /projects/{project_id}/branches?include_deleted=true\u0060.\n",
-        "operationId": "RecoverProjectBranch",
-        "responses": {
-          "200": {
-            "description": "Recovered the specified branch",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BranchRecoverResponse"
-                }
-              }
-            }
-          },
-          "default": {
-            "$ref": "#/components/responses/GeneralError"
-          }
-        }
-      },
-      "parameters": [
-        {
-          "name": "projectId",
-          "in": "path",
-          "description": "The Neon project ID",
-          "required": true,
-          "schema": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
-          }
-        },
-        {
-          "name": "branchId",
-          "in": "path",
-          "description": "The branch ID",
-          "required": true,
-          "schema": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
-          }
-        }
-      ]
-    },
     "/projects/{projectId}/branches/{branchId}/finalize_restore": {
       "post": {
         "tags": [
