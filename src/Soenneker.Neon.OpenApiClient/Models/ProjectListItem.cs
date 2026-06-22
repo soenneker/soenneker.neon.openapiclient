@@ -46,8 +46,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>A timestamp indicating when the project was deleted</summary>
         public DateTimeOffset? DeletedAt { get; set; }
-        /// <summary>The caller&apos;s effective permission for a project list item whenper-project permissions are enabled. Values correspond to viewer,editor, and admin/manage project access levels. Omitted for personalprojects, flag-off organizations, and non-user subjects.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? EffectiveProjectPermission { get; set; }
+        /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. Values correspond to viewer,editor, and admin/manage project access levels. Omitted for personalprojects, flag-off organizations, and non-user subjects.</summary>
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission? EffectiveProjectPermission { get; set; }
         /// <summary>A timestamp indicating when HIPAA was enabled for this project</summary>
         public DateTimeOffset? HipaaEnabledAt { get; set; }
         /// <summary>The number of seconds to retain the shared history for all branches in this project.</summary>
@@ -181,7 +181,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "creation_source", n => { CreationSource = n.GetStringValue(); } },
                 { "default_endpoint_settings", n => { DefaultEndpointSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings.CreateFromDiscriminatorValue); } },
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
-                { "effective_project_permission", n => { EffectiveProjectPermission = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel>(); } },
+                { "effective_project_permission", n => { EffectiveProjectPermission = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission>(); } },
                 { "hipaa_enabled_at", n => { HipaaEnabledAt = n.GetDateTimeOffsetValue(); } },
                 { "history_retention_seconds", n => { HistoryRetentionSeconds = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -219,7 +219,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("creation_source", CreationSource);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings>("default_endpoint_settings", DefaultEndpointSettings);
             writer.WriteDateTimeOffsetValue("deleted_at", DeletedAt);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel>("effective_project_permission", EffectiveProjectPermission);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission>("effective_project_permission", EffectiveProjectPermission);
             writer.WriteDateTimeOffsetValue("hipaa_enabled_at", HipaaEnabledAt);
             writer.WriteIntValue("history_retention_seconds", HistoryRetentionSeconds);
             writer.WriteStringValue("id", Id);

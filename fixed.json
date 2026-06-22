@@ -7183,23 +7183,33 @@
           }
         }
       },
-      "BranchAnonymizedCreateRequestAllOf2": {
-        "type": "object",
-        "properties": {
-          "branch_create": {
-            "$ref": "#/components/schemas/BranchCreateRequest"
-          },
-          "masking_rules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MaskingRule"
+      "ProjectListItemEffectiveProjectPermission": {
+        "enum": [
+          "CAN_VIEW",
+          "CAN_EDIT",
+          "CAN_MANAGE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "ProjectListItemEffectiveProjectPermission",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CAN_VIEW",
+              "name": "CanView"
             },
-            "description": "List of masking rules to apply to the branch.\n"
-          },
-          "start_anonymization": {
-            "type": "boolean",
-            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n"
-          }
+            {
+              "value": "CAN_EDIT",
+              "name": "CanEdit"
+            },
+            {
+              "value": "CAN_MANAGE",
+              "name": "CanManage"
+            }
+          ]
         }
       },
       "OrgApiKeysListResponseItemAllOf2": {
@@ -8266,7 +8276,7 @@
             "format": "date-time"
           },
           "effective_project_permission": {
-            "$ref": "#/components/schemas/ProjectPermissionLevel"
+            "$ref": "#/components/schemas/ProjectListItemEffectiveProjectPermission"
           }
         },
         "description": "Essential data about the project. Full data is available at the getProject endpoint.\n",
@@ -8473,6 +8483,9 @@
             "type": "string",
             "description": "A timestamp indicating when HIPAA was enabled for this project",
             "format": "date-time"
+          },
+          "effective_project_permission": {
+            "$ref": "#/components/schemas/ProjectEffectiveProjectPermission"
           }
         },
         "example": {
@@ -8744,7 +8757,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project list item when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
         "x-ms-enum": {
           "name": "ProjectPermissionLevel",
           "modelAsString": false,
@@ -14093,6 +14106,54 @@
           },
           "scheduled_maintenances": {
             "type": "integer"
+          }
+        }
+      },
+      "ProjectEffectiveProjectPermission": {
+        "enum": [
+          "CAN_VIEW",
+          "CAN_EDIT",
+          "CAN_MANAGE"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "ProjectEffectiveProjectPermission",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "CAN_VIEW",
+              "name": "CanView"
+            },
+            {
+              "value": "CAN_EDIT",
+              "name": "CanEdit"
+            },
+            {
+              "value": "CAN_MANAGE",
+              "name": "CanManage"
+            }
+          ]
+        }
+      },
+      "BranchAnonymizedCreateRequestAllOf2": {
+        "type": "object",
+        "properties": {
+          "branch_create": {
+            "$ref": "#/components/schemas/BranchCreateRequest"
+          },
+          "masking_rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MaskingRule"
+            },
+            "description": "List of masking rules to apply to the branch.\n"
+          },
+          "start_anonymization": {
+            "type": "boolean",
+            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n"
           }
         }
       },

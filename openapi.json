@@ -9220,7 +9220,13 @@
                         "format": "date-time"
                     },
                     "effective_project_permission": {
-                        "$ref": "#/components/schemas/ProjectPermissionLevel"
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ProjectPermissionLevel"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "example": {
@@ -9422,6 +9428,15 @@
                         "description": "A timestamp indicating when HIPAA was enabled for this project",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "effective_project_permission": {
+                        "type": "string",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ProjectPermissionLevel"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "example": {
@@ -9792,7 +9807,7 @@
                     "CAN_EDIT",
                     "CAN_MANAGE"
                 ],
-                "description": "The caller's effective permission for a project list item when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n"
+                "description": "The caller's effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n"
             },
             "ConsumptionHistoryPerProjectResponse": {
                 "type": "object",

@@ -53,6 +53,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
 #endif
+        /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. Values correspond to viewer,editor, and admin/manage project access levels. Omitted for personalprojects, flag-off organizations, and non-user subjects.</summary>
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectEffectiveProjectPermission? EffectiveProjectPermission { get; set; }
         /// <summary>A timestamp indicating when HIPAA was enabled for this project</summary>
         public DateTimeOffset? HipaaEnabledAt { get; set; }
         /// <summary>The number of seconds to retain the shared history for all branches in this project.</summary>
@@ -192,6 +194,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "data_storage_bytes_hour", n => { DataStorageBytesHour = n.GetLongValue(); } },
                 { "data_transfer_bytes", n => { DataTransferBytes = n.GetLongValue(); } },
                 { "default_endpoint_settings", n => { DefaultEndpointSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings.CreateFromDiscriminatorValue); } },
+                { "effective_project_permission", n => { EffectiveProjectPermission = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectEffectiveProjectPermission>(); } },
                 { "hipaa_enabled_at", n => { HipaaEnabledAt = n.GetDateTimeOffsetValue(); } },
                 { "history_retention_seconds", n => { HistoryRetentionSeconds = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -234,6 +237,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteLongValue("data_storage_bytes_hour", DataStorageBytesHour);
             writer.WriteLongValue("data_transfer_bytes", DataTransferBytes);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings>("default_endpoint_settings", DefaultEndpointSettings);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectEffectiveProjectPermission>("effective_project_permission", EffectiveProjectPermission);
             writer.WriteDateTimeOffsetValue("hipaa_enabled_at", HipaaEnabledAt);
             writer.WriteIntValue("history_retention_seconds", HistoryRetentionSeconds);
             writer.WriteStringValue("id", Id);
