@@ -4,21 +4,27 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Ai_gateway;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymize;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymized_status;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Set_as_default;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -32,6 +38,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithBranchItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ai_gateway property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Ai_gateway.Ai_gatewayRequestBuilder Ai_gateway
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Ai_gateway.Ai_gatewayRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The anonymize property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Anonymize.AnonymizeRequestBuilder Anonymize
         {
@@ -52,10 +63,20 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule.Backup_scheduleRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The buckets property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.BucketsRequestBuilder Buckets
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The compare_schema property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema.Compare_schemaRequestBuilder Compare_schema
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema.Compare_schemaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The credentials property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.CredentialsRequestBuilder Credentials
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.CredentialsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dataApi property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.DataApiRequestBuilder DataApi
@@ -77,10 +98,20 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore.Finalize_restoreRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The functions property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.FunctionsRequestBuilder Functions
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.FunctionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The masking_rules property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder Masking_rules
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The recover property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder Recover
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover.RecoverRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The restore property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore.RestoreRequestBuilder Restore
@@ -106,6 +137,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotRequestBuilder Snapshot
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The storage property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage.StorageRequestBuilder Storage
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage.StorageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranchItemRequestBuilder"/> and sets the default values.

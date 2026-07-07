@@ -9,14 +9,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SnapshotUpdateRequestSnapshot : IAdditionalDataHolder, IParsable
+    public partial class NeonFunctionUpdateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date and time when the snapshot will expire.Omit to leave the current expiration unchanged. Send `null` toclear the expiration so the snapshot never expires. A futuretimestamp sets the absolute expiration.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>New display name for the function. `null` clears the displayname; the function&apos;s `name` then falls back to its slug. Leadingand trailing whitespace is trimmed; a whitespace-only name isrejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -25,21 +23,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionUpdateRequest"/> and sets the default values.
         /// </summary>
-        public SnapshotUpdateRequestSnapshot()
+        public NeonFunctionUpdateRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionUpdateRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot();
+            return new global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionUpdateRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +47,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -60,7 +57,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

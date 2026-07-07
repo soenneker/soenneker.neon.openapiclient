@@ -9,14 +9,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SnapshotUpdateRequestSnapshot : IAdditionalDataHolder, IParsable
+    public partial class CreateCredentialRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date and time when the snapshot will expire.Omit to leave the current expiration unchanged. Send `null` toclear the expiration so the snapshot never expires. A futuretimestamp sets the absolute expiration.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Free-form customer label for the credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -24,22 +22,32 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Principal type for the credential. Only `user` is customer-managedand accepted here. `function` and `system` credentials areplatform-internal (e.g. function-serve auto-mint, presign signer)and are never issued through the customer-facing API.</summary>
+        public global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType? PrincipalType { get; set; }
+        /// <summary>The scopes property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope?>? Scopes { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope?> Scopes { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequest"/> and sets the default values.
         /// </summary>
-        public SnapshotUpdateRequestSnapshot()
+        public CreateCredentialRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot();
+            return new global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +57,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "principal_type", n => { PrincipalType = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType>(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,8 +69,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType>("principal_type", PrincipalType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>("scopes", Scopes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

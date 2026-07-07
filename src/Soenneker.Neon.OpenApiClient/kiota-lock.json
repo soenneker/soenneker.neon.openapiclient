@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "9D2357774CED9AEDC32EFA1C4AF9084E0458E3F719B4396278E6263774111CBE150C40702E9F7D619CFDD7EF95AA5C5F9A5716B5020840931047E74C6FD1D7B7",
+  "descriptionHash": "E8CF180E477BDFF4F0A232DD707FA9FA8C85B2816965C82067C3C8BD2531F552F78CBD6D03B5A35CA6838716FAB8F31B73E3583C123344126A9FC5A29306993D",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.32.4",
+  "kiotaVersion": "1.33.0",
   "clientClassName": "NeonOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Neon.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

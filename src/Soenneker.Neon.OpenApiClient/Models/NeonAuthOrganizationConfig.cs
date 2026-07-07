@@ -30,7 +30,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public NeonAuthOrganizationConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            CreatorRole = global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole.Owner;
             Enabled = true;
             MembershipLimit = 100;
             OrganizationLimit = 10;

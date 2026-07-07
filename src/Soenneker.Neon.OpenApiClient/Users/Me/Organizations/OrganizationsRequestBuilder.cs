@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Organizations
         {
         }
         /// <summary>
-        /// Retrieves the organizations that the currently authenticated user belongs to.
+        /// Retrieves the organizations that the currently authenticated user belongs to.When called with an organization- or project-scoped API key (which is nottied to a user), this returns the single organization that owns the key.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrganizationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Organizations
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OrganizationsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OrganizationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the organizations that the currently authenticated user belongs to.
+        /// Retrieves the organizations that the currently authenticated user belongs to.When called with an organization- or project-scoped API key (which is nottied to a user), this returns the single organization that owns the key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

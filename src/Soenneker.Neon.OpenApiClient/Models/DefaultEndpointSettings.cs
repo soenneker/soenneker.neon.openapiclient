@@ -19,13 +19,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>The pgbouncer_settings property</summary>
+        /// <summary>DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings? PgbouncerSettings { get; set; }
 #nullable restore
 #else
-        public string PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings PgbouncerSettings { get; set; }
 #endif
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "autoscaling_limit_max_cu", n => { AutoscalingLimitMaxCu = n.GetDoubleValue(); } },
                 { "autoscaling_limit_min_cu", n => { AutoscalingLimitMinCu = n.GetDoubleValue(); } },
                 { "pg_settings", n => { PgSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings.CreateFromDiscriminatorValue); } },
-                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetStringValue(); } },
+                { "pgbouncer_settings", n => { PgbouncerSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings.CreateFromDiscriminatorValue); } },
                 { "suspend_timeout_seconds", n => { SuspendTimeoutSeconds = n.GetLongValue(); } },
             };
         }
@@ -78,7 +78,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("autoscaling_limit_max_cu", AutoscalingLimitMaxCu);
             writer.WriteDoubleValue("autoscaling_limit_min_cu", AutoscalingLimitMinCu);
-            writer.WriteStringValue("pgbouncer_settings", PgbouncerSettings);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings>("pgbouncer_settings", PgbouncerSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings>("pg_settings", PgSettings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
             writer.WriteAdditionalData(AdditionalData);

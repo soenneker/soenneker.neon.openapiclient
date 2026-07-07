@@ -9,37 +9,53 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SnapshotUpdateRequestSnapshot : IAdditionalDataHolder, IParsable
+    public partial class PresignResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date and time when the snapshot will expire.Omit to leave the current expiration unchanged. Send `null` toclear the expiration so the snapshot never expires. A futuretimestamp sets the absolute expiration.</summary>
+        /// <summary>When the presigned URL stops being valid.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Headers the caller MUST send verbatim on the request (e.g.`Content-Type` when it was signed on an upload). May be empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty? Headers { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty Headers { get; set; }
+#endif
+        /// <summary>&quot;The HTTP method to use against `url`: `PUT` for an upload,`GET` for a download.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Method { get; set; }
+#nullable restore
+#else
+        public string Method { get; set; }
+#endif
+        /// <summary>The presigned URL. Transfer the object bytes by issuing`method url` with the returned `headers`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.PresignResponse"/> and sets the default values.
         /// </summary>
-        public SnapshotUpdateRequestSnapshot()
+        public PresignResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.PresignResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.PresignResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.SnapshotUpdateRequestSnapshot();
+            return new global::Soenneker.Neon.OpenApiClient.Models.PresignResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +66,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty>(global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty.CreateFromDiscriminatorValue); } },
+                { "method", n => { Method = n.GetStringValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +79,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty>("headers", Headers);
+            writer.WriteStringValue("method", Method);
+            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

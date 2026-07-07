@@ -42,14 +42,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>DEPRECATED. Whether to enable connection pooling for the compute endpoint.The recommended way to enable connection pooling is to append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
         [Obsolete("")]
         public bool? PoolerEnabled { get; set; }
-        /// <summary>The pooler_mode property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PoolerMode { get; set; }
-#nullable restore
-#else
-        public string PoolerMode { get; set; }
-#endif
+        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        [Obsolete("")]
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
         /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "passwordless_access", n => { PasswordlessAccess = n.GetBoolValue(); } },
                 { "pooler_enabled", n => { PoolerEnabled = n.GetBoolValue(); } },
-                { "pooler_mode", n => { PoolerMode = n.GetStringValue(); } },
+                { "pooler_mode", n => { PoolerMode = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode>(); } },
                 { "provisioner", n => { Provisioner = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData.CreateFromDiscriminatorValue); } },
                 { "suspend_timeout_seconds", n => { SuspendTimeoutSeconds = n.GetLongValue(); } },
@@ -120,7 +115,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("passwordless_access", PasswordlessAccess);
             writer.WriteBoolValue("pooler_enabled", PoolerEnabled);
-            writer.WriteStringValue("pooler_mode", PoolerMode);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode>("pooler_mode", PoolerMode);
             writer.WriteStringValue("provisioner", Provisioner);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData>("settings", Settings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);

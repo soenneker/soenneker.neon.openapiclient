@@ -135,5 +135,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         MarkMigrationPrepared,
         #pragma warning restore CS1591
+        [EnumMember(Value = "update_catalog")]
+        #pragma warning disable CS1591
+        UpdateCatalog,
+        #pragma warning restore CS1591
     }
 }
