@@ -9732,28 +9732,28 @@
       },
       "ProjectPermissionLevel": {
         "enum": [
-          "CAN_VIEW",
-          "CAN_EDIT",
-          "CAN_MANAGE"
+          "VIEWER",
+          "EDITOR",
+          "ADMIN"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "x-ms-enum": {
           "name": "ProjectPermissionLevel",
           "modelAsString": false,
           "values": [
             {
-              "value": "CAN_VIEW",
-              "name": "CanView"
+              "value": "VIEWER",
+              "name": "Viewer"
             },
             {
-              "value": "CAN_EDIT",
-              "name": "CanEdit"
+              "value": "EDITOR",
+              "name": "Editor"
             },
             {
-              "value": "CAN_MANAGE",
-              "name": "CanManage"
+              "value": "ADMIN",
+              "name": "Admin"
             }
           ]
         }
@@ -15057,58 +15057,58 @@
       },
       "ProjectListItemEffectiveProjectPermission": {
         "enum": [
-          "CAN_VIEW",
-          "CAN_EDIT",
-          "CAN_MANAGE"
+          "VIEWER",
+          "EDITOR",
+          "ADMIN"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "nullable": true,
         "x-ms-enum": {
           "name": "ProjectListItemEffectiveProjectPermission",
           "modelAsString": false,
           "values": [
             {
-              "value": "CAN_VIEW",
-              "name": "CanView"
+              "value": "VIEWER",
+              "name": "Viewer"
             },
             {
-              "value": "CAN_EDIT",
-              "name": "CanEdit"
+              "value": "EDITOR",
+              "name": "Editor"
             },
             {
-              "value": "CAN_MANAGE",
-              "name": "CanManage"
+              "value": "ADMIN",
+              "name": "Admin"
             }
           ]
         }
       },
       "ProjectEffectiveProjectPermission": {
         "enum": [
-          "CAN_VIEW",
-          "CAN_EDIT",
-          "CAN_MANAGE"
+          "VIEWER",
+          "EDITOR",
+          "ADMIN"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. Values correspond to viewer,\neditor, and admin/manage project access levels. Omitted for personal\nprojects, flag-off organizations, and non-user subjects.\n",
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "nullable": true,
         "x-ms-enum": {
           "name": "ProjectEffectiveProjectPermission",
           "modelAsString": false,
           "values": [
             {
-              "value": "CAN_VIEW",
-              "name": "CanView"
+              "value": "VIEWER",
+              "name": "Viewer"
             },
             {
-              "value": "CAN_EDIT",
-              "name": "CanEdit"
+              "value": "EDITOR",
+              "name": "Editor"
             },
             {
-              "value": "CAN_MANAGE",
-              "name": "CanManage"
+              "value": "ADMIN",
+              "name": "Admin"
             }
           ]
         }

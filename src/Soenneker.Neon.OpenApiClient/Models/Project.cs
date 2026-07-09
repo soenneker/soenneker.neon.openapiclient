@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
 #endif
-        /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. Values correspond to viewer,editor, and admin/manage project access levels. Omitted for personalprojects, flag-off organizations, and non-user subjects.</summary>
+        /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectEffectiveProjectPermission? EffectiveProjectPermission { get; set; }
         /// <summary>A timestamp indicating when HIPAA was enabled for this project</summary>
         public DateTimeOffset? HipaaEnabledAt { get; set; }

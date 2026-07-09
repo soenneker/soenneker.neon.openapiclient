@@ -3,21 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. Values correspond to viewer,editor, and admin/manage project access levels. Omitted for personalprojects, flag-off organizations, and non-user subjects.</summary>
+    /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectListItemEffectiveProjectPermission
     {
-        [EnumMember(Value = "CAN_VIEW")]
+        [EnumMember(Value = "VIEWER")]
         #pragma warning disable CS1591
-        CanView,
+        Viewer,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAN_EDIT")]
+        [EnumMember(Value = "EDITOR")]
         #pragma warning disable CS1591
-        CanEdit,
+        Editor,
         #pragma warning restore CS1591
-        [EnumMember(Value = "CAN_MANAGE")]
+        [EnumMember(Value = "ADMIN")]
         #pragma warning disable CS1591
-        CanManage,
+        Admin,
         #pragma warning restore CS1591
     }
 }
