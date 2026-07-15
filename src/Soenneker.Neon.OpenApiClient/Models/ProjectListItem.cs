@@ -94,7 +94,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OwnerId { get; set; }
 #endif
-        /// <summary>The major Postgres version number. Currently supported versions are `14`, `15`, `16`, `17`, and `18`.</summary>
+        /// <summary>The major Postgres version number. Generally available versions are `14`, `15`, `16`, `17`, and `18`. `19` is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error.</summary>
         public int? PgVersion { get; set; }
         /// <summary>The cloud platform identifier. Currently, only AWS is supported, for which the identifier is `aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

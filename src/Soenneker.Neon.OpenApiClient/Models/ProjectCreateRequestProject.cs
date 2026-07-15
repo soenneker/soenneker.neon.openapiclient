@@ -52,7 +52,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The major Postgres version number. Currently supported versions are `14`, `15`, `16`, `17`, and `18`.</summary>
+        /// <summary>The major Postgres version number. Generally available versions are `14`, `15`, `16`, `17`, and `18`. `19` is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error.</summary>
         public int? PgVersion { get; set; }
         /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

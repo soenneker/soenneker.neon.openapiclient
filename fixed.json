@@ -9168,10 +9168,10 @@
             "$ref": "#/components/schemas/ProjectSettingsData"
           },
           "pg_version": {
-            "maximum": 18,
+            "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Currently supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060."
+            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
           },
           "proxy_host": {
             "type": "string",
@@ -9386,10 +9386,10 @@
             "$ref": "#/components/schemas/ProjectSettingsData"
           },
           "pg_version": {
-            "maximum": 18,
+            "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Currently supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060."
+            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
           },
           "proxy_host": {
             "type": "string",
@@ -15335,10 +15335,10 @@
             "$ref": "#/components/schemas/DefaultEndpointSettings"
           },
           "pg_version": {
-            "maximum": 18,
+            "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Currently supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060."
+            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
           },
           "store_passwords": {
             "type": "boolean",
