@@ -55,6 +55,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         TenantDetach,
         #pragma warning restore CS1591
+        [EnumMember(Value = "tenant_detach_safekeepers")]
+        #pragma warning disable CS1591
+        TenantDetachSafekeepers,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tenant_attach_safekeepers")]
+        #pragma warning disable CS1591
+        TenantAttachSafekeepers,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tenant_reattach")]
         #pragma warning disable CS1591
         TenantReattach,

@@ -10063,6 +10063,8 @@
                     "tenant_ignore",
                     "tenant_attach",
                     "tenant_detach",
+                    "tenant_detach_safekeepers",
+                    "tenant_attach_safekeepers",
                     "tenant_reattach",
                     "replace_safekeeper",
                     "disable_maintenance",
