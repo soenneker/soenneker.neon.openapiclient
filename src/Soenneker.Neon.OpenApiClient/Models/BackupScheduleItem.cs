@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The day of the week or month to take the snapshot (if applicable).</summary>
         public int? Day { get; set; }
-        /// <summary>How often to take snapshots. Must be one of the following values:  - `hourly`  - `daily`  - `weekly`  - `monthly`  - `yearly`</summary>
+        /// <summary>How often to take snapshots. Must be one of the following values:  - `daily`  - `weekly`  - `monthly`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Frequency { get; set; }

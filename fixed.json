@@ -7107,7 +7107,7 @@
           "Snapshot"
         ],
         "summary": "Update backup schedule",
-        "description": "\u0022Updates the backup schedule for the specified branch.\nThe schedule defines how often automatic snapshots are created (e.g., \u0060hourly\u0060, \u0060daily\u0060).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "\u0022Updates the backup schedule for the specified branch.\nThe schedule defines how often automatic snapshots are created (e.g., \u0060daily\u0060, \u0060weekly\u0060).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "SetSnapshotSchedule",
         "requestBody": {
           "content": {
@@ -14362,7 +14362,7 @@
         "properties": {
           "frequency": {
             "type": "string",
-            "description": "How often to take snapshots. Must be one of the following values:\n  - \u0060hourly\u0060\n  - \u0060daily\u0060\n  - \u0060weekly\u0060\n  - \u0060monthly\u0060\n  - \u0060yearly\u0060\n"
+            "description": "How often to take snapshots. Must be one of the following values:\n  - \u0060daily\u0060\n  - \u0060weekly\u0060\n  - \u0060monthly\u0060\n"
           },
           "hour": {
             "maximum": 23,
