@@ -10085,7 +10085,8 @@
                     "swap_binding_id",
                     "finalize_migration",
                     "mark_migration_prepared",
-                    "update_catalog"
+                    "update_catalog",
+                    "epc_sync"
                 ]
             },
             "OperationStatus": {

@@ -147,5 +147,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         UpdateCatalog,
         #pragma warning restore CS1591
+        [EnumMember(Value = "epc_sync")]
+        #pragma warning disable CS1591
+        EpcSync,
+        #pragma warning restore CS1591
     }
 }
