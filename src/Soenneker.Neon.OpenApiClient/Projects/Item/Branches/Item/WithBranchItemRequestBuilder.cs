@@ -17,6 +17,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_restore;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Recover;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Restore;
@@ -102,6 +103,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.FunctionsRequestBuilder Functions
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.FunctionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The logs property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.LogsRequestBuilder Logs
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.LogsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The masking_rules property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Masking_rules.Masking_rulesRequestBuilder Masking_rules

@@ -11,6 +11,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Connection_uri;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Endpoints;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Jwks;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Members;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Operations;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Permissions;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Recover;
@@ -64,6 +65,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.JwksRequestBuilder Jwks
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Jwks.JwksRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The members property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Members.MembersRequestBuilder Members
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The operations property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Operations.OperationsRequestBuilder Operations

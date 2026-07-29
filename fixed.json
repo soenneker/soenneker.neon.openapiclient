@@ -899,6 +899,152 @@
         }
       ]
     },
+    "/projects/{projectId}/members": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "summary": "List org members and their project roles",
+        "description": "Lists organization members and their per-project roles for an org-owned project.\nReturns 404 when the project is not org-owned, per-project role management is disabled,\nor the caller has no access. Callers with VIEWER or EDITOR see members with\neffective project access. Callers with ADMIN also see unassigned org members.\n",
+        "operationId": "ListProjectMembers",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CursorParam"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The maximum number of members to return in the response",
+            "schema": {
+              "maximum": 500,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned the org members and their project roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectMembers"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/projects/{projectId}/members/{memberId}/role": {
+      "put": {
+        "tags": [
+          "Project"
+        ],
+        "summary": "Set an org member\u0027s role on a project",
+        "description": "Idempotently sets or updates the explicit project grant of the specified org member.\nSelf-demotion requires \u0060confirm_self_demotion=true\u0060.\n",
+        "operationId": "SetProjectMemberRole",
+        "parameters": [
+          {
+            "name": "confirm_self_demotion",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetProjectMemberRoleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role set or updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectMemberRoleResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Project"
+        ],
+        "summary": "Remove an org member\u0027s role on a project",
+        "description": "Idempotently removes the explicit project grant. The member\u0027s organization-role\ndefault project permission still applies. Self-DELETE requires\n\u0060confirm_self_lockout=true\u0060 when effective manage access would be lost.\n",
+        "operationId": "RemoveProjectMemberRole",
+        "parameters": [
+          {
+            "name": "confirm_self_lockout",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role removed, or no-op if no explicit row existed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectMemberRoleResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "memberId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ]
+    },
     "/projects/{projectId}/permissions/{permissionId}": {
       "delete": {
         "tags": [
@@ -7411,6 +7557,263 @@
         }
       ]
     },
+    "/projects/{projectId}/branches/{branchId}/logs/query": {
+      "post": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Query branch logs",
+        "description": "\u0022Returns logs emitted by services running on the specified branch,\nordered by timestamp according to \u0060sort_order\u0060.\n\nAll supplied filters are combined with \u0060AND\u0060: a record is returned only\nwhen it matches every filter. \u0060minimum_severity\u0060 and \u0060severity_text\u0060 are\nindependent filters, so setting both requires a record to clear the\nseverity floor *and* match the exact severity text.\n\nSupply \u0060logql\u0060 instead of the structured filters to run a raw LogQL\nexpression. Combining it with any structured filter is rejected rather\nthan silently ignored; \u0060limit\u0060, \u0060sort_order\u0060, and the time window still\napply, because those bound the query rather than form part of the\nexpression.\n\nGive the window either as \u0060since\u0060 \u2014 a duration ending at \u0060end_time\u0060, or\nat the current time when \u0060end_time\u0060 is omitted \u2014 or as an explicit\n\u0060start_time\u0060. Supplying both is rejected.\n\nA single response holds at most 1,000 records. When \u0060is_truncated\u0060 is\n\u0060true\u0060, pass the returned \u0060next_cursor\u0060 back as \u0060cursor\u0060 to fetch the\nnext page, repeating the time range and every filter unchanged.\n\nIf no time range is supplied, the query covers the previous hour. The\nmaximum supported time range is seven days. \u0060end_time\u0060 is exclusive.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "operationId": "QueryProjectBranchLogs",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectBranchLogsQueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Logs matching the supplied filters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsQueryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The query could not be served as written. The body is always\n\u0060ProjectBranchLogsInvalidQuery\u0060 \u2014 see \u0060reason\u0060 for the exact cause.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsInvalidQuery"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Logs are not available for this branch, or the project/branch was\nnot found. The body is always \u0060ProjectBranchLogsNotAvailable\u0060 \u2014 see\n\u0060reason\u0060 for the exact cause.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsNotAvailable"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchId",
+          "in": "path",
+          "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/projects/{projectId}/branches/{branchId}/logs/fields": {
+      "get": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "List branch log fields",
+        "description": "\u0022Lists the low-cardinality log fields observed on this branch whose\ndistinct values can be discovered with the log field-values endpoint.\n\nThe set is computed per branch and grows as new fields are observed, so\ntreat it as data rather than a fixed list: discover a field here, then\npass it as \u0060field_name\u0060 to the field-values endpoint.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "operationId": "ListProjectBranchLogFields",
+        "responses": {
+          "200": {
+            "description": "Log fields available for value discovery on this branch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogFieldsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Logs are not available for this branch, or the project/branch was\nnot found. The body is always \u0060ProjectBranchLogsNotAvailable\u0060 \u2014 see\n\u0060reason\u0060 for the exact cause.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsNotAvailable"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchId",
+          "in": "path",
+          "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/projects/{projectId}/branches/{branchId}/logs/fields/{fieldName}/values": {
+      "get": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "List branch log field values",
+        "description": "\u0022Lists the distinct values observed for a low-cardinality log field in\nthe requested time range. Call the log fields endpoint first to learn\nwhich \u0060field_name\u0060 values this branch supports; a field that branch has\nnever emitted is rejected with \u0060unknown_field\u0060.\n\nGive the window either as \u0060since\u0060 or as an explicit \u0060start_time\u0060;\nsupplying both is rejected. If neither is given, the previous six hours\nare used. The maximum supported time range is seven days.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "operationId": "ListProjectBranchLogFieldValues",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Length of the lookup window, ending at \u0060end_time\u0060 or at the current\ntime when \u0060end_time\u0060 is omitted. Mutually exclusive with\n\u0060start_time\u0060. Defaults to six hours.\n",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "Inclusive beginning of the lookup window. Mutually exclusive with\n\u0060since\u0060.\n",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "Exclusive end of the lookup window. Defaults to the current time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "description": "Only consider records emitted by this Neon service.",
+            "schema": {
+              "$ref": "#/components/schemas/ProjectBranchLogSource"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of distinct values to return. The response sets\n\u0060is_truncated\u0060 when this bound, or the server\u0027s own scan cap, cut the\nlist short.\n",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distinct values for the requested log field",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogFieldValuesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The lookup could not be served as written. The body is always\n\u0060ProjectBranchLogsInvalidQuery\u0060 \u2014 see \u0060reason\u0060 for the exact cause.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsInvalidQuery"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Logs are not available for this branch, or the project/branch was\nnot found. The body is always \u0060ProjectBranchLogsNotAvailable\u0060 \u2014 see\n\u0060reason\u0060 for the exact cause.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectBranchLogsNotAvailable"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchId",
+          "in": "path",
+          "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "fieldName",
+          "in": "path",
+          "description": "The log field whose distinct values should be returned. Must be one of\nthe names returned by the log fields endpoint for this branch.\n",
+          "required": true,
+          "schema": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/projects/{projectId}/branches/{branchId}/buckets/{bucketName}/objects": {
       "get": {
         "tags": [
@@ -8192,7 +8595,7 @@
   },
   "components": {
     "schemas": {
-      "OrgApiKeyRevokeResponseAllOf2": {
+      "OrgApiKeysListResponseItemAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -8202,7 +8605,7 @@
           }
         }
       },
-      "OrgApiKeyCreateResponseAllOf2": {
+      "OrgApiKeyRevokeResponseAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -9745,6 +10148,34 @@
           "email"
         ]
       },
+      "ProjectRole": {
+        "enum": [
+          "viewer",
+          "editor",
+          "admin"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Per-project role. \u0060viewer\u0060 maps to \u0060VIEWER\u0060, \u0060editor\u0060 maps to \u0060EDITOR\u0060,\nand \u0060admin\u0060 maps to \u0060ADMIN\u0060.\n",
+        "x-ms-enum": {
+          "name": "ProjectRole",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "viewer",
+              "name": "Viewer"
+            },
+            {
+              "value": "editor",
+              "name": "Editor"
+            },
+            {
+              "value": "admin",
+              "name": "Admin"
+            }
+          ]
+        }
+      },
       "ProjectPermissionLevel": {
         "enum": [
           "VIEWER",
@@ -9772,6 +10203,217 @@
             }
           ]
         }
+      },
+      "ProjectMemberGrantSource": {
+        "enum": [
+          "explicit",
+          "org_role_default",
+          "org_admin_override",
+          "unassigned"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How a member\u0027s project access is granted.\n",
+        "x-ms-enum": {
+          "name": "ProjectMemberGrantSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "explicit",
+              "name": "ExplicitValue"
+            },
+            {
+              "value": "org_role_default",
+              "name": "OrgRoleDefault"
+            },
+            {
+              "value": "org_admin_override",
+              "name": "OrgAdminOverride"
+            },
+            {
+              "value": "unassigned",
+              "name": "Unassigned"
+            }
+          ]
+        }
+      },
+      "ProjectMemberOrgRole": {
+        "enum": [
+          "admin",
+          "member",
+          "editor",
+          "viewer",
+          "collaborator"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Organization-level role used by project member role management.\n",
+        "x-ms-enum": {
+          "name": "ProjectMemberOrgRole",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "admin",
+              "name": "Admin"
+            },
+            {
+              "value": "member",
+              "name": "Member"
+            },
+            {
+              "value": "editor",
+              "name": "Editor"
+            },
+            {
+              "value": "viewer",
+              "name": "Viewer"
+            },
+            {
+              "value": "collaborator",
+              "name": "Collaborator"
+            }
+          ]
+        }
+      },
+      "ProjectMember": {
+        "required": [
+          "member_id",
+          "user_id",
+          "org_role"
+        ],
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string",
+            "description": "The organization member ID.",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "The user ID for the organization member.",
+            "format": "uuid"
+          },
+          "email": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string",
+            "description": "The user\u0027s display name."
+          },
+          "org_role": {
+            "$ref": "#/components/schemas/ProjectMemberOrgRole"
+          },
+          "project_role": {
+            "$ref": "#/components/schemas/ProjectRole"
+          },
+          "org_default_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "explicit_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "effective_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "grant_source": {
+            "$ref": "#/components/schemas/ProjectMemberGrantSource"
+          }
+        },
+        "x-sensitive": [
+          "email",
+          "name"
+        ]
+      },
+      "ProjectMembers": {
+        "required": [
+          "project_members"
+        ],
+        "type": "object",
+        "properties": {
+          "project_members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectMember"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/CursorPagination"
+          }
+        }
+      },
+      "SetProjectMemberRoleRequest": {
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/ProjectRole"
+          }
+        }
+      },
+      "ProjectMemberRoleResponse": {
+        "required": [
+          "project_id",
+          "member_id",
+          "user_id",
+          "org_role"
+        ],
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          },
+          "member_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "email": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string",
+            "description": "The user\u0027s display name."
+          },
+          "org_role": {
+            "$ref": "#/components/schemas/ProjectMemberOrgRole"
+          },
+          "project_role": {
+            "$ref": "#/components/schemas/ProjectRole"
+          },
+          "org_default_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "explicit_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "effective_project_permission": {
+            "$ref": "#/components/schemas/ProjectPermissionLevel"
+          },
+          "credential_rotation_recommended": {
+            "type": "boolean",
+            "description": "Hint that database credentials may need rotation after the role change.\n"
+          },
+          "org_api_key_rotation_recommended": {
+            "type": "boolean",
+            "description": "Hint that project-scoped org API keys created by the target user may need rotation.\n"
+          }
+        },
+        "x-sensitive": [
+          "email",
+          "name"
+        ]
       },
       "ConsumptionHistoryPerProjectResponse": {
         "required": [
@@ -10375,7 +11017,7 @@
           "cpu_used_sec": 461100
         }
       },
-      "OrgApiKeyCreateRequestAllOf2": {
+      "OrgApiKeyCreateResponseAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -10385,27 +11027,13 @@
           }
         }
       },
-      "RestoredSnapshotResponse": {
-        "required": [
-          "branch",
-          "operations"
-        ],
+      "OrgApiKeyCreateRequestAllOf2": {
         "type": "object",
         "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            }
-          },
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
           }
         }
       },
@@ -11094,13 +11722,10 @@
           ]
         }
       },
-      "CreatedBranchResponse": {
+      "RestoredSnapshotResponse": {
         "required": [
           "branch",
-          "endpoints",
-          "operations",
-          "roles",
-          "databases"
+          "operations"
         ],
         "type": "object",
         "properties": {
@@ -11117,24 +11742,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Role"
-            }
-          },
-          "databases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Database"
-            }
-          },
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
             }
           }
         }
@@ -12618,25 +13225,29 @@
         "deprecated": true,
         "x-sunset": "2026-06-20"
       },
-      "CreatedProjectResponse": {
+      "CreatedBranchResponse": {
         "required": [
-          "project",
-          "connection_uris",
-          "roles",
-          "databases",
-          "operations",
           "branch",
-          "endpoints"
+          "endpoints",
+          "operations",
+          "roles",
+          "databases"
         ],
         "type": "object",
         "properties": {
-          "project": {
-            "$ref": "#/components/schemas/Project"
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
           },
-          "connection_uris": {
+          "endpoints": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
+              "$ref": "#/components/schemas/Endpoint"
+            }
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
             }
           },
           "roles": {
@@ -12651,19 +13262,10 @@
               "$ref": "#/components/schemas/Database"
             }
           },
-          "operations": {
+          "connection_uris": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
+              "$ref": "#/components/schemas/ConnectionDetails"
             }
           }
         }
@@ -13975,20 +14577,53 @@
           }
         }
       },
-      "ListOperationsResponse": {
+      "CreatedProjectResponse": {
         "required": [
-          "operations"
+          "project",
+          "connection_uris",
+          "roles",
+          "databases",
+          "operations",
+          "branch",
+          "endpoints"
         ],
         "type": "object",
         "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "connection_uris": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDetails"
+            }
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          },
+          "databases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Database"
+            }
+          },
           "operations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Operation"
             }
           },
-          "pagination": {
-            "$ref": "#/components/schemas/Pagination"
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            }
           }
         }
       },
@@ -14560,6 +15195,326 @@
           }
         }
       },
+      "ProjectBranchLogSource": {
+        "enum": [
+          "function",
+          "storage",
+          "pg_endpoint"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The Neon service that emitted the log record.",
+        "x-ms-enum": {
+          "name": "ProjectBranchLogSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "function",
+              "name": "Function"
+            },
+            {
+              "value": "storage",
+              "name": "Storage"
+            },
+            {
+              "value": "pg_endpoint",
+              "name": "PgEndpoint"
+            }
+          ]
+        }
+      },
+      "ProjectBranchLogSeverity": {
+        "enum": [
+          "trace",
+          "debug",
+          "info",
+          "warn",
+          "error",
+          "fatal"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022An OpenTelemetry severity level. A minimum severity includes every\nhigher level in this order: \u0060trace\u0060, \u0060debug\u0060, \u0060info\u0060, \u0060warn\u0060, \u0060error\u0060,\n\u0060fatal\u0060.\n\u0022",
+        "x-ms-enum": {
+          "name": "ProjectBranchLogSeverity",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "trace",
+              "name": "Trace"
+            },
+            {
+              "value": "debug",
+              "name": "Debug"
+            },
+            {
+              "value": "info",
+              "name": "Info"
+            },
+            {
+              "value": "warn",
+              "name": "Warn"
+            },
+            {
+              "value": "error",
+              "name": "Error"
+            },
+            {
+              "value": "fatal",
+              "name": "Fatal"
+            }
+          ]
+        }
+      },
+      "ListOperationsResponse": {
+        "required": [
+          "operations"
+        ],
+        "type": "object",
+        "properties": {
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "ProjectBranchLogsNotAvailable": {
+        "required": [
+          "code",
+          "message",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "LOGS_NOT_AVAILABLE"
+          },
+          "message": {
+            "type": "string"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/ProjectBranchLogsNotAvailableReason"
+          }
+        }
+      },
+      "ProjectBranchLogsInvalidQuery": {
+        "required": [
+          "code",
+          "message",
+          "reason"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "LOGS_INVALID_QUERY"
+          },
+          "message": {
+            "type": "string"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/ProjectBranchLogsInvalidQueryReason"
+          }
+        }
+      },
+      "ProjectBranchLogsQueryRequest": {
+        "type": "object",
+        "properties": {
+          "since": {
+            "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+            "type": "string",
+            "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Inclusive beginning of the query window. Mutually exclusive with\n\u0060since\u0060. Defaults to one hour before \u0060end_time\u0060, or one hour before\nthe current time when both bounds are omitted.\n",
+            "format": "date-time"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Exclusive end of the query window. Defaults to the current time.",
+            "format": "date-time"
+          },
+          "limit": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of log records to return per page.",
+            "default": 100
+          },
+          "cursor": {
+            "type": "string",
+            "description": "Opaque pagination cursor returned as \u0060next_cursor\u0060 by a previous\ncall. Resume the query after the last record of the previous page,\nrepeating the time range and every filter unchanged.\n"
+          },
+          "sort_order": {
+            "$ref": "#/components/schemas/ProjectBranchLogsQueryRequestSortOrder"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ProjectBranchLogSource"
+          },
+          "service_name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Match the OpenTelemetry \u0060service.name\u0060 resource attribute exactly."
+          },
+          "scope_name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Match the OpenTelemetry instrumentation scope name exactly."
+          },
+          "minimum_severity": {
+            "$ref": "#/components/schemas/ProjectBranchLogSeverity"
+          },
+          "severity_text": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Match the OpenTelemetry severity text exactly."
+          },
+          "body_contains": {
+            "minLength": 1,
+            "type": "string",
+            "description": "\u0022Match records whose rendered \u0060message\u0060 contains this case-sensitive\nsubstring.\n\nRecords with a structured body are matched against their JSON\nrendering, so the substring meets JSON syntax rather than prose: a\nbare key name such as \u0060operation\u0060 matches every record carrying that\nkey, and \u0060http_status: 200\u0060 matches none, because the rendering\ncontains \u0060\\\u0022http_status\\\u0022:200\u0060 with no space.\n\u0022"
+          },
+          "trace_id": {
+            "pattern": "^[0-9a-f]{32}$",
+            "type": "string",
+            "description": "Match records associated with this OpenTelemetry trace ID. W3C Trace\nContext defines a trace ID as 32 lowercase hex digits, and that is\nwhat is stored, so an uppercase value is rejected rather than\nsilently matching nothing.\n"
+          },
+          "logql": {
+            "minLength": 1,
+            "type": "string",
+            "description": "\u0022Escape hatch for selections the structured filters cannot express: a\nraw LogQL expression, evaluated against this branch\u0027s log stream.\n\nOnly stream selectors and line filters are accepted \u2014 no\naggregations and no parser stages. Supplying this alongside any\nstructured filter is rejected with \u0060conflicting_filters\u0060 rather than\nsilently ignoring one of them. \u0060limit\u0060, \u0060sort_order\u0060, and the time\nwindow still apply.\n\nThis field passes the underlying query language through to the\ncaller, so unlike the rest of this contract it may change as that\nbackend changes. Prefer the structured filters where they suffice.\n\u0022",
+            "example": "{entity_type=\u0022function\u0022} |~ \u0022(?i)timeout\u0022"
+          }
+        },
+        "x-sensitive": [
+          "body_contains",
+          "logql",
+          "cursor"
+        ]
+      },
+      "ProjectBranchLogRecord": {
+        "required": [
+          "timestamp",
+          "message",
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "The OpenTelemetry record timestamp in UTC.",
+            "format": "date-time"
+          },
+          "message": {
+            "type": "string",
+            "description": "The OpenTelemetry log body rendered as text. A body that is already a\nstring is returned verbatim. Any other OpenTelemetry \u0060AnyValue\u0060 body\n\u2014 notably the structured key/value body that \u0060storage\u0060 records always\ncarry \u2014 is rendered as compact JSON with its keys sorted\nalphabetically, for example\n\u0060{\u0022bytes\u0022:1024,\u0022operation\u0022:\u0022GET\u0022,\u0022object_key\u0022:\u0022a/b.png\u0022}\u0060.\n"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ProjectBranchLogSource"
+          },
+          "entity_id": {
+            "type": "string",
+            "description": "The Neon identifier of the service instance that emitted the record."
+          },
+          "service_name": {
+            "type": "string",
+            "description": "The OpenTelemetry \u0060service.name\u0060 resource attribute."
+          },
+          "scope_name": {
+            "type": "string",
+            "description": "The OpenTelemetry instrumentation scope name."
+          },
+          "severity_number": {
+            "maximum": 24,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The numeric OpenTelemetry severity."
+          },
+          "severity_text": {
+            "type": "string",
+            "description": "The original OpenTelemetry severity text."
+          },
+          "trace_id": {
+            "type": "string",
+            "description": "The OpenTelemetry trace ID, when the record belongs to a trace."
+          },
+          "span_id": {
+            "type": "string",
+            "description": "The OpenTelemetry span ID, when the record belongs to a span."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ProjectBranchLogRecordAttributesProperty"
+          }
+        }
+      },
+      "ProjectBranchLogsQueryResponse": {
+        "required": [
+          "logs",
+          "is_truncated"
+        ],
+        "type": "object",
+        "properties": {
+          "logs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectBranchLogRecord"
+            }
+          },
+          "next_cursor": {
+            "type": "string",
+            "description": "Pagination cursor to pass as \u0060cursor\u0060 on the next request. Empty\nwhen the response is not truncated.\n"
+          },
+          "is_truncated": {
+            "type": "boolean",
+            "description": "True when more records matched than were returned."
+          }
+        },
+        "x-sensitive": [
+          "logs",
+          "next_cursor"
+        ]
+      },
+      "ProjectBranchLogFieldsResponse": {
+        "required": [
+          "fields"
+        ],
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Log field names observed on this branch, each usable as \u0060field_name\u0060\non the log field-values endpoint. Computed per branch rather than\nfixed by this specification, so clients should not assume a\nparticular set.\n"
+          }
+        }
+      },
+      "ProjectBranchLogFieldValuesResponse": {
+        "required": [
+          "values",
+          "is_truncated"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "is_truncated": {
+            "type": "boolean",
+            "description": "True when more distinct values exist than were returned, because\neither the requested \u0060limit\u0060 or the server\u0027s own scan cap was\nreached. A caller that filters on a partial list is choosing from an\narbitrary subset, so narrow \u0060since\u0060 or \u0060source\u0060 and ask again when\nthis is \u0060true\u0060.\n"
+          }
+        }
+      },
       "BranchAiGateway": {
         "required": [
           "enabled",
@@ -15060,16 +16015,6 @@
           }
         }
       },
-      "OrgApiKeysListResponseItemAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
-      },
       "ProjectListItemEffectiveProjectPermission": {
         "enum": [
           "VIEWER",
@@ -15226,6 +16171,12 @@
             "format": "email"
           }
         }
+      },
+      "ProjectBranchLogsQueryRequestSince": {
+        "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
       },
       "NeonFunctionCurrentDeployment": {
         "required": [
@@ -15759,6 +16710,10 @@
             }
           }
         }
+      },
+      "ProjectBranchLogRecordAttributes": {
+        "type": "object",
+        "description": "Customer-defined OpenTelemetry log and resource attributes."
       },
       "PresignResponseHeaders": {
         "type": "object",
@@ -16343,6 +17298,10 @@
           }
         }
       },
+      "ProjectBranchLogRecordAttributesProperty": {
+        "type": "object",
+        "description": "Customer-defined OpenTelemetry log and resource attributes."
+      },
       "PresignResponseHeadersProperty": {
         "type": "object",
         "additionalProperties": {
@@ -16693,6 +17652,100 @@
             {
               "value": "branch_not_found",
               "name": "BranchNotFound"
+            }
+          ]
+        }
+      },
+      "ProjectBranchLogsNotAvailableReason": {
+        "enum": [
+          "branch_not_found",
+          "telemetry_not_enabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Machine-readable reason why logs cannot be read:\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n- \u0060telemetry_not_enabled\u0060: the branch exists but is not collecting telemetry, so it\n  has no logs to serve.\n\u0022",
+        "x-ms-enum": {
+          "name": "ProjectBranchLogsNotAvailableReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "branch_not_found",
+              "name": "BranchNotFound"
+            },
+            {
+              "value": "telemetry_not_enabled",
+              "name": "TelemetryNotEnabled"
+            }
+          ]
+        }
+      },
+      "ProjectBranchLogsInvalidQueryReason": {
+        "enum": [
+          "time_range_too_large",
+          "invalid_time_range",
+          "conflicting_time_range",
+          "invalid_cursor",
+          "unknown_field",
+          "invalid_logql",
+          "conflicting_filters"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\u0022Machine-readable reason why the request was rejected:\n- \u0060time_range_too_large\u0060: the requested window spans more than seven days.\n- \u0060invalid_time_range\u0060: \u0060end_time\u0060 is not after \u0060start_time\u0060.\n- \u0060conflicting_time_range\u0060: both \u0060since\u0060 and \u0060start_time\u0060 were supplied.\n- \u0060invalid_cursor\u0060: the supplied \u0060cursor\u0060 is malformed, expired, or was issued for a\n  different query.\n- \u0060unknown_field\u0060: the requested \u0060field_name\u0060 is not one of the fields the log fields\n  endpoint reports for this branch.\n- \u0060invalid_logql\u0060: the supplied \u0060logql\u0060 expression does not parse, or uses a\n  construct this endpoint does not accept.\n- \u0060conflicting_filters\u0060: \u0060logql\u0060 was supplied alongside one or more structured\n  filters. Use one or the other.\n\u0022",
+        "x-ms-enum": {
+          "name": "ProjectBranchLogsInvalidQueryReason",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "time_range_too_large",
+              "name": "TimeRangeTooLarge"
+            },
+            {
+              "value": "invalid_time_range",
+              "name": "InvalidTimeRange"
+            },
+            {
+              "value": "conflicting_time_range",
+              "name": "ConflictingTimeRange"
+            },
+            {
+              "value": "invalid_cursor",
+              "name": "InvalidCursor"
+            },
+            {
+              "value": "unknown_field",
+              "name": "UnknownField"
+            },
+            {
+              "value": "invalid_logql",
+              "name": "InvalidLogql"
+            },
+            {
+              "value": "conflicting_filters",
+              "name": "ConflictingFilters"
+            }
+          ]
+        }
+      },
+      "ProjectBranchLogsQueryRequestSortOrder": {
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Order matching records by timestamp. \u0060desc\u0060, the default, returns\nthe newest records first.\n",
+        "x-ms-enum": {
+          "name": "ProjectBranchLogsQueryRequestSortOrder",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "asc",
+              "name": "Asc"
+            },
+            {
+              "value": "desc",
+              "name": "Desc"
             }
           ]
         }
@@ -17128,6 +18181,10 @@
     {
       "name": "AI Gateway",
       "description": "These methods allow you to inspect the AI Gateway endpoint for your Neon branches."
+    },
+    {
+      "name": "Logs",
+      "description": "These methods allow you to query logs emitted by services running on your Neon branches."
     },
     {
       "name": "Credentials",
