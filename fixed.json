@@ -103,7 +103,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListApiKeys200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ListApiKeys200ResponseSchema"
                 }
               }
             }
@@ -6103,7 +6103,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListOrgApiKeys200ResponseResponseJson"
+                  "$ref": "#/components/schemas/ListOrgApiKeys200ResponseSchema"
                 }
               }
             }
@@ -7993,7 +7993,7 @@
             "content": {
               "application/octet-stream": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetProjectBranchBucketObject200ResponseResponseOctetStream"
+                  "$ref": "#/components/schemas/GetProjectBranchBucketObject200OctetStreamResponseSchema"
                 }
               }
             }
@@ -17117,7 +17117,7 @@
           }
         }
       },
-      "GetProjectBranchBucketObject200Response": {
+      "GetProjectBranchBucketObject200OctetStreamResponse": {
         "type": "string",
         "format": "binary"
       },
@@ -17156,7 +17156,7 @@
           }
         }
       },
-      "ListApiKeys200ResponseResponseJson": {
+      "ListApiKeys200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ApiKeysListResponseItem"
@@ -17170,7 +17170,7 @@
         "type": "object",
         "description": "Empty response."
       },
-      "ListOrgApiKeys200ResponseResponseJson": {
+      "ListOrgApiKeys200ResponseSchema": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/OrgApiKeysListResponseItem"
@@ -17213,7 +17213,7 @@
           }
         }
       },
-      "GetProjectBranchBucketObject200ResponseResponseOctetStream": {
+      "GetProjectBranchBucketObject200OctetStreamResponseSchema": {
         "type": "string",
         "format": "binary"
       },
