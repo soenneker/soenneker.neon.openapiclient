@@ -14,9 +14,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth_provider property</summary>
+        /// <summary>Authentication provider integrated with this Neon Auth configuration. `better_auth` integrates with Better Auth (the current, recommended provider). `stack` integrates with Stack Auth (deprecated). `mock` is a simulated provider for local development and testing only.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthSupportedAuthProvider? AuthProvider { get; set; }
-        /// <summary>The domain property</summary>
+        /// <summary>URI to add to the redirect URI allowlist for the auth provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Domain { get; set; }

@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Branch ID</summary>
+        /// <summary>The Neon branch ID. Returned as `id` from `GET /projects/{project_id}/branches`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The date and time when the JWKS was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>JWKS ID</summary>
+        /// <summary>The JWKS configuration&apos;s ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The URL that lists the JWKS</summary>
+        /// <summary>URL of the provider&apos;s JWKS endpoint used to verify JWTs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwksUrl { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
-        /// <summary>The name of the required JWT Audience to be used</summary>
+        /// <summary>Expected JWT `aud` claim value configured for this JWKS.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwtAudience { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwtAudience { get; set; }
 #endif
-        /// <summary>Project ID</summary>
+        /// <summary>The Neon project ID. Returned as `id` from `GET /projects`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProviderName { get; set; }
 #endif
-        /// <summary>The role_names property</summary>
+        /// <summary>Database role names that are permitted to authenticate using this JWKS configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? RoleNames { get; set; }

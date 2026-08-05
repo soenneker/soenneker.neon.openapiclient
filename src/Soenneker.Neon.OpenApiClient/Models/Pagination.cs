@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// Cursor based pagination is used. The user must pass the cursor as is to the backend.For more information about cursor based pagination, seehttps://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination
+    /// Cursor-based pagination. The `cursor` value reflects the endpoint&apos;s sort field (for example, an ID or timestamp), so pass it back unchanged.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Pagination : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The cursor property</summary>
+        /// <summary>Cursor marking the last item in this response. Pass it unchanged as the `cursor` query parameter to fetch the next page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Cursor { get; set; }

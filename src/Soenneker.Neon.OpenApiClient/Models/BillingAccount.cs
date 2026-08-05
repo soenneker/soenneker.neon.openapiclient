@@ -112,7 +112,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.PlanDetails PlanDetails { get; set; }
 #endif
-        /// <summary>The last time the quota was reset. Defaults to the date-time the account is created.</summary>
+        /// <summary>Timestamp of the last quota reset. Set to the account creation time when the account is first created.</summary>
         public DateTimeOffset? QuotaResetAtLast { get; set; }
         /// <summary>Monthly spending cap in cents for V3 paid plans. When set,notifications are sent at 80% and 100% of this limit. `null`means no limit is configured.</summary>
         public long? SpendingLimitCents { get; set; }

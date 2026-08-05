@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the snapshot was created, in RFC 3339 format (UTC).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreatedAt { get; set; }
@@ -22,9 +22,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreatedAt { get; set; }
 #endif
-        /// <summary>Incremental storage size in bytes since the previous scheduled snapshot, when the snapshot is billed on incremental (diff) usage.When absent, either the incremental size has not been calculated yet and the snapshot is not being charged, or the snapshot is charged at full logical size (in that case `full_size` is set).</summary>
+        /// <summary>Incremental Postgres storage size in bytes since the previous scheduled snapshot, when the snapshot is billed on incremental (diff) usage.When absent, either the incremental size has not been calculated yet and the snapshot is not being charged, or the snapshot is charged at full logical size (in that case `full_size` is set).</summary>
         public long? DiffSize { get; set; }
-        /// <summary>The expires_at property</summary>
+        /// <summary>RFC 3339 timestamp when the snapshot expires and is eligible for deletion. Null if the snapshot does not have an expiry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExpiresAt { get; set; }
@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Full logical size of the snapshot in bytes at the time it was taken.When absent, the logical size has not been calculated yet and the snapshot is not being charged.When present, a value of 0 means the snapshot is not being charged.</summary>
         public long? FullSize { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>The snapshot ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The lsn property</summary>
+        /// <summary>WAL position (Log Sequence Number) at which the snapshot was captured, in Postgres LSN format (for example, `0/3000000`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Lsn { get; set; }
@@ -50,9 +50,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Lsn { get; set; }
 #endif
-        /// <summary>The manual property</summary>
+        /// <summary>True if the snapshot was created manually rather than by a schedule.</summary>
         public bool? Manual { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Human-readable label for the snapshot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The source_branch_id property</summary>
+        /// <summary>Branch from which this snapshot was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceBranchId { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SourceBranchId { get; set; }
 #endif
-        /// <summary>The timestamp property</summary>
+        /// <summary>Point in time captured by the snapshot, in RFC 3339 format (UTC).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Timestamp { get; set; }

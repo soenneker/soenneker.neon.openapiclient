@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The applications property</summary>
+        /// <summary>Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, `vercel`, `github`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.ListProjects200ResponseApplications? Applications { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.ListProjects200ResponseApplications Applications { get; set; }
 #endif
-        /// <summary>The integrations property</summary>
+        /// <summary>Map of project IDs to their associated integration details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.ListProjects200ResponseIntegrations? Integrations { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.ListProjects200ResponseIntegrations Integrations { get; set; }
 #endif
-        /// <summary>Cursor based pagination is used. The user must pass the cursor as is to the backend.For more information about cursor based pagination, seehttps://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination</summary>
+        /// <summary>Cursor-based pagination. The `cursor` value reflects the endpoint&apos;s sort field (for example, an ID or timestamp), so pass it back unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.Pagination? Pagination { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.Pagination Pagination { get; set; }
 #endif
-        /// <summary>The projects property</summary>
+        /// <summary>List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in `unavailable_project_ids`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem>? Projects { get; set; }

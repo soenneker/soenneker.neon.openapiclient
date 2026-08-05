@@ -7,16 +7,17 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// Branch attributes to update. Supply only the fields you want to change, for example `name` or `protected`.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class BranchUpdateRequestBranch : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The timestamp when the branch is scheduled to expire and be automatically deleted. Must be set by the client following the [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) format with precision up to seconds (such as 2025-06-09T18:02:16Z). Deletion is performed by a background job and may not occur exactly at the specified time. If this field is set to null, the expiration timestamp is removed.Access to this feature is currently limited to participants in the Early Access Program.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>New display name for the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -24,7 +25,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The protected property</summary>
+        /// <summary>Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by `protected_branches_only` in the IP allowlist. Paid plans only.</summary>
         public bool? Protected { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchUpdateRequestBranch"/> and sets the default values.

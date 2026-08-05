@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The metric_name property</summary>
+        /// <summary>Name of the consumption metric, such as compute_time or data_storage_bytes_hour.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MetricName { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string MetricName { get; set; }
 #endif
-        /// <summary>The value property</summary>
+        /// <summary>Measured quantity for the metric named by `metric_name`.</summary>
         public int? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue"/> and sets the default values.

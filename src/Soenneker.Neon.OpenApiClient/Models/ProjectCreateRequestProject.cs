@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// Configuration for the new project, including name, region, and Postgres compute and storage settings.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ProjectCreateRequestProject : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -18,7 +19,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>The branch property</summary>
+        /// <summary>Configuration for the initial branch created with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch? Branch { get; set; }
@@ -34,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
 #endif
-        /// <summary>The number of seconds to retain the shared history for all branches in this project.The default is 1 day (86400 seconds).</summary>
+        /// <summary>&quot;History window (point-in-time restore range) for all branches, in seconds. `0` disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).&quot;</summary>
         public int? HistoryRetentionSeconds { get; set; }
         /// <summary>The project name. If not specified, the name will be identical to the generated project ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +45,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Organization id in case the project created belongs to an organization.If not present, project is owned by a user and not by org.</summary>
+        /// <summary>ID of the organization that will own the project. If omitted when using an organization API key, it is inferred from the key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -52,9 +53,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The major Postgres version number. Generally available versions are `14`, `15`, `16`, `17`, and `18`. `19` is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error.</summary>
+        /// <summary>The major Postgres version number. Supported versions are `14`, `15`, `16`, `17`, and `18`. `19` is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.</summary>
         public int? PgVersion { get; set; }
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }

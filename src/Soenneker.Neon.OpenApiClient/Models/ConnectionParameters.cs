@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Database name</summary>
+        /// <summary>Name of the Postgres database used in the connection URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Database { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Database { get; set; }
 #endif
-        /// <summary>Hostname</summary>
+        /// <summary>Hostname of the compute endpoint. Use `pooler_host` for the pooled connection hostname.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Host { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Host { get; set; }
 #endif
-        /// <summary>Password for the role</summary>
+        /// <summary>Authentication password for the role, used in the connection URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Password { get; set; }
 #endif
-        /// <summary>Pooler hostname</summary>
+        /// <summary>PgBouncer (transaction mode) pooled host, the `-pooler` variant of `host`. Connect through it to work around the Postgres `max_connections` limit for serverless or connection-per-request workloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PoolerHost { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string PoolerHost { get; set; }
 #endif
-        /// <summary>Role name</summary>
+        /// <summary>Postgres role used to authenticate the database connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Role { get; set; }

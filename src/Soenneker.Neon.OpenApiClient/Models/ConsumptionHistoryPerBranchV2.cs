@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The branch ID</summary>
+        /// <summary>The Neon branch ID. Returned as `id` from `GET /projects/{project_id}/branches`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BranchId { get; set; }
 #endif
-        /// <summary>The periods property</summary>
+        /// <summary>Consumption history records for the branch, grouped by billing period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2>? Periods { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2> Periods { get; set; }
 #endif
-        /// <summary>The project that owns the branch</summary>
+        /// <summary>The ID of the project that owns this branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }

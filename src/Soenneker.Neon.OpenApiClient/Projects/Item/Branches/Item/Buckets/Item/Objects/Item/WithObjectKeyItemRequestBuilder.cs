@@ -46,7 +46,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
         {
         }
         /// <summary>
-        /// &quot;Deletes the named object from the bucket on the specified branch.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Deletes the named object from the bucket on the specified branch.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Deletes the named object from the bucket on the specified branch.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Deletes the named object from the bucket on the specified branch.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

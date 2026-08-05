@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? AllowHipaaProjects { get; set; }
         /// <summary>A timestamp indicting when the organization was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The handle property</summary>
+        /// <summary>URL-safe identifier for the organization, used in API paths. Distinct from the display name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Handle { get; set; }
@@ -26,7 +26,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Handle { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>The Neon organization ID. Use as the `org_id` path parameter in other endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ManagedBy { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Human-readable display name of the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The plan property</summary>
+        /// <summary>Billing plan for the organization, for example `free`, `launch`, or `scale`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Plan { get; set; }

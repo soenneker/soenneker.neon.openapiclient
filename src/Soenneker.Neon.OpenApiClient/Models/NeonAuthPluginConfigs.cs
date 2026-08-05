@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The allow_localhost property</summary>
+        /// <summary>Permits authentication requests from localhost origins when true. Intended for local development; disable in production environments.</summary>
         public bool? AllowLocalhost { get; set; }
         /// <summary>The email_and_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,7 +41,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig MagicLink { get; set; }
 #endif
-        /// <summary>The oauth_providers property</summary>
+        /// <summary>OAuth provider configurations enabled for this auth setup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>? OauthProviders { get; set; }

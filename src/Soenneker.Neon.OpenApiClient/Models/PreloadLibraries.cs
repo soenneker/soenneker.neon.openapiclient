@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The enabled_libraries property</summary>
+        /// <summary>Names of shared preload libraries to enable for the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? EnabledLibraries { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<string> EnabledLibraries { get; set; }
 #endif
-        /// <summary>The use_defaults property</summary>
+        /// <summary>When true, the project&apos;s preload libraries include the platform default set in addition to any libraries listed in `enabled_libraries`.</summary>
         public bool? UseDefaults { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries"/> and sets the default values.

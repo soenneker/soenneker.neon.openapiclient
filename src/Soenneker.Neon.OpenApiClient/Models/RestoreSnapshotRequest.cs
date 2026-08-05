@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set to `true` to finalize the restore operation immediately.This will complete the restore and move any associated computes to the new branch,similar to the `finalizeRestoreBranch` operation.Defaults to `false` to allow previewing the restored snapshot data first.</summary>
         public bool? FinalizeRestore { get; set; }
-        /// <summary>A name for the newly restored branch.If omitted, a default name will be generated.</summary>
+        /// <summary>A name for the newly restored branch. If not provided, the server generates a unique name for the branch automatically.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The ID of the branch to restore the snapshot into.If not specified, the branch from which the snapshot was originallycreated (`snapshot.source_branch_id`) will be used.</summary>
+        /// <summary>ID of the branch to restore the snapshot into. Defaults to the snapshot&apos;s source branch (`snapshot.source_branch_id`); fails if that cannot be determined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetBranchId { get; set; }

@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
+        /// <summary>&quot;Organization member&apos;s role. `admin`: full administrative access. `editor` (and its legacy alias `member`): standard access governed by project permissions. `viewer` and `collaborator`: additional scoped project roles. Some values may not be available for all organizations.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.MemberRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.OrganizationMemberUpdateRequest"/> and sets the default values.

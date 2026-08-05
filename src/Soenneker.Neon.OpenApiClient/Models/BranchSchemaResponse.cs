@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJson Json { get; set; }
 #endif
-        /// <summary>The sql property</summary>
+        /// <summary>Branch schema expressed as SQL DDL statements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Sql { get; set; }

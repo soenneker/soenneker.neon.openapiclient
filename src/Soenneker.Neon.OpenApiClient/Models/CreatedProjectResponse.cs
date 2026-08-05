@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.Branch Branch { get; set; }
 #endif
-        /// <summary>The connection_uris property</summary>
+        /// <summary>Connection URIs for the project. Each entry contains credentials and should be treated as sensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConnectionDetails>? ConnectionUris { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConnectionDetails> ConnectionUris { get; set; }
 #endif
-        /// <summary>The databases property</summary>
+        /// <summary>Databases on the branch. Each includes `id`, `name`, `owner_name`, and `created_at`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.Database>? Databases { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.Database> Databases { get; set; }
 #endif
-        /// <summary>The endpoints property</summary>
+        /// <summary>Compute endpoints in the project. Each includes `id`, `branch_id`, `host`, and `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.Endpoint>? Endpoints { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.Project Project { get; set; }
 #endif
-        /// <summary>The roles property</summary>
+        /// <summary>Roles belonging to the branch. Each role includes fields such as `branch_id`, `name`, `protected`, `created_at`, and `updated_at`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.Role>? Roles { get; set; }

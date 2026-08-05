@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Brand of credit card.</summary>
+        /// <summary>Card network reported by the payment processor. Set to `unknown` when the network cannot be determined.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.PaymentSourceBankCardBrand? Brand { get; set; }
         /// <summary>Credit card expiration month</summary>
         public long? ExpMonth { get; set; }

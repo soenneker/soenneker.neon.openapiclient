@@ -14,9 +14,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth_provider property</summary>
+        /// <summary>Authentication provider integrated with this Neon Auth configuration. `better_auth` integrates with Better Auth (the current, recommended provider). `stack` integrates with Stack Auth (deprecated). `mock` is a simulated provider for local development and testing only.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthSupportedAuthProvider? AuthProvider { get; set; }
-        /// <summary>The auth_provider_project_id property</summary>
+        /// <summary>Project identifier assigned by the auth provider for this integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthProviderProjectId { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string AuthProviderProjectId { get; set; }
 #endif
-        /// <summary>The base_url property</summary>
+        /// <summary>Base URL of the Neon Auth service endpoint for this integration. Injected into the project environment as `NEON_AUTH_BASE_URL`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BaseUrl { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BaseUrl { get; set; }
 #endif
-        /// <summary>The branch_id property</summary>
+        /// <summary>The Neon branch ID. Returned as `id` from `GET /projects/{project_id}/branches`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -40,9 +40,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BranchId { get; set; }
 #endif
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the Neon Auth integration was created, in RFC 3339 format (UTC).</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The db_name property</summary>
+        /// <summary>Name of the database used by the Neon Auth integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DbName { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string DbName { get; set; }
 #endif
-        /// <summary>The jwks_url property</summary>
+        /// <summary>URL of the provider&apos;s JWKS endpoint used to verify JWTs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwksUrl { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
-        /// <summary>The application name used in auth emails and communications. Defaults to the Neon project name.</summary>
+        /// <summary>Application name shown in auth emails and communications. Defaults to the project name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

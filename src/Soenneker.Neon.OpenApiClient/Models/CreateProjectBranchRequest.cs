@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Annotation properties.</summary>
+        /// <summary>A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranchRequestAnnotationValue? AnnotationValue { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.CreateProjectBranchRequestAnnotationValue AnnotationValue { get; set; }
 #endif
-        /// <summary>The branch property</summary>
+        /// <summary>Optional configuration for the new branch, for example `name`, `parent_id` (fork from a branch), `parent_lsn` or `parent_timestamp` (point-in-time branching), and `protected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch? Branch { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch Branch { get; set; }
 #endif
-        /// <summary>The endpoints property</summary>
+        /// <summary>Compute endpoints to create together with the branch. If omitted, the branch is created without any compute endpoint. Endpoints can be added to the branch separately after creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions>? Endpoints { get; set; }

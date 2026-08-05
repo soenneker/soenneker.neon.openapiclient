@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string DbExtraSearchPath { get; set; }
 #endif
-        /// <summary>Maximum number of rows that can be returned in a single request</summary>
+        /// <summary>Hard limit on the number of rows returned in a single Data API response. No limit when unset.</summary>
         public int? DbMaxRows { get; set; }
         /// <summary>&quot;List of schemas to expose via the API. Default: [\&quot;public\&quot;]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<string> DbSchemas { get; set; }
 #endif
-        /// <summary>Maximum lifetime for JWT cache in seconds</summary>
+        /// <summary>Maximum lifetime of the Data API&apos;s JWT cache, in seconds.</summary>
         public int? JwtCacheMaxLifetime { get; set; }
         /// <summary>JWT claim key to use for role extraction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ServerCorsAllowedOrigins { get; set; }
 #endif
-        /// <summary>Enable server timing headers</summary>
+        /// <summary>&quot;When enabled, the Data API adds `Server-Timing` headers to each response showing database execution and internal processing time. Default: disabled.&quot;</summary>
         public bool? ServerTimingEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings"/> and sets the default values.

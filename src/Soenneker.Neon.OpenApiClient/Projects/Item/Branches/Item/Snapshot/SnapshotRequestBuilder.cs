@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
         {
         }
         /// <summary>
-        /// &quot;Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.&quot;
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreateSnapshot200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CreateSnapshot200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CreateSnapshot200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.&quot;
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,12 +85,12 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot.SnapshotRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.**Note**: This endpoint is currently in Beta.&quot;
+        /// Creates a snapshot from the specified branch.This operation may initiate an asynchronous process.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SnapshotRequestBuilderPostQueryParameters 
         {
-            /// <summary>The time at which the snapshot will be automatically deleted.Use ISO 8601 format (e.g. 2025-08-05T22:00:00Z).</summary>
+            /// <summary>The time at which the snapshot will be automatically deleted. RFC 3339 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("expires_at")]
@@ -120,7 +120,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
             [QueryParameter("name")]
             public string Name { get; set; }
 #endif
-            /// <summary>The target timestamp for the snapshot. Must fall within the restore window.Use ISO 8601 format (e.g. 2025-08-05T22:00:00Z). Cannot be used with `lsn`.</summary>
+            /// <summary>The target timestamp for the snapshot. Must fall within the restore window. RFC 3339 format. Cannot be used with `lsn`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("timestamp")]

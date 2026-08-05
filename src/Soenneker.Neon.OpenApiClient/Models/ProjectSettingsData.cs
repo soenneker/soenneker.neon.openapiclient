@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? BlockVpcConnections { get; set; }
         /// <summary>Sets wal_level=logical for all compute endpoints in this project.All active endpoints will be suspended.Once enabled, logical replication cannot be disabled.</summary>
         public bool? EnableLogicalReplication { get; set; }
-        /// <summary>The hipaa property</summary>
+        /// <summary>Enables HIPAA compliance mode for the project, including audit logging.</summary>
         public bool? Hipaa { get; set; }
         /// <summary>A maintenance window is a time period during which Neon may perform maintenance on the project&apos;s infrastructure.During this time, the project&apos;s compute endpoints may be unavailable and existing connections can beinterrupted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

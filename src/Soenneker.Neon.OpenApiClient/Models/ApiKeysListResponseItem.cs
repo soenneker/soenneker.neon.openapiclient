@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.ApiKeyCreatorData CreatedBy { get; set; }
 #endif
-        /// <summary>The API key ID</summary>
+        /// <summary>The API key&apos;s unique numeric ID. Distinct from the API key token (`key`).</summary>
         public long? Id { get; set; }
         /// <summary>A timestamp indicating when the API was last used</summary>
         public DateTimeOffset? LastUsedAt { get; set; }

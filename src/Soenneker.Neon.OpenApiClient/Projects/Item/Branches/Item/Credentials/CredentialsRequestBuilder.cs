@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials
         {
         }
         /// <summary>
-        /// &quot;Returns metadata for customer-issued credentials on the branch.Secrets are never included.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns metadata for customer-issued credentials on the branch.Secrets are never included.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListCredentialsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListCredentialsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListCredentialsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Issues a new scoped service credential anchored to the specifiedbranch. The response carries `api_token` and `s3_secret_access_key`exactly once — they are not stored server-side.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Issues a new scoped service credential anchored to the specifiedbranch. The response carries `api_token` and `s3_secret_access_key`exactly once — they are not stored server-side.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns metadata for customer-issued credentials on the branch.Secrets are never included.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns metadata for customer-issued credentials on the branch.Secrets are never included.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Issues a new scoped service credential anchored to the specifiedbranch. The response carries `api_token` and `s3_secret_access_key`exactly once — they are not stored server-side.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Issues a new scoped service credential anchored to the specifiedbranch. The response carries `api_token` and `s3_secret_access_key`exactly once — they are not stored server-side.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

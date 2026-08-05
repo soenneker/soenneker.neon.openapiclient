@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Ai_gateway
         {
         }
         /// <summary>
-        /// &quot;Returns the AI Gateway endpoint host for the specified branch, used torender code-snippet base URLs. A 200 response means the branch isregistered and this region serves the AI gateway. A 404 responseincludes a `reason` field indicating why the gateway is unavailable.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns the AI Gateway endpoint host for the specified branch, used torender code-snippet base URLs. A 200 response means the branch isregistered and this region serves the AI gateway. A 404 responseincludes a `reason` field indicating why the gateway is unavailable.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchAiGateway"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Ai_gateway
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchAiGateway>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchAiGateway.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the AI Gateway endpoint host for the specified branch, used torender code-snippet base URLs. A 200 response means the branch isregistered and this region serves the AI gateway. A 404 responseincludes a `reason` field indicating why the gateway is unavailable.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns the AI Gateway endpoint host for the specified branch, used torender code-snippet base URLs. A 200 response means the branch isregistered and this region serves the AI gateway. A 404 responseincludes a `reason` field indicating why the gateway is unavailable.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>ID of the user who created this API key</summary>
         public Guid? CreatedBy { get; set; }
-        /// <summary>The API key ID</summary>
+        /// <summary>The API key&apos;s unique numeric ID. Distinct from the API key token (`key`).</summary>
         public long? Id { get; set; }
         /// <summary>The generated 64-bit token required to access the Neon API</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

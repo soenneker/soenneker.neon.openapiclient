@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>The invitation ID.</summary>
         public Guid? Id { get; set; }
         /// <summary>Timestamp when the invitation was created</summary>
         public DateTimeOffset? InvitedAt { get; set; }
@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
+        /// <summary>&quot;Organization member&apos;s role. `admin`: full administrative access. `editor` (and its legacy alias `member`): standard access governed by project permissions. `viewer` and `collaborator`: additional scoped project roles. Some values may not be available for all organizations.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.MemberRole? Role { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Invitation"/> and sets the default values.

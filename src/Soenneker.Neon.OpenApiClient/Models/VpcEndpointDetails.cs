@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The number of projects that are restricted to use this VPC endpoint.</summary>
         public int? NumRestrictedProjects { get; set; }
-        /// <summary>The current state of the VPC endpoint. Possible values are`new` (just configured, pending acceptance) or `accepted`(VPC connection was accepted by Neon).</summary>
+        /// <summary>The current state of the VPC endpoint. `new` means the endpoint has just been configured and is pending acceptance by Neon. `accepted` means the VPC connection has been accepted by Neon.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string State { get; set; }
 #endif
-        /// <summary>The VPC endpoint ID</summary>
+        /// <summary>Cloud provider identifier for the VPC endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VpcEndpointId { get; set; }

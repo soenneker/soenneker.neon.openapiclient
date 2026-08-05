@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? EffectiveProjectPermission { get; set; }
-        /// <summary>The email property</summary>
+        /// <summary>Email address of the user who has been granted access to the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }

@@ -19,7 +19,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        /// <summary>Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings? PgbouncerSettings { get; set; }

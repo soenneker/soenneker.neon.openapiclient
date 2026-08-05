@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether the phone number plugin is enabled</summary>
+        /// <summary>Whether the phone number plugin is enabled.</summary>
         public bool? Enabled { get; set; }
         /// <summary>Time in seconds before the OTP expires</summary>
         public int? OtpExpiresIn { get; set; }

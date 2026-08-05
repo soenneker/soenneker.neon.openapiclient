@@ -7,16 +7,17 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// An asynchronous action Neon performs on your resources (for example, starting a compute or creating a branch). Fields such as `action`, `status`, and `total_duration_ms` describe the operation and its progress.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class Operation : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>The action performed by the operation</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.OperationAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The branch ID</summary>
+        /// <summary>The ID of the branch this operation ran on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -26,7 +27,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>A timestamp indicating when the operation was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The endpoint ID</summary>
+        /// <summary>The ID of the compute endpoint this operation ran on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EndpointId { get; set; }
@@ -34,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string EndpointId { get; set; }
 #endif
-        /// <summary>The error that occurred</summary>
+        /// <summary>Human-readable message describing why the operation failed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Error { get; set; }
@@ -46,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public int? FailuresCount { get; set; }
         /// <summary>The operation ID</summary>
         public Guid? Id { get; set; }
-        /// <summary>The Neon project ID</summary>
+        /// <summary>The ID of the project this operation ran on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -56,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>A timestamp indicating when the operation was last retried</summary>
         public DateTimeOffset? RetryAt { get; set; }
-        /// <summary>The status of the operation</summary>
+        /// <summary>&quot;Lifecycle state of the operation. `scheduling`: queued, not yet started. `running`: actively executing. `finished`: completed successfully. `failed`: ended with a failure. `error`: ended with a terminal error. `cancelling`: cancellation requested but not yet complete. `cancelled`: stopped before completion. `skipped`: bypassed without executing.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.OperationStatus? Status { get; set; }
         /// <summary>The total duration of the operation in milliseconds</summary>
         public int? TotalDurationMs { get; set; }

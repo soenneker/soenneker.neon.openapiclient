@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The columns property</summary>
+        /// <summary>Columns belonging to this table, each describing a column&apos;s name and attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJsonTablesItemColumnsItem>? Columns { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJsonTablesItemColumnsItem> Columns { get; set; }
 #endif
-        /// <summary>The constraints property</summary>
+        /// <summary>Table constraints defined in the branch schema, such as primary key, foreign key, unique, and check constraints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJsonTablesItemConstraintsItem>? Constraints { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.BranchSchemaJsonTablesItemConstraintsItem> Constraints { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Name of the table within the schema.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The schema property</summary>
+        /// <summary>Postgres schema (namespace) that contains the table, for example `public`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Schema { get; set; }

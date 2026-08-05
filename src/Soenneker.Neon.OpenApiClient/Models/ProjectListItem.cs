@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// Essential data about the project. Full data is available at the getProject endpoint.
+    /// Essential data about the project. Full data is available at `GET /projects/{project_id}`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectListItem : IAdditionalDataHolder, IParsable
@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public long? BranchLogicalSizeLimitBytes { get; set; }
         /// <summary>The most recent time when any endpoint of this project was active.Omitted when observed no activity for endpoints of this project.</summary>
         public DateTimeOffset? ComputeLastActiveAt { get; set; }
-        /// <summary>DEPRECATED. Use data from the getProject endpoint instead.</summary>
+        /// <summary>Deprecated. Use `compute_time_seconds` from `GET /projects/{project_id}` instead.</summary>
         [Obsolete("")]
         public long? CpuUsedSec { get; set; }
         /// <summary>A timestamp indicating when the project was created</summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? HipaaEnabledAt { get; set; }
         /// <summary>The number of seconds to retain the shared history for all branches in this project.</summary>
         public int? HistoryRetentionSeconds { get; set; }
-        /// <summary>The project ID</summary>
+        /// <summary>The Neon project ID. Use as the `project_id` path parameter in other endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Organization id if the project belongs to an organization.Permissions for the project will be given to organization members as defined by the organization admins.The permissions of the project do not depend on the user that created the project if a project belongs to an organization.</summary>
+        /// <summary>ID of the organization that owns the project. Project permissions are granted to organization members as configured by the organization&apos;s admins, independent of which member created the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>Organization name if the project belongs to an organization.</summary>
+        /// <summary>Name of the organization that owns the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgName { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgName { get; set; }
 #endif
-        /// <summary>The owner_id property</summary>
+        /// <summary>ID of the organization that owns the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OwnerId { get; set; }
@@ -94,7 +94,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OwnerId { get; set; }
 #endif
-        /// <summary>The major Postgres version number. Generally available versions are `14`, `15`, `16`, `17`, and `18`. `19` is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error.</summary>
+        /// <summary>The major Postgres version number. Supported versions are `14`, `15`, `16`, `17`, and `18`. `19` is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.</summary>
         public int? PgVersion { get; set; }
         /// <summary>The cloud platform identifier. Currently, only AWS is supported, for which the identifier is `aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -104,7 +104,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string PlatformId { get; set; }
 #endif
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }
@@ -120,12 +120,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProxyHost { get; set; }
 #endif
-        /// <summary>DEPRECATED. Use `consumption_period_end` from the getProject endpoint instead.A timestamp indicating when the project quota resets</summary>
+        /// <summary>Deprecated. Use `consumption_period_end` from `GET /projects/{project_id}` instead. A timestamp indicating when the project quota resets.</summary>
         [Obsolete("")]
         public DateTimeOffset? QuotaResetAt { get; set; }
         /// <summary>A timestamp indicating the project will be recoverable until this date and time.</summary>
         public DateTimeOffset? RecoverableUntil { get; set; }
-        /// <summary>The region identifier</summary>
+        /// <summary>Cloud region where the project&apos;s Postgres compute and storage reside (for example, `aws-us-east-2`). Valid values are returned by `GET /regions`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionId { get; set; }
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether or not passwords are stored for roles in the Neon project. Storing passwords facilitates access to Neon features that require authorization.</summary>
         public bool? StorePasswords { get; set; }
-        /// <summary>The current space occupied by the project in storage, in bytes. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
+        /// <summary>The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
         public long? SyntheticStorageSize { get; set; }
         /// <summary>A timestamp indicating when the project was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

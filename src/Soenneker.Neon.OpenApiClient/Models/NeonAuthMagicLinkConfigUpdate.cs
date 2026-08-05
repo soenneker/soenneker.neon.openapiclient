@@ -14,11 +14,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether to disable sign-up via magic link</summary>
+        /// <summary>When true, sign-up via magic link is disabled.</summary>
         public bool? DisableSignUp { get; set; }
-        /// <summary>Whether the magic link plugin is enabled</summary>
+        /// <summary>Whether to enable the magic link plugin.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>Time in minutes before the magic link expires</summary>
+        /// <summary>Minutes until the magic link expires.</summary>
         public int? ExpiresIn { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfigUpdate"/> and sets the default values.

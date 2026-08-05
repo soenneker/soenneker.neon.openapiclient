@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// Annotation properties.
+    /// A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateProjectBranchRequestAnnotationValue : IAdditionalDataHolder, IParsable

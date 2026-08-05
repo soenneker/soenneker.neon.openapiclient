@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Authentication method configured for this role. Valid options: `password`, `oauth`, `no_login`&quot;</summary>
+        /// <summary>&quot;Authentication method configured for this role: `password`, `oauth`, or `no_login`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthenticationMethod { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string AuthenticationMethod { get; set; }
 #endif
-        /// <summary>The ID of the branch to which the role belongs</summary>
+        /// <summary>The ID of the branch this role belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>A timestamp indicating when the role was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The role name</summary>
+        /// <summary>Postgres role name within the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

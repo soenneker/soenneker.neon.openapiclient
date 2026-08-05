@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string MessageEscaped { get; set; }
 #endif
-        /// <summary>&quot;Machine-readable reason why storage is unavailable:- `org_not_entitled`: the org&apos;s `PlatformBranchableStorage` feature flag is off.- `region_unavailable`: the project&apos;s region has no storage admin service wired.- `branch_directory_missing`: the branch is not registered in the storage service.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
+        /// <summary>&quot;Machine-readable reason why object storage is unavailable:- `org_not_entitled`: the org&apos;s `PlatformBranchableStorage` feature flag is off.- `region_unavailable`: the project&apos;s region has no object storage admin service wired.- `branch_directory_missing`: the branch is not registered in the object storage service.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BranchStorageNotEnabledReason? Reason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchStorageNotEnabled"/> and sets the default values.

@@ -14,15 +14,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The role assigned to the user who creates an organization</summary>
+        /// <summary>&quot;Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole? CreatorRole { get; set; }
-        /// <summary>Whether the organization plugin is enabled</summary>
+        /// <summary>Whether the organization plugin is enabled.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>Maximum number of members per organization</summary>
+        /// <summary>Maximum number of members per organization.</summary>
         public int? MembershipLimit { get; set; }
-        /// <summary>Maximum number of organizations a user can create</summary>
+        /// <summary>Maximum organizations a user can belong to (created or joined). At the limit, the user cannot create or join more.</summary>
         public int? OrganizationLimit { get; set; }
-        /// <summary>Whether to send invitation emails when inviting members to an organization</summary>
+        /// <summary>Whether to send invitation emails when inviting members to an organization.</summary>
         public bool? SendInvitationEmail { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig"/> and sets the default values.

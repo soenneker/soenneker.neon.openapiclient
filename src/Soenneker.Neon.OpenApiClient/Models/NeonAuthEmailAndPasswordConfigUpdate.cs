@@ -16,17 +16,17 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether users are automatically signed in after verifying their email</summary>
         public bool? AutoSignInAfterVerification { get; set; }
-        /// <summary>Whether to disable new user sign ups</summary>
+        /// <summary>Whether to disable new user sign ups. When omitted, the current setting is not changed.</summary>
         public bool? DisableSignUp { get; set; }
         /// <summary>&quot;The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod? EmailVerificationMethod { get; set; }
-        /// <summary>Whether email and password authentication is enabled</summary>
+        /// <summary>Controls whether email and password authentication is enabled for this project. When omitted from an update request, the current value is unchanged.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>Whether email verification is required before users can sign in</summary>
+        /// <summary>When true, users must verify their email address before they can sign in. Omitting this field from an update request leaves the current value unchanged.</summary>
         public bool? RequireEmailVerification { get; set; }
-        /// <summary>Whether to send a verification email when users sign in</summary>
+        /// <summary>Whether to send a verification email when a user with an unverified email signs in.</summary>
         public bool? SendVerificationEmailOnSignIn { get; set; }
-        /// <summary>Whether to send a verification email when users sign up</summary>
+        /// <summary>Whether to send a verification email when users sign up.</summary>
         public bool? SendVerificationEmailOnSignUp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfigUpdate"/> and sets the default values.

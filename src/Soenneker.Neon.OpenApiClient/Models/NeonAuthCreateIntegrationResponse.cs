@@ -14,9 +14,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth_provider property</summary>
+        /// <summary>Authentication provider integrated with this Neon Auth configuration. `better_auth` integrates with Better Auth (the current, recommended provider). `stack` integrates with Stack Auth (deprecated). `mock` is a simulated provider for local development and testing only.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthSupportedAuthProvider? AuthProvider { get; set; }
-        /// <summary>The auth_provider_project_id property</summary>
+        /// <summary>Project ID assigned by the auth provider for this integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AuthProviderProjectId { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string AuthProviderProjectId { get; set; }
 #endif
-        /// <summary>The base_url property</summary>
+        /// <summary>Base URL of the Neon Auth service for this integration. Set as the NEON_AUTH_BASE_URL environment variable in your application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BaseUrl { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BaseUrl { get; set; }
 #endif
-        /// <summary>The jwks_url property</summary>
+        /// <summary>URL of the provider&apos;s JWKS endpoint used to verify JWTs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwksUrl { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
-        /// <summary>The pub_client_key property</summary>
+        /// <summary>Publishable SDK key from the auth provider. Populated only for Stack Auth (deprecated); empty for Better Auth.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PubClientKey { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string PubClientKey { get; set; }
 #endif
-        /// <summary>The schema_name property</summary>
+        /// <summary>Postgres schema containing the auth integration tables. Defaults to `neon_auth`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SchemaName { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SchemaName { get; set; }
 #endif
-        /// <summary>The secret_server_key property</summary>
+        /// <summary>Secret server-side SDK key from the auth provider. Populated only for Stack Auth (deprecated); empty for Better Auth. Treat as a credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SecretServerKey { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SecretServerKey { get; set; }
 #endif
-        /// <summary>The table_name property</summary>
+        /// <summary>Postgres table in the integration schema where synced user records are stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TableName { get; set; }

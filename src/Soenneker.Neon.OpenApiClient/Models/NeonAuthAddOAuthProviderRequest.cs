@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The client_id property</summary>
+        /// <summary>The client ID issued by the OAuth provider for your application. Used to identify the application during the OAuth flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>The client_secret property</summary>
+        /// <summary>OAuth client secret for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? Id { get; set; }
-        /// <summary>The microsoft_tenant_id property</summary>
+        /// <summary>Tenant ID for the Microsoft OAuth provider. Only relevant when the OAuth provider is Microsoft; omit or leave blank for other providers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MicrosoftTenantId { get; set; }

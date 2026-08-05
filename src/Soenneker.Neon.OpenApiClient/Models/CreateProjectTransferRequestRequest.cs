@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Specifies the validity duration of the transfer request in seconds. If not provided,the request will expire after 24 hours (86,400 seconds).</summary>
+        /// <summary>Number of seconds the transfer request stays valid before it expires. Defaults to 86400 (24 hours).</summary>
         public long? TtlSeconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreateProjectTransferRequestRequest"/> and sets the default values.

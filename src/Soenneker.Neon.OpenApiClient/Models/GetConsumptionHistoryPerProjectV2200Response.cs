@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Cursor based pagination is used. The user must pass the cursor as is to the backend.For more information about cursor based pagination, seehttps://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination</summary>
+        /// <summary>Cursor-based pagination. The `cursor` value reflects the endpoint&apos;s sort field (for example, an ID or timestamp), so pass it back unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.Pagination? Pagination { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.Pagination Pagination { get; set; }
 #endif
-        /// <summary>The projects property</summary>
+        /// <summary>Per-project consumption history entries for the requested time range.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerProjectV2>? Projects { get; set; }

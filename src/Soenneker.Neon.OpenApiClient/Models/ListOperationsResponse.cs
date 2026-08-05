@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.Operation> Operations { get; set; }
 #endif
-        /// <summary>Cursor based pagination is used. The user must pass the cursor as is to the backend.For more information about cursor based pagination, seehttps://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination</summary>
+        /// <summary>Cursor-based pagination. The `cursor` value reflects the endpoint&apos;s sort field (for example, an ID or timestamp), so pass it back unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.Pagination? Pagination { get; set; }

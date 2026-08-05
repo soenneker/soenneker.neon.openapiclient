@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether this region is used by default in new projects.</summary>
+        /// <summary>True if this region is selected by default when no region is specified during project creation.</summary>
         public bool? Default { get; set; }
         /// <summary>The geographical latitude (approximate) for the region. Empty if unknown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The region ID as used in other API endpoints</summary>
+        /// <summary>Cloud region where the resource&apos;s Postgres compute and storage reside (for example, `aws-us-east-1`). Valid values are returned by `GET /regions`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionId { get; set; }

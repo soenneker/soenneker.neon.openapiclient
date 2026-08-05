@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>The ID of the branch that the compute endpoint is associated with</summary>
+        /// <summary>The ID of the branch this compute endpoint belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreationSource { get; set; }
 #endif
-        /// <summary>The state of the compute endpoint</summary>
+        /// <summary>&quot;Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? CurrentState { get; set; }
         /// <summary>Whether to restrict connections to the compute endpoint.Enabling this option schedules a suspend compute operation.A disabled compute endpoint cannot be enabled by a connection orconsole action.</summary>
         public bool? Disabled { get; set; }
@@ -76,15 +76,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether to permit passwordless access to the compute endpoint</summary>
         public bool? PasswordlessAccess { get; set; }
-        /// <summary>The state of the compute endpoint</summary>
+        /// <summary>&quot;Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? PendingState { get; set; }
-        /// <summary>DEPRECATED. Whether to enable connection pooling for the compute endpoint.The recommended way to enable connection pooling is to append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
+        /// <summary>Deprecated. To use connection pooling, append `-pooler` to the endpoint ID in the connection string.</summary>
         [Obsolete("")]
         public bool? PoolerEnabled { get; set; }
-        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        /// <summary>Deprecated. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. Removal scheduled for June 20, 2026.</summary>
         [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
-        /// <summary>The ID of the project to which the compute endpoint belongs</summary>
+        /// <summary>The ID of the project this compute endpoint belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -92,7 +92,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }
@@ -100,7 +100,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Provisioner { get; set; }
 #endif
-        /// <summary>DEPRECATED. Use the &quot;host&quot; property instead.</summary>
+        /// <summary>Deprecated. Use the `host` property instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProxyHost { get; set; }
@@ -108,7 +108,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProxyHost { get; set; }
 #endif
-        /// <summary>The region identifier</summary>
+        /// <summary>Cloud region where the resource&apos;s Postgres compute and storage reside (for example, `aws-us-east-1`). Valid values are returned by `GET /regions`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionId { get; set; }
@@ -130,7 +130,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? SuspendedAt { get; set; }
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
         public long? SuspendTimeoutSeconds { get; set; }
-        /// <summary>The compute endpoint type. Either `read_write` or `read_only`.</summary>
+        /// <summary>&quot;Compute endpoint type. `read_write`: the primary read-write endpoint (one per branch). `read_only`: a read replica endpoint (multiple allowed per branch).&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointType? Type { get; set; }
         /// <summary>A timestamp indicating when the compute endpoint was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

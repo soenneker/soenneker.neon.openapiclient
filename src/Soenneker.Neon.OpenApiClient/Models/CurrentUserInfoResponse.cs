@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public long? ActiveSecondsLimit { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The auth_accounts property</summary>
+        /// <summary>Authentication provider accounts linked to the current user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.CurrentUserAuthAccount>? AuthAccounts { get; set; }
@@ -32,11 +32,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.BillingAccount BillingAccount { get; set; }
 #endif
-        /// <summary>The branches_limit property</summary>
+        /// <summary>Maximum number of branches allowed for the account under the current plan.</summary>
         public long? BranchesLimit { get; set; }
-        /// <summary>The compute_seconds_limit property</summary>
+        /// <summary>Maximum Postgres compute time, in seconds, allowed under the account&apos;s current plan.</summary>
         public long? ComputeSecondsLimit { get; set; }
-        /// <summary>The email property</summary>
+        /// <summary>Email address of the authenticated user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>The Neon user ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The image property</summary>
+        /// <summary>URL of the user&apos;s profile avatar image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Image { get; set; }
@@ -60,7 +60,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Image { get; set; }
 #endif
-        /// <summary>The last_name property</summary>
+        /// <summary>Last name of the current user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string LastName { get; set; }
 #endif
-        /// <summary>DEPRECATED. Use `email` field.</summary>
+        /// <summary>Deprecated. Use the `email` field.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The maximum autoscaling limit in Compute Units.A value of 0 indicates no limit is configured.</summary>
         public double? MaxAutoscalingLimit { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>First name of the current user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The plan property</summary>
+        /// <summary>Current billing plan for the user&apos;s account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Plan { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Plan { get; set; }
 #endif
-        /// <summary>The projects_limit property</summary>
+        /// <summary>Maximum number of projects the account is allowed to create under the current plan.</summary>
         public long? ProjectsLimit { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.CurrentUserInfoResponse"/> and sets the default values.

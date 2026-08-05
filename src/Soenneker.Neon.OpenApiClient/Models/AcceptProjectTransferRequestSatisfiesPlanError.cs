@@ -17,7 +17,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
-        /// <summary>The reasons property</summary>
+        /// <summary>List of reasons why the target account&apos;s plan cannot satisfy the transfer requirements. Each item contains a `code` identifying the constraint and a `message` with a human-readable explanation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>? Reasons { get; set; }

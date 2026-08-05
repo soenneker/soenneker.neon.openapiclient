@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "Neon API",
-    "description": "The Neon API allows you to access and manage Neon programmatically. You can use the Neon API to manage API keys, projects, branches, compute endpoints, databases, roles, and operations. For information about these features, refer to the [Neon documentation](https://neon.com/docs/manage/overview/).\n\nYou can run Neon API requests from this API reference using the **Try It** feature. Enter your API key as a **Bearer** token in the **Authorization** section of the page.\n\nYou can create and manage API keys in the Neon Console. See [Manage API keys](https://neon.com/docs/manage/api-keys/) for instructions.",
+    "description": "The Neon API is the management API for Neon. Use it to provision, configure, and manage resources such as projects, branches, databases, roles, functions, and object storage.\n\nSee the [Neon API reference](https://neon.com/docs/reference/api) for details, and [Manage API keys](https://neon.com/docs/manage/api-keys/) to create and use API keys.",
     "contact": {
       "email": "help@databricks.com"
     },
@@ -395,7 +395,7 @@
           "Project"
         ],
         "summary": "Create project",
-        "description": "Creates a Neon project within an organization.\nIf using a personal API key, include the \u0060org_id\u0060 parameter to specify which organization to create the project in.\nIf using an org API key, \u0060org_id\u0060 is automatically inferred from the key.\nPlan limits define how many projects you can create.\nFor more information, see [Manage projects](https://neon.com/docs/manage/projects/).\n\nYou can specify a region and Postgres version in the request body.\nNeon currently supports PostgreSQL 14, 15, 16, 17, and 18.\nFor supported regions and \u0060region_id\u0060 values, see [Regions](https://neon.com/docs/introduction/regions/).\n",
+        "description": "Creates a Neon project within an organization.\nIf using a personal API key, include the \u0060org_id\u0060 parameter to specify which organization to create the project in.\nIf using an org API key, \u0060org_id\u0060 is automatically inferred from the key.\nPlan limits define how many projects you can create.\nFor more information, see [Manage projects](https://neon.com/docs/manage/projects/).\n\nYou can specify a region and Postgres version in the request body.\nNeon supports Postgres 14 through 18, with 19 rolling out to enabled regions.\nFor supported regions and \u0060region_id\u0060 values, see [Regions](https://neon.com/docs/introduction/regions/).\n",
         "operationId": "CreateProject",
         "requestBody": {
           "content": {
@@ -1997,7 +1997,7 @@
           "Auth"
         ],
         "summary": "Update OAuth provider",
-        "description": "Updates a OAuth provider for the specified project.\n",
+        "description": "Updates an OAuth provider for the specified project.\n",
         "operationId": "UpdateBranchNeonAuthOAuthProvider",
         "requestBody": {
           "content": {
@@ -2029,7 +2029,7 @@
           "Auth"
         ],
         "summary": "Delete OAuth provider",
-        "description": "Deletes a OAuth provider from the specified project.\n",
+        "description": "Deletes an OAuth provider from the specified project.\n",
         "operationId": "DeleteBranchNeonAuthOAuthProvider",
         "responses": {
           "default": {
@@ -3389,7 +3389,7 @@
           "Branch"
         ],
         "summary": "Retrieve database schema",
-        "description": "Retrieves the schema from the specified database. The \u0060lsn\u0060 and \u0060timestamp\u0060 values cannot be specified at the same time. If both are omitted, the database schema is retrieved from database\u0027s head.",
+        "description": "Retrieves the database schema. Specify \u0060lsn\u0060 or \u0060timestamp\u0060 (not both) to read at a point in time; omit both to read from the database\u0027s head.",
         "operationId": "GetProjectBranchSchema",
         "parameters": [
           {
@@ -3815,7 +3815,7 @@
           "Branch"
         ],
         "summary": "Finalize branch restore from snapshot",
-        "description": "\u0022Finalize the restore operation for a branch created from a snapshot.\nThis operation updates the branch so it functions as the original branch it replaced.\nThis includes:\n  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)\n  - Renaming the restored branch to the original branch\u0027s name\n  - Renaming the original branch so it no longer uses the original name\n\nThis operation only applies to branches created using the \u0060restoreSnapshot\u0060 endpoint with \u0060finalize_restore: false\u0060.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "\u0022Finalize the restore operation for a branch created from a snapshot.\nThis operation updates the branch so it functions as the original branch it replaced.\nThis includes:\n  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)\n  - Renaming the restored branch to the original branch\u0027s name\n  - Renaming the original branch so it no longer uses the original name\n\nThis operation only applies to branches created using the \u0060restoreSnapshot\u0060 endpoint with \u0060finalize_restore: false\u0060.\n\u0022",
         "operationId": "FinalizeRestoreBranch",
         "requestBody": {
           "content": {
@@ -6501,7 +6501,7 @@
                       "id": "db8faf32-b07f-4b0f-94c8-5c288909f5d3",
                       "email": "invited1@email.com",
                       "org_id": "my-organization-morning-bread-81040908",
-                      "invited_by": "some@email.com",
+                      "invited_by": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
                       "role": "admin",
                       "invited_at": "2024-02-23T17:42:25Z"
                     },
@@ -6509,7 +6509,7 @@
                       "id": "c52f0d22-ebd9-4708-ae44-2872cae49a83",
                       "email": "invited2@email.com",
                       "org_id": "my-organization-morning-bread-81040908",
-                      "invited_by": "some@email.com",
+                      "invited_by": "a1b2c3d4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
                       "role": "member",
                       "invited_at": "2024-02-23T12:42:25Z"
                     }
@@ -6605,7 +6605,7 @@
             }
           },
           "406": {
-            "description": "Transfer failed - the target organization has too many projects or its plan is incompatible with the source organization. Reduce projects or upgrade the organization.",
+            "description": "Transfer failed. The target organization has too many projects or an incompatible plan. Reduce projects or upgrade the target organization.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6615,7 +6615,7 @@
             }
           },
           "422": {
-            "description": "One or more of the provided project IDs have GitHub or Vercel integrations installed. Transferring integration projects is currently not supported",
+            "description": "Transfer failed. Projects with active integrations (for example, GitHub or Vercel) cannot be transferred.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6933,7 +6933,7 @@
           "Snapshot"
         ],
         "summary": "Create snapshot",
-        "description": "\u0022Creates a snapshot from the specified branch.\nThis operation may initiate an asynchronous process.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Creates a snapshot from the specified branch.\nThis operation may initiate an asynchronous process.\n",
         "operationId": "CreateSnapshot",
         "parameters": [
           {
@@ -6947,9 +6947,10 @@
           {
             "name": "timestamp",
             "in": "query",
-            "description": "The target timestamp for the snapshot. Must fall within the restore window.\nUse ISO 8601 format (e.g. 2025-08-05T22:00:00Z). Cannot be used with \u0060lsn\u0060.\n",
+            "description": "The target timestamp for the snapshot. Must fall within the restore window. RFC 3339 format. Cannot be used with \u0060lsn\u0060.\n",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "2025-08-05T22:00:00Z"
             }
           },
           {
@@ -6963,9 +6964,10 @@
           {
             "name": "expires_at",
             "in": "query",
-            "description": "The time at which the snapshot will be automatically deleted.\nUse ISO 8601 format (e.g. 2025-08-05T22:00:00Z).\n",
+            "description": "The time at which the snapshot will be automatically deleted. RFC 3339 format.\n",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "2025-08-05T22:00:00Z"
             }
           }
         ],
@@ -7014,7 +7016,7 @@
           "Snapshot"
         ],
         "summary": "List project snapshots",
-        "description": "\u0022Lists the snapshots for the specified project.\nEach snapshot represents a point-in-time backup of the project data.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Lists the snapshots for the specified project.\nEach snapshot represents a point-in-time backup of the project data.\n",
         "operationId": "ListSnapshots",
         "responses": {
           "200": {
@@ -7051,7 +7053,7 @@
           "Snapshot"
         ],
         "summary": "Delete snapshot",
-        "description": "\u0022Deletes the specified snapshot.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Deletes the specified snapshot.\n",
         "operationId": "DeleteSnapshot",
         "responses": {
           "202": {
@@ -7074,7 +7076,7 @@
           "Snapshot"
         ],
         "summary": "Update snapshot",
-        "description": "\u0022Updates the specified snapshot.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Updates the specified snapshot.\n",
         "operationId": "UpdateSnapshot",
         "requestBody": {
           "content": {
@@ -7130,13 +7132,13 @@
           "Snapshot"
         ],
         "summary": "Restore snapshot",
-        "description": "\u0022Restores the specified snapshot to a new branch,\nand optionally finalizes the restore operation to replace the original branch.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Restores the specified snapshot to a new branch,\nand optionally finalizes the restore operation to replace the original branch.\n",
         "operationId": "RestoreSnapshot",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "DEPRECATED. Use the \u0060name\u0060 field in the request body instead.\nA name for the newly restored branch. If omitted, a default name will be generated.\n",
+            "description": "Deprecated. Use the \u0060name\u0060 field in the request body instead. Removal scheduled for November 29, 2025.\nA name for the newly restored branch. If omitted, a default name will be generated.\n",
             "deprecated": true,
             "schema": {
               "type": "string"
@@ -7190,7 +7192,7 @@
           "Snapshot"
         ],
         "summary": "Retrieve backup schedule",
-        "description": "\u0022Returns the backup schedule for the specified branch, including the configured snapshot frequencies.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns the backup schedule for the specified branch, including the configured snapshot frequencies.\n",
         "operationId": "GetSnapshotSchedule",
         "responses": {
           "200": {
@@ -7206,7 +7208,7 @@
           "Snapshot"
         ],
         "summary": "Update backup schedule",
-        "description": "\u0022Updates the backup schedule for the specified branch.\nThe schedule defines how often automatic snapshots are created (e.g., \u0060daily\u0060, \u0060weekly\u0060).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Updates the backup schedule for the specified branch.\nThe schedule defines how often automatic snapshots are created (for example, \u0060daily\u0060 or \u0060weekly\u0060). Requires a paid plan.\n",
         "operationId": "SetSnapshotSchedule",
         "requestBody": {
           "content": {
@@ -7255,7 +7257,7 @@
           "Buckets"
         ],
         "summary": "Create a bucket on the branch",
-        "description": "\u0022Creates a new branchable object-storage bucket on the specified branch.\nBuckets are managed by the Neon Platform branchable-storage service.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Creates a new branchable object storage bucket on the specified branch.\nBuckets are managed by the Neon Platform branchable object storage service.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "CreateProjectBranchBucket",
         "requestBody": {
           "content": {
@@ -7297,7 +7299,7 @@
           "Buckets"
         ],
         "summary": "List buckets on the branch",
-        "description": "\u0022Lists branchable object-storage buckets visible on the specified branch,\nincluding those inherited from ancestor branches.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Lists branchable object storage buckets visible on the specified branch,\nincluding those inherited from ancestor branches.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "ListProjectBranchBuckets",
         "responses": {
           "200": {
@@ -7344,7 +7346,7 @@
           "Buckets"
         ],
         "summary": "Delete a bucket on the branch",
-        "description": "\u0022Deletes the named bucket from the specified branch.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Deletes the named bucket from the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "DeleteProjectBranchBucket",
         "responses": {
           "404": {
@@ -7401,12 +7403,12 @@
         "tags": [
           "Storage"
         ],
-        "summary": "Get branch storage state",
-        "description": "\u0022Returns whether branchable object-storage is usable for the specified\nbranch. A 200 response means the branch is registered in the storage\nservice and the S3 data plane will accept requests for it. A 404\nresponse includes a \u0060reason\u0060 field indicating why storage is unavailable.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "summary": "Get branch object storage state",
+        "description": "\u0022Returns whether branchable object storage is usable for the specified\nbranch. A 200 response means the branch is registered in the object storage\nservice and the S3 data plane will accept requests for it. A 404\nresponse includes a \u0060reason\u0060 field indicating why object storage is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "GetProjectBranchStorage",
         "responses": {
           "200": {
-            "description": "Storage is enabled for this branch",
+            "description": "Object storage is enabled for this branch",
             "content": {
               "application/json": {
                 "schema": {
@@ -7416,7 +7418,7 @@
             }
           },
           "404": {
-            "description": "Storage is not enabled for this branch, or the project/branch was not\nfound. The body is always \u0060BranchStorageNotEnabled\u0060 \u2014 see \u0060reason\u0060 for\nthe exact cause.\n",
+            "description": "Object storage is not enabled for this branch, or the project/branch was not\nfound. The body is always \u0060BranchStorageNotEnabled\u0060 \u2014 see \u0060reason\u0060 for\nthe exact cause.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -7459,7 +7461,7 @@
           "AI Gateway"
         ],
         "summary": "Get branch AI Gateway endpoint",
-        "description": "\u0022Returns the AI Gateway endpoint host for the specified branch, used to\nrender code-snippet base URLs. A 200 response means the branch is\nregistered and this region serves the AI gateway. A 404 response\nincludes a \u0060reason\u0060 field indicating why the gateway is unavailable.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Returns the AI Gateway endpoint host for the specified branch, used to\nrender code-snippet base URLs. A 200 response means the branch is\nregistered and this region serves the AI gateway. A 404 response\nincludes a \u0060reason\u0060 field indicating why the gateway is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "GetProjectBranchAiGateway",
         "responses": {
           "200": {
@@ -7773,7 +7775,7 @@
           "Buckets"
         ],
         "summary": "List objects in a bucket",
-        "description": "\u0022Lists objects visible in the named bucket on the specified branch,\nincluding those inherited from ancestor branches. Listing is served by\nthe user\u0027s session (no customer S3 credentials required).\n\nWhen \u0060delimiter\u0060 is supplied (typically \u0060/\u0060), keys are collapsed into\ncommon prefixes (\u0060folders\u0060) so callers can render a folder-style\nbrowser; keys that do not contain the delimiter after \u0060prefix\u0060 are\nreturned as \u0060objects\u0060.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Lists objects visible in the named bucket on the specified branch,\nincluding those inherited from ancestor branches. Listing is served by\nthe user\u0027s session (no customer S3 credentials required).\n\nWhen \u0060delimiter\u0060 is supplied (typically \u0060/\u0060), keys are collapsed into\ncommon prefixes (\u0060folders\u0060) so callers can render a folder-style\nbrowser; keys that do not contain the delimiter after \u0060prefix\u0060 are\nreturned as \u0060objects\u0060.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "ListProjectBranchBucketObjects",
         "parameters": [
           {
@@ -7869,7 +7871,7 @@
           "Buckets"
         ],
         "summary": "Delete an object in a bucket",
-        "description": "\u0022Deletes the named object from the bucket on the specified branch.\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Deletes the named object from the bucket on the specified branch.\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "DeleteProjectBranchBucketObject",
         "responses": {
           "404": {
@@ -7938,7 +7940,7 @@
           "Buckets"
         ],
         "summary": "Download an object\u0027s bytes",
-        "description": "\u0022Streams the raw bytes of the named object from the bucket on the\nspecified branch, including objects inherited from ancestor branches.\nServed by the user\u0027s session (no customer S3 credentials required).\n\nThe body is returned as \u0060application/octet-stream\u0060 so a browser treats\nit as a download; the \u0060Content-Length\u0060 and \u0060ETag\u0060 response headers echo\nthe stored object metadata.\n\nBINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): the\nsuccessful 200 body is the raw object stream, proxied verbatim from the\nplatform storage admin endpoint. It is modeled as an\n\u0060application/octet-stream\u0060 binary body (not a JSON response schema) and\nis streamed without buffering the whole object in memory. Error\nresponses still use the generated \u0060GeneralError\u0060 shape.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Streams the raw bytes of the named object from the bucket on the\nspecified branch, including objects inherited from ancestor branches.\nServed by the user\u0027s session (no customer S3 credentials required).\n\nThe body is returned as \u0060application/octet-stream\u0060 so a browser treats\nit as a download; the \u0060Content-Length\u0060 and \u0060ETag\u0060 response headers echo\nthe stored object metadata.\n\nBINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): the\nsuccessful 200 body is the raw object stream, proxied verbatim from the\nplatform object storage admin endpoint. It is modeled as an\n\u0060application/octet-stream\u0060 binary body (not a JSON response schema) and\nis streamed without buffering the whole object in memory. Error\nresponses still use the generated \u0060GeneralError\u0060 shape.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "GetProjectBranchBucketObject",
         "responses": {
           "200": {
@@ -8017,7 +8019,7 @@
           "Buckets"
         ],
         "summary": "Delete every object under a key prefix (folder) in a bucket",
-        "description": "\u0022Soft-deletes every object on the specified branch whose key starts with\n\u0060prefix\u0060, in a single call. Intended to back a \\\u0022delete folder\\\u0022 action in\nan object browser: a \u0060prefix\u0060 of \u0060app/avatars/\u0060 removes every object\nbeneath that folder. Served by the user\u0027s session (no customer S3\ncredentials required).\n\n\u0060prefix\u0060 must be non-empty, end with \u0060/\u0060, be at most 1024 bytes, and\ncontain no control characters - a partial-segment prefix cannot\naccidentally delete sibling keys. Returns the number of objects\nsoft-deleted (\u0060deleted\u0060), which may be 0 when no live object matched the\nprefix on this branch.\n\nOnly objects physically present on this branch are tombstoned; objects\ninherited from an ancestor branch via copy-on-write (not materialized on\nthis branch) are out of scope.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Soft-deletes every object on the specified branch whose key starts with\n\u0060prefix\u0060, in a single call. Intended to back a \\\u0022delete folder\\\u0022 action in\nan object browser: a \u0060prefix\u0060 of \u0060app/avatars/\u0060 removes every object\nbeneath that folder. Served by the user\u0027s session (no customer S3\ncredentials required).\n\n\u0060prefix\u0060 must be non-empty, end with \u0060/\u0060, be at most 1024 bytes, and\ncontain no control characters - a partial-segment prefix cannot\naccidentally delete sibling keys. Returns the number of objects\nsoft-deleted (\u0060deleted\u0060), which may be 0 when no live object matched the\nprefix on this branch.\n\nOnly objects physically present on this branch are tombstoned; objects\ninherited from an ancestor branch via copy-on-write (not materialized on\nthis branch) are out of scope.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "DeleteProjectBranchBucketObjectsByPrefix",
         "parameters": [
           {
@@ -8098,7 +8100,7 @@
           "Buckets"
         ],
         "summary": "Presign an upload or download for an object in a bucket",
-        "description": "\u0022Returns a presigned URL that transfers bytes directly to or from the\nobject\u0027s bucket on the specified branch, without the caller ever\nhandling S3 credentials. The \u0060operation\u0060 field selects the direction:\n\n- \u0060upload\u0060 returns a presigned \u0060PUT\u0060 URL (the caller \u0060PUT\u0060s the file\n  bytes straight to \u0060url\u0060 with the returned \u0060headers\u0060). Authorized with\n  project write access.\n- \u0060download\u0060 returns a presigned \u0060GET\u0060 URL (the caller \u0060GET\u0060s the\n  bytes straight from \u0060url\u0060). Authorized with project read access.\n\nThe platform mints a short-lived credential and builds the SigV4-signed\nURL against the branch\u0027s S3 data-plane host, returning it together with\nthe HTTP method, any headers the caller must echo, and the URL\u0027s expiry.\n\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Returns a presigned URL that transfers bytes directly to or from the\nobject\u0027s bucket on the specified branch, without the caller ever\nhandling S3 credentials. The \u0060operation\u0060 field selects the direction:\n\n- \u0060upload\u0060 returns a presigned \u0060PUT\u0060 URL (the caller \u0060PUT\u0060s the file\n  bytes straight to \u0060url\u0060 with the returned \u0060headers\u0060). Authorized with\n  project write access.\n- \u0060download\u0060 returns a presigned \u0060GET\u0060 URL (the caller \u0060GET\u0060s the\n  bytes straight from \u0060url\u0060). Authorized with project read access.\n\nThe platform mints a short-lived credential and builds the SigV4-signed\nURL against the branch\u0027s S3 data-plane host, returning it together with\nthe HTTP method, any headers the caller must echo, and the URL\u0027s expiry.\n\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "PresignProjectBranchBucketObject",
         "requestBody": {
           "content": {
@@ -8186,7 +8188,7 @@
           "Credentials"
         ],
         "summary": "Issue a scoped credential on the branch",
-        "description": "\u0022Issues a new scoped service credential anchored to the specified\nbranch. The response carries \u0060api_token\u0060 and \u0060s3_secret_access_key\u0060\nexactly once \u2014 they are not stored server-side.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Issues a new scoped service credential anchored to the specified\nbranch. The response carries \u0060api_token\u0060 and \u0060s3_secret_access_key\u0060\nexactly once \u2014 they are not stored server-side.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "CreateCredential",
         "requestBody": {
           "content": {
@@ -8218,7 +8220,7 @@
           "Credentials"
         ],
         "summary": "List credentials on the branch",
-        "description": "\u0022Returns metadata for customer-issued credentials on the branch.\nSecrets are never included.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Returns metadata for customer-issued credentials on the branch.\nSecrets are never included.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "ListCredentials",
         "responses": {
           "200": {
@@ -8265,7 +8267,7 @@
           "Credentials"
         ],
         "summary": "Revoke a credential",
-        "description": "\u0022Soft-deletes the credential.  Idempotent.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Soft-deletes the credential.  Idempotent.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "RevokeCredential",
         "responses": {
           "404": {
@@ -8321,7 +8323,7 @@
           "Functions"
         ],
         "summary": "List functions on the branch",
-        "description": "\u0022Lists functions on the specified branch.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Lists functions on the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "ListProjectBranchFunctions",
         "parameters": [
           {
@@ -8383,7 +8385,7 @@
           "Functions"
         ],
         "summary": "Get function details",
-        "description": "\u0022Returns the function identified by its slug.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Returns the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "GetProjectBranchFunction",
         "responses": {
           "200": {
@@ -8406,7 +8408,7 @@
           "Functions"
         ],
         "summary": "Update a function",
-        "description": "\u0022Updates the function\u0027s mutable metadata \u2014 currently only the display\n\u0060name\u0060. A string sets the display name; \u0060null\u0060 clears it, after which\nthe function\u0027s \u0060name\u0060 falls back to its slug. Leading and trailing\nwhitespace is trimmed; a whitespace-only name is rejected. Acts only\non a function owned by the branch: a slug that is only inherited from\nan ancestor branch returns 404 \u2014 rename it on the branch that owns\nit. Like every other change on a branch, a rename is isolated per\nbranch: a branch forked before the rename keeps the name it had at\nfork time.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Updates the function\u0027s mutable metadata \u2014 currently only the display\n\u0060name\u0060. A string sets the display name; \u0060null\u0060 clears it, after which\nthe function\u0027s \u0060name\u0060 falls back to its slug. Leading and trailing\nwhitespace is trimmed; a whitespace-only name is rejected. Acts only\non a function owned by the branch: a slug that is only inherited from\nan ancestor branch returns 404 \u2014 rename it on the branch that owns\nit. Like every other change on a branch, a rename is isolated per\nbranch: a branch forked before the rename keeps the name it had at\nfork time.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "UpdateProjectBranchFunction",
         "requestBody": {
           "content": {
@@ -8438,7 +8440,7 @@
           "Functions"
         ],
         "summary": "Delete a function on the branch",
-        "description": "\u0022Deletes the function identified by its slug.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Deletes the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "DeleteProjectBranchFunction",
         "responses": {
           "default": {
@@ -8485,7 +8487,7 @@
           "Functions"
         ],
         "summary": "Deploy code to a function",
-        "description": "\u0022Creates a deployment for the function. Supply any subset of zip,\nenvironment, and runtime; omitted fields inherit the\nfunction\u0027s latest version. At least one field must be supplied. The\nfirst deployment of a function must include zip. The newest deployment\nbecomes active.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "\u0022Creates a deployment for the function. Supply any subset of zip,\nenvironment, and runtime; omitted fields inherit the\nfunction\u0027s latest version. At least one field must be supplied. The\nfirst deployment of a function must include zip. The newest deployment\nbecomes active.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
         "operationId": "CreateProjectBranchFunctionDeployment",
         "requestBody": {
           "content": {
@@ -8584,10 +8586,11 @@
         "properties": {
           "cursor": {
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "Cursor marking the last item in this response. Pass it unchanged as the \u0060cursor\u0060 query parameter to fetch the next page."
           }
         },
-        "description": "Cursor based pagination is used. The user must pass the cursor as is to the backend.\nFor more information about cursor based pagination, see\nhttps://learn.microsoft.com/en-us/ef/core/querying/pagination#keyset-pagination\n",
+        "description": "Cursor-based pagination. The \u0060cursor\u0060 value reflects the endpoint\u0027s sort field (for example, an ID or timestamp), so pass it back unchanged.",
         "example": {
           "cursor": "2022-12-07T00:45:05.262011Z"
         }
@@ -8603,7 +8606,8 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Plan name, for example \u0060free\u0060, \u0060launch\u0060, or \u0060scale\u0060."
           },
           "version": {
             "$ref": "#/components/schemas/PlanVersion"
@@ -8634,7 +8638,7 @@
         "properties": {
           "jwks_url": {
             "type": "string",
-            "description": "The URL that lists the JWKS"
+            "description": "URL of the provider\u0027s JWKS endpoint used to verify JWTs."
           },
           "provider_name": {
             "type": "string",
@@ -8643,11 +8647,11 @@
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "Branch ID"
+            "description": "The Neon branch ID. Returned as \u0060id\u0060 from \u0060GET /projects/{project_id}/branches\u0060."
           },
           "jwt_audience": {
             "type": "string",
-            "description": "The name of the required JWT Audience to be used"
+            "description": "Expected \u0060aud\u0060 claim in incoming JWTs. When set, tokens with a different audience are rejected; tokens with no audience are still accepted. Omit to skip audience validation."
           },
           "role_names": {
             "maxItems": 10,
@@ -8656,12 +8660,12 @@
             "items": {
               "type": "string"
             },
-            "description": "DEPRECATED. This field should only be used when using Neon RLS. The roles the JWKS should be mapped to. By default, the JWKS is mapped to the \u0060authenticator\u0060, \u0060authenticated\u0060 and \u0060anonymous\u0060 roles.",
+            "description": "Deprecated. The roles the JWKS should be mapped to. By default, the JWKS is mapped to the \u0060authenticator\u0060, \u0060authenticated\u0060, and \u0060anonymous\u0060 roles.",
             "deprecated": true
           },
           "skip_role_creation": {
             "type": "boolean",
-            "description": "DEPRECATED. This field should only be used when using Neon RLS. If true, the role creation will be skipped.",
+            "description": "Deprecated. Only used with Neon RLS. If true, role creation is skipped.",
             "default": false
           }
         },
@@ -8680,21 +8684,21 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "JWKS ID"
+            "description": "The JWKS configuration\u0027s ID."
           },
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "Project ID"
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "Branch ID"
+            "description": "The Neon branch ID. Returned as \u0060id\u0060 from \u0060GET /projects/{project_id}/branches\u0060."
           },
           "jwks_url": {
             "type": "string",
-            "description": "The URL that lists the JWKS"
+            "description": "URL of the provider\u0027s JWKS endpoint used to verify JWTs."
           },
           "provider_name": {
             "type": "string",
@@ -8712,13 +8716,14 @@
           },
           "jwt_audience": {
             "type": "string",
-            "description": "The name of the required JWT Audience to be used"
+            "description": "Expected JWT \u0060aud\u0060 claim value configured for this JWKS."
           },
           "role_names": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Database role names that are permitted to authenticate using this JWKS configuration."
           }
         }
       },
@@ -8732,7 +8737,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Jwks"
-            }
+            },
+            "description": "JWKS configurations associated with the project."
           }
         },
         "description": "The list of configured JWKS definitions for a project"
@@ -8866,7 +8872,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "key": {
@@ -8905,7 +8911,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "key": {
@@ -8946,7 +8952,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "name": {
@@ -8992,7 +8998,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "name": {
@@ -9042,7 +9048,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "name": {
@@ -9081,7 +9087,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "description": "The API key ID",
+            "description": "The API key\u0027s unique numeric ID. Distinct from the API key token (\u0060key\u0060).",
             "format": "int64"
           },
           "name": {
@@ -9128,7 +9134,7 @@
           },
           "name": {
             "type": "string",
-            "description": "The name of the user."
+            "description": "Display name of the user who created the API key."
           },
           "image": {
             "type": "string",
@@ -9158,17 +9164,17 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The Neon project ID"
+            "description": "The ID of the project this operation ran on."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The branch ID"
+            "description": "The ID of the branch this operation ran on."
           },
           "endpoint_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The endpoint ID"
+            "description": "The ID of the compute endpoint this operation ran on."
           },
           "action": {
             "$ref": "#/components/schemas/OperationAction"
@@ -9178,7 +9184,7 @@
           },
           "error": {
             "type": "string",
-            "description": "The error that occurred"
+            "description": "Human-readable message describing why the operation failed."
           },
           "failures_count": {
             "type": "integer",
@@ -9206,6 +9212,7 @@
             "format": "int32"
           }
         },
+        "description": "An asynchronous action Neon performs on your resources (for example, starting a compute or creating a branch). Fields such as \u0060action\u0060, \u0060status\u0060, and \u0060total_duration_ms\u0060 describe the operation and its progress.",
         "example": {
           "id": "d8ac46eb-a757-42b1-9907-f78322ee394e",
           "project_id": "spring-example-302709",
@@ -9450,7 +9457,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The status of the operation",
+        "description": "\u0022Lifecycle state of the operation. \u0060scheduling\u0060: queued, not yet started. \u0060running\u0060: actively executing. \u0060finished\u0060: completed successfully. \u0060failed\u0060: ended with a failure. \u0060error\u0060: ended with a terminal error. \u0060cancelling\u0060: cancellation requested but not yet complete. \u0060cancelled\u0060: stopped before completion. \u0060skipped\u0060: bypassed without executing.\u0022",
         "x-ms-enum": {
           "name": "OperationStatus",
           "modelAsString": false,
@@ -9514,7 +9521,7 @@
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The project ID"
+            "description": "The Neon project ID. Use as the \u0060project_id\u0060 path parameter in other endpoints."
           },
           "platform_id": {
             "type": "string",
@@ -9522,7 +9529,8 @@
           },
           "region_id": {
             "type": "string",
-            "description": "The region identifier\n"
+            "description": "Cloud region where the project\u0027s Postgres compute and storage reside (for example, \u0060aws-us-east-2\u0060). Valid values are returned by \u0060GET /regions\u0060.\n",
+            "example": "aws-us-east-2"
           },
           "name": {
             "type": "string",
@@ -9530,7 +9538,7 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "default_endpoint_settings": {
             "$ref": "#/components/schemas/DefaultEndpointSettings"
@@ -9542,7 +9550,7 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
           },
           "proxy_host": {
             "type": "string",
@@ -9570,7 +9578,7 @@
           },
           "cpu_used_sec": {
             "type": "integer",
-            "description": "DEPRECATED. Use data from the getProject endpoint instead.\n",
+            "description": "Deprecated. Use \u0060compute_time_seconds\u0060 from \u0060GET /projects/{project_id}\u0060 instead.\n",
             "format": "int64",
             "deprecated": true
           },
@@ -9595,17 +9603,18 @@
           },
           "synthetic_storage_size": {
             "type": "integer",
-            "description": "The current space occupied by the project in storage, in bytes. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
+            "description": "The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
             "format": "int64"
           },
           "quota_reset_at": {
             "type": "string",
-            "description": "DEPRECATED. Use \u0060consumption_period_end\u0060 from the getProject endpoint instead.\nA timestamp indicating when the project quota resets\n",
+            "description": "Deprecated. Use \u0060consumption_period_end\u0060 from \u0060GET /projects/{project_id}\u0060 instead. A timestamp indicating when the project quota resets.\n",
             "format": "date-time",
             "deprecated": true
           },
           "owner_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the organization that owns the project."
           },
           "compute_last_active_at": {
             "type": "string",
@@ -9615,11 +9624,11 @@
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "Organization id if the project belongs to an organization.\nPermissions for the project will be given to organization members as defined by the organization admins.\nThe permissions of the project do not depend on the user that created the project if a project belongs to an organization.\n"
+            "description": "ID of the organization that owns the project. Project permissions are granted to organization members as configured by the organization\u0027s admins, independent of which member created the project.\n"
           },
           "org_name": {
             "type": "string",
-            "description": "Organization name if the project belongs to an organization.\n"
+            "description": "Name of the organization that owns the project.\n"
           },
           "history_retention_seconds": {
             "type": "integer",
@@ -9645,7 +9654,7 @@
             "$ref": "#/components/schemas/ProjectListItemEffectiveProjectPermission"
           }
         },
-        "description": "Essential data about the project. Full data is available at the getProject endpoint.\n",
+        "description": "Essential data about the project. Full data is available at \u0060GET /projects/{project_id}\u0060.\n",
         "example": {
           "active_time": 750111,
           "branch_logical_size_limit": 10,
@@ -9696,7 +9705,7 @@
           "data_storage_bytes_hour": {
             "minimum": 0,
             "type": "integer",
-            "description": "Bytes-Hour. Project consumed that much storage hourly during the billing period. The value has some lag.\nThe value is reset at the beginning of each billing period.\n",
+            "description": "Bytes-Hour. Project consumed that much Postgres storage hourly during the billing period. The value has some lag.\nThe value is reset at the beginning of each billing period.\n",
             "format": "int64"
           },
           "data_transfer_bytes": {
@@ -9708,7 +9717,7 @@
           "written_data_bytes": {
             "minimum": 0,
             "type": "integer",
-            "description": "Bytes. Amount of WAL that travelled through storage for given project across all branches.\nThe value has some lag. The value is reset at the beginning of each billing period.\n",
+            "description": "Bytes. Amount of WAL that travelled through Postgres storage for given project across all branches.\nThe value has some lag. The value is reset at the beginning of each billing period.\n",
             "format": "int64"
           },
           "compute_time_seconds": {
@@ -9725,14 +9734,14 @@
           },
           "cpu_used_sec": {
             "type": "integer",
-            "description": "DEPRECATED, use compute_time instead.\n",
+            "description": "Deprecated. Use \u0060compute_time_seconds\u0060 instead.\n",
             "format": "int64",
             "deprecated": true
           },
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The project ID"
+            "description": "The Neon project ID. Use as the \u0060project_id\u0060 path parameter in other endpoints."
           },
           "platform_id": {
             "type": "string",
@@ -9740,7 +9749,8 @@
           },
           "region_id": {
             "type": "string",
-            "description": "The region identifier\n"
+            "description": "Cloud region where the resource\u0027s Postgres compute and storage reside (for example, \u0060aws-us-east-1\u0060). Valid values are returned by \u0060GET /regions\u0060.\n",
+            "example": "aws-us-east-1"
           },
           "name": {
             "type": "string",
@@ -9748,7 +9758,7 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "default_endpoint_settings": {
             "$ref": "#/components/schemas/DefaultEndpointSettings"
@@ -9760,7 +9770,7 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
           },
           "proxy_host": {
             "type": "string",
@@ -9806,7 +9816,7 @@
           },
           "synthetic_storage_size": {
             "type": "integer",
-            "description": "The current space occupied by the project in storage, in bytes. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
+            "description": "The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
             "format": "int64"
           },
           "consumption_period_start": {
@@ -9821,12 +9831,14 @@
           },
           "quota_reset_at": {
             "type": "string",
-            "description": "DEPRECATED. Use \u0060consumption_period_end\u0060 from the getProject endpoint instead.\nA timestamp indicating when the project quota resets.\n",
+            "description": "Deprecated. Use the \u0060consumption_period_end\u0060 field instead. A timestamp indicating when the project quota resets.\n",
             "format": "date-time",
             "deprecated": true
           },
           "owner_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the organization that owns the project.",
+            "example": "org-cool-darkness-12345678"
           },
           "owner": {
             "$ref": "#/components/schemas/ProjectOwnerData"
@@ -9838,7 +9850,9 @@
           },
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon organization ID. Returned as \u0060id\u0060 from \u0060GET /users/me/organizations\u0060.",
+            "example": "org-cool-darkness-12345678"
           },
           "maintenance_scheduled_for": {
             "type": "string",
@@ -9950,7 +9964,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem"
-            }
+            },
+            "description": "List of reasons why the target account\u0027s plan cannot satisfy the transfer requirements. Each item contains a \u0060code\u0060 identifying the constraint and a \u0060message\u0060 with a human-readable explanation."
           }
         }
       },
@@ -9982,7 +9997,8 @@
             "$ref": "#/components/schemas/ProjectAuditLogLevel"
           },
           "hipaa": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Enables HIPAA compliance mode for the project, including audit logging."
           },
           "preload_libraries": {
             "$ref": "#/components/schemas/PreloadLibraries"
@@ -10014,7 +10030,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Branch"
-            }
+            },
+            "description": "Branches in the project. Each includes \u0060id\u0060, \u0060name\u0060, \u0060current_state\u0060, and \u0060created_at\u0060."
           }
         }
       },
@@ -10028,7 +10045,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProjectListItem"
-            }
+            },
+            "description": "List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in \u0060unavailable_project_ids\u0060."
           },
           "unavailable_project_ids": {
             "type": "array",
@@ -10049,20 +10067,24 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The project permission\u0027s ID."
           },
           "granted_to_email": {
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the user who has been granted access to the project.",
             "format": "email"
           },
           "granted_at": {
             "type": "string",
+            "description": "Timestamp when the permission was granted.",
             "format": "date-time"
           },
           "revoked_at": {
             "type": "string",
+            "description": "Timestamp when the permission was revoked. Null if the permission is still active.",
             "format": "date-time"
           }
         },
@@ -10094,6 +10116,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the user to grant project access to.",
             "format": "email"
           }
         },
@@ -10250,6 +10273,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the user who has been granted access to the project.",
             "format": "email"
           },
           "name": {
@@ -10333,6 +10357,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the user who has been granted access to the project.",
             "format": "email"
           },
           "name": {
@@ -10378,7 +10403,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerProject"
-            }
+            },
+            "description": "Per-project consumption history records included in the response."
           }
         }
       },
@@ -10392,7 +10418,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerProjectV2"
-            }
+            },
+            "description": "Per-project consumption history entries for the requested time range."
           }
         }
       },
@@ -10406,13 +10433,14 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The project ID"
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060."
           },
           "periods": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerPeriod"
-            }
+            },
+            "description": "Consumption periods for the project, each covering a discrete billing interval."
           }
         }
       },
@@ -10426,13 +10454,14 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The project ID"
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060."
           },
           "periods": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerPeriodV2"
-            }
+            },
+            "description": "Consumption periods recorded for this project."
           }
         }
       },
@@ -10446,7 +10475,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerBranchV2"
-            }
+            },
+            "description": "Per-branch consumption history records returned for the requested time range."
           }
         }
       },
@@ -10461,18 +10491,20 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The project that owns the branch"
+            "description": "The ID of the project that owns this branch."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The branch ID"
+            "description": "The Neon branch ID. Returned as \u0060id\u0060 from \u0060GET /projects/{project_id}/branches\u0060.",
+            "example": "br-cool-darkness-12345678"
           },
           "periods": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerPeriodV2"
-            }
+            },
+            "description": "Consumption history records for the branch, grouped by billing period."
           }
         }
       },
@@ -10508,7 +10540,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerTimeframe"
-            }
+            },
+            "description": "Consumption metric records for the billing period."
           }
         },
         "example": {
@@ -10567,7 +10600,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerTimeframeV2"
-            }
+            },
+            "description": "Consumption metric records for the billing period."
           }
         },
         "example": {
@@ -10634,12 +10668,12 @@
           },
           "synthetic_storage_size_bytes": {
             "type": "integer",
-            "description": "Bytes. The space occupied in storage. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.\n",
+            "description": "Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.\n",
             "format": "uint64"
           },
           "data_storage_bytes_hour": {
             "type": "integer",
-            "description": "Bytes-Hour. The amount of storage consumed hourly.\n",
+            "description": "Bytes-Hour. The amount of Postgres storage consumed hourly.\n",
             "format": "uint64"
           },
           "logical_size_bytes": {
@@ -10671,7 +10705,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionMetricValue"
-            }
+            },
+            "description": "Consumption metric values recorded for the timeframe."
           }
         }
       },
@@ -10683,10 +10718,12 @@
         "type": "object",
         "properties": {
           "metric_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the consumption metric, such as compute_time or data_storage_bytes_hour."
           },
           "value": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Measured quantity for the metric named by \u0060metric_name\u0060."
           }
         }
       },
@@ -10761,19 +10798,24 @@
         "type": "object",
         "properties": {
           "library_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the Postgres shared preload library as it appears in the \u0060shared_preload_libraries\u0060 parameter (for example, \u0060pg_stat_statements\u0060)."
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable explanation of the library\u0027s purpose and behavior."
           },
           "is_default": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this library is loaded by default in the \u0060shared_preload_libraries\u0060 configuration for new compute endpoints."
           },
           "is_experimental": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Marks the library as experimental. Experimental libraries may be unstable, subject to breaking changes, or not recommended for production use."
           },
           "version": {
-            "type": "string"
+            "type": "string",
+            "description": "Version of the preload library."
           }
         }
       },
@@ -10784,7 +10826,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AvailablePreloadLibrary"
-            }
+            },
+            "description": "Preload libraries available for the project\u0027s Postgres version. Each entry includes \u0060library_name\u0060, \u0060description\u0060, \u0060is_default\u0060, \u0060is_experimental\u0060, and \u0060version\u0060."
           }
         }
       },
@@ -10816,7 +10859,7 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the project to which the branch belongs\n"
+            "description": "The ID of the project this branch belongs to."
           },
           "parent_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
@@ -10838,11 +10881,11 @@
           },
           "current_state": {
             "type": "string",
-            "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival storage. Expect slow query response times.\n"
+            "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.\n"
           },
           "pending_state": {
             "type": "string",
-            "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival storage. Expect slow query response times.\n"
+            "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.\n"
           },
           "state_changed_at": {
             "type": "string",
@@ -10860,7 +10903,7 @@
           },
           "primary": {
             "type": "boolean",
-            "description": "DEPRECATED. Use \u0060default\u0060 field.\nWhether the branch is the project\u0027s primary branch\n",
+            "description": "Deprecated. Use the \u0060default\u0060 field. Whether the branch is the project\u0027s primary branch.\n",
             "deprecated": true
           },
           "default": {
@@ -10869,28 +10912,32 @@
           },
           "protected": {
             "type": "boolean",
-            "description": "Whether the branch is protected\n"
+            "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project.\n"
           },
           "cpu_used_sec": {
             "type": "integer",
-            "description": "CPU seconds used by all of the branch\u0027s compute endpoints, including deleted ones.\nThis value is reset at the beginning of each billing period.\nExamples:\n1. A branch that uses 1 CPU for 1 second is equal to \u0060cpu_used_sec=1\u0060.\n2. A branch that uses 2 CPUs simultaneously for 1 second is equal to \u0060cpu_used_sec=2\u0060.\n",
+            "description": "Deprecated. Use \u0060compute_time_seconds\u0060 instead. CPU seconds used by all of the branch\u0027s compute endpoints, including deleted ones. This value is reset at the beginning of each billing period.\n",
             "format": "int64",
             "deprecated": true
           },
           "compute_time_seconds": {
             "type": "integer",
+            "description": "Total Postgres compute time consumed by this branch during the current billing period, in CU-seconds (weighted by compute size). Divide by 3600 for CU-hours.",
             "format": "int64"
           },
           "active_time_seconds": {
             "type": "integer",
+            "description": "Total time this branch\u0027s compute has been active during the current billing period, in seconds (not weighted by compute size). Distinct from \u0060compute_time_seconds\u0060, which is CU-weighted.",
             "format": "int64"
           },
           "written_data_bytes": {
             "type": "integer",
+            "description": "Data written by this branch during the current billing period, in bytes.",
             "format": "int64"
           },
           "data_transfer_bytes": {
             "type": "integer",
+            "description": "Total data transferred out of the branch, in bytes. Used as a consumption metric.",
             "format": "int64"
           },
           "created_at": {
@@ -10924,7 +10971,8 @@
           },
           "init_source": {
             "type": "string",
-            "description": "The source of initialization for the branch. Valid values are \u0060schema-only\u0060 and \u0060parent-data\u0060 (default).\n  * \u0060schema-only\u0060 - creates a new root branch containing only the schema. Use \u0060parent_id\u0060 to specify the source branch. Optionally, you can provide \u0060parent_lsn\u0060 or \u0060parent_timestamp\u0060 to branch from a specific point in time or LSN. These fields define which branch to copy the schema from and at what point\u2014they do not establish a parent-child relationship between the \u0060parent_id\u0060 branch and the new schema-only branch.\n  * \u0060parent-data\u0060 - creates the branch with both schema and data from the parent.\n"
+            "description": "Source of initialization for the branch. \u0060parent-data\u0060 (default) copies schema and data from the parent. \u0060parent-schema\u0060 copies schema only from the parent. \u0060schema-only\u0060 creates a root branch with schema only. \u0060import\u0060 initializes from an external import.\n",
+            "example": "parent-data"
           },
           "restore_status": {
             "type": "string",
@@ -10999,7 +11047,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of a restricted action. Possible values include \u0060restore\u0060, \u0060delete-rw-endpoint\u0060.\n"
+            "description": "\u0022The name of a restricted action on a branch. \u0060restore\u0060: the branch cannot be used as a restore target. \u0060delete-rw-endpoint\u0060: the read-write endpoint for the branch cannot be deleted.\n\u0022",
+            "example": "restore"
           },
           "reason": {
             "type": "string",
@@ -11054,7 +11103,7 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "suspend_timeout_seconds": {
             "maximum": 604800,
@@ -11094,7 +11143,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BranchCreateRequestEndpointOptions"
-            }
+            },
+            "description": "Compute endpoints to create together with the branch. If omitted, the branch is created without any compute endpoint. Endpoints can be added to the branch separately after creation."
           },
           "branch": {
             "$ref": "#/components/schemas/BranchCreateRequestBranch"
@@ -11125,16 +11175,17 @@
           },
           "source_lsn": {
             "type": "string",
-            "description": "A Log Sequence Number (LSN) on the source branch. The branch will be restored with data from this LSN.\n"
+            "description": "A Postgres LSN (for example, \u00600/1A2B3C4\u0060) on the source branch to restore from.\nMutually exclusive with \u0060source_timestamp\u0060. Omit both to restore to head.\n"
           },
           "source_timestamp": {
             "type": "string",
-            "description": "\u0022A timestamp identifying a point in time on the source branch. The branch will be restored with data starting from this point in time.\nThe timestamp must be provided in ISO 8601 format; for example: \u00602024-02-26T12:00:00Z\u0060.\n\u0022",
-            "format": "date-time"
+            "description": "A point in time on the source branch to restore from, in RFC 3339 format. When omitted alongside \u0060source_lsn\u0060, the branch is restored to the latest available state of the source branch.\n",
+            "format": "date-time",
+            "example": "2024-02-26T12:00:00Z"
           },
           "preserve_under_name": {
             "type": "string",
-            "description": "If not empty, the previous state of the branch will be saved to a branch with this name.\nIf the branch has children or the \u0060source_branch_id\u0060 is equal to the branch id, this field is required. All existing child branches will be moved to the newly created branch under the name \u0060preserve_under_name\u0060.\n"
+            "description": "Name under which to save the current branch state before restoring. Required when the branch has children or when \u0060source_branch_id\u0060 equals the branch being restored; in those cases all existing child branches are moved to the newly created branch. If omitted and not required, the previous state is not preserved.\n"
           }
         }
       },
@@ -11153,7 +11204,8 @@
         "type": "object",
         "properties": {
           "sql": {
-            "type": "string"
+            "type": "string",
+            "description": "Branch schema expressed as SQL DDL statements."
           },
           "json": {
             "$ref": "#/components/schemas/BranchSchemaJson"
@@ -11164,7 +11216,8 @@
         "type": "object",
         "properties": {
           "diff": {
-            "type": "string"
+            "type": "string",
+            "description": "Unified diff of the SQL schema changes between the compared branches."
           }
         }
       },
@@ -11178,7 +11231,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Branch"
-            }
+            },
+            "description": "Branches in the project. Each includes \u0060id\u0060, \u0060name\u0060, \u0060current_state\u0060, and \u0060created_at\u0060."
           }
         }
       },
@@ -11190,6 +11244,7 @@
         "properties": {
           "count": {
             "type": "integer",
+            "description": "Total number of branches in the project.",
             "format": "int"
           }
         }
@@ -11287,16 +11342,17 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the project\n"
+            "description": "The ID of the project this branch belongs to."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the anonymized branch\n"
+            "description": "The ID of the anonymized branch."
           },
           "state": {
             "type": "string",
-            "description": "\u0022The current state of the anonymized branch. Possible values: created, initialized, initialization_error, anonymizing, anonymized, error\n\u0022"
+            "description": "\u0022The current state of the anonymized branch. \u0060created\u0060: branch record exists but setup has not started. \u0060initialized\u0060: setup is complete and the branch is ready for anonymization. \u0060initialization_error\u0060: an error occurred during setup. \u0060anonymizing\u0060: the anonymization process is currently running. \u0060anonymized\u0060: anonymization completed successfully. \u0060error\u0060: an error occurred during anonymization.\n\u0022",
+            "example": "created"
           },
           "status_message": {
             "type": "string",
@@ -11380,23 +11436,23 @@
         "properties": {
           "database": {
             "type": "string",
-            "description": "Database name\n"
+            "description": "Name of the Postgres database used in the connection URI.\n"
           },
           "password": {
             "type": "string",
-            "description": "Password for the role\n"
+            "description": "Authentication password for the role, used in the connection URI.\n"
           },
           "role": {
             "type": "string",
-            "description": "Role name\n"
+            "description": "Postgres role used to authenticate the database connection.\n"
           },
           "host": {
             "type": "string",
-            "description": "Hostname\n"
+            "description": "Hostname of the compute endpoint. Use \u0060pooler_host\u0060 for the pooled connection hostname.\n"
           },
           "pooler_host": {
             "type": "string",
-            "description": "Pooler hostname\n"
+            "description": "PgBouncer (transaction mode) pooled host, the \u0060-pooler\u0060 variant of \u0060host\u0060. Connect through it to work around the Postgres \u0060max_connections\u0060 limit for serverless or connection-per-request workloads.\n"
           }
         },
         "x-sensitive": [
@@ -11478,12 +11534,12 @@
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the project to which the compute endpoint belongs\n"
+            "description": "The ID of the project this compute endpoint belongs to."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the branch that the compute endpoint is associated with\n"
+            "description": "The ID of the branch this compute endpoint belongs to."
           },
           "autoscaling_limit_min_cu": {
             "minimum": 0.25,
@@ -11495,7 +11551,8 @@
           },
           "region_id": {
             "type": "string",
-            "description": "The region identifier\n"
+            "description": "Cloud region where the resource\u0027s Postgres compute and storage reside (for example, \u0060aws-us-east-1\u0060). Valid values are returned by \u0060GET /regions\u0060.\n",
+            "example": "aws-us-east-1"
           },
           "type": {
             "$ref": "#/components/schemas/EndpointType"
@@ -11511,7 +11568,7 @@
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
+            "description": "Deprecated. To use connection pooling, append \u0060-pooler\u0060 to the endpoint ID in the connection string.\n",
             "deprecated": true
           },
           "pooler_mode": {
@@ -11556,7 +11613,7 @@
           },
           "proxy_host": {
             "type": "string",
-            "description": "DEPRECATED. Use the \u0022host\u0022 property instead.\n"
+            "description": "Deprecated. Use the \u0060host\u0060 property instead.\n"
           },
           "suspend_timeout_seconds": {
             "maximum": 604800,
@@ -11567,7 +11624,7 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "compute_release_version": {
             "type": "string",
@@ -11612,7 +11669,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The state of the compute endpoint\n",
+        "description": "\u0022Lifecycle state of the compute endpoint. \u0060init\u0060: being initialized. \u0060active\u0060: running and accepting connections. \u0060idle\u0060: suspended (scaled to zero).\u0022",
         "x-ms-enum": {
           "name": "EndpointState",
           "modelAsString": false,
@@ -11639,7 +11696,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The compute endpoint type. Either \u0060read_write\u0060 or \u0060read_only\u0060.\n",
+        "description": "\u0022Compute endpoint type. \u0060read_write\u0060: the primary read-write endpoint (one per branch). \u0060read_only\u0060: a read replica endpoint (multiple allowed per branch).\u0022",
         "x-ms-enum": {
           "name": "EndpointType",
           "modelAsString": false,
@@ -11661,7 +11718,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "DEPRECATED. The connection pooler mode. Neon supports PgBouncer in \u0060transaction\u0060 mode only. This schema is deprecated and will be removed after 2026-06-20.\n",
+        "description": "Deprecated. The connection pooler mode. Neon supports PgBouncer in \u0060transaction\u0060 mode only. Removal scheduled for June 20, 2026.\n",
         "deprecated": true,
         "x-sunset": "2026-06-20",
         "x-ms-enum": {
@@ -11689,7 +11746,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints associated with the project."
           },
           "operations": {
             "type": "array",
@@ -11746,13 +11804,15 @@
         "type": "object",
         "properties": {
           "use_defaults": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When true, the project\u0027s preload libraries include the platform default set in addition to any libraries listed in \u0060enabled_libraries\u0060."
           },
           "enabled_libraries": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Names of shared preload libraries to enable for the project."
           }
         },
         "description": "The shared libraries to preload into the project\u0027s compute instances.\n"
@@ -11800,7 +11860,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConnectionDetails"
-            }
+            },
+            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
           }
         },
         "x-sensitive": [
@@ -11814,7 +11875,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConnectionDetails"
-            }
+            },
+            "description": "Connection URIs for the compute endpoint, including credentials."
           }
         }
       },
@@ -11828,7 +11890,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VpcEndpoint"
-            }
+            },
+            "description": "List of VPC endpoints returned by the request."
           }
         }
       },
@@ -11842,7 +11905,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VpcEndpointWithRegion"
-            }
+            },
+            "description": "VPC endpoints associated with the region."
           }
         }
       },
@@ -11855,7 +11919,7 @@
         "properties": {
           "vpc_endpoint_id": {
             "type": "string",
-            "description": "The VPC endpoint ID"
+            "description": "Cloud provider identifier for the VPC endpoint."
           },
           "label": {
             "type": "string",
@@ -11873,7 +11937,7 @@
         "properties": {
           "vpc_endpoint_id": {
             "type": "string",
-            "description": "The VPC endpoint ID"
+            "description": "Cloud provider identifier for the VPC endpoint."
           },
           "label": {
             "type": "string",
@@ -11897,7 +11961,7 @@
         "properties": {
           "vpc_endpoint_id": {
             "type": "string",
-            "description": "The VPC endpoint ID"
+            "description": "Cloud provider identifier for the VPC endpoint."
           },
           "label": {
             "type": "string",
@@ -11905,7 +11969,8 @@
           },
           "state": {
             "type": "string",
-            "description": "The current state of the VPC endpoint. Possible values are\n\u0060new\u0060 (just configured, pending acceptance) or \u0060accepted\u0060\n(VPC connection was accepted by Neon).\n"
+            "description": "The current state of the VPC endpoint. \u0060new\u0060 means the endpoint has just been configured and is pending acceptance by Neon. \u0060accepted\u0060 means the VPC connection has been accepted by Neon.\n",
+            "example": "new"
           },
           "num_restricted_projects": {
             "type": "integer",
@@ -11930,7 +11995,8 @@
         "type": "object",
         "properties": {
           "label": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable name for the VPC endpoint assignment, used to identify it within the organization."
           }
         }
       },
@@ -11944,7 +12010,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
           }
         }
       },
@@ -11955,7 +12022,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints associated with the project."
           }
         }
       },
@@ -11971,11 +12039,11 @@
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the branch to which the role belongs\n"
+            "description": "The ID of the branch this role belongs to."
           },
           "name": {
             "type": "string",
-            "description": "The role name\n"
+            "description": "Postgres role name within the branch.\n"
           },
           "password": {
             "type": "string",
@@ -11987,7 +12055,8 @@
           },
           "authentication_method": {
             "type": "string",
-            "description": "\u0022Authentication method configured for this role. Valid options: \u0060password\u0060, \u0060oauth\u0060, \u0060no_login\u0060\n\u0022"
+            "description": "\u0022Authentication method configured for this role: \u0060password\u0060, \u0060oauth\u0060, or \u0060no_login\u0060.\n\u0022",
+            "example": "password"
           },
           "created_at": {
             "type": "string",
@@ -12054,7 +12123,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Role"
-            }
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
           }
         },
         "x-sensitive": [
@@ -12148,7 +12218,7 @@
           },
           "quota_reset_at_last": {
             "type": "string",
-            "description": "The last time the quota was reset. Defaults to the date-time the account is created.\n",
+            "description": "Timestamp of the last quota reset. Set to the account creation time when the account is first created.\n",
             "format": "date-time"
           },
           "name": {
@@ -12451,7 +12521,7 @@
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The ID of the branch to which the database belongs\n"
+            "description": "The ID of the branch this database belongs to."
           },
           "name": {
             "type": "string",
@@ -12533,7 +12603,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Database"
-            }
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
           }
         }
       },
@@ -12550,6 +12621,7 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "The invitation ID.",
             "format": "uuid"
           },
           "email": {
@@ -12592,7 +12664,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The role of the organization member. Some role values may not be\navailable for all organizations.\n",
+        "description": "\u0022Organization member\u0027s role. \u0060admin\u0060: full administrative access. \u0060editor\u0060 (and its legacy alias \u0060member\u0060): standard access governed by project permissions. \u0060viewer\u0060 and \u0060collaborator\u0060: additional scoped project roles. Some values may not be available for all organizations.\u0022",
         "x-ms-enum": {
           "name": "MemberRole",
           "modelAsString": false,
@@ -12631,21 +12703,26 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "The organization member\u0027s ID.",
             "format": "uuid"
           },
           "user_id": {
             "type": "string",
+            "description": "The Neon user ID.",
             "format": "uuid"
           },
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon organization ID. Returned as \u0060id\u0060 from \u0060GET /users/me/organizations\u0060.",
+            "example": "org-cool-darkness-12345678"
           },
           "role": {
             "$ref": "#/components/schemas/MemberRole"
           },
           "joined_at": {
             "type": "string",
+            "description": "Timestamp when the user joined the organization.",
             "format": "date-time"
           }
         }
@@ -12660,6 +12737,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the organization member\u0027s user account.",
             "format": "email"
           },
           "has_mfa": {
@@ -12705,16 +12783,20 @@
         "properties": {
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon organization ID. Use as the \u0060org_id\u0060 path parameter in other endpoints."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable display name of the organization."
           },
           "handle": {
-            "type": "string"
+            "type": "string",
+            "description": "URL-safe identifier for the organization, used in API paths. Distinct from the display name."
           },
           "plan": {
-            "type": "string"
+            "type": "string",
+            "description": "Billing plan for the organization, for example \u0060free\u0060, \u0060launch\u0060, or \u0060scale\u0060."
           },
           "created_at": {
             "type": "string",
@@ -12750,7 +12832,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Organization"
-            }
+            },
+            "description": "Organizations returned by the request. Each includes \u0060id\u0060, \u0060name\u0060, \u0060handle\u0060, and \u0060plan\u0060."
           }
         }
       },
@@ -12764,7 +12847,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Invitation"
-            }
+            },
+            "description": "List of pending invitations for the organization."
           }
         }
       },
@@ -12779,6 +12863,7 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the person to invite to the organization.",
             "format": "email"
           },
           "role": {
@@ -12799,7 +12884,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrganizationInviteCreateRequest"
-            }
+            },
+            "description": "Invitations to create for the organization."
           }
         }
       },
@@ -12824,7 +12910,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MemberWithUser"
-            }
+            },
+            "description": "Members of the organization, each combining membership details (role, status) with the associated user\u0027s identity."
           }
         }
       },
@@ -12855,7 +12942,8 @@
         "properties": {
           "region_id": {
             "type": "string",
-            "description": "The region ID as used in other API endpoints"
+            "description": "Cloud region where the resource\u0027s Postgres compute and storage reside (for example, \u0060aws-us-east-1\u0060). Valid values are returned by \u0060GET /regions\u0060.",
+            "example": "aws-us-east-1"
           },
           "name": {
             "type": "string",
@@ -12863,7 +12951,7 @@
           },
           "default": {
             "type": "boolean",
-            "description": "Whether this region is used by default in new projects."
+            "description": "True if this region is selected by default when no region is specified during project creation."
           },
           "geo_lat": {
             "type": "string",
@@ -12889,18 +12977,21 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address associated with this auth account.",
             "format": "email"
           },
           "image": {
-            "type": "string"
+            "type": "string",
+            "description": "URL of the user\u0027s profile picture as provided by the identity provider."
           },
           "login": {
             "type": "string",
-            "description": "DEPRECATED. Use \u0060email\u0060 field.\n",
+            "description": "Deprecated. Use the \u0060email\u0060 field.\n",
             "deprecated": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Display name of the account as provided by the identity provider."
           },
           "provider": {
             "$ref": "#/components/schemas/IdentityProviderId"
@@ -12941,37 +13032,45 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CurrentUserAuthAccount"
-            }
+            },
+            "description": "Authentication provider accounts linked to the current user."
           },
           "email": {
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the authenticated user.",
             "format": "email"
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Neon user ID."
           },
           "image": {
-            "type": "string"
+            "type": "string",
+            "description": "URL of the user\u0027s profile avatar image."
           },
           "login": {
             "type": "string",
-            "description": "DEPRECATED. Use \u0060email\u0060 field.\n",
+            "description": "Deprecated. Use the \u0060email\u0060 field.\n",
             "deprecated": true
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "First name of the current user."
           },
           "last_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name of the current user."
           },
           "projects_limit": {
             "type": "integer",
+            "description": "Maximum number of projects the account is allowed to create under the current plan.",
             "format": "int64"
           },
           "branches_limit": {
             "type": "integer",
+            "description": "Maximum number of branches allowed for the account under the current plan.",
             "format": "int64"
           },
           "max_autoscaling_limit": {
@@ -12981,10 +13080,12 @@
           },
           "compute_seconds_limit": {
             "type": "integer",
+            "description": "Maximum Postgres compute time, in seconds, allowed under the account\u0027s current plan.",
             "format": "int64"
           },
           "plan": {
-            "type": "string"
+            "type": "string",
+            "description": "Current billing plan for the user\u0027s account."
           }
         },
         "x-sensitive": [
@@ -13002,7 +13103,8 @@
         "type": "object",
         "properties": {
           "account_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the account associated with this authentication record."
           },
           "auth_method": {
             "$ref": "#/components/schemas/AuthDetailsResponseAuthMethod"
@@ -13174,7 +13276,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.\n",
+        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n",
         "deprecated": true,
         "x-sunset": "2026-06-20"
       },
@@ -13195,7 +13297,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
           },
           "operations": {
             "type": "array",
@@ -13207,19 +13310,22 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Role"
-            }
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
           },
           "databases": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Database"
-            }
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
           },
           "connection_uris": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConnectionDetails"
-            }
+            },
+            "description": "Connection URIs for the compute endpoint, including credentials."
           }
         }
       },
@@ -13236,13 +13342,16 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the project owner.",
             "format": "email"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Display name of the project owner."
           },
           "branches_limit": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Maximum number of branches the owner is allowed to create across their projects."
           },
           "subscription_type": {
             "$ref": "#/components/schemas/BillingSubscriptionType"
@@ -13263,7 +13372,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/LimitsUnsatisfiedResponseLimitsItem"
-            }
+            },
+            "description": "Plan limits that were not satisfied by the request."
           }
         },
         "example": {
@@ -13291,7 +13401,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProjectsWithIntegrationResponseProjectsItem"
-            }
+            },
+            "description": "Projects that have the requested integration, each including the project details and associated integration metadata."
           }
         },
         "example": {
@@ -13326,7 +13437,7 @@
           },
           "db_max_rows": {
             "type": "integer",
-            "description": "Maximum number of rows that can be returned in a single request"
+            "description": "Hard limit on the number of rows returned in a single Data API response. No limit when unset."
           },
           "db_schemas": {
             "type": "array",
@@ -13342,7 +13453,7 @@
           },
           "jwt_cache_max_lifetime": {
             "type": "integer",
-            "description": "Maximum lifetime for JWT cache in seconds"
+            "description": "Maximum lifetime of the Data API\u0027s JWT cache, in seconds."
           },
           "openapi_mode": {
             "type": "string",
@@ -13355,7 +13466,7 @@
           },
           "server_timing_enabled": {
             "type": "boolean",
-            "description": "Enable server timing headers"
+            "description": "\u0022When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled.\u0022"
           }
         },
         "description": "Configuration settings for the Neon Data API",
@@ -13371,16 +13482,16 @@
           },
           "jwks_url": {
             "type": "string",
-            "description": "The URL that lists the JWKS",
+            "description": "URL of the JWKS endpoint used to verify JWTs for this Data API. Required when configuring JWT-based authentication; omit when using a non-JWT auth provider.",
             "format": "uri"
           },
           "provider_name": {
             "type": "string",
-            "description": "The name of the authentication provider (e.g., Clerk, Stytch, Auth0)"
+            "description": "Display name for the authentication provider. Accepted values include \u0022Clerk\u0022, \u0022Stytch\u0022, and \u0022Auth0\u0022, but any non-empty string is valid. Optional field."
           },
           "jwt_audience": {
             "type": "string",
-            "description": "WARNING - using this setting will only reject tokens with a\ndifferent audience claim. Tokens without audience claim will still\nbe accepted.\n"
+            "description": "Expected \u0060aud\u0060 claim in incoming JWTs. When set, tokens with a different audience are rejected; tokens with no audience are still accepted. Omit to skip audience validation.\n"
           },
           "add_default_grants": {
             "type": "boolean",
@@ -13409,6 +13520,7 @@
         "properties": {
           "url": {
             "type": "string",
+            "description": "URL of the created Data API endpoint.",
             "format": "uri"
           }
         },
@@ -13470,6 +13582,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "Authentication provider integrated with this Neon Auth configuration. \u0060better_auth\u0060 integrates with Better Auth (the current, recommended provider). \u0060stack\u0060 integrates with Stack Auth (deprecated). \u0060mock\u0060 is a simulated provider for local development and testing only.",
         "x-ms-enum": {
           "name": "NeonAuthSupportedAuthProvider",
           "modelAsString": false,
@@ -13541,7 +13654,8 @@
         "type": "object",
         "properties": {
           "domain": {
-            "type": "string"
+            "type": "string",
+            "description": "Allowed redirect URI domain for the auth provider."
           },
           "auth_provider": {
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
@@ -13558,7 +13672,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthRedirectUriWhitelistDomain"
-            }
+            },
+            "description": "Domains permitted as redirect URI targets in the whitelist."
           }
         }
       },
@@ -13571,6 +13686,7 @@
         "properties": {
           "domain": {
             "type": "string",
+            "description": "URI to add to the redirect URI allowlist for the auth provider.",
             "format": "uri"
           },
           "auth_provider": {
@@ -13592,7 +13708,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthDeleteDomainFromRedirectUriWhitelistItem"
-            }
+            },
+            "description": "Domain names to remove from the redirect URI whitelist for the specified auth provider."
           }
         }
       },
@@ -13604,6 +13721,7 @@
         "properties": {
           "domain": {
             "type": "string",
+            "description": "URI to remove from the redirect URI whitelist.",
             "format": "uri"
           }
         }
@@ -13621,17 +13739,23 @@
           },
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060.",
+            "example": "wispy-forest-12345678"
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon branch ID. Returned as \u0060id\u0060 from \u0060GET /projects/{project_id}/branches\u0060.",
+            "example": "br-cool-darkness-12345678"
           },
           "database_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the database to associate with the Neon Auth integration. When omitted, the integration uses the project\u0027s default database."
           },
           "role_name": {
             "type": "string",
+            "description": "Deprecated. The database role for the auth integration. Omit this field; it is ignored.",
             "deprecated": true
           }
         },
@@ -13649,7 +13773,8 @@
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
           },
           "database_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the database to enable Neon Auth on. When omitted, the integration uses the project\u0027s default database."
           }
         },
         "x-sensitive": [
@@ -13672,25 +13797,32 @@
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
           },
           "auth_provider_project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Project ID assigned by the auth provider for this integration."
           },
           "pub_client_key": {
-            "type": "string"
+            "type": "string",
+            "description": "Publishable SDK key from the auth provider. Populated only for Stack Auth (deprecated); empty for Better Auth."
           },
           "secret_server_key": {
-            "type": "string"
+            "type": "string",
+            "description": "Secret server-side SDK key from the auth provider. Populated only for Stack Auth (deprecated); empty for Better Auth. Treat as a credential."
           },
           "jwks_url": {
-            "type": "string"
+            "type": "string",
+            "description": "URL of the provider\u0027s JWKS endpoint used to verify JWTs."
           },
           "schema_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Postgres schema containing the auth integration tables. Defaults to \u0060neon_auth\u0060."
           },
           "table_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Postgres table in the integration schema where synced user records are stored."
           },
           "base_url": {
-            "type": "string"
+            "type": "string",
+            "description": "Base URL of the Neon Auth service for this integration. Set as the NEON_AUTH_BASE_URL environment variable in your application."
           }
         },
         "x-sensitive": [
@@ -13707,7 +13839,9 @@
         "properties": {
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060.",
+            "example": "wispy-forest-12345678"
           },
           "auth_provider": {
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
@@ -13724,7 +13858,8 @@
         "properties": {
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060."
           },
           "auth_provider": {
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
@@ -13733,12 +13868,14 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the new user.",
             "format": "email"
           },
           "name": {
             "maxLength": 255,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "Display name for the new user. When omitted, the created user has no display name."
           }
         },
         "x-sensitive": [
@@ -13756,12 +13893,14 @@
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
+            "description": "Email address of the new Neon Auth user to create.",
             "format": "email"
           },
           "name": {
             "maxLength": 255,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "Display name for the new user. Optional. Pair with the required email field when creating a new user."
           }
         },
         "x-sensitive": [
@@ -13793,7 +13932,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Array of roles to assign to the user"
+            "description": "Roles to assign to the user in the Neon Auth (Better Auth) directory. \u0060user\u0060 and \u0060admin\u0060 are the built-in roles; custom role strings are also supported."
           }
         }
       },
@@ -13845,20 +13984,20 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the organization plugin is enabled",
+            "description": "Whether the organization plugin is enabled.",
             "default": true
           },
           "organization_limit": {
             "minimum": 1,
             "type": "integer",
-            "description": "Maximum number of organizations a user can create",
+            "description": "Maximum organizations a user can belong to (created or joined). At the limit, the user cannot create or join more.",
             "format": "int32",
             "default": 10
           },
           "membership_limit": {
             "minimum": 1,
             "type": "integer",
-            "description": "Maximum number of members per organization",
+            "description": "Maximum number of members per organization.",
             "format": "int32",
             "default": 100
           },
@@ -13867,7 +14006,7 @@
           },
           "send_invitation_email": {
             "type": "boolean",
-            "description": "Whether to send invitation emails when inviting members to an organization",
+            "description": "Whether to send invitation emails when inviting members to an organization.",
             "default": false
           }
         }
@@ -13877,18 +14016,18 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the organization plugin is enabled"
+            "description": "Controls whether the organization plugin is active for the organization."
           },
           "organization_limit": {
             "minimum": 1,
             "type": "integer",
-            "description": "Maximum number of organizations a user can create",
+            "description": "Maximum organizations a user can belong to (created or joined). At the limit, the user cannot create or join more.",
             "format": "int32"
           },
           "membership_limit": {
             "minimum": 1,
             "type": "integer",
-            "description": "Maximum number of members per organization",
+            "description": "Maximum members per organization.",
             "format": "int32"
           },
           "creator_role": {
@@ -13896,7 +14035,7 @@
           },
           "send_invitation_email": {
             "type": "boolean",
-            "description": "Whether to send invitation emails when inviting members to an organization"
+            "description": "When true, invited users receive an email containing an accept link. Requires that the invited user has a verified email address."
           }
         }
       },
@@ -13910,20 +14049,20 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the magic link plugin is enabled",
+            "description": "Whether the magic link plugin is enabled.",
             "default": false
           },
           "expires_in": {
             "maximum": 1440,
             "minimum": 5,
             "type": "integer",
-            "description": "Time in minutes before the magic link expires",
+            "description": "Minutes until the magic link expires.",
             "format": "int32",
             "default": 5
           },
           "disable_sign_up": {
             "type": "boolean",
-            "description": "Whether to disable sign-up via magic link",
+            "description": "Whether to disable sign-up via magic link.",
             "default": false
           }
         }
@@ -13933,18 +14072,18 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the magic link plugin is enabled"
+            "description": "Whether to enable the magic link plugin."
           },
           "expires_in": {
             "maximum": 1440,
             "minimum": 5,
             "type": "integer",
-            "description": "Time in minutes before the magic link expires",
+            "description": "Minutes until the magic link expires.",
             "format": "int32"
           },
           "disable_sign_up": {
             "type": "boolean",
-            "description": "Whether to disable sign-up via magic link"
+            "description": "When true, sign-up via magic link is disabled."
           }
         }
       },
@@ -13956,7 +14095,7 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the phone number plugin is enabled",
+            "description": "Whether the phone number plugin is enabled.",
             "default": false
           },
           "otp_expires_in": {
@@ -13973,7 +14112,7 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether the phone number plugin is enabled"
+            "description": "Whether the phone number plugin is enabled."
           },
           "otp_expires_in": {
             "maximum": 600,
@@ -13992,7 +14131,8 @@
         "properties": {
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon project ID. Returned as \u0060id\u0060 from \u0060GET /projects\u0060."
           },
           "auth_provider": {
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
@@ -14021,7 +14161,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthIntegration"
-            }
+            },
+            "description": "Neon Auth integrations configured for the project."
           }
         }
       },
@@ -14035,7 +14176,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthOAuthProvider"
-            }
+            },
+            "description": "OAuth providers configured for Neon Auth on the project."
           }
         }
       },
@@ -14061,10 +14203,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthOAuthProvider"
-            }
+            },
+            "description": "OAuth provider configurations enabled for this auth setup."
           },
           "allow_localhost": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Permits authentication requests from localhost origins when true. Intended for local development; disable in production environments."
           }
         },
         "description": "Aggregated plugin configurations for Neon Auth"
@@ -14076,21 +14220,25 @@
         "type": "object",
         "properties": {
           "enabled": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the webhook is active."
           },
           "webhook_url": {
-            "type": "string"
+            "type": "string",
+            "description": "Destination URL that receives webhook event payloads."
           },
           "enabled_events": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NeonAuthWebhookConfigEnabledEventsItem"
-            }
+            },
+            "description": "Event types that trigger this webhook. Covers user lifecycle, email/OTP delivery, organization invitations, and phone verification events; see the enum for exact values."
           },
           "timeout_seconds": {
             "maximum": 10,
             "minimum": 1,
             "type": "integer",
+            "description": "Maximum time, in seconds, to wait for a response from the webhook endpoint.",
             "default": 5
           }
         }
@@ -14109,10 +14257,12 @@
             "$ref": "#/components/schemas/NeonAuthOAuthProviderType"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Public identifier for the OAuth application, issued by the provider when the application is registered."
           },
           "client_secret": {
-            "type": "string"
+            "type": "string",
+            "description": "OAuth client secret for the provider."
           }
         }
       },
@@ -14180,13 +14330,16 @@
             "$ref": "#/components/schemas/NeonAuthOAuthProviderId"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The client ID issued by the OAuth provider for your application. Used to identify the application during the OAuth flow."
           },
           "client_secret": {
-            "type": "string"
+            "type": "string",
+            "description": "OAuth client secret for the provider."
           },
           "microsoft_tenant_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Tenant ID for the Microsoft OAuth provider. Only relevant when the OAuth provider is Microsoft; omit or leave blank for other providers."
           }
         }
       },
@@ -14194,13 +14347,16 @@
         "type": "object",
         "properties": {
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The OAuth client ID registered with the provider. Omit to keep the currently configured value."
           },
           "client_secret": {
-            "type": "string"
+            "type": "string",
+            "description": "OAuth client secret for the provider. Omit to leave the existing secret unchanged."
           },
           "microsoft_tenant_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The tenant ID scoping the Microsoft OAuth provider. Supply this field when the provider type is microsoft; it has no effect for other provider types."
           }
         }
       },
@@ -14208,10 +14364,12 @@
         "type": "object",
         "properties": {
           "sender_email": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address used as the sender for outgoing messages from this shared email server."
           },
           "sender_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
           }
         }
       },
@@ -14227,22 +14385,28 @@
         "type": "object",
         "properties": {
           "host": {
-            "type": "string"
+            "type": "string",
+            "description": "Hostname of the email server."
           },
           "port": {
-            "type": "integer"
+            "type": "integer",
+            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
           },
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "description": "Password for authenticating with the SMTP server."
           },
           "sender_email": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
           },
           "sender_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
           }
         },
         "x-sensitive": [
@@ -14294,22 +14458,28 @@
         "type": "object",
         "properties": {
           "host": {
-            "type": "string"
+            "type": "string",
+            "description": "Hostname of the email server."
           },
           "port": {
-            "type": "integer"
+            "type": "integer",
+            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
           },
           "username": {
-            "type": "string"
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
           },
           "password": {
-            "type": "string"
+            "type": "string",
+            "description": "Password for authenticating with the SMTP server."
           },
           "sender_email": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
           },
           "sender_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
           },
           "recipient_email": {
             "maxLength": 256,
@@ -14405,14 +14575,14 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "Whether email and password authentication is enabled"
+            "description": "Controls whether email and password authentication is enabled for this project. When omitted from an update request, the current value is unchanged."
           },
           "email_verification_method": {
             "$ref": "#/components/schemas/NeonAuthEmailVerificationMethod"
           },
           "require_email_verification": {
             "type": "boolean",
-            "description": "Whether email verification is required before users can sign in"
+            "description": "When true, users must verify their email address before they can sign in. Omitting this field from an update request leaves the current value unchanged."
           },
           "auto_sign_in_after_verification": {
             "type": "boolean",
@@ -14420,15 +14590,15 @@
           },
           "send_verification_email_on_sign_up": {
             "type": "boolean",
-            "description": "Whether to send a verification email when users sign up"
+            "description": "Whether to send a verification email when users sign up."
           },
           "send_verification_email_on_sign_in": {
             "type": "boolean",
-            "description": "Whether to send a verification email when users sign in"
+            "description": "Whether to send a verification email when a user with an unverified email signs in."
           },
           "disable_sign_up": {
             "type": "boolean",
-            "description": "Whether to disable new user sign ups"
+            "description": "Whether to disable new user sign ups. When omitted, the current setting is not changed."
           }
         }
       },
@@ -14448,18 +14618,24 @@
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
           },
           "auth_provider_project_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Project identifier assigned by the auth provider for this integration."
           },
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon branch ID. Returned as \u0060id\u0060 from \u0060GET /projects/{project_id}/branches\u0060.",
+            "example": "br-cool-darkness-12345678"
           },
           "db_name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the database used by the Neon Auth integration."
           },
           "created_at": {
             "type": "string",
-            "format": "date-time"
+            "description": "Timestamp when the Neon Auth integration was created, in RFC 3339 format (UTC).",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
           },
           "owned_by": {
             "$ref": "#/components/schemas/NeonAuthProviderProjectOwnedBy"
@@ -14468,16 +14644,18 @@
             "$ref": "#/components/schemas/NeonAuthProviderProjectTransferStatus"
           },
           "jwks_url": {
-            "type": "string"
+            "type": "string",
+            "description": "URL of the provider\u0027s JWKS endpoint used to verify JWTs."
           },
           "base_url": {
-            "type": "string"
+            "type": "string",
+            "description": "Base URL of the Neon Auth service endpoint for this integration. Injected into the project environment as \u0060NEON_AUTH_BASE_URL\u0060."
           },
           "name": {
             "maxLength": 256,
             "minLength": 1,
             "type": "string",
-            "description": "The application name used in auth emails and communications. Defaults to the Neon project name."
+            "description": "Application name shown in auth emails and communications. Defaults to the project name."
           }
         },
         "x-sensitive": [
@@ -14549,19 +14727,22 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConnectionDetails"
-            }
+            },
+            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
           },
           "roles": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Role"
-            }
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
           },
           "databases": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Database"
-            }
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
           },
           "operations": {
             "type": "array",
@@ -14576,7 +14757,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
           }
         }
       },
@@ -14611,7 +14793,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Endpoint"
-            }
+            },
+            "description": "Compute endpoints associated with the project."
           }
         }
       },
@@ -14702,11 +14885,15 @@
           },
           "created_at": {
             "type": "string",
-            "format": "date-time"
+            "description": "Timestamp when the annotation was created, in RFC 3339 format (UTC).",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
           },
           "updated_at": {
             "type": "string",
-            "format": "date-time"
+            "description": "Timestamp of the most recent update to the annotation, in RFC 3339 format (UTC).",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
           }
         },
         "x-tags": [
@@ -14719,7 +14906,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties.",
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
         "example": {
           "github-commit-ref": "github-branch-name"
         },
@@ -14735,10 +14922,12 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": "Kind of resource the annotation is attached to, for example \u0022branch\u0022 or \u0022endpoint\u0022."
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The annotated object\u0027s ID."
           }
         },
         "x-tags": [
@@ -14879,13 +15068,16 @@
         "type": "object",
         "properties": {
           "next": {
-            "type": "string"
+            "type": "string",
+            "description": "Cursor for the next page of results. Pass it as the \u0060cursor\u0060 query parameter on the next request. Absent on the last page."
           },
           "sort_by": {
-            "type": "string"
+            "type": "string",
+            "description": "Field by which the results were sorted, echoing the request\u0027s sort_by parameter."
           },
           "sort_order": {
-            "type": "string"
+            "type": "string",
+            "description": "Sort order active for this page. Pass back as \u0060sort_order\u0060 in the next request to maintain consistent ordering. Valid values are \u0060asc\u0060 and \u0060desc\u0060."
           }
         },
         "description": "To paginate the response, issue an initial request with \u0060limit\u0060 value. Then, add the value returned in the response \u0060.pagination.next\u0060 attribute into the request under the \u0060cursor\u0060 query parameter to the subsequent request to retrieve next page in pagination. The contents on cursor \u0060next\u0060 are opaque, clients are not expected to make any assumptions on the format of the data inside the cursor."
@@ -14900,29 +15092,38 @@
         "properties": {
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The snapshot ID."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable label for the snapshot."
           },
           "lsn": {
-            "type": "string"
+            "type": "string",
+            "description": "WAL position (Log Sequence Number) at which the snapshot was captured, in Postgres LSN format (for example, \u00600/3000000\u0060)."
           },
           "timestamp": {
-            "type": "string"
+            "type": "string",
+            "description": "Point in time captured by the snapshot, in RFC 3339 format (UTC)."
           },
           "source_branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "Branch from which this snapshot was created."
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "description": "Timestamp when the snapshot was created, in RFC 3339 format (UTC).",
+            "example": "2025-01-15T10:30:00Z"
           },
           "expires_at": {
-            "type": "string"
+            "type": "string",
+            "description": "RFC 3339 timestamp when the snapshot expires and is eligible for deletion. Null if the snapshot does not have an expiry."
           },
           "manual": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True if the snapshot was created manually rather than by a schedule."
           },
           "full_size": {
             "type": "integer",
@@ -14931,7 +15132,7 @@
           },
           "diff_size": {
             "type": "integer",
-            "description": "Incremental storage size in bytes since the previous scheduled snapshot, when the snapshot is billed on incremental (diff) usage.\n\nWhen absent, either the incremental size has not been calculated yet and the snapshot is not being charged, or the snapshot is charged at full logical size (in that case \u0060full_size\u0060 is set).\n",
+            "description": "Incremental Postgres storage size in bytes since the previous scheduled snapshot, when the snapshot is billed on incremental (diff) usage.\n\nWhen absent, either the incremental size has not been calculated yet and the snapshot is not being charged, or the snapshot is charged at full logical size (in that case \u0060full_size\u0060 is set).\n",
             "format": "int64"
           }
         }
@@ -14955,7 +15156,8 @@
         "properties": {
           "frequency": {
             "type": "string",
-            "description": "How often to take snapshots. Must be one of the following values:\n  - \u0060daily\u0060\n  - \u0060weekly\u0060\n  - \u0060monthly\u0060\n"
+            "description": "\u0022How often to take snapshots. Known values: \u0060daily\u0060, \u0060weekly\u0060, \u0060monthly\u0060.\n\u0022",
+            "example": "daily"
           },
           "hour": {
             "maximum": 23,
@@ -14992,7 +15194,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BackupScheduleItem"
-            }
+            },
+            "description": "List of schedule entries defining the backup frequency. At least one entry is required."
           }
         }
       },
@@ -15006,7 +15209,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BranchSchemaJsonTablesItem"
-            }
+            },
+            "description": "Tables present in the branch schema."
           }
         }
       },
@@ -15108,7 +15312,7 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "\u0022Always \u0060true\u0060 in 200 responses. Present for forward compatibility: a\nfuture version may add intermediate states; callers should treat \u0060true\u0060\nas \\\u0022storage is usable for this branch right now.\\\u0022\n\u0022"
+            "description": "\u0022Always \u0060true\u0060 in 200 responses. Present for forward compatibility: a\nfuture version may add intermediate states; callers should treat \u0060true\u0060\nas \\\u0022object storage is usable for this branch right now.\\\u0022\n\u0022"
           },
           "s3_endpoint": {
             "type": "string",
@@ -15118,7 +15322,7 @@
           },
           "region": {
             "type": "string",
-            "description": "\u0022The AWS region for this branch\u0027s storage. The platform normalizes\nthe us-east-1 convention server-side: a non-empty region string is\nalways returned in 200 responses (e.g. \u0060\\\u0022us-east-1\\\u0022\u0060 for the S3\ndefault region).\n\u0022",
+            "description": "\u0022The AWS region for this branch\u0027s object storage. The platform normalizes\nthe us-east-1 convention server-side: a non-empty region string is\nalways returned in 200 responses (e.g. \u0060\\\u0022us-east-1\\\u0022\u0060 for the S3\ndefault region).\n\u0022",
             "example": "us-east-2"
           },
           "force_path_style": {
@@ -16076,7 +16280,7 @@
           },
           "db_max_rows": {
             "type": "integer",
-            "description": "Maximum number of rows that can be returned in a single request"
+            "description": "Hard limit on the number of rows returned in a single Data API response. No limit when unset."
           },
           "db_schemas": {
             "type": "array",
@@ -16092,7 +16296,7 @@
           },
           "jwt_cache_max_lifetime": {
             "type": "integer",
-            "description": "Maximum lifetime for JWT cache in seconds"
+            "description": "Maximum lifetime of the Data API\u0027s JWT cache, in seconds."
           },
           "openapi_mode": {
             "type": "string",
@@ -16105,7 +16309,7 @@
           },
           "server_timing_enabled": {
             "type": "boolean",
-            "description": "Enable server timing headers"
+            "description": "\u0022When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled.\u0022"
           }
         },
         "description": "Configuration settings for the Data API (SubZero only)"
@@ -16244,7 +16448,7 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "region_id": {
             "type": "string",
@@ -16257,7 +16461,7 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Generally available versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
           },
           "store_passwords": {
             "type": "boolean",
@@ -16267,15 +16471,16 @@
             "maximum": 2592000,
             "minimum": 0,
             "type": "integer",
-            "description": "The number of seconds to retain the shared history for all branches in this project.\nThe default is 1 day (86400 seconds).\n",
+            "description": "\u0022History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n\u0022",
             "format": "int32"
           },
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "Organization id in case the project created belongs to an organization.\nIf not present, project is owned by a user and not by org.\n"
+            "description": "ID of the organization that will own the project. If omitted when using an organization API key, it is inferred from the key.\n"
           }
-        }
+        },
+        "description": "Configuration for the new project, including name, region, and Postgres compute and storage settings."
       },
       "ProjectUpdateRequestProject": {
         "type": "object",
@@ -16296,7 +16501,7 @@
             "maximum": 2592000,
             "minimum": 0,
             "type": "integer",
-            "description": "The number of seconds to retain the shared history for all branches in this project.\nThe default is 1 day (604800 seconds).\n",
+            "description": "\u0022History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n\u0022",
             "format": "int32"
           }
         }
@@ -16323,7 +16528,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the user."
+            "description": "Display name of the user who created the branch."
           },
           "image": {
             "type": "string",
@@ -16352,20 +16557,22 @@
           },
           "parent_timestamp": {
             "type": "string",
-            "description": "\u0022A timestamp identifying a point in time on the parent branch. The branch will be created with data starting from this point in time.\nThe timestamp must be provided in ISO 8601 format; for example: \u00602024-02-26T12:00:00Z\u0060.\n\u0022",
-            "format": "date-time"
+            "description": "A timestamp identifying a point in time on the parent branch. The branch will be created with data starting from this point in time. RFC 3339 format.\n",
+            "format": "date-time",
+            "example": "2024-02-26T12:00:00Z"
           },
           "protected": {
             "type": "boolean",
-            "description": "Whether the branch is protected\n"
+            "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by \u0060protected_branches_only\u0060 in the IP allowlist. Paid plans only.\n"
           },
           "archived": {
             "type": "boolean",
-            "description": "Whether to create the branch as archived\n"
+            "description": "Whether to create the branch in the archived state. When omitted, the branch is created as a normal (non-archived) branch.\n"
           },
           "init_source": {
             "type": "string",
-            "description": "The source of initialization for the branch. Valid values are \u0060schema-only\u0060 and \u0060parent-data\u0060 (default).\n  * \u0060schema-only\u0060 - creates a new root branch containing only the schema. Use \u0060parent_id\u0060 to specify the source branch. Optionally, you can provide \u0060parent_lsn\u0060 or \u0060parent_timestamp\u0060 to branch from a specific point in time or LSN. These fields define which branch to copy the schema from and at what point\u2014they do not establish a parent-child relationship between the \u0060parent_id\u0060 branch and the new schema-only branch.\n  * \u0060parent-data\u0060 - creates the branch with both schema and data from the parent.\n"
+            "description": "Source of initialization for the branch. \u0060parent-data\u0060 copies schema and data from the parent branch. \u0060parent-schema\u0060 copies schema only from the parent branch. \u0060schema-only\u0060 creates a new root branch containing schema only, using \u0060parent_id\u0060 as the source; optionally, \u0060parent_lsn\u0060 or \u0060parent_timestamp\u0060 can narrow the source point. \u0060import\u0060 initializes the branch from an external import.",
+            "example": "parent-data"
           },
           "expires_at": {
             "type": "string",
@@ -16373,7 +16580,8 @@
             "format": "date-time",
             "example": "2025-06-09T18:02:16Z"
           }
-        }
+        },
+        "description": "Optional configuration for the new branch, for example \u0060name\u0060, \u0060parent_id\u0060 (fork from a branch), \u0060parent_lsn\u0060 or \u0060parent_timestamp\u0060 (point-in-time branching), and \u0060protected\u0060."
       },
       "BranchUpdateRequestBranch": {
         "type": "object",
@@ -16381,10 +16589,12 @@
           "name": {
             "maxLength": 256,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "New display name for the branch."
           },
           "protected": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by \u0060protected_branches_only\u0060 in the IP allowlist. Paid plans only.\n"
           },
           "expires_at": {
             "type": "string",
@@ -16393,7 +16603,8 @@
             "nullable": true,
             "example": "2025-06-09T18:02:16Z"
           }
-        }
+        },
+        "description": "Branch attributes to update. Supply only the fields you want to change, for example \u0060name\u0060 or \u0060protected\u0060."
       },
       "EndpointCreateRequestEndpoint": {
         "required": [
@@ -16427,11 +16638,11 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
+            "description": "Deprecated. To enable connection pooling, append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
             "deprecated": true
           },
           "pooler_mode": {
@@ -16458,7 +16669,8 @@
             "type": "string",
             "description": "Optional name of the compute endpoint\n"
           }
-        }
+        },
+        "description": "Configuration for the compute endpoint to create."
       },
       "EndpointUpdateRequestEndpoint": {
         "type": "object",
@@ -16466,7 +16678,7 @@
           "branch_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "\u0022DEPRECATED: This field will be removed in a future release.\nThe destination branch ID. The destination branch must not have an existing read-write endpoint.\n\u0022",
+            "description": "Deprecated. The destination branch ID; must not have an existing read-write endpoint.\n",
             "deprecated": true
           },
           "autoscaling_limit_min_cu": {
@@ -16479,14 +16691,14 @@
           },
           "provisioner": {
             "type": "string",
-            "description": "The Neon compute provisioner.\nSpecify the \u0060k8s-neonvm\u0060 provisioner to create a compute endpoint that supports Autoscaling.\n\nProvisioner can be one of the following values:\n* k8s-pod\n* k8s-neonvm\n* serverless-platform\n\nClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.\n"
+            "description": ""
           },
           "settings": {
             "$ref": "#/components/schemas/EndpointSettingsData"
           },
           "pooler_enabled": {
             "type": "boolean",
-            "description": "DEPRECATED. Whether to enable connection pooling for the compute endpoint.\nThe recommended way to enable connection pooling is to append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
+            "description": "Deprecated. To enable connection pooling, append \u0060-pooler\u0060 to the endpoint ID in the connection string.\nSee [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)\n",
             "deprecated": true
           },
           "pooler_mode": {
@@ -16513,7 +16725,8 @@
             "type": "string",
             "description": "Optional name of the compute endpoint\n"
           }
-        }
+        },
+        "description": "Parameters for the compute endpoint update."
       },
       "RoleCreateRequestRole": {
         "required": [
@@ -16529,7 +16742,8 @@
             "type": "boolean",
             "description": "Whether to create a role that cannot login.\n"
           }
-        }
+        },
+        "description": "Properties of the role to create."
       },
       "DatabaseCreateRequestDatabase": {
         "required": [
@@ -16540,26 +16754,28 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the database\n"
+            "description": "Name of the database to create.\n"
           },
           "owner_name": {
             "type": "string",
             "description": "The name of the role that owns the database\n"
           }
-        }
+        },
+        "description": "Configuration for the new Postgres database."
       },
       "DatabaseUpdateRequestDatabase": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the database\n"
+            "description": "Name of the database to update.\n"
           },
           "owner_name": {
             "type": "string",
             "description": "The name of the role that owns the database\n"
           }
-        }
+        },
+        "description": "Properties to update on the database."
       },
       "LimitsUnsatisfiedResponseLimitsItem": {
         "required": [
@@ -16574,10 +16790,12 @@
             "description": "Identifier of the unsatisfied limit. Possible values are:\n- subscription_type\n- projects_count\n- project_region\n"
           },
           "expected": {
-            "type": "string"
+            "type": "string",
+            "description": "Required value for the limit named by \u0060name\u0060. Compare with \u0060actual\u0060 to determine the shortfall."
           },
           "actual": {
-            "type": "string"
+            "type": "string",
+            "description": "Current value of the named limit, which does not satisfy the required \u0060expected\u0060 value."
           }
         }
       },
@@ -16590,10 +16808,12 @@
         "properties": {
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string"
+            "type": "string",
+            "description": "The Neon project ID. Use as the \u0060project_id\u0060 path parameter in other endpoints."
           },
           "integration": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the external integration associated with the project."
           }
         }
       },
@@ -16601,7 +16821,8 @@
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/AnnotationData"
-        }
+        },
+        "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
       },
       "ProjectsApplicationsMapResponseApplications": {
         "type": "object",
@@ -16610,7 +16831,8 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
       },
       "ProjectsIntegrationsMapResponseIntegrations": {
         "type": "object",
@@ -16619,13 +16841,15 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their associated integration details."
       },
       "SnapshotUpdateRequestSnapshot": {
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable label for the snapshot."
           },
           "expires_at": {
             "type": "string",
@@ -16634,7 +16858,8 @@
             "nullable": true,
             "example": "2030-06-09T18:02:16Z"
           }
-        }
+        },
+        "description": "Fields to update on the snapshot. Updatable fields include \u0060name\u0060 and \u0060expires_at\u0060."
       },
       "BranchSchemaJsonTablesItem": {
         "required": [
@@ -16645,22 +16870,26 @@
         "type": "object",
         "properties": {
           "schema": {
-            "type": "string"
+            "type": "string",
+            "description": "Postgres schema (namespace) that contains the table, for example \u0060public\u0060."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the table within the schema."
           },
           "columns": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BranchSchemaJsonTablesItemColumnsItem"
-            }
+            },
+            "description": "Columns belonging to this table, each describing a column\u0027s name and attributes."
           },
           "constraints": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BranchSchemaJsonTablesItemConstraintsItem"
-            }
+            },
+            "description": "Table constraints defined in the branch schema, such as primary key, foreign key, unique, and check constraints."
           }
         }
       },
@@ -16695,7 +16924,8 @@
           "annotations": {
             "$ref": "#/components/schemas/ProjectCreateRequestProjectBranchAnnotations"
           }
-        }
+        },
+        "description": "Configuration for the initial branch created with the project."
       },
       "BranchSchemaJsonTablesItemColumnsItem": {
         "required": [
@@ -16705,10 +16935,12 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the column."
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": "Postgres data type of the column, for example \u0022integer\u0022 or \u0022text\u0022."
           },
           "nullable": {
             "type": "boolean",
@@ -16792,7 +17024,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProjectListItem"
-            }
+            },
+            "description": "List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in \u0060unavailable_project_ids\u0060."
           },
           "unavailable_project_ids": {
             "type": "array",
@@ -16823,7 +17056,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProjectListItem"
-            }
+            },
+            "description": "List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in \u0060unavailable_project_ids\u0060."
           },
           "unavailable_project_ids": {
             "type": "array",
@@ -16861,7 +17095,7 @@
         "properties": {
           "ttl_seconds": {
             "type": "integer",
-            "description": "Specifies the validity duration of the transfer request in seconds. If not provided,\nthe request will expire after 24 hours (86,400 seconds).\n",
+            "description": "Number of seconds the transfer request stays valid before it expires. Defaults to 86400 (24 hours).\n",
             "format": "int64"
           }
         }
@@ -16872,7 +17106,8 @@
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "The Neon organization ID to transfer the project to. If not provided, the project will be\ntransferred to the current user or organization account.\n"
+            "description": "The Neon organization ID to transfer the project to. If not provided, the project will be\ntransferred to the current user or organization account.\n",
+            "example": "org-cool-darkness-12345678"
           }
         }
       },
@@ -16893,7 +17128,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/BranchCreateRequestEndpointOptions"
-            }
+            },
+            "description": "Compute endpoints to create together with the branch. If omitted, the branch is created without any compute endpoint. Endpoints can be added to the branch separately after creation."
           },
           "branch": {
             "$ref": "#/components/schemas/BranchCreateRequestBranch"
@@ -16914,7 +17150,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Branch"
-            }
+            },
+            "description": "Branches in the project. Each includes \u0060id\u0060, \u0060name\u0060, \u0060current_state\u0060, and \u0060created_at\u0060."
           },
           "annotations": {
             "$ref": "#/components/schemas/ListProjectBranches200ResponseAnnotations"
@@ -16932,6 +17169,7 @@
         "properties": {
           "count": {
             "type": "integer",
+            "description": "Total number of branches in the project.",
             "format": "int"
           }
         }
@@ -16956,7 +17194,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "used to rename the existing branch when it is replaced. if omitted, a default name is generated and used"
+            "description": "Name for the replaced branch. If omitted, a unique name is generated."
           }
         }
       },
@@ -16970,7 +17208,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerProject"
-            }
+            },
+            "description": "Per-project consumption history records included in the response."
           },
           "pagination": {
             "$ref": "#/components/schemas/Pagination"
@@ -16987,7 +17226,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerProjectV2"
-            }
+            },
+            "description": "Per-project consumption history entries for the requested time range."
           },
           "pagination": {
             "$ref": "#/components/schemas/Pagination"
@@ -17004,7 +17244,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConsumptionHistoryPerBranchV2"
-            }
+            },
+            "description": "Per-branch consumption history records returned for the requested time range."
           },
           "pagination": {
             "$ref": "#/components/schemas/Pagination"
@@ -17027,7 +17268,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MemberWithUser"
-            }
+            },
+            "description": "Members of the organization, each combining membership details (role, status) with the associated user\u0027s identity."
           },
           "pagination": {
             "$ref": "#/components/schemas/CursorPagination"
@@ -17057,11 +17299,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "A name for the newly restored branch.\nIf omitted, a default name will be generated.\n"
+            "description": "A name for the newly restored branch. If not provided, the server generates a unique name for the branch automatically.\n"
           },
           "target_branch_id": {
             "type": "string",
-            "description": "The ID of the branch to restore the snapshot into.\nIf not specified, the branch from which the snapshot was originally\ncreated (\u0060snapshot.source_branch_id\u0060) will be used.\n"
+            "description": "ID of the branch to restore the snapshot into. Defaults to the snapshot\u0027s source branch (\u0060snapshot.source_branch_id\u0060); fails if that cannot be determined.\n"
           },
           "finalize_restore": {
             "type": "boolean",
@@ -17183,7 +17425,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
       },
       "EndpointSettingsDataPgSettings": {
         "type": "object",
@@ -17197,7 +17439,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.\n"
+        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n"
       },
       "DefaultEndpointSettingsPgSettings": {
         "type": "object",
@@ -17211,27 +17453,28 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.\n"
+        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n"
       },
       "AnnotationDataValue": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
       },
       "AnnotationCreateValueRequestAnnotationValue": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
       },
       "AnnotationsMapResponseAnnotationsProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/AnnotationData"
-        }
+        },
+        "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
       },
       "ProjectsApplicationsMapResponseApplicationsProperty": {
         "type": "object",
@@ -17240,7 +17483,8 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
       },
       "ProjectsIntegrationsMapResponseIntegrationsProperty": {
         "type": "object",
@@ -17249,7 +17493,8 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their associated integration details."
       },
       "ProjectBranchLogRecordAttributesProperty": {
         "type": "object",
@@ -17267,7 +17512,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
       },
       "ListProjects200ResponseApplications": {
         "type": "object",
@@ -17276,7 +17521,8 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
       },
       "ListProjects200ResponseIntegrations": {
         "type": "object",
@@ -17285,20 +17531,22 @@
           "items": {
             "$ref": "#/components/schemas/ApplicationType"
           }
-        }
+        },
+        "description": "Map of project IDs to their associated integration details."
       },
       "CreateProjectBranchRequestAnnotationValue": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Annotation properties."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
       },
       "ListProjectBranches200ResponseAnnotations": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/AnnotationData"
-        }
+        },
+        "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
       },
       "AdvisorIssueFacing": {
         "enum": [
@@ -17360,7 +17608,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Brand of credit card.\n",
+        "description": "Card network reported by the payment processor. Set to \u0060unknown\u0060 when the network cannot be determined.\n",
         "x-ms-enum": {
           "name": "PaymentSourceBankCardBrand",
           "modelAsString": false,
@@ -17410,6 +17658,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
+        "description": "\u0022Authentication method used for the request:\n- \u0060keycloak\u0060: Keycloak identity provider authentication.\n- \u0060session_cookie\u0060: Browser session cookie authentication.\n- \u0060api_key_user\u0060: API key scoped to a user account.\n- \u0060api_key_org\u0060: API key scoped to an organization.\n- \u0060oauth\u0060: OAuth-based authentication.\n\u0022",
         "x-ms-enum": {
           "name": "AuthDetailsResponseAuthMethod",
           "modelAsString": false,
@@ -17444,7 +17693,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The authentication provider to use for the Neon Data API",
+        "description": "\u0022Authentication provider for the Neon Data API. \u0060neon_auth\u0060: use Neon\u0027s built-in managed authentication (no JWKS configuration required). \u0060external\u0060: use an external JWT provider, which requires \u0060jwks_url\u0060. When omitted, no auth provider is configured (existing setup is kept).\u0022",
         "x-ms-enum": {
           "name": "DataApiCreateRequestAuthProvider",
           "modelAsString": false,
@@ -17467,7 +17716,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The role assigned to the user who creates an organization",
+        "description": "\u0022Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.\u0022",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigCreatorRole",
           "modelAsString": false,
@@ -17490,7 +17739,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The role assigned to the user who creates an organization",
+        "description": "\u0022Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.\u0022",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigUpdateCreatorRole",
           "modelAsString": false,
@@ -17585,7 +17834,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Machine-readable reason why storage is unavailable:\n- \u0060org_not_entitled\u0060: the org\u0027s \u0060PlatformBranchableStorage\u0060 feature flag is off.\n- \u0060region_unavailable\u0060: the project\u0027s region has no storage admin service wired.\n- \u0060branch_directory_missing\u0060: the branch is not registered in the storage service.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n\u0022",
+        "description": "\u0022Machine-readable reason why object storage is unavailable:\n- \u0060org_not_entitled\u0060: the org\u0027s \u0060PlatformBranchableStorage\u0060 feature flag is off.\n- \u0060region_unavailable\u0060: the project\u0027s region has no object storage admin service wired.\n- \u0060branch_directory_missing\u0060: the branch is not registered in the object storage service.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n\u0022",
         "x-ms-enum": {
           "name": "BranchStorageNotEnabledReason",
           "modelAsString": false,
@@ -18121,11 +18370,11 @@
     },
     {
       "name": "Storage",
-      "description": "These methods allow you to inspect branchable object-storage state for Neon branches."
+      "description": "These methods allow you to inspect branchable object storage state for Neon branches."
     },
     {
       "name": "Buckets",
-      "description": "These methods allow you to create and manage branchable object-storage buckets and their objects."
+      "description": "These methods allow you to create and manage branchable object storage buckets and their objects."
     },
     {
       "name": "Functions",

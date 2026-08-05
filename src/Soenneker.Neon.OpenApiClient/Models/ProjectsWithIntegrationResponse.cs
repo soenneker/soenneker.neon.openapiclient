@@ -17,7 +17,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
-        /// <summary>The projects property</summary>
+        /// <summary>Projects that have the requested integration, each including the project details and associated integration metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectsWithIntegrationResponseProjectsItem>? Projects { get; set; }

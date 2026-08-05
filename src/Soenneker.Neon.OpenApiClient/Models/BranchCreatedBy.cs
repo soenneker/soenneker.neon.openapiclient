@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Image { get; set; }
 #endif
-        /// <summary>The name of the user.</summary>
+        /// <summary>Display name of the user who created the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

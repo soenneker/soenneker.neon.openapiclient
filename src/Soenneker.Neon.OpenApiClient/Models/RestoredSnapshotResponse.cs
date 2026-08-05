@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.Branch Branch { get; set; }
 #endif
-        /// <summary>The endpoints property</summary>
+        /// <summary>Compute endpoints associated with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.Endpoint>? Endpoints { get; set; }

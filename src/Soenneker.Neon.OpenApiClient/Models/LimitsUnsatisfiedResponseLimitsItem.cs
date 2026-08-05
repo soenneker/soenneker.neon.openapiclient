@@ -12,7 +12,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     public partial class LimitsUnsatisfiedResponseLimitsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The actual property</summary>
+        /// <summary>Current value of the named limit, which does not satisfy the required `expected` value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Actual { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The expected property</summary>
+        /// <summary>Required value for the limit named by `name`. Compare with `actual` to determine the shortfall.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Expected { get; set; }

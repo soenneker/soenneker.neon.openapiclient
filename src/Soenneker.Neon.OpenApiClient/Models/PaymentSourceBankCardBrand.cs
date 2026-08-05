@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>Brand of credit card.</summary>
+    /// <summary>Card network reported by the payment processor. Set to `unknown` when the network cannot be determined.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PaymentSourceBankCardBrand
     {

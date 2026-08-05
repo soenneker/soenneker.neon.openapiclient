@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the column is a generated (computed) column</summary>
         public bool? Generated { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Name of the column.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -26,7 +26,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether the column allows NULL values</summary>
         public bool? Nullable { get; set; }
-        /// <summary>The type property</summary>
+        /// <summary>Postgres data type of the column, for example &quot;integer&quot; or &quot;text&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }

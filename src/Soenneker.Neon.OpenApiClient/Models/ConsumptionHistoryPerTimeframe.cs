@@ -18,13 +18,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seconds. The number of CPU seconds used by compute endpoints, including compute endpoints that have been deleted.</summary>
         public int? ComputeTimeSeconds { get; set; }
-        /// <summary>Bytes-Hour. The amount of storage consumed hourly.</summary>
+        /// <summary>Bytes-Hour. The amount of Postgres storage consumed hourly.</summary>
         public int? DataStorageBytesHour { get; set; }
         /// <summary>Bytes. The amount of logical size consumed.</summary>
         public int? LogicalSizeBytes { get; set; }
         /// <summary>Bytes-Hour. The amount of logical size consumed hourly.</summary>
         public int? LogicalSizeBytesHour { get; set; }
-        /// <summary>Bytes. The space occupied in storage. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
+        /// <summary>Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
         public int? SyntheticStorageSizeBytes { get; set; }
         /// <summary>The specified end date-time for the reported consumption.</summary>
         public DateTimeOffset? TimeframeEnd { get; set; }

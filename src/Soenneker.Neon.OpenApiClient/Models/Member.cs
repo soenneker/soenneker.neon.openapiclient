@@ -14,11 +14,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>The organization member&apos;s ID.</summary>
         public Guid? Id { get; set; }
-        /// <summary>The joined_at property</summary>
+        /// <summary>Timestamp when the user joined the organization.</summary>
         public DateTimeOffset? JoinedAt { get; set; }
-        /// <summary>The org_id property</summary>
+        /// <summary>The Neon organization ID. Returned as `id` from `GET /users/me/organizations`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -26,9 +26,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The role of the organization member. Some role values may not beavailable for all organizations.</summary>
+        /// <summary>&quot;Organization member&apos;s role. `admin`: full administrative access. `editor` (and its legacy alias `member`): standard access governed by project permissions. `viewer` and `collaborator`: additional scoped project roles. Some values may not be available for all organizations.&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.MemberRole? Role { get; set; }
-        /// <summary>The user_id property</summary>
+        /// <summary>The Neon user ID.</summary>
         public Guid? UserId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Member"/> and sets the default values.

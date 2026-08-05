@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp of when the user account was deactivated.Absent for active users. When present, the UI should render a&quot;Deactivated&quot; badge inline next to the member.</summary>
         public DateTimeOffset? DeactivatedAt { get; set; }
-        /// <summary>The email property</summary>
+        /// <summary>Email address of the organization member&apos;s user account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }

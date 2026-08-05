@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The periods property</summary>
+        /// <summary>Consumption periods for the project, each covering a discrete billing interval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriod>? Periods { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriod> Periods { get; set; }
 #endif
-        /// <summary>The project ID</summary>
+        /// <summary>The Neon project ID. Returned as `id` from `GET /projects`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }

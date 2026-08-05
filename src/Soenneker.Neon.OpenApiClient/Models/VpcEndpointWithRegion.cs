@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string RegionId { get; set; }
 #endif
-        /// <summary>The VPC endpoint ID</summary>
+        /// <summary>Cloud provider identifier for the VPC endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VpcEndpointId { get; set; }

@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
 #endif
-        /// <summary>The number of seconds to retain the shared history for all branches in this project.The default is 1 day (604800 seconds).</summary>
+        /// <summary>&quot;History window (point-in-time restore range) for all branches, in seconds. `0` disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).&quot;</summary>
         public int? HistoryRetentionSeconds { get; set; }
         /// <summary>The project name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -17,9 +17,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? AddDefaultGrants { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The authentication provider to use for the Neon Data API</summary>
+        /// <summary>&quot;Authentication provider for the Neon Data API. `neon_auth`: use Neon&apos;s built-in managed authentication (no JWKS configuration required). `external`: use an external JWT provider, which requires `jwks_url`. When omitted, no auth provider is configured (existing setup is kept).&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.DataApiCreateRequestAuthProvider? AuthProvider { get; set; }
-        /// <summary>The URL that lists the JWKS</summary>
+        /// <summary>URL of the JWKS endpoint used to verify JWTs for this Data API. Required when configuring JWT-based authentication; omit when using a non-JWT auth provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwksUrl { get; set; }
@@ -27,7 +27,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
-        /// <summary>WARNING - using this setting will only reject tokens with adifferent audience claim. Tokens without audience claim will stillbe accepted.</summary>
+        /// <summary>Expected `aud` claim in incoming JWTs. When set, tokens with a different audience are rejected; tokens with no audience are still accepted. Omit to skip audience validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwtAudience { get; set; }
@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwtAudience { get; set; }
 #endif
-        /// <summary>The name of the authentication provider (e.g., Clerk, Stytch, Auth0)</summary>
+        /// <summary>Display name for the authentication provider. Accepted values include &quot;Clerk&quot;, &quot;Stytch&quot;, and &quot;Auth0&quot;, but any non-empty string is valid. Optional field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProviderName { get; set; }

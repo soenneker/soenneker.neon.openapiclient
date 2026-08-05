@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
         {
         }
         /// <summary>
-        /// Deletes a OAuth provider from the specified project.
+        /// Deletes an OAuth provider from the specified project.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates a OAuth provider for the specified project.
+        /// Updates an OAuth provider for the specified project.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider"/></returns>
         /// <param name="body">The request body</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a OAuth provider from the specified project.
+        /// Deletes an OAuth provider from the specified project.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_pr
             return requestInfo;
         }
         /// <summary>
-        /// Updates a OAuth provider for the specified project.
+        /// Updates an OAuth provider for the specified project.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -12,13 +12,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
     public partial class Branch : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The active_time_seconds property</summary>
+        /// <summary>Total time this branch&apos;s compute has been active during the current billing period, in seconds (not weighted by compute size). Distinct from `compute_time_seconds`, which is CU-weighted.</summary>
         public long? ActiveTimeSeconds { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The compute_time_seconds property</summary>
+        /// <summary>Total Postgres compute time consumed by this branch during the current billing period, in CU-seconds (weighted by compute size). Divide by 3600 for CU-hours.</summary>
         public long? ComputeTimeSeconds { get; set; }
-        /// <summary>CPU seconds used by all of the branch&apos;s compute endpoints, including deleted ones.This value is reset at the beginning of each billing period.Examples:1. A branch that uses 1 CPU for 1 second is equal to `cpu_used_sec=1`.2. A branch that uses 2 CPUs simultaneously for 1 second is equal to `cpu_used_sec=2`.</summary>
+        /// <summary>Deprecated. Use `compute_time_seconds` instead. CPU seconds used by all of the branch&apos;s compute endpoints, including deleted ones. This value is reset at the beginning of each billing period.</summary>
         [Obsolete("")]
         public long? CpuUsedSec { get; set; }
         /// <summary>A timestamp indicating when the branch was created</summary>
@@ -39,7 +39,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreationSource { get; set; }
 #endif
-        /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival storage. Expect slow query response times.</summary>
+        /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CurrentState { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CurrentState { get; set; }
 #endif
-        /// <summary>The data_transfer_bytes property</summary>
+        /// <summary>Total data transferred out of the branch, in bytes. Used as a consumption metric.</summary>
         public long? DataTransferBytes { get; set; }
         /// <summary>Whether the branch is the project&apos;s default branch</summary>
         public bool? Default { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The source of initialization for the branch. Valid values are `schema-only` and `parent-data` (default).  * `schema-only` - creates a new root branch containing only the schema. Use `parent_id` to specify the source branch. Optionally, you can provide `parent_lsn` or `parent_timestamp` to branch from a specific point in time or LSN. These fields define which branch to copy the schema from and at what point—they do not establish a parent-child relationship between the `parent_id` branch and the new schema-only branch.  * `parent-data` - creates the branch with both schema and data from the parent.</summary>
+        /// <summary>Source of initialization for the branch. `parent-data` (default) copies schema and data from the parent. `parent-schema` copies schema only from the parent. `schema-only` creates a root branch with schema only. `import` initializes from an external import.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InitSource { get; set; }
@@ -99,7 +99,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The point in time on the parent branch from which this branch was created.When restoring a branch using the `POST /projects/{project_id}/branches/{branch_id}/restore` endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.After all the operations completed, this value might stay empty.</summary>
         public DateTimeOffset? ParentTimestamp { get; set; }
-        /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival storage. Expect slow query response times.</summary>
+        /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PendingState { get; set; }
@@ -107,10 +107,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string PendingState { get; set; }
 #endif
-        /// <summary>DEPRECATED. Use `default` field.Whether the branch is the project&apos;s primary branch</summary>
+        /// <summary>Deprecated. Use the `default` field. Whether the branch is the project&apos;s primary branch.</summary>
         [Obsolete("")]
         public bool? Primary { get; set; }
-        /// <summary>The ID of the project to which the branch belongs</summary>
+        /// <summary>The ID of the project this branch belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>Whether the branch is protected</summary>
+        /// <summary>Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project.</summary>
         public bool? Protected { get; set; }
         /// <summary>Recovery information for a deleted branch. Only present when listing deleted brancheswith `include_deleted=true`.This is part of the Branch Recovery feature, which is in preview and not available to all users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,7 +166,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public int? TtlIntervalSeconds { get; set; }
         /// <summary>A timestamp indicating when the branch was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The written_data_bytes property</summary>
+        /// <summary>Data written by this branch during the current billing period, in bytes.</summary>
         public long? WrittenDataBytes { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Branch"/> and sets the default values.

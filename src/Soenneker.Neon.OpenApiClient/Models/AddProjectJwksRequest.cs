@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Branch ID</summary>
+        /// <summary>The Neon branch ID. Returned as `id` from `GET /projects/{project_id}/branches`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BranchId { get; set; }
 #endif
-        /// <summary>The URL that lists the JWKS</summary>
+        /// <summary>URL of the provider&apos;s JWKS endpoint used to verify JWTs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwksUrl { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string JwksUrl { get; set; }
 #endif
-        /// <summary>The name of the required JWT Audience to be used</summary>
+        /// <summary>Expected `aud` claim in incoming JWTs. When set, tokens with a different audience are rejected; tokens with no audience are still accepted. Omit to skip audience validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JwtAudience { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProviderName { get; set; }
 #endif
-        /// <summary>DEPRECATED. This field should only be used when using Neon RLS. The roles the JWKS should be mapped to. By default, the JWKS is mapped to the `authenticator`, `authenticated` and `anonymous` roles.</summary>
+        /// <summary>Deprecated. The roles the JWKS should be mapped to. By default, the JWKS is mapped to the `authenticator`, `authenticated`, and `anonymous` roles.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<string> RoleNames { get; set; }
 #endif
-        /// <summary>DEPRECATED. This field should only be used when using Neon RLS. If true, the role creation will be skipped.</summary>
+        /// <summary>Deprecated. Only used with Neon RLS. If true, role creation is skipped.</summary>
         public bool? SkipRoleCreation { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.AddProjectJwksRequest"/> and sets the default values.

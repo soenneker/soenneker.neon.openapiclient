@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
         {
         }
         /// <summary>
-        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BucketObjectsListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BucketObjectsListResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BucketObjectsListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.Objects.ObjectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Lists objects visible in the named bucket on the specified branch,including those inherited from ancestor branches. Listing is served bythe user&apos;s session (no customer S3 credentials required).When `delimiter` is supplied (typically `/`), keys are collapsed intocommon prefixes (`folders`) so callers can render a folder-stylebrowser; keys that do not contain the delimiter after `prefix` arereturned as `objects`.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ObjectsRequestBuilderGetQueryParameters 

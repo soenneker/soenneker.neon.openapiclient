@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// Parameters for the compute endpoint update.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class EndpointUpdateRequestEndpoint : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -18,7 +19,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>&quot;DEPRECATED: This field will be removed in a future release.The destination branch ID. The destination branch must not have an existing read-write endpoint.&quot;</summary>
+        /// <summary>Deprecated. The destination branch ID; must not have an existing read-write endpoint.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +40,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>NOT YET IMPLEMENTED. Whether to permit passwordless access to the compute endpoint.</summary>
         public bool? PasswordlessAccess { get; set; }
-        /// <summary>DEPRECATED. Whether to enable connection pooling for the compute endpoint.The recommended way to enable connection pooling is to append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
+        /// <summary>Deprecated. To enable connection pooling, append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
         [Obsolete("")]
         public bool? PoolerEnabled { get; set; }
-        /// <summary>DEPRECATED. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. This schema is deprecated and will be removed after 2026-06-20.</summary>
+        /// <summary>Deprecated. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. Removal scheduled for June 20, 2026.</summary>
         [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }

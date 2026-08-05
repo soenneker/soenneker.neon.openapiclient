@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
         {
         }
         /// <summary>
-        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.RestoredSnapshotResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.RestoredSnapshotResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.RestoredSnapshotResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -90,12 +90,12 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots.Item.Restore.RestoreRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Restores the specified snapshot to a new branch,and optionally finalizes the restore operation to replace the original branch.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RestoreRequestBuilderPostQueryParameters 
         {
-            /// <summary>DEPRECATED. Use the `name` field in the request body instead.A name for the newly restored branch. If omitted, a default name will be generated.</summary>
+            /// <summary>Deprecated. Use the `name` field in the request body instead. Removal scheduled for November 29, 2025.A name for the newly restored branch. If omitted, a default name will be generated.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The host property</summary>
+        /// <summary>Hostname of the email server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Host { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Host { get; set; }
 #endif
-        /// <summary>The password property</summary>
+        /// <summary>Password for authenticating with the SMTP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }
@@ -30,9 +30,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Password { get; set; }
 #endif
-        /// <summary>The port property</summary>
+        /// <summary>&quot;TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).&quot;</summary>
         public int? Port { get; set; }
-        /// <summary>The sender_email property</summary>
+        /// <summary>Email address used as the From address on outgoing auth emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SenderEmail { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SenderEmail { get; set; }
 #endif
-        /// <summary>The sender_name property</summary>
+        /// <summary>Display name shown as the sender in outgoing emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SenderName { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SenderName { get; set; }
 #endif
-        /// <summary>The username property</summary>
+        /// <summary>Username for authenticating with the SMTP server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Username { get; set; }

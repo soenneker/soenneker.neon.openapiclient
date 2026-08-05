@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the anonymized branch</summary>
+        /// <summary>The ID of the anonymized branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BranchId { get; set; }
@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.AnonymizationRunMetadata LastRun { get; set; }
 #endif
-        /// <summary>The ID of the project</summary>
+        /// <summary>The ID of the project this branch belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>&quot;The current state of the anonymized branch. Possible values: created, initialized, initialization_error, anonymizing, anonymized, error&quot;</summary>
+        /// <summary>&quot;The current state of the anonymized branch. `created`: branch record exists but setup has not started. `initialized`: setup is complete and the branch is ready for anonymization. `initialization_error`: an error occurred during setup. `anonymizing`: the anonymization process is currently running. `anonymized`: anonymization completed successfully. `error`: an error occurred during anonymization.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }

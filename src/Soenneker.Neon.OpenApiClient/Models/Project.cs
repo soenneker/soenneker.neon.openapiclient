@@ -28,7 +28,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? ConsumptionPeriodEnd { get; set; }
         /// <summary>A date-time indicating when Neon Cloud started measuring consumption for current consumption period.</summary>
         public DateTimeOffset? ConsumptionPeriodStart { get; set; }
-        /// <summary>DEPRECATED, use compute_time instead.</summary>
+        /// <summary>Deprecated. Use `compute_time_seconds` instead.</summary>
         [Obsolete("")]
         public long? CpuUsedSec { get; set; }
         /// <summary>A timestamp indicating when the project was created</summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreationSource { get; set; }
 #endif
-        /// <summary>Bytes-Hour. Project consumed that much storage hourly during the billing period. The value has some lag.The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Bytes-Hour. Project consumed that much Postgres storage hourly during the billing period. The value has some lag.The value is reset at the beginning of each billing period.</summary>
         public long? DataStorageBytesHour { get; set; }
         /// <summary>Bytes. Egress traffic from the Neon cloud to the client for given project over the billing period.Includes deleted endpoints. The value has some lag. The value is reset at the beginning of each billing period.</summary>
         public long? DataTransferBytes { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? HipaaEnabledAt { get; set; }
         /// <summary>The number of seconds to retain the shared history for all branches in this project.</summary>
         public int? HistoryRetentionSeconds { get; set; }
-        /// <summary>The project ID</summary>
+        /// <summary>The Neon project ID. Use as the `project_id` path parameter in other endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The org_id property</summary>
+        /// <summary>The Neon organization ID. Returned as `id` from `GET /users/me/organizations`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectOwnerData Owner { get; set; }
 #endif
-        /// <summary>The owner_id property</summary>
+        /// <summary>ID of the organization that owns the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OwnerId { get; set; }
@@ -103,7 +103,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string OwnerId { get; set; }
 #endif
-        /// <summary>The major Postgres version number. Generally available versions are `14`, `15`, `16`, `17`, and `18`. `19` is being rolled out and is only accepted in regions where it has been enabled; requesting it in a region where it is not yet available returns an error.</summary>
+        /// <summary>The major Postgres version number. Supported versions are `14`, `15`, `16`, `17`, and `18`. `19` is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.</summary>
         public int? PgVersion { get; set; }
         /// <summary>The cloud platform identifier. Currently, only AWS is supported, for which the identifier is `aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,7 +113,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string PlatformId { get; set; }
 #endif
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }
@@ -129,10 +129,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ProxyHost { get; set; }
 #endif
-        /// <summary>DEPRECATED. Use `consumption_period_end` from the getProject endpoint instead.A timestamp indicating when the project quota resets.</summary>
+        /// <summary>Deprecated. Use the `consumption_period_end` field instead. A timestamp indicating when the project quota resets.</summary>
         [Obsolete("")]
         public DateTimeOffset? QuotaResetAt { get; set; }
-        /// <summary>The region identifier</summary>
+        /// <summary>Cloud region where the resource&apos;s Postgres compute and storage reside (for example, `aws-us-east-1`). Valid values are returned by `GET /regions`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionId { get; set; }
@@ -150,11 +150,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether or not passwords are stored for roles in the Neon project. Storing passwords facilitates access to Neon features that require authorization.</summary>
         public bool? StorePasswords { get; set; }
-        /// <summary>The current space occupied by the project in storage, in bytes. Synthetic storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
+        /// <summary>The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
         public long? SyntheticStorageSize { get; set; }
         /// <summary>A timestamp indicating when the project was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Bytes. Amount of WAL that travelled through storage for given project across all branches.The value has some lag. The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Bytes. Amount of WAL that travelled through Postgres storage for given project across all branches.The value has some lag. The value is reset at the beginning of each billing period.</summary>
         public long? WrittenDataBytes { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Project"/> and sets the default values.

@@ -14,9 +14,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The granted_at property</summary>
+        /// <summary>Timestamp when the permission was granted.</summary>
         public DateTimeOffset? GrantedAt { get; set; }
-        /// <summary>The granted_to_email property</summary>
+        /// <summary>Email address of the user who has been granted access to the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GrantedToEmail { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string GrantedToEmail { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>The project permission&apos;s ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The revoked_at property</summary>
+        /// <summary>Timestamp when the permission was revoked. Null if the permission is still active.</summary>
         public DateTimeOffset? RevokedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission"/> and sets the default values.

@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.I
         {
         }
         /// <summary>
-        /// &quot;Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.I
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

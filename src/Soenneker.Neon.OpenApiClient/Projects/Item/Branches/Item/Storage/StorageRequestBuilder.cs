@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage
         {
         }
         /// <summary>
-        /// &quot;Returns whether branchable object-storage is usable for the specifiedbranch. A 200 response means the branch is registered in the storageservice and the S3 data plane will accept requests for it. A 404response includes a `reason` field indicating why storage is unavailable.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns whether branchable object storage is usable for the specifiedbranch. A 200 response means the branch is registered in the object storageservice and the S3 data plane will accept requests for it. A 404response includes a `reason` field indicating why object storage is unavailable.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchStorage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchStorage>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchStorage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns whether branchable object-storage is usable for the specifiedbranch. A 200 response means the branch is registered in the storageservice and the S3 data plane will accept requests for it. A 404response includes a `reason` field indicating why storage is unavailable.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// &quot;Returns whether branchable object storage is usable for the specifiedbranch. A 200 response means the branch is registered in the object storageservice and the S3 data plane will accept requests for it. A 404response includes a `reason` field indicating why object storage is unavailable.**Note**: This endpoint is currently in Beta.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

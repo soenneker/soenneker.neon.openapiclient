@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>Timestamp when the annotation was created, in RFC 3339 format (UTC).</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The object property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,9 +24,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.AnnotationObjectData Object { get; set; }
 #endif
-        /// <summary>The updated_at property</summary>
+        /// <summary>Timestamp of the most recent update to the annotation, in RFC 3339 format (UTC).</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Annotation properties.</summary>
+        /// <summary>A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.AnnotationDataValue? Value { get; set; }

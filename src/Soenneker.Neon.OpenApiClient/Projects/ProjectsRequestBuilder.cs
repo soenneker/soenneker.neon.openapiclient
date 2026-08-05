@@ -82,7 +82,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjects200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
+        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon supports Postgres 14 through 18, with 19 rolling out to enabled regions.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CreatedProjectResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects
             return requestInfo;
         }
         /// <summary>
-        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon currently supports PostgreSQL 14, 15, 16, 17, and 18.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
+        /// Creates a Neon project within an organization.If using a personal API key, include the `org_id` parameter to specify which organization to create the project in.If using an org API key, `org_id` is automatically inferred from the key.Plan limits define how many projects you can create.For more information, see [Manage projects](https://neon.com/docs/manage/projects/).You can specify a region and Postgres version in the request body.Neon supports Postgres 14 through 18, with 19 rolling out to enabled regions.For supported regions and `region_id` values, see [Regions](https://neon.com/docs/introduction/regions/).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The next property</summary>
+        /// <summary>Cursor for the next page of results. Pass it as the `cursor` query parameter on the next request. Absent on the last page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Next { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Next { get; set; }
 #endif
-        /// <summary>The sort_by property</summary>
+        /// <summary>Field by which the results were sorted, echoing the request&apos;s sort_by parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SortBy { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SortBy { get; set; }
 #endif
-        /// <summary>The sort_order property</summary>
+        /// <summary>Sort order active for this page. Pass back as `sort_order` in the next request to maintain consistent ordering. Valid values are `asc` and `desc`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SortOrder { get; set; }

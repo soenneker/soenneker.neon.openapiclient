@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>Human-readable explanation of the library&apos;s purpose and behavior.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -22,11 +22,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The is_default property</summary>
+        /// <summary>Whether this library is loaded by default in the `shared_preload_libraries` configuration for new compute endpoints.</summary>
         public bool? IsDefault { get; set; }
-        /// <summary>The is_experimental property</summary>
+        /// <summary>Marks the library as experimental. Experimental libraries may be unstable, subject to breaking changes, or not recommended for production use.</summary>
         public bool? IsExperimental { get; set; }
-        /// <summary>The library_name property</summary>
+        /// <summary>Name of the Postgres shared preload library as it appears in the `shared_preload_libraries` parameter (for example, `pg_stat_statements`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LibraryName { get; set; }
@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string LibraryName { get; set; }
 #endif
-        /// <summary>The version property</summary>
+        /// <summary>Version of the preload library.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Version { get; set; }

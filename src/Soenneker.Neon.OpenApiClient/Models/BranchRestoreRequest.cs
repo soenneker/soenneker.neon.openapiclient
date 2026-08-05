@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If not empty, the previous state of the branch will be saved to a branch with this name.If the branch has children or the `source_branch_id` is equal to the branch id, this field is required. All existing child branches will be moved to the newly created branch under the name `preserve_under_name`.</summary>
+        /// <summary>Name under which to save the current branch state before restoring. Required when the branch has children or when `source_branch_id` equals the branch being restored; in those cases all existing child branches are moved to the newly created branch. If omitted and not required, the previous state is not preserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PreserveUnderName { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SourceBranchId { get; set; }
 #endif
-        /// <summary>A Log Sequence Number (LSN) on the source branch. The branch will be restored with data from this LSN.</summary>
+        /// <summary>A Postgres LSN (for example, `0/1A2B3C4`) on the source branch to restore from.Mutually exclusive with `source_timestamp`. Omit both to restore to head.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceLsn { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string SourceLsn { get; set; }
 #endif
-        /// <summary>&quot;A timestamp identifying a point in time on the source branch. The branch will be restored with data starting from this point in time.The timestamp must be provided in ISO 8601 format; for example: `2024-02-26T12:00:00Z`.&quot;</summary>
+        /// <summary>A point in time on the source branch to restore from, in RFC 3339 format. When omitted alongside `source_lsn`, the branch is restored to the latest available state of the source branch.</summary>
         public DateTimeOffset? SourceTimestamp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchRestoreRequest"/> and sets the default values.

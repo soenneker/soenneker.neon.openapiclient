@@ -7,18 +7,19 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// Optional configuration for the new branch, for example `name`, `parent_id` (fork from a branch), `parent_lsn` or `parent_timestamp` (point-in-time branching), and `protected`.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class BranchCreateRequestBranch : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether to create the branch as archived</summary>
+        /// <summary>Whether to create the branch in the archived state. When omitted, the branch is created as a normal (non-archived) branch.</summary>
         public bool? Archived { get; set; }
         /// <summary>The timestamp when the branch is scheduled to expire and be automatically deleted. Must be set by the client following the [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) format with precision up to seconds (such as 2025-06-09T18:02:16Z). Deletion is performed by a background job and may not occur exactly at the specified time.Access to this feature is currently limited to participants in the Early Access Program.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The source of initialization for the branch. Valid values are `schema-only` and `parent-data` (default).  * `schema-only` - creates a new root branch containing only the schema. Use `parent_id` to specify the source branch. Optionally, you can provide `parent_lsn` or `parent_timestamp` to branch from a specific point in time or LSN. These fields define which branch to copy the schema from and at what point—they do not establish a parent-child relationship between the `parent_id` branch and the new schema-only branch.  * `parent-data` - creates the branch with both schema and data from the parent.</summary>
+        /// <summary>Source of initialization for the branch. `parent-data` copies schema and data from the parent branch. `parent-schema` copies schema only from the parent branch. `schema-only` creates a new root branch containing schema only, using `parent_id` as the source; optionally, `parent_lsn` or `parent_timestamp` can narrow the source point. `import` initializes the branch from an external import.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InitSource { get; set; }
@@ -50,9 +51,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ParentLsn { get; set; }
 #endif
-        /// <summary>&quot;A timestamp identifying a point in time on the parent branch. The branch will be created with data starting from this point in time.The timestamp must be provided in ISO 8601 format; for example: `2024-02-26T12:00:00Z`.&quot;</summary>
+        /// <summary>A timestamp identifying a point in time on the parent branch. The branch will be created with data starting from this point in time. RFC 3339 format.</summary>
         public DateTimeOffset? ParentTimestamp { get; set; }
-        /// <summary>Whether the branch is protected</summary>
+        /// <summary>Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by `protected_branches_only` in the IP allowlist. Paid plans only.</summary>
         public bool? Protected { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch"/> and sets the default values.

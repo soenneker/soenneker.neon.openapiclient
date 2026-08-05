@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// DEPRECATED. A raw representation of PgBouncer settings. This schema is deprecated and will be removed after 2026-06-20.
+    /// Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DefaultEndpointSettingsPgbouncerSettings : IAdditionalDataHolder, IParsable

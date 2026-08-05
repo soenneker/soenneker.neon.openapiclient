@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Machine-readable reason why storage is unavailable:- `org_not_entitled`: the org&apos;s `PlatformBranchableStorage` feature flag is off.- `region_unavailable`: the project&apos;s region has no storage admin service wired.- `branch_directory_missing`: the branch is not registered in the storage service.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
+    /// <summary>&quot;Machine-readable reason why object storage is unavailable:- `org_not_entitled`: the org&apos;s `PlatformBranchableStorage` feature flag is off.- `region_unavailable`: the project&apos;s region has no object storage admin service wired.- `branch_directory_missing`: the branch is not registered in the object storage service.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BranchStorageNotEnabledReason
     {

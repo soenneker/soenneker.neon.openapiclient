@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots
         {
         }
         /// <summary>
-        /// &quot;Lists the snapshots for the specified project.Each snapshot represents a point-in-time backup of the project data.**Note**: This endpoint is currently in Beta.&quot;
+        /// Lists the snapshots for the specified project.Each snapshot represents a point-in-time backup of the project data.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListSnapshots200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Snapshots
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListSnapshots200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListSnapshots200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the snapshots for the specified project.Each snapshot represents a point-in-time backup of the project data.**Note**: This endpoint is currently in Beta.&quot;
+        /// Lists the snapshots for the specified project.Each snapshot represents a point-in-time backup of the project data.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

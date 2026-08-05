@@ -18,7 +18,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public double? AutoscalingLimitMaxCu { get; set; }
         /// <summary>The autoscaling_limit_min_cu property</summary>
         public double? AutoscalingLimitMinCu { get; set; }
-        /// <summary>The Neon compute provisioner.Specify the `k8s-neonvm` provisioner to create a compute endpoint that supports Autoscaling.Provisioner can be one of the following values:* k8s-pod* k8s-neonvm* serverless-platformClients must expect, that any string value that is not documented in the description above should be treated as a error. UNKNOWN value if safe to treat as an error too.</summary>
+        /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Provisioner { get; set; }
@@ -36,7 +36,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
         public long? SuspendTimeoutSeconds { get; set; }
-        /// <summary>The compute endpoint type. Either `read_write` or `read_only`.</summary>
+        /// <summary>&quot;Compute endpoint type. `read_write`: the primary read-write endpoint (one per branch). `read_only`: a read replica endpoint (multiple allowed per branch).&quot;</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions"/> and sets the default values.

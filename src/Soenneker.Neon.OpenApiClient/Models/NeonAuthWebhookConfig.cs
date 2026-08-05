@@ -14,9 +14,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The enabled property</summary>
+        /// <summary>Whether the webhook is active.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>The enabled_events property</summary>
+        /// <summary>Event types that trigger this webhook. Covers user lifecycle, email/OTP delivery, organization invitations, and phone verification events; see the enum for exact values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem?>? EnabledEvents { get; set; }
@@ -24,9 +24,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthWebhookConfigEnabledEventsItem?> EnabledEvents { get; set; }
 #endif
-        /// <summary>The timeout_seconds property</summary>
+        /// <summary>Maximum time, in seconds, to wait for a response from the webhook endpoint.</summary>
         public int? TimeoutSeconds { get; set; }
-        /// <summary>The webhook_url property</summary>
+        /// <summary>Destination URL that receives webhook event payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebhookUrl { get; set; }
