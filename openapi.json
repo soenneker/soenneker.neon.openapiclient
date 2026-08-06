@@ -1334,7 +1334,8 @@
                                     "ttl_seconds": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "description": "Number of seconds the transfer request stays valid before it expires. Defaults to 86400 (24 hours).\n"
+                                        "description": "Number of seconds the transfer request stays valid before it expires. Defaults to 86400 (24 hours).\n",
+                                        "default": 86400
                                     }
                                 }
                             }
@@ -12106,7 +12107,8 @@
                             },
                             "start_anonymization": {
                                 "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n",
-                                "type": "boolean"
+                                "type": "boolean",
+                                "default": false
                             }
                         }
                     }
@@ -12149,7 +12151,8 @@
                             },
                             "protected": {
                                 "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by `protected_branches_only` in the IP allowlist. Paid plans only.\n",
-                                "type": "boolean"
+                                "type": "boolean",
+                                "default": false
                             },
                             "archived": {
                                 "description": "Whether to create the branch in the archived state. When omitted, the branch is created as a normal (non-archived) branch.\n",
@@ -14256,7 +14259,8 @@
                 "type": "integer",
                 "minimum": 14,
                 "maximum": 19,
-                "default": 17
+                "default": 18,
+                "example": 18
             },
             "ProjectOwnerData": {
                 "type": "object",
@@ -15205,6 +15209,9 @@
                     "id",
                     "type"
                 ],
+                "x-sensitive": [
+                    "client_secret"
+                ],
                 "properties": {
                     "id": {
                         "$ref": "#/components/schemas/NeonAuthOauthProviderId",
@@ -15245,6 +15252,9 @@
                 "required": [
                     "id"
                 ],
+                "x-sensitive": [
+                    "client_secret"
+                ],
                 "properties": {
                     "id": {
                         "$ref": "#/components/schemas/NeonAuthOauthProviderId",
@@ -15266,6 +15276,9 @@
             },
             "NeonAuthUpdateOAuthProviderRequest": {
                 "type": "object",
+                "x-sensitive": [
+                    "client_secret"
+                ],
                 "properties": {
                     "client_id": {
                         "type": "string",

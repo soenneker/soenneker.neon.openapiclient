@@ -11132,7 +11132,8 @@
           },
           "start_anonymization": {
             "type": "boolean",
-            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n"
+            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n",
+            "default": false
           }
         }
       },
@@ -14264,7 +14265,10 @@
             "type": "string",
             "description": "OAuth client secret for the provider."
           }
-        }
+        },
+        "x-sensitive": [
+          "client_secret"
+        ]
       },
       "NeonAuthOAuthProviderId": {
         "enum": [
@@ -14341,7 +14345,10 @@
             "type": "string",
             "description": "Tenant ID for the Microsoft OAuth provider. Only relevant when the OAuth provider is Microsoft; omit or leave blank for other providers."
           }
-        }
+        },
+        "x-sensitive": [
+          "client_secret"
+        ]
       },
       "NeonAuthUpdateOAuthProviderRequest": {
         "type": "object",
@@ -14358,7 +14365,10 @@
             "type": "string",
             "description": "The tenant ID scoping the Microsoft OAuth provider. Supply this field when the provider type is microsoft; it has no effect for other provider types."
           }
-        }
+        },
+        "x-sensitive": [
+          "client_secret"
+        ]
       },
       "SharedEmailServer": {
         "type": "object",
@@ -16245,7 +16255,8 @@
           },
           "start_anonymization": {
             "type": "boolean",
-            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n"
+            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n",
+            "default": false
           }
         }
       },
@@ -16563,7 +16574,8 @@
           },
           "protected": {
             "type": "boolean",
-            "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by \u0060protected_branches_only\u0060 in the IP allowlist. Paid plans only.\n"
+            "description": "Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by \u0060protected_branches_only\u0060 in the IP allowlist. Paid plans only.\n",
+            "default": false
           },
           "archived": {
             "type": "boolean",
@@ -17096,7 +17108,8 @@
           "ttl_seconds": {
             "type": "integer",
             "description": "Number of seconds the transfer request stays valid before it expires. Defaults to 86400 (24 hours).\n",
-            "format": "int64"
+            "format": "int64",
+            "default": 86400
           }
         }
       },
