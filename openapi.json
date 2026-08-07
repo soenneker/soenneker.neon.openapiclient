@@ -15984,7 +15984,9 @@
                     "retention_seconds": {
                         "type": "integer",
                         "minimum": 3600,
-                        "description": "How long to keep a snapshot (in seconds) before it's automatically deleted.\nIf not set, the snapshot is kept indefinitely.\n"
+                        "maximum": 3024000,
+                        "default": 3024000,
+                        "description": "How long to keep a scheduled snapshot (in seconds) before it's automatically deleted.\nThe default is 3024000 seconds (35 days), which is also the maximum.\nManually created snapshots have no maximum retention: set their `expires_at` instead.\n"
                     }
                 }
             },

@@ -15188,9 +15188,11 @@
             "description": "The month of the year to take the snapshot (if applicable).\n"
           },
           "retention_seconds": {
+            "maximum": 3024000,
             "minimum": 3600,
             "type": "integer",
-            "description": "How long to keep a snapshot (in seconds) before it\u0027s automatically deleted.\nIf not set, the snapshot is kept indefinitely.\n"
+            "description": "\u0022How long to keep a scheduled snapshot (in seconds) before it\u0027s automatically deleted.\nThe default is 3024000 seconds (35 days), which is also the maximum.\nManually created snapshots have no maximum retention: set their \u0060expires_at\u0060 instead.\n\u0022",
+            "default": 3024000
           }
         }
       },
