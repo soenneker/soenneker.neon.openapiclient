@@ -28,10 +28,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The email_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig? EmailProvider { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse? EmailProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig EmailProvider { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse EmailProvider { get; set; }
 #endif
         /// <summary>The magic_link property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 { "allow_localhost", n => { AllowLocalhost = n.GetBoolValue(); } },
                 { "email_and_password", n => { EmailAndPassword = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue); } },
-                { "email_provider", n => { EmailProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig.CreateFromDiscriminatorValue); } },
+                { "email_provider", n => { EmailProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse.CreateFromDiscriminatorValue); } },
                 { "magic_link", n => { MagicLink = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig.CreateFromDiscriminatorValue); } },
                 { "oauth_providers", n => { OauthProviders = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig.CreateFromDiscriminatorValue); } },
@@ -108,7 +108,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allow_localhost", AllowLocalhost);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>("email_and_password", EmailAndPassword);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>("email_provider", EmailProvider);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>("email_provider", EmailProvider);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>("magic_link", MagicLink);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>("oauth_providers", OauthProviders);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>("organization", Organization);

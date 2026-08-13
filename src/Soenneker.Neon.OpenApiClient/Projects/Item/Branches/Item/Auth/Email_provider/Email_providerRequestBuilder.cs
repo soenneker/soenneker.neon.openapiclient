@@ -36,17 +36,17 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
         /// <summary>
         /// Retrieves the email provider configuration for the specified branch&apos;s Neon Auth integration,including the provider type and server settings.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,23 +54,23 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.
+        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.Partial `standard` updates — omitting fields to keep their stored values — are supported only forBetter Auth integrations, which merge omitted fields server-side. Legacy Stack Auth integrations donot merge and require all six `standard` fields (`host`, `port`, `username`, `password`,`sender_email`, `sender_name`) on every update; a partial `standard` body is rejected with 400.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse?> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse> PatchAsync(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -79,7 +79,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfig.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the email provider configuration for the specified branch&apos;s Neon Auth integration,including the provider type and server settings.
@@ -101,7 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
             return requestInfo;
         }
         /// <summary>
-        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.
+        /// Updates the email provider configuration for the specified branch&apos;s Neon Auth integration.The email provider handles transactional messages such as verification emails and password reset links.Partial `standard` updates — omitting fields to keep their stored values — are supported only forBetter Auth integrations, which merge omitted fields server-side. Legacy Stack Auth integrations donot merge and require all six `standard` fields (`host`, `port`, `username`, `password`,`sender_email`, `sender_name`) on every update; a partial `standard` body is rejected with 400.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -2218,7 +2218,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
+                  "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponse"
                 }
               }
             }
@@ -2233,7 +2233,7 @@
           "Auth"
         ],
         "summary": "Update email provider configuration",
-        "description": "Updates the email provider configuration for the specified branch\u0027s Neon Auth integration.\nThe email provider handles transactional messages such as verification emails and password reset links.\n",
+        "description": "Updates the email provider configuration for the specified branch\u0027s Neon Auth integration.\nThe email provider handles transactional messages such as verification emails and password reset links.\n\nPartial \u0060standard\u0060 updates \u2014 omitting fields to keep their stored values \u2014 are supported only for\nBetter Auth integrations, which merge omitted fields server-side. Legacy Stack Auth integrations do\nnot merge and require all six \u0060standard\u0060 fields (\u0060host\u0060, \u0060port\u0060, \u0060username\u0060, \u0060password\u0060,\n\u0060sender_email\u0060, \u0060sender_name\u0060) on every update; a partial \u0060standard\u0060 body is rejected with 400.\n",
         "operationId": "UpdateNeonAuthEmailProvider",
         "requestBody": {
           "content": {
@@ -2250,7 +2250,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
+                  "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponse"
                 }
               }
             }
@@ -14195,7 +14195,7 @@
             "$ref": "#/components/schemas/NeonAuthPhoneNumberConfig"
           },
           "email_provider": {
-            "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
+            "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponse"
           },
           "email_and_password": {
             "$ref": "#/components/schemas/NeonAuthEmailAndPasswordConfig"
@@ -14384,6 +14384,40 @@
         }
       },
       "StandardEmailServer": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Hostname of the email server."
+          },
+          "port": {
+            "type": "integer",
+            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
+          },
+          "password": {
+            "type": "string",
+            "description": "Password for authenticating with the SMTP server."
+          },
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
+          }
+        },
+        "x-sensitive": [
+          "host",
+          "password",
+          "username"
+        ]
+      },
+      "StandardEmailServerResponse": {
         "required": [
           "host",
           "port",
@@ -14408,7 +14442,7 @@
           },
           "password": {
             "type": "string",
-            "description": "Password for authenticating with the SMTP server."
+            "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
           },
           "sender_email": {
             "type": "string",
@@ -14451,6 +14485,36 @@
             "standard": "#/components/schemas/StandardEmailServer",
             "shared": "#/components/schemas/SharedEmailServer",
             "StandardEmailServer": "#/components/schemas/StandardEmailServer",
+            "SharedEmailServer": "#/components/schemas/SharedEmailServer"
+          }
+        }
+      },
+      "NeonAuthEmailServerConfigResponse": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/StandardEmailServerResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SharedEmailServer"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "standard": "#/components/schemas/StandardEmailServerResponse",
+            "shared": "#/components/schemas/SharedEmailServer",
+            "StandardEmailServerResponse": "#/components/schemas/StandardEmailServerResponse",
             "SharedEmailServer": "#/components/schemas/SharedEmailServer"
           }
         }
@@ -14498,7 +14562,12 @@
             "description": "The email address to send the test email to.",
             "format": "email"
           }
-        }
+        },
+        "x-sensitive": [
+          "host",
+          "password",
+          "username"
+        ]
       },
       "SendNeonAuthTestEmailResponse": {
         "required": [
@@ -16326,21 +16395,6 @@
           }
         },
         "description": "Configuration settings for the Data API (SubZero only)"
-      },
-      "SendNeonAuthTestEmailRequestAllOf2": {
-        "required": [
-          "recipient_email"
-        ],
-        "type": "object",
-        "properties": {
-          "recipient_email": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string",
-            "description": "The email address to send the test email to.",
-            "format": "email"
-          }
-        }
       },
       "ProjectBranchLogsQueryRequestSince": {
         "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
