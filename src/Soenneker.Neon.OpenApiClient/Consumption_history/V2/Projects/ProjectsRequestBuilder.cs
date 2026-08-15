@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
             /// <summary>Specify the granularity of consumption metrics.Hourly, daily, and monthly metrics are available for the last 168 hours, 60 days,and 1 year, respectively.</summary>
             [QueryParameter("granularity")]
             public global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryGranularity? Granularity { get; set; }
-            /// <summary>&quot;Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.&quot;</summary>
+            /// <summary>Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
             /// <summary>Required. List the metrics to return. Supported values:- `compute_unit_seconds`- `root_branch_bytes_month`- `child_branch_bytes_month`- `instant_restore_bytes_month`- `public_network_transfer_bytes`- `private_network_transfer_bytes`- `extra_branches_month`- `snapshot_storage_bytes_month`Pass multiple values as repeated query parameters or a comma-separated list:- `metrics=compute_unit_seconds&amp;metrics=extra_branches_month`- `metrics=compute_unit_seconds,extra_branches_month`</summary>

@@ -53,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? Default { get; set; }
         /// <summary>The timestamp when the branch is scheduled to expire and be automatically deleted. Must be set by the client following the [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) format with precision up to seconds (such as 2025-06-09T18:02:16Z). Deletion is performed by a background job and may not occur exactly at the specified time.Access to this feature is currently limited to participants in the Early Access Program.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>&quot;The branch ID. This value is generated when a branch is created. A `branch_id` value has a `br` prefix. For example: `br-small-term-683261`.&quot;</summary>
+        /// <summary>The branch ID. This value is generated when a branch is created. A `branch_id` value has a `br` prefix. For example: `br-small-term-683261`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }

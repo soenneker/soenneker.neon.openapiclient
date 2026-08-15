@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>A timestamp indicating when the operation was last retried</summary>
         public DateTimeOffset? RetryAt { get; set; }
-        /// <summary>&quot;Lifecycle state of the operation. `scheduling`: queued, not yet started. `running`: actively executing. `finished`: completed successfully. `failed`: ended with a failure. `error`: ended with a terminal error. `cancelling`: cancellation requested but not yet complete. `cancelled`: stopped before completion. `skipped`: bypassed without executing.&quot;</summary>
+        /// <summary>Lifecycle state of the operation. `scheduling`: queued, not yet started. `running`: actively executing. `finished`: completed successfully. `failed`: ended with a failure. `error`: ended with a terminal error. `cancelling`: cancellation requested but not yet complete. `cancelled`: stopped before completion. `skipped`: bypassed without executing.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.OperationStatus? Status { get; set; }
         /// <summary>The total duration of the operation in milliseconds</summary>
         public int? TotalDurationMs { get; set; }

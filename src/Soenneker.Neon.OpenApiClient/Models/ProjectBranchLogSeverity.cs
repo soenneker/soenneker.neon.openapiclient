@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;An OpenTelemetry severity level. A minimum severity includes everyhigher level in this order: `trace`, `debug`, `info`, `warn`, `error`,`fatal`.&quot;</summary>
+    /// <summary>An OpenTelemetry severity level. A minimum severity includes everyhigher level in this order: `trace`, `debug`, `info`, `warn`, `error`,`fatal`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectBranchLogSeverity
     {

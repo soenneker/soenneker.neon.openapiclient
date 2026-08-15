@@ -40,19 +40,18 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
         {
         }
         /// <summary>
-        /// &quot;Deletes the function identified by its slug.**Note**: This endpoint is currently in Beta.&quot;
+        /// Deletes the function identified by its slug.**Note**: This endpoint is currently in Beta.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -60,10 +59,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             {
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the function identified by its slug.**Note**: This endpoint is currently in Beta.&quot;
+        /// Returns the function identified by its slug.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -86,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Updates the function&apos;s mutable metadata — currently only the display`name`. A string sets the display name; `null` clears it, after whichthe function&apos;s `name` falls back to its slug. Leading and trailingwhitespace is trimmed; a whitespace-only name is rejected. Acts onlyon a function owned by the branch: a slug that is only inherited froman ancestor branch returns 404 — rename it on the branch that ownsit. Like every other change on a branch, a rename is isolated perbranch: a branch forked before the rename keeps the name it had atfork time.**Note**: This endpoint is currently in Beta.&quot;
+        /// Updates the function&apos;s mutable metadata — currently only the display`name`. A string sets the display name; `null` clears it, after whichthe function&apos;s `name` falls back to its slug. Leading and trailingwhitespace is trimmed; a whitespace-only name is rejected. Acts onlyon a function owned by the branch: a slug that is only inherited froman ancestor branch returns 404 — rename it on the branch that ownsit. Like every other change on a branch, a rename is isolated perbranch: a branch forked before the rename keeps the name it had atfork time.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -111,7 +110,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Deletes the function identified by its slug.**Note**: This endpoint is currently in Beta.&quot;
+        /// Deletes the function identified by its slug.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,7 +129,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Returns the function identified by its slug.**Note**: This endpoint is currently in Beta.&quot;
+        /// Returns the function identified by its slug.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -149,7 +148,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Updates the function&apos;s mutable metadata — currently only the display`name`. A string sets the display name; `null` clears it, after whichthe function&apos;s `name` falls back to its slug. Leading and trailingwhitespace is trimmed; a whitespace-only name is rejected. Acts onlyon a function owned by the branch: a slug that is only inherited froman ancestor branch returns 404 — rename it on the branch that ownsit. Like every other change on a branch, a rename is isolated perbranch: a branch forked before the rename keeps the name it had atfork time.**Note**: This endpoint is currently in Beta.&quot;
+        /// Updates the function&apos;s mutable metadata — currently only the display`name`. A string sets the display name; `null` clears it, after whichthe function&apos;s `name` falls back to its slug. Leading and trailingwhitespace is trimmed; a whitespace-only name is rejected. Acts onlyon a function owned by the branch: a slug that is only inherited froman ancestor branch returns 404 — rename it on the branch that ownsit. Like every other change on a branch, a rename is isolated perbranch: a branch forked before the rename keeps the name it had atfork time.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

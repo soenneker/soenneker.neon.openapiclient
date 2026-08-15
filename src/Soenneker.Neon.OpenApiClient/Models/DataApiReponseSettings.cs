@@ -35,7 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Hard limit on the number of rows returned in a single Data API response. No limit when unset.</summary>
         public int? DbMaxRows { get; set; }
-        /// <summary>&quot;List of schemas to expose via the API. Default: [\&quot;public\&quot;]&quot;</summary>
+        /// <summary>List of schemas to expose via the API. Default: [&quot;public&quot;]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? DbSchemas { get; set; }
@@ -69,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ServerCorsAllowedOrigins { get; set; }
 #endif
-        /// <summary>&quot;When enabled, the Data API adds `Server-Timing` headers to each response showing database execution and internal processing time. Default: disabled.&quot;</summary>
+        /// <summary>When enabled, the Data API adds `Server-Timing` headers to each response showing database execution and internal processing time. Default: disabled.</summary>
         public bool? ServerTimingEnabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings"/> and sets the default values.

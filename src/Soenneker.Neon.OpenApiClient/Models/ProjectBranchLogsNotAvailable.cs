@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string MessageEscaped { get; set; }
 #endif
-        /// <summary>&quot;Machine-readable reason why logs cannot be read:- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.- `telemetry_not_enabled`: the branch exists but is not collecting telemetry, so it  has no logs to serve.&quot;</summary>
+        /// <summary>Machine-readable reason why logs cannot be read:- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.- `telemetry_not_enabled`: the branch exists but is not collecting telemetry, so it  has no logs to serve.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogsNotAvailableReason? Reason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogsNotAvailable"/> and sets the default values.

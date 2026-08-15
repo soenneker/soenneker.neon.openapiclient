@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Advisors;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Auth;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branch_anonymized;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches;
@@ -35,6 +36,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder Advisors
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The auth property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.AuthRequestBuilder Auth
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The available_preload_libraries property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Available_preload_libraries.Available_preload_librariesRequestBuilder Available_preload_libraries

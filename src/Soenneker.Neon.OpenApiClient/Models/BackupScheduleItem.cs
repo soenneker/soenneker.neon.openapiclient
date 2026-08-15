@@ -16,7 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The day of the week or month to take the snapshot (if applicable).</summary>
         public int? Day { get; set; }
-        /// <summary>&quot;How often to take snapshots. Known values: `daily`, `weekly`, `monthly`.&quot;</summary>
+        /// <summary>How often to take snapshots. Known values: `daily`, `weekly`, `monthly`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Frequency { get; set; }
@@ -28,7 +28,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public int? Hour { get; set; }
         /// <summary>The month of the year to take the snapshot (if applicable).</summary>
         public int? Month { get; set; }
-        /// <summary>&quot;How long to keep a scheduled snapshot (in seconds) before it&apos;s automatically deleted.The default is 3024000 seconds (35 days), which is also the maximum.Manually created snapshots have no maximum retention: set their `expires_at` instead.&quot;</summary>
+        /// <summary>How long to keep a scheduled snapshot (in seconds) before it&apos;s automatically deleted.The default is 3024000 seconds (35 days), which is also the maximum.Manually created snapshots have no maximum retention: set their `expires_at` instead.</summary>
         public int? RetentionSeconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BackupScheduleItem"/> and sets the default values.

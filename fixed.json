@@ -130,7 +130,8 @@
                 "key_name": "mykey"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -452,7 +453,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -637,7 +639,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -869,7 +872,8 @@
                 "$ref": "#/components/schemas/GrantPermissionToProjectRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -974,7 +978,8 @@
                 "$ref": "#/components/schemas/SetProjectMemberRoleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1189,6 +1194,9 @@
           }
         },
         "responses": {
+          "204": {
+            "description": "Project transfer request accepted successfully"
+          },
           "406": {
             "description": "Account doesn\u0027t satisfy the plan requirements to own the project",
             "content": {
@@ -1265,7 +1273,8 @@
                 "$ref": "#/components/schemas/AddProjectJwksRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1485,6 +1494,42 @@
         }
       ]
     },
+    "/projects/auth/create": {
+      "post": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Create Neon Auth integration",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth\u0060 instead. Removal scheduled for March 1, 2026.\nUse this endpoint if the frontend integration flow can\u0027t be used.\n",
+        "operationId": "CreateNeonAuthIntegration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthCreateIntegrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Creates Neon Auth integration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateIntegrationResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      }
+    },
     "/projects/{projectId}/branches/{branchId}/auth": {
       "get": {
         "tags": [
@@ -1523,7 +1568,8 @@
                 "$ref": "#/components/schemas/EnableNeonAuthIntegrationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1558,6 +1604,9 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Delete the integration with the authentication provider"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -1578,6 +1627,98 @@
           "name": "branchId",
           "in": "path",
           "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/projects/{projectId}/auth/domains": {
+      "get": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "List trusted redirect URI domains",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/domains\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "ListNeonAuthRedirectUriWhitelistDomains",
+        "responses": {
+          "200": {
+            "description": "Returned the domains in the redirect_uri whitelist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthRedirectUriWhitelistResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Add trusted redirect URI domain",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/domains\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "AddNeonAuthDomainToRedirectUriWhitelist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthAddDomainToRedirectUriWhitelistRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Added the domain to the redirect_uri whitelist"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "delete": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Delete trusted redirect URI domain",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/domains\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "DeleteNeonAuthDomainFromRedirectUriWhitelist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthDeleteDomainFromRedirectUriWhitelistRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Deleted the domain from the redirect_uri whitelist"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
           "required": true,
           "schema": {
             "pattern": "^[a-z0-9-]{1,60}$",
@@ -1624,9 +1765,13 @@
                 "$ref": "#/components/schemas/NeonAuthAddDomainToRedirectUriWhitelistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
+          "201": {
+            "description": "Added the domain to the redirect_uri whitelist"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -1646,9 +1791,13 @@
                 "$ref": "#/components/schemas/NeonAuthDeleteDomainFromRedirectUriWhitelistRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
+          "200": {
+            "description": "Deleted the domain from the redirect_uri whitelist"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -1692,7 +1841,8 @@
                 "$ref": "#/components/schemas/NeonAuthCreateAuthProviderSdkKeysRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1711,6 +1861,42 @@
         }
       }
     },
+    "/projects/auth/user": {
+      "post": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Create new auth user",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/users\u0060 instead. Removal scheduled for March 1, 2026.\nThe user will be created in your neon_auth.users_sync table and automatically propagated to your auth project, whether Neon-managed or provider-owned.\n",
+        "operationId": "CreateNeonAuthNewUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthCreateNewUserRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Creates new user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateNewUserResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      }
+    },
     "/projects/{projectId}/branches/{branchId}/auth/users": {
       "post": {
         "tags": [
@@ -1726,7 +1912,8 @@
                 "$ref": "#/components/schemas/CreateBranchNeonAuthNewUserRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1776,6 +1963,9 @@
         "description": "Deletes the specified user from the Neon Auth user directory for the specified branch.\nRemoves the user record from \u0060neon_auth.users_sync\u0060. This action cannot be undone.\n",
         "operationId": "DeleteBranchNeonAuthUser",
         "responses": {
+          "204": {
+            "description": "Deleted the auth user"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -1828,7 +2018,8 @@
                 "$ref": "#/components/schemas/UpdateNeonAuthUserRoleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1878,6 +2069,46 @@
         }
       ]
     },
+    "/projects/{projectId}/auth/users/{authUserId}": {
+      "delete": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Delete auth user",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/users/{auth_user_id}\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "DeleteNeonAuthUser",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The Neon project ID",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9-]{1,60}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "authUserId",
+            "in": "path",
+            "description": "The Neon user ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted the auth user"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      }
+    },
     "/projects/auth/transfer_ownership": {
       "post": {
         "tags": [
@@ -1893,7 +2124,8 @@
                 "$ref": "#/components/schemas/NeonAuthTransferAuthProviderProjectRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1911,6 +2143,116 @@
           }
         }
       }
+    },
+    "/projects/{projectId}/auth/integrations": {
+      "get": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "List active integrations with auth providers",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth\u0060 instead. Removal scheduled for March 1, 2026.",
+        "operationId": "ListNeonAuthIntegrations",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The Neon project ID",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9-]{1,60}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return management API keys metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNeonAuthIntegrationsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/projects/{projectId}/auth/oauth_providers": {
+      "get": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "List OAuth providers",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/oauth_providers\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "ListNeonAuthOAuthProviders",
+        "responses": {
+          "200": {
+            "description": "Returns the OAuth providers for the Neon Auth",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNeonAuthOAuthProvidersResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Add an OAuth provider",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/oauth_providers\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "AddNeonAuthOAuthProvider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthAddOAuthProviderRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The OAuth provider has been added to the project",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthOAuthProvider"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
     },
     "/projects/{projectId}/branches/{branchId}/auth/oauth_providers": {
       "get": {
@@ -1950,7 +2292,8 @@
                 "$ref": "#/components/schemas/NeonAuthAddOAuthProviderRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1991,6 +2334,80 @@
         }
       ]
     },
+    "/projects/{projectId}/auth/oauth_providers/{oAuthProviderId}": {
+      "patch": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Update OAuth provider",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/oauth_providers/{oauth_provider_id}\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "UpdateNeonAuthOAuthProvider",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthUpdateOAuthProviderRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The OAuth provider has been added to the project",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthOAuthProvider"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "delete": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Delete OAuth provider",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/oauth_providers/{oauth_provider_id}\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "DeleteNeonAuthOAuthProvider",
+        "responses": {
+          "200": {
+            "description": "Deleted the OAuth provider from the project"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "oAuthProviderId",
+          "in": "path",
+          "description": "The OAuth provider ID",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/NeonAuthOAuthProviderId"
+          }
+        }
+      ]
+    },
     "/projects/{projectId}/branches/{branchId}/auth/oauth_providers/{oAuthProviderId}": {
       "patch": {
         "tags": [
@@ -2006,7 +2423,8 @@
                 "$ref": "#/components/schemas/NeonAuthUpdateOAuthProviderRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2032,6 +2450,9 @@
         "description": "Deletes an OAuth provider from the specified project.\n",
         "operationId": "DeleteBranchNeonAuthOAuthProvider",
         "responses": {
+          "200": {
+            "description": "Deleted the OAuth provider from the project"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -2069,6 +2490,78 @@
         }
       ]
     },
+    "/projects/{projectId}/auth/email_server": {
+      "get": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Retrieve email server configuration",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/email_provider\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "GetNeonAuthEmailServer",
+        "responses": {
+          "200": {
+            "description": "Returns the email server configuration for the Neon Auth",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "patch": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Update email server configuration",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth/email_provider\u0060 instead. Removal scheduled for March 1, 2026.\n",
+        "operationId": "UpdateNeonAuthEmailServer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The OAuth provider has been added to the project",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/projects/{projectId}/branches/{branchId}/auth/send_test_email": {
       "post": {
         "tags": [
@@ -2084,7 +2577,8 @@
                 "$ref": "#/components/schemas/SendNeonAuthTestEmailRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2163,7 +2657,8 @@
                 "$ref": "#/components/schemas/NeonAuthEmailAndPasswordConfigUpdate"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2242,7 +2737,8 @@
                 "$ref": "#/components/schemas/NeonAuthEmailServerConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2282,6 +2778,55 @@
           }
         }
       ]
+    },
+    "/projects/{projectId}/auth/integration/{authProvider}": {
+      "delete": {
+        "tags": [
+          "Auth (legacy)"
+        ],
+        "summary": "Delete integration with auth provider",
+        "description": "Deprecated. Use \u0060/projects/{project_id}/branches/{branch_id}/auth\u0060 instead. Removal scheduled for March 1, 2026.",
+        "operationId": "DeleteNeonAuthIntegration",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "The Neon project ID",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9-]{1,60}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "authProvider",
+            "in": "path",
+            "description": "The authentication provider name",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteNeonAuthIntegrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Delete the integration with the authentication provider"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
+      }
     },
     "/projects/{projectId}/connection_uri": {
       "get": {
@@ -2402,7 +2947,8 @@
                 "$ref": "#/components/schemas/UpdateNeonAuthAllowLocalhostRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2505,7 +3051,8 @@
                 "$ref": "#/components/schemas/NeonAuthOrganizationConfigUpdate"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2561,7 +3108,8 @@
                 "$ref": "#/components/schemas/NeonAuthConfigUpdate"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2617,7 +3165,8 @@
                 "$ref": "#/components/schemas/NeonAuthMagicLinkConfigUpdate"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2687,7 +3236,7 @@
           "Auth"
         ],
         "summary": "Update phone number plugin configuration",
-        "description": "\u0022Updates the phone number plugin configuration for Neon Auth.\nOnly the fields provided in the request body are updated; omitted fields retain their current values.\nThe phone number plugin enables phone-based OTP authentication.\nOTP codes are delivered via the \u0060send.otp\u0060 webhook event with \u0060delivery_preference: \\\u0022sms\\\u0022\u0060.\nA webhook must be configured with the \u0060send.otp\u0060 event enabled for SMS delivery to work.\n\u0022",
+        "description": "Updates the phone number plugin configuration for Neon Auth.\nOnly the fields provided in the request body are updated; omitted fields retain their current values.\nThe phone number plugin enables phone-based OTP authentication.\nOTP codes are delivered via the \u0060send.otp\u0060 webhook event with \u0060delivery_preference: \u0022sms\u0022\u0060.\nA webhook must be configured with the \u0060send.otp\u0060 event enabled for SMS delivery to work.\n",
         "operationId": "UpdateNeonAuthPhoneNumberPlugin",
         "requestBody": {
           "content": {
@@ -2696,7 +3245,8 @@
                 "$ref": "#/components/schemas/NeonAuthPhoneNumberConfigUpdate"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -2775,7 +3325,8 @@
                 "$ref": "#/components/schemas/NeonAuthWebhookConfig"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3028,7 +3579,7 @@
           "Branch"
         ],
         "summary": "Create anonymized branch",
-        "description": "\u0022Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.\nThis allows developers to work with masked production data.\nOptionally, provide \u0060masking_rules\u0060 to set initial masking rules for the branch\nand \u0060start_anonymization\u0060 to automatically start anonymization after creation. This\ncombines functionality of updating masking rules and starting anonymization into the\nbranch creation request.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Creates a new branch with anonymized data using PostgreSQL Anonymizer for static masking.\nThis allows developers to work with masked production data.\nOptionally, provide \u0060masking_rules\u0060 to set initial masking rules for the branch\nand \u0060start_anonymization\u0060 to automatically start anonymization after creation. This\ncombines functionality of updating masking rules and starting anonymization into the\nbranch creation request.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "CreateProjectBranchAnonymized",
         "requestBody": {
           "content": {
@@ -3037,7 +3588,8 @@
                 "$ref": "#/components/schemas/BranchAnonymizedCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -3239,6 +3791,9 @@
               }
             }
           },
+          "204": {
+            "description": "Returned if the branch doesn\u0027t exist or has already been deleted"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -3263,7 +3818,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3364,7 +3920,8 @@
                 "$ref": "#/components/schemas/BranchRestoreRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3572,7 +4129,7 @@
           "Branch"
         ],
         "summary": "Retrieve masking rules",
-        "description": "\u0022Retrieves the masking rules for the specified anonymized branch.\nMasking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Retrieves the masking rules for the specified anonymized branch.\nMasking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetMaskingRules",
         "responses": {
           "200": {
@@ -3595,7 +4152,7 @@
           "Branch"
         ],
         "summary": "Update masking rules",
-        "description": "\u0022Updates the masking rules for the specified anonymized branch.\nMasking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Updates the masking rules for the specified anonymized branch.\nMasking rules define how sensitive data should be anonymized using PostgreSQL Anonymizer.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "UpdateMaskingRules",
         "requestBody": {
           "content": {
@@ -3604,7 +4161,8 @@
                 "$ref": "#/components/schemas/MaskingRulesUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -3651,7 +4209,7 @@
           "Branch"
         ],
         "summary": "Retrieve anonymized branch status",
-        "description": "\u0022Retrieves the current status of an anonymized branch, including its state and progress information.\nThis endpoint allows you to monitor the anonymization process from initialization through completion.\nOnly anonymized branches will have status information available.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Retrieves the current status of an anonymized branch, including its state and progress information.\nThis endpoint allows you to monitor the anonymization process from initialization through completion.\nOnly anonymized branches will have status information available.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetAnonymizedBranchStatus",
         "responses": {
           "200": {
@@ -3698,7 +4256,7 @@
           "Branch"
         ],
         "summary": "Start anonymization",
-        "description": "\u0022Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.\nThis will apply all defined masking rules to anonymize sensitive data in the branch databases.\nThe branch must be an anonymized branch to start anonymization.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Starts the anonymization process for an anonymized branch that is in the initialized, error, or anonymized state.\nThis will apply all defined masking rules to anonymize sensitive data in the branch databases.\nThe branch must be an anonymized branch to start anonymization.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "StartAnonymization",
         "responses": {
           "200": {
@@ -3815,7 +4373,7 @@
           "Branch"
         ],
         "summary": "Finalize branch restore from snapshot",
-        "description": "\u0022Finalize the restore operation for a branch created from a snapshot.\nThis operation updates the branch so it functions as the original branch it replaced.\nThis includes:\n  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)\n  - Renaming the restored branch to the original branch\u0027s name\n  - Renaming the original branch so it no longer uses the original name\n\nThis operation only applies to branches created using the \u0060restoreSnapshot\u0060 endpoint with \u0060finalize_restore: false\u0060.\n\u0022",
+        "description": "Finalize the restore operation for a branch created from a snapshot.\nThis operation updates the branch so it functions as the original branch it replaced.\nThis includes:\n  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)\n  - Renaming the restored branch to the original branch\u0027s name\n  - Renaming the original branch so it no longer uses the original name\n\nThis operation only applies to branches created using the \u0060restoreSnapshot\u0060 endpoint with \u0060finalize_restore: false\u0060.\n",
         "operationId": "FinalizeRestoreBranch",
         "requestBody": {
           "content": {
@@ -4005,7 +4563,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4136,7 +4695,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -4244,6 +4804,9 @@
               }
             }
           },
+          "204": {
+            "description": "Returned if the database doesn\u0027t exist or has already been deleted"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -4342,7 +4905,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4492,6 +5056,9 @@
                 }
               }
             }
+          },
+          "204": {
+            "description": "Returned if the role doesn\u0027t exist or has already been deleted"
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
@@ -4753,9 +5320,13 @@
                 "$ref": "#/components/schemas/VpcEndpointAssignment"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
+          "200": {
+            "description": "Configured the specified VPC endpoint as a restriction for the specified project."
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -4769,6 +5340,9 @@
         "description": "Removes the specified VPC endpoint restriction from a Neon project.\n",
         "operationId": "DeleteProjectVpcEndpoint",
         "responses": {
+          "200": {
+            "description": "Removed the VPC endpoint restriction from the specified Neon project"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -4842,7 +5416,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -5126,6 +5701,9 @@
               }
             }
           },
+          "204": {
+            "description": "Returned if the endpoint doesn\u0027t exist or has already been deleted"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -5150,7 +5728,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5551,7 +6130,7 @@
           {
             "name": "project_ids",
             "in": "query",
-            "description": "\u0022Specify a list of project IDs to filter the response.\nIf omitted, the response will contain all projects.\nA list of project IDs can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: \u0060project_ids=cold-poetry-09157238%20\u0026project_ids=quiet-snow-71788278\u0060\n- As a comma-separated list in a single parameter value: \u0060project_ids=cold-poetry-09157238,quiet-snow-71788278\u0060\n\u0022",
+            "description": "Specify a list of project IDs to filter the response.\nIf omitted, the response will contain all projects.\nA list of project IDs can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: \u0060project_ids=cold-poetry-09157238%20\u0026project_ids=quiet-snow-71788278\u0060\n- As a comma-separated list in a single parameter value: \u0060project_ids=cold-poetry-09157238,quiet-snow-71788278\u0060\n",
             "schema": {
               "maxItems": 100,
               "minItems": 0,
@@ -5603,7 +6182,7 @@
           {
             "name": "include_v1_metrics",
             "in": "query",
-            "description": "\u0022The field is deprecated. Please use \u0060metrics\u0060 instead.\nIf \u0060metrics\u0060 is specified, this field is ignored.\nInclude metrics utilized in previous pricing models.\n- **data_storage_bytes_hour**: The sum of the maximum observed storage values for each hour,\n  which never decreases.\n\u0022",
+            "description": "The field is deprecated. Please use \u0060metrics\u0060 instead.\nIf \u0060metrics\u0060 is specified, this field is ignored.\nInclude metrics utilized in previous pricing models.\n- **data_storage_bytes_hour**: The sum of the maximum observed storage values for each hour,\n  which never decreases.\n",
             "deprecated": true,
             "schema": {
               "type": "boolean"
@@ -5612,7 +6191,7 @@
           {
             "name": "metrics",
             "in": "query",
-            "description": "\u0022Specify a list of metrics to include in the response.\nIf omitted, active_time, compute_time, written_data, synthetic_storage_size are returned.\nPossible values:\n- \u0060active_time_seconds\u0060\n- \u0060compute_time_seconds\u0060\n- \u0060written_data_bytes\u0060\n- \u0060synthetic_storage_size_bytes\u0060\n- \u0060data_storage_bytes_hour\u0060\n- \u0060logical_size_bytes\u0060\n- \u0060logical_size_bytes_hour\u0060\n\nA list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: \u0060metrics=cpu_seconds\u0026metrics=ram_bytes\u0060\n- As a comma-separated list in a single parameter value: \u0060metrics=cpu_seconds,ram_bytes\u0060\n\u0022",
+            "description": "Specify a list of metrics to include in the response.\nIf omitted, active_time, compute_time, written_data, synthetic_storage_size are returned.\nPossible values:\n- \u0060active_time_seconds\u0060\n- \u0060compute_time_seconds\u0060\n- \u0060written_data_bytes\u0060\n- \u0060synthetic_storage_size_bytes\u0060\n- \u0060data_storage_bytes_hour\u0060\n- \u0060logical_size_bytes\u0060\n- \u0060logical_size_bytes_hour\u0060\n\nA list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.\n- As an array of parameter values: \u0060metrics=cpu_seconds\u0026metrics=ram_bytes\u0060\n- As a comma-separated list in a single parameter value: \u0060metrics=cpu_seconds,ram_bytes\u0060\n",
             "schema": {
               "type": "array",
               "items": {
@@ -5698,7 +6277,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "\u0022Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.\n\u0022",
+            "description": "Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.\n",
             "schema": {
               "maximum": 100,
               "minimum": 1,
@@ -5849,7 +6428,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "\u0022Maximum number of branches per page. Allowed range: 1 to 1000. Default: 100.\n\u0022",
+            "description": "Maximum number of branches per page. Allowed range: 1 to 1000. Default: 100.\n",
             "schema": {
               "maximum": 1000,
               "minimum": 1,
@@ -5928,7 +6507,7 @@
           {
             "name": "metrics",
             "in": "query",
-            "description": "\u0022Required. List the metrics to return. Only these values are supported:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n\nNot supported on this endpoint: \u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=public_network_transfer_bytes\u0060\n- \u0060metrics=compute_unit_seconds,public_network_transfer_bytes\u0060\n\u0022",
+            "description": "Required. List the metrics to return. Only these values are supported:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n\nNot supported on this endpoint: \u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=public_network_transfer_bytes\u0060\n- \u0060metrics=compute_unit_seconds,public_network_transfer_bytes\u0060\n",
             "required": true,
             "schema": {
               "type": "array",
@@ -6083,7 +6662,8 @@
                 "key_name": "orgkey"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6185,7 +6765,7 @@
           "Organizations"
         ],
         "summary": "Retrieve organization spending limit",
-        "description": "\u0022Returns the configured monthly spending limit for the specified organization.\n\u0060spending_limit_cents: null\u0060 indicates that no limit is currently set.\nAvailable to organization members with read access on Launch and Scale plans only.\n\u0022",
+        "description": "Returns the configured monthly spending limit for the specified organization.\n\u0060spending_limit_cents: null\u0060 indicates that no limit is currently set.\nAvailable to organization members with read access on Launch and Scale plans only.\n",
         "operationId": "GetOrganizationSpendingLimit",
         "responses": {
           "200": {
@@ -6217,7 +6797,8 @@
                 "$ref": "#/components/schemas/SpendingLimitUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6415,7 +6996,8 @@
                 "role": "member"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6545,7 +7127,8 @@
                 ]
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6591,7 +7174,8 @@
                 "$ref": "#/components/schemas/TransferProjectsToOrganizationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6763,9 +7347,13 @@
                 "$ref": "#/components/schemas/VpcEndpointAssignment"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
+          "200": {
+            "description": "Assigned the VPC endpoint to the specified Neon organization"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -6779,6 +7367,9 @@
         "description": "Deletes the VPC endpoint from the specified Neon organization.\nIf you delete a VPC endpoint from a Neon organization, that VPC endpoint cannot\nbe added back to the Neon organization.\n",
         "operationId": "DeleteOrganizationVpcEndpoint",
         "responses": {
+          "200": {
+            "description": "Deleted the VPC endpoint from the specified Neon organization"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -6900,6 +7491,62 @@
             "$ref": "#/components/responses/GeneralError"
           }
         }
+      }
+    },
+    "/users/me/projects/transfer": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Transfer projects from personal account to organization",
+        "description": "Deprecated. Personal accounts have been migrated to organizations, so this operation no longer applies. Removal scheduled for July 1, 2026.\n",
+        "operationId": "TransferProjectsFromUserToOrg",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferProjectsToOrganizationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Projects successfully transferred from personal account to organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransferProjectsFromUserToOrg200Response"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Transfer failed. The target organization has too many projects or an incompatible plan. Reduce projects or upgrade the target organization.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LimitsUnsatisfiedResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Transfer failed. Projects with active integrations (for example, GitHub or Vercel) cannot be transferred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectsWithIntegrationResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "deprecated": true
       }
     },
     "/auth": {
@@ -7085,7 +7732,8 @@
                 "$ref": "#/components/schemas/SnapshotUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7217,7 +7865,8 @@
                 "$ref": "#/components/schemas/BackupSchedule"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7257,7 +7906,7 @@
           "Buckets"
         ],
         "summary": "Create a bucket on the branch",
-        "description": "\u0022Creates a new branchable object storage bucket on the specified branch.\nBuckets are managed by the Neon Platform branchable object storage service.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Creates a new branchable object storage bucket on the specified branch.\nBuckets are managed by the Neon Platform branchable object storage service.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "CreateProjectBranchBucket",
         "requestBody": {
           "content": {
@@ -7266,7 +7915,8 @@
                 "$ref": "#/components/schemas/BucketCreateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -7299,7 +7949,7 @@
           "Buckets"
         ],
         "summary": "List buckets on the branch",
-        "description": "\u0022Lists branchable object storage buckets visible on the specified branch,\nincluding those inherited from ancestor branches.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Lists branchable object storage buckets visible on the specified branch,\nincluding those inherited from ancestor branches.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "ListProjectBranchBuckets",
         "responses": {
           "200": {
@@ -7346,9 +7996,12 @@
           "Buckets"
         ],
         "summary": "Delete a bucket on the branch",
-        "description": "\u0022Deletes the named bucket from the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Deletes the named bucket from the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "DeleteProjectBranchBucket",
         "responses": {
+          "204": {
+            "description": "Bucket deleted"
+          },
           "404": {
             "description": "Bucket not found",
             "content": {
@@ -7404,7 +8057,7 @@
           "Storage"
         ],
         "summary": "Get branch object storage state",
-        "description": "\u0022Returns whether branchable object storage is usable for the specified\nbranch. A 200 response means the branch is registered in the object storage\nservice and the S3 data plane will accept requests for it. A 404\nresponse includes a \u0060reason\u0060 field indicating why object storage is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns whether branchable object storage is usable for the specified\nbranch. A 200 response means the branch is registered in the object storage\nservice and the S3 data plane will accept requests for it. A 404\nresponse includes a \u0060reason\u0060 field indicating why object storage is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetProjectBranchStorage",
         "responses": {
           "200": {
@@ -7461,7 +8114,7 @@
           "AI Gateway"
         ],
         "summary": "Get branch AI Gateway endpoint",
-        "description": "\u0022Returns the AI Gateway endpoint host for the specified branch, used to\nrender code-snippet base URLs. A 200 response means the branch is\nregistered and this region serves the AI gateway. A 404 response\nincludes a \u0060reason\u0060 field indicating why the gateway is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns the AI Gateway endpoint host for the specified branch, used to\nrender code-snippet base URLs. A 200 response means the branch is\nregistered and this region serves the AI gateway. A 404 response\nincludes a \u0060reason\u0060 field indicating why the gateway is unavailable.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetProjectBranchAiGateway",
         "responses": {
           "200": {
@@ -7518,7 +8171,7 @@
           "Logs"
         ],
         "summary": "Query branch logs",
-        "description": "\u0022Returns logs emitted by services running on the specified branch,\nordered by timestamp according to \u0060sort_order\u0060.\n\nAll supplied filters are combined with \u0060AND\u0060: a record is returned only\nwhen it matches every filter. \u0060minimum_severity\u0060 and \u0060severity_text\u0060 are\nindependent filters, so setting both requires a record to clear the\nseverity floor *and* match the exact severity text.\n\nSupply \u0060logql\u0060 instead of the structured filters to run a raw LogQL\nexpression. Combining it with any structured filter is rejected rather\nthan silently ignored; \u0060limit\u0060, \u0060sort_order\u0060, and the time window still\napply, because those bound the query rather than form part of the\nexpression.\n\nGive the window either as \u0060since\u0060 \u2014 a duration ending at \u0060end_time\u0060, or\nat the current time when \u0060end_time\u0060 is omitted \u2014 or as an explicit\n\u0060start_time\u0060. Supplying both is rejected.\n\nA single response holds at most 1,000 records. When \u0060is_truncated\u0060 is\n\u0060true\u0060, pass the returned \u0060next_cursor\u0060 back as \u0060cursor\u0060 to fetch the\nnext page, repeating the time range and every filter unchanged.\n\nIf no time range is supplied, the query covers the previous hour. The\nmaximum supported time range is seven days. \u0060end_time\u0060 is exclusive.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "Returns logs emitted by services running on the specified branch,\nordered by timestamp according to \u0060sort_order\u0060.\n\nAll supplied filters are combined with \u0060AND\u0060: a record is returned only\nwhen it matches every filter. \u0060minimum_severity\u0060 and \u0060severity_text\u0060 are\nindependent filters, so setting both requires a record to clear the\nseverity floor *and* match the exact severity text.\n\nSupply \u0060logql\u0060 instead of the structured filters to run a raw LogQL\nexpression. Combining it with any structured filter is rejected rather\nthan silently ignored; \u0060limit\u0060, \u0060sort_order\u0060, and the time window still\napply, because those bound the query rather than form part of the\nexpression.\n\nGive the window either as \u0060since\u0060 \u2014 a duration ending at \u0060end_time\u0060, or\nat the current time when \u0060end_time\u0060 is omitted \u2014 or as an explicit\n\u0060start_time\u0060. Supplying both is rejected.\n\nA single response holds at most 1,000 records. When \u0060is_truncated\u0060 is\n\u0060true\u0060, pass the returned \u0060next_cursor\u0060 back as \u0060cursor\u0060 to fetch the\nnext page, repeating the time range and every filter unchanged.\n\nIf no time range is supplied, the query covers the previous hour. The\nmaximum supported time range is seven days. \u0060end_time\u0060 is exclusive.\n\n**Note**: This endpoint is currently in Private Beta.\n",
         "operationId": "QueryProjectBranchLogs",
         "requestBody": {
           "content": {
@@ -7527,7 +8180,8 @@
                 "$ref": "#/components/schemas/ProjectBranchLogsQueryRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -7594,7 +8248,7 @@
           "Logs"
         ],
         "summary": "List branch log fields",
-        "description": "\u0022Lists the low-cardinality log fields observed on this branch whose\ndistinct values can be discovered with the log field-values endpoint.\n\nThe set is computed per branch and grows as new fields are observed, so\ntreat it as data rather than a fixed list: discover a field here, then\npass it as \u0060field_name\u0060 to the field-values endpoint.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "Lists the low-cardinality log fields observed on this branch whose\ndistinct values can be discovered with the log field-values endpoint.\n\nThe set is computed per branch and grows as new fields are observed, so\ntreat it as data rather than a fixed list: discover a field here, then\npass it as \u0060field_name\u0060 to the field-values endpoint.\n\n**Note**: This endpoint is currently in Private Beta.\n",
         "operationId": "ListProjectBranchLogFields",
         "responses": {
           "200": {
@@ -7651,7 +8305,7 @@
           "Logs"
         ],
         "summary": "List branch log field values",
-        "description": "\u0022Lists the distinct values observed for a low-cardinality log field in\nthe requested time range. Call the log fields endpoint first to learn\nwhich \u0060field_name\u0060 values this branch supports; a field that branch has\nnever emitted is rejected with \u0060unknown_field\u0060.\n\nGive the window either as \u0060since\u0060 or as an explicit \u0060start_time\u0060;\nsupplying both is rejected. If neither is given, the previous six hours\nare used. The maximum supported time range is seven days.\n\n**Note**: This endpoint is currently in Private Beta.\n\u0022",
+        "description": "Lists the distinct values observed for a low-cardinality log field in\nthe requested time range. Call the log fields endpoint first to learn\nwhich \u0060field_name\u0060 values this branch supports; a field that branch has\nnever emitted is rejected with \u0060unknown_field\u0060.\n\nGive the window either as \u0060since\u0060 or as an explicit \u0060start_time\u0060;\nsupplying both is rejected. If neither is given, the previous six hours\nare used. The maximum supported time range is seven days.\n\n**Note**: This endpoint is currently in Private Beta.\n",
         "operationId": "ListProjectBranchLogFieldValues",
         "parameters": [
           {
@@ -7775,7 +8429,7 @@
           "Buckets"
         ],
         "summary": "List objects in a bucket",
-        "description": "\u0022Lists objects visible in the named bucket on the specified branch,\nincluding those inherited from ancestor branches. Listing is served by\nthe user\u0027s session (no customer S3 credentials required).\n\nWhen \u0060delimiter\u0060 is supplied (typically \u0060/\u0060), keys are collapsed into\ncommon prefixes (\u0060folders\u0060) so callers can render a folder-style\nbrowser; keys that do not contain the delimiter after \u0060prefix\u0060 are\nreturned as \u0060objects\u0060.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Lists objects visible in the named bucket on the specified branch,\nincluding those inherited from ancestor branches. Listing is served by\nthe user\u0027s session (no customer S3 credentials required).\n\nWhen \u0060delimiter\u0060 is supplied (typically \u0060/\u0060), keys are collapsed into\ncommon prefixes (\u0060folders\u0060) so callers can render a folder-style\nbrowser; keys that do not contain the delimiter after \u0060prefix\u0060 are\nreturned as \u0060objects\u0060.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "ListProjectBranchBucketObjects",
         "parameters": [
           {
@@ -7871,9 +8525,12 @@
           "Buckets"
         ],
         "summary": "Delete an object in a bucket",
-        "description": "\u0022Deletes the named object from the bucket on the specified branch.\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Deletes the named object from the bucket on the specified branch.\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "DeleteProjectBranchBucketObject",
         "responses": {
+          "204": {
+            "description": "Object deleted"
+          },
           "404": {
             "description": "Object not found",
             "content": {
@@ -7940,11 +8597,38 @@
           "Buckets"
         ],
         "summary": "Download an object\u0027s bytes",
-        "description": "\u0022Streams the raw bytes of the named object from the bucket on the\nspecified branch, including objects inherited from ancestor branches.\nServed by the user\u0027s session (no customer S3 credentials required).\n\nThe body is returned as \u0060application/octet-stream\u0060 so a browser treats\nit as a download; the \u0060Content-Length\u0060 and \u0060ETag\u0060 response headers echo\nthe stored object metadata.\n\nBINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): the\nsuccessful 200 body is the raw object stream, proxied verbatim from the\nplatform object storage admin endpoint. It is modeled as an\n\u0060application/octet-stream\u0060 binary body (not a JSON response schema) and\nis streamed without buffering the whole object in memory. Error\nresponses still use the generated \u0060GeneralError\u0060 shape.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Streams the raw bytes of the named object from the bucket on the\nspecified branch, including objects inherited from ancestor branches.\nServed by the user\u0027s session (no customer S3 credentials required).\n\nThe body is returned as \u0060application/octet-stream\u0060 so a browser treats\nit as a download; the \u0060Content-Length\u0060 and \u0060ETag\u0060 response headers echo\nthe stored object metadata.\n\nBINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): the\nsuccessful 200 body is the raw object stream, proxied verbatim from the\nplatform object storage admin endpoint. It is modeled as an\n\u0060application/octet-stream\u0060 binary body (not a JSON response schema) and\nis streamed without buffering the whole object in memory. Error\nresponses still use the generated \u0060GeneralError\u0060 shape.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetProjectBranchBucketObject",
         "responses": {
           "200": {
             "description": "The object\u0027s raw bytes, streamed verbatim. \u0060Content-Length\u0060 and\n\u0060ETag\u0060 headers are set from the stored object metadata;\n\u0060X-Content-Type-Options\u0060 and \u0060Content-Disposition\u0060 harden the\nbrowser against the caller-controlled bytes.\n",
+            "headers": {
+              "Content-Length": {
+                "description": "The object size in bytes.",
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              "ETag": {
+                "description": "The object\u0027s entity tag (content hash).",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-Content-Type-Options": {
+                "description": "Always \u0060nosniff\u0060. Stops the browser from MIME-sniffing the\ncaller-controlled bytes into an executable type.\n",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Content-Disposition": {
+                "description": "Always \u0060attachment\u0060. Forces a download rather than inline\nrendering, neutralizing stored-XSS via the object body.\n",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -8019,7 +8703,7 @@
           "Buckets"
         ],
         "summary": "Delete every object under a key prefix (folder) in a bucket",
-        "description": "\u0022Soft-deletes every object on the specified branch whose key starts with\n\u0060prefix\u0060, in a single call. Intended to back a \\\u0022delete folder\\\u0022 action in\nan object browser: a \u0060prefix\u0060 of \u0060app/avatars/\u0060 removes every object\nbeneath that folder. Served by the user\u0027s session (no customer S3\ncredentials required).\n\n\u0060prefix\u0060 must be non-empty, end with \u0060/\u0060, be at most 1024 bytes, and\ncontain no control characters - a partial-segment prefix cannot\naccidentally delete sibling keys. Returns the number of objects\nsoft-deleted (\u0060deleted\u0060), which may be 0 when no live object matched the\nprefix on this branch.\n\nOnly objects physically present on this branch are tombstoned; objects\ninherited from an ancestor branch via copy-on-write (not materialized on\nthis branch) are out of scope.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Soft-deletes every object on the specified branch whose key starts with\n\u0060prefix\u0060, in a single call. Intended to back a \u0022delete folder\u0022 action in\nan object browser: a \u0060prefix\u0060 of \u0060app/avatars/\u0060 removes every object\nbeneath that folder. Served by the user\u0027s session (no customer S3\ncredentials required).\n\n\u0060prefix\u0060 must be non-empty, end with \u0060/\u0060, be at most 1024 bytes, and\ncontain no control characters - a partial-segment prefix cannot\naccidentally delete sibling keys. Returns the number of objects\nsoft-deleted (\u0060deleted\u0060), which may be 0 when no live object matched the\nprefix on this branch.\n\nOnly objects physically present on this branch are tombstoned; objects\ninherited from an ancestor branch via copy-on-write (not materialized on\nthis branch) are out of scope.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "DeleteProjectBranchBucketObjectsByPrefix",
         "parameters": [
           {
@@ -8100,7 +8784,7 @@
           "Buckets"
         ],
         "summary": "Presign an upload or download for an object in a bucket",
-        "description": "\u0022Returns a presigned URL that transfers bytes directly to or from the\nobject\u0027s bucket on the specified branch, without the caller ever\nhandling S3 credentials. The \u0060operation\u0060 field selects the direction:\n\n- \u0060upload\u0060 returns a presigned \u0060PUT\u0060 URL (the caller \u0060PUT\u0060s the file\n  bytes straight to \u0060url\u0060 with the returned \u0060headers\u0060). Authorized with\n  project write access.\n- \u0060download\u0060 returns a presigned \u0060GET\u0060 URL (the caller \u0060GET\u0060s the\n  bytes straight from \u0060url\u0060). Authorized with project read access.\n\nThe platform mints a short-lived credential and builds the SigV4-signed\nURL against the branch\u0027s S3 data-plane host, returning it together with\nthe HTTP method, any headers the caller must echo, and the URL\u0027s expiry.\n\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns a presigned URL that transfers bytes directly to or from the\nobject\u0027s bucket on the specified branch, without the caller ever\nhandling S3 credentials. The \u0060operation\u0060 field selects the direction:\n\n- \u0060upload\u0060 returns a presigned \u0060PUT\u0060 URL (the caller \u0060PUT\u0060s the file\n  bytes straight to \u0060url\u0060 with the returned \u0060headers\u0060). Authorized with\n  project write access.\n- \u0060download\u0060 returns a presigned \u0060GET\u0060 URL (the caller \u0060GET\u0060s the\n  bytes straight from \u0060url\u0060). Authorized with project read access.\n\nThe platform mints a short-lived credential and builds the SigV4-signed\nURL against the branch\u0027s S3 data-plane host, returning it together with\nthe HTTP method, any headers the caller must echo, and the URL\u0027s expiry.\n\nServed by the user\u0027s session (no customer S3 credentials required).\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "PresignProjectBranchBucketObject",
         "requestBody": {
           "content": {
@@ -8109,7 +8793,8 @@
                 "$ref": "#/components/schemas/PresignRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8188,7 +8873,7 @@
           "Credentials"
         ],
         "summary": "Issue a scoped credential on the branch",
-        "description": "\u0022Issues a new scoped service credential anchored to the specified\nbranch. The response carries \u0060api_token\u0060 and \u0060s3_secret_access_key\u0060\nexactly once \u2014 they are not stored server-side.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Issues a new scoped service credential anchored to the specified\nbranch. The response carries \u0060api_token\u0060 and \u0060s3_secret_access_key\u0060\nexactly once \u2014 they are not stored server-side.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "CreateCredential",
         "requestBody": {
           "content": {
@@ -8197,7 +8882,8 @@
                 "$ref": "#/components/schemas/CreateCredentialRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -8220,7 +8906,7 @@
           "Credentials"
         ],
         "summary": "List credentials on the branch",
-        "description": "\u0022Returns metadata for customer-issued credentials on the branch.\nSecrets are never included.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns metadata for customer-issued credentials on the branch.\nSecrets are never included.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "ListCredentials",
         "responses": {
           "200": {
@@ -8267,9 +8953,12 @@
           "Credentials"
         ],
         "summary": "Revoke a credential",
-        "description": "\u0022Soft-deletes the credential.  Idempotent.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Soft-deletes the credential.  Idempotent.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "RevokeCredential",
         "responses": {
+          "204": {
+            "description": "Credential revoked"
+          },
           "404": {
             "description": "Credential not found",
             "content": {
@@ -8323,7 +9012,7 @@
           "Functions"
         ],
         "summary": "List functions on the branch",
-        "description": "\u0022Lists functions on the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Lists functions on the specified branch.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "ListProjectBranchFunctions",
         "parameters": [
           {
@@ -8385,7 +9074,7 @@
           "Functions"
         ],
         "summary": "Get function details",
-        "description": "\u0022Returns the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Returns the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "GetProjectBranchFunction",
         "responses": {
           "200": {
@@ -8408,7 +9097,7 @@
           "Functions"
         ],
         "summary": "Update a function",
-        "description": "\u0022Updates the function\u0027s mutable metadata \u2014 currently only the display\n\u0060name\u0060. A string sets the display name; \u0060null\u0060 clears it, after which\nthe function\u0027s \u0060name\u0060 falls back to its slug. Leading and trailing\nwhitespace is trimmed; a whitespace-only name is rejected. Acts only\non a function owned by the branch: a slug that is only inherited from\nan ancestor branch returns 404 \u2014 rename it on the branch that owns\nit. Like every other change on a branch, a rename is isolated per\nbranch: a branch forked before the rename keeps the name it had at\nfork time.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Updates the function\u0027s mutable metadata \u2014 currently only the display\n\u0060name\u0060. A string sets the display name; \u0060null\u0060 clears it, after which\nthe function\u0027s \u0060name\u0060 falls back to its slug. Leading and trailing\nwhitespace is trimmed; a whitespace-only name is rejected. Acts only\non a function owned by the branch: a slug that is only inherited from\nan ancestor branch returns 404 \u2014 rename it on the branch that owns\nit. Like every other change on a branch, a rename is isolated per\nbranch: a branch forked before the rename keeps the name it had at\nfork time.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "UpdateProjectBranchFunction",
         "requestBody": {
           "content": {
@@ -8417,7 +9106,8 @@
                 "$ref": "#/components/schemas/NeonFunctionUpdateRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -8440,9 +9130,12 @@
           "Functions"
         ],
         "summary": "Delete a function on the branch",
-        "description": "\u0022Deletes the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Deletes the function identified by its slug.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "DeleteProjectBranchFunction",
         "responses": {
+          "204": {
+            "description": "Function deleted"
+          },
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
@@ -8487,7 +9180,7 @@
           "Functions"
         ],
         "summary": "Deploy code to a function",
-        "description": "\u0022Creates a deployment for the function. Supply any subset of zip,\nenvironment, and runtime; omitted fields inherit the\nfunction\u0027s latest version. At least one field must be supplied. The\nfirst deployment of a function must include zip. The newest deployment\nbecomes active.\n\n**Note**: This endpoint is currently in Beta.\n\u0022",
+        "description": "Creates a deployment for the function. Supply any subset of zip,\nenvironment, and runtime; omitted fields inherit the\nfunction\u0027s latest version. At least one field must be supplied. The\nfirst deployment of a function must include zip. The newest deployment\nbecomes active.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "CreateProjectBranchFunctionDeployment",
         "requestBody": {
           "content": {
@@ -8496,7 +9189,8 @@
                 "$ref": "#/components/schemas/FunctionDeployRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -9457,7 +10151,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Lifecycle state of the operation. \u0060scheduling\u0060: queued, not yet started. \u0060running\u0060: actively executing. \u0060finished\u0060: completed successfully. \u0060failed\u0060: ended with a failure. \u0060error\u0060: ended with a terminal error. \u0060cancelling\u0060: cancellation requested but not yet complete. \u0060cancelled\u0060: stopped before completion. \u0060skipped\u0060: bypassed without executing.\u0022",
+        "description": "Lifecycle state of the operation. \u0060scheduling\u0060: queued, not yet started. \u0060running\u0060: actively executing. \u0060finished\u0060: completed successfully. \u0060failed\u0060: ended with a failure. \u0060error\u0060: ended with a terminal error. \u0060cancelling\u0060: cancellation requested but not yet complete. \u0060cancelled\u0060: stopped before completion. \u0060skipped\u0060: bypassed without executing.",
         "x-ms-enum": {
           "name": "OperationStatus",
           "modelAsString": false,
@@ -10854,7 +11548,7 @@
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "\u0022The branch ID. This value is generated when a branch is created. A \u0060branch_id\u0060 value has a \u0060br\u0060 prefix. For example: \u0060br-small-term-683261\u0060.\n\u0022"
+            "description": "The branch ID. This value is generated when a branch is created. A \u0060branch_id\u0060 value has a \u0060br\u0060 prefix. For example: \u0060br-small-term-683261\u0060.\n"
           },
           "project_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
@@ -11047,7 +11741,7 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "\u0022The name of a restricted action on a branch. \u0060restore\u0060: the branch cannot be used as a restore target. \u0060delete-rw-endpoint\u0060: the read-write endpoint for the branch cannot be deleted.\n\u0022",
+            "description": "The name of a restricted action on a branch. \u0060restore\u0060: the branch cannot be used as a restore target. \u0060delete-rw-endpoint\u0060: the read-write endpoint for the branch cannot be deleted.\n",
             "example": "restore"
           },
           "reason": {
@@ -11352,7 +12046,7 @@
           },
           "state": {
             "type": "string",
-            "description": "\u0022The current state of the anonymized branch. \u0060created\u0060: branch record exists but setup has not started. \u0060initialized\u0060: setup is complete and the branch is ready for anonymization. \u0060initialization_error\u0060: an error occurred during setup. \u0060anonymizing\u0060: the anonymization process is currently running. \u0060anonymized\u0060: anonymization completed successfully. \u0060error\u0060: an error occurred during anonymization.\n\u0022",
+            "description": "The current state of the anonymized branch. \u0060created\u0060: branch record exists but setup has not started. \u0060initialized\u0060: setup is complete and the branch is ready for anonymization. \u0060initialization_error\u0060: an error occurred during setup. \u0060anonymizing\u0060: the anonymization process is currently running. \u0060anonymized\u0060: anonymization completed successfully. \u0060error\u0060: an error occurred during anonymization.\n",
             "example": "created"
           },
           "status_message": {
@@ -11472,7 +12166,7 @@
         "properties": {
           "connection_uri": {
             "type": "string",
-            "description": "\u0022The connection URI is defined as specified here: [Connection URIs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS)\nThe connection URI can be used to connect to a Postgres database with psql or defined in a DATABASE_URL environment variable.\nWhen creating a branch from a parent with more than one role or database, the response body does not include a connection URI.\n\u0022"
+            "description": "The connection URI is defined as specified here: [Connection URIs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS)\nThe connection URI can be used to connect to a Postgres database with psql or defined in a DATABASE_URL environment variable.\nWhen creating a branch from a parent with more than one role or database, the response body does not include a connection URI.\n"
           },
           "connection_parameters": {
             "$ref": "#/components/schemas/ConnectionParameters"
@@ -11526,7 +12220,7 @@
           "id": {
             "pattern": "^[a-z0-9-]{1,60}$",
             "type": "string",
-            "description": "\u0022The compute endpoint ID. Compute endpoint IDs have an \u0060ep-\u0060 prefix. For example: \u0060ep-little-smoke-851426\u0060\n\u0022"
+            "description": "The compute endpoint ID. Compute endpoint IDs have an \u0060ep-\u0060 prefix. For example: \u0060ep-little-smoke-851426\u0060\n"
           },
           "name": {
             "type": "string",
@@ -11670,7 +12364,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Lifecycle state of the compute endpoint. \u0060init\u0060: being initialized. \u0060active\u0060: running and accepting connections. \u0060idle\u0060: suspended (scaled to zero).\u0022",
+        "description": "Lifecycle state of the compute endpoint. \u0060init\u0060: being initialized. \u0060active\u0060: running and accepting connections. \u0060idle\u0060: suspended (scaled to zero).",
         "x-ms-enum": {
           "name": "EndpointState",
           "modelAsString": false,
@@ -11697,7 +12391,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Compute endpoint type. \u0060read_write\u0060: the primary read-write endpoint (one per branch). \u0060read_only\u0060: a read replica endpoint (multiple allowed per branch).\u0022",
+        "description": "Compute endpoint type. \u0060read_write\u0060: the primary read-write endpoint (one per branch). \u0060read_only\u0060: a read replica endpoint (multiple allowed per branch).",
         "x-ms-enum": {
           "name": "EndpointType",
           "modelAsString": false,
@@ -12056,7 +12750,7 @@
           },
           "authentication_method": {
             "type": "string",
-            "description": "\u0022Authentication method configured for this role: \u0060password\u0060, \u0060oauth\u0060, or \u0060no_login\u0060.\n\u0022",
+            "description": "Authentication method configured for this role: \u0060password\u0060, \u0060oauth\u0060, or \u0060no_login\u0060.\n",
             "example": "password"
           },
           "created_at": {
@@ -12305,7 +12999,7 @@
           "spending_limit_cents": {
             "minimum": 1,
             "type": "integer",
-            "description": "\u0022Monthly spending cap in cents. Must be positive. To remove a\npreviously configured limit, send a DELETE request to the\nspending_limit endpoint \u2014 \u00600\u0060 and \u0060null\u0060 are rejected here.\nThe cap is alert-only: notifications fire at 80% and 100%, but\ncomputes are not suspended. Setting a cap below the period\u0027s\nalready-accrued spend is permitted and will trigger the\nover-limit notification on the next worker run.\n\u0022",
+            "description": "Monthly spending cap in cents. Must be positive. To remove a\npreviously configured limit, send a DELETE request to the\nspending_limit endpoint \u2014 \u00600\u0060 and \u0060null\u0060 are rejected here.\nThe cap is alert-only: notifications fire at 80% and 100%, but\ncomputes are not suspended. Setting a cap below the period\u0027s\nalready-accrued spend is permitted and will trigger the\nover-limit notification on the next worker run.\n",
             "format": "int64"
           }
         }
@@ -12665,7 +13359,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Organization member\u0027s role. \u0060admin\u0060: full administrative access. \u0060editor\u0060 (and its legacy alias \u0060member\u0060): standard access governed by project permissions. \u0060viewer\u0060 and \u0060collaborator\u0060: additional scoped project roles. Some values may not be available for all organizations.\u0022",
+        "description": "Organization member\u0027s role. \u0060admin\u0060: full administrative access. \u0060editor\u0060 (and its legacy alias \u0060member\u0060): standard access governed by project permissions. \u0060viewer\u0060 and \u0060collaborator\u0060: additional scoped project roles. Some values may not be available for all organizations.",
         "x-ms-enum": {
           "name": "MemberRole",
           "modelAsString": false,
@@ -13445,7 +14139,7 @@
             "items": {
               "type": "string"
             },
-            "description": "\u0022List of schemas to expose via the API. Default: [\\\u0022public\\\u0022]\u0022"
+            "description": "List of schemas to expose via the API. Default: [\u0022public\u0022]"
           },
           "jwt_role_claim_key": {
             "type": "string",
@@ -13467,7 +14161,7 @@
           },
           "server_timing_enabled": {
             "type": "boolean",
-            "description": "\u0022When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled.\u0022"
+            "description": "When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled."
           }
         },
         "description": "Configuration settings for the Neon Data API",
@@ -14392,7 +15086,7 @@
           },
           "port": {
             "type": "integer",
-            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
           },
           "username": {
             "type": "string",
@@ -14434,7 +15128,7 @@
           },
           "port": {
             "type": "integer",
-            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
           },
           "username": {
             "type": "string",
@@ -14460,9 +15154,6 @@
         ]
       },
       "NeonAuthEmailServerConfig": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -14473,10 +15164,29 @@
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
+          "host": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "Hostname of the email server."
+          },
+          "port": {
+            "type": "integer",
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
+          },
+          "password": {
+            "type": "string",
+            "description": "Password for authenticating with the SMTP server."
+          },
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
           }
         },
         "discriminator": {
@@ -14490,9 +15200,6 @@
         }
       },
       "NeonAuthEmailServerConfigResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -14503,10 +15210,29 @@
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
+          "host": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "Hostname of the email server."
+          },
+          "port": {
+            "type": "integer",
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
+          },
+          "password": {
+            "type": "string",
+            "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
+          },
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
           }
         },
         "discriminator": {
@@ -14537,7 +15263,7 @@
           },
           "port": {
             "type": "integer",
-            "description": "\u0022TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).\u0022"
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
           },
           "username": {
             "type": "string",
@@ -14592,7 +15318,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022The email verification method to use.\n- \u0060link\u0060: Sends a verification link via email\n- \u0060otp\u0060: Sends a one-time password (OTP) via email\n\u0022",
+        "description": "The email verification method to use.\n- \u0060link\u0060: Sends a verification link via email\n- \u0060otp\u0060: Sends a one-time password (OTP) via email\n",
         "x-ms-enum": {
           "name": "NeonAuthEmailVerificationMethod",
           "modelAsString": false,
@@ -15235,7 +15961,7 @@
         "properties": {
           "frequency": {
             "type": "string",
-            "description": "\u0022How often to take snapshots. Known values: \u0060daily\u0060, \u0060weekly\u0060, \u0060monthly\u0060.\n\u0022",
+            "description": "How often to take snapshots. Known values: \u0060daily\u0060, \u0060weekly\u0060, \u0060monthly\u0060.\n",
             "example": "daily"
           },
           "hour": {
@@ -15260,7 +15986,7 @@
             "maximum": 3024000,
             "minimum": 3600,
             "type": "integer",
-            "description": "\u0022How long to keep a scheduled snapshot (in seconds) before it\u0027s automatically deleted.\nThe default is 3024000 seconds (35 days), which is also the maximum.\nManually created snapshots have no maximum retention: set their \u0060expires_at\u0060 instead.\n\u0022",
+            "description": "How long to keep a scheduled snapshot (in seconds) before it\u0027s automatically deleted.\nThe default is 3024000 seconds (35 days), which is also the maximum.\nManually created snapshots have no maximum retention: set their \u0060expires_at\u0060 instead.\n",
             "default": 3024000
           }
         }
@@ -15302,7 +16028,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Controls anonymous access to objects in the bucket.\n- \u0060private\u0060: all reads and writes require authenticated requests (default).\n- \u0060public_read\u0060: anonymous \u0060GetObject\u0060/\u0060HeadObject\u0060 requests succeed; listing,\n  writes, and deletes still require authenticated requests.\n\u0022",
+        "description": "Controls anonymous access to objects in the bucket.\n- \u0060private\u0060: all reads and writes require authenticated requests (default).\n- \u0060public_read\u0060: anonymous \u0060GetObject\u0060/\u0060HeadObject\u0060 requests succeed; listing,\n  writes, and deletes still require authenticated requests.\n",
         "x-ms-enum": {
           "name": "BucketAccessLevel",
           "modelAsString": false,
@@ -15393,7 +16119,7 @@
         "properties": {
           "enabled": {
             "type": "boolean",
-            "description": "\u0022Always \u0060true\u0060 in 200 responses. Present for forward compatibility: a\nfuture version may add intermediate states; callers should treat \u0060true\u0060\nas \\\u0022object storage is usable for this branch right now.\\\u0022\n\u0022"
+            "description": "Always \u0060true\u0060 in 200 responses. Present for forward compatibility: a\nfuture version may add intermediate states; callers should treat \u0060true\u0060\nas \u0022object storage is usable for this branch right now.\u0022\n"
           },
           "s3_endpoint": {
             "type": "string",
@@ -15403,12 +16129,12 @@
           },
           "region": {
             "type": "string",
-            "description": "\u0022The AWS region for this branch\u0027s object storage. The platform normalizes\nthe us-east-1 convention server-side: a non-empty region string is\nalways returned in 200 responses (e.g. \u0060\\\u0022us-east-1\\\u0022\u0060 for the S3\ndefault region).\n\u0022",
+            "description": "The AWS region for this branch\u0027s object storage. The platform normalizes\nthe us-east-1 convention server-side: a non-empty region string is\nalways returned in 200 responses (e.g. \u0060\u0022us-east-1\u0022\u0060 for the S3\ndefault region).\n",
             "example": "us-east-2"
           },
           "force_path_style": {
             "type": "boolean",
-            "description": "\u0022Whether the S3 client must use path-style addressing\n(bucket-in-path rather than virtual-hosted subdomain).\nAlways true: the wildcard TLS cert covers one level of subdomain\n(*.storage.\u003Csuffix\u003E), so the branch ID occupies that label and the\nbucket name must travel in the request path, not as a further\nsubdomain. Callers must set the S3 SDK\u0027s ForcePathStyle (or\nequivalent) to true.\n\u0022",
+            "description": "Whether the S3 client must use path-style addressing\n(bucket-in-path rather than virtual-hosted subdomain).\nAlways true: the wildcard TLS cert covers one level of subdomain\n(*.storage.\u003Csuffix\u003E), so the branch ID occupies that label and the\nbucket name must travel in the request path, not as a further\nsubdomain. Callers must set the S3 SDK\u0027s ForcePathStyle (or\nequivalent) to true.\n",
             "example": true
           }
         }
@@ -15472,7 +16198,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022An OpenTelemetry severity level. A minimum severity includes every\nhigher level in this order: \u0060trace\u0060, \u0060debug\u0060, \u0060info\u0060, \u0060warn\u0060, \u0060error\u0060,\n\u0060fatal\u0060.\n\u0022",
+        "description": "An OpenTelemetry severity level. A minimum severity includes every\nhigher level in this order: \u0060trace\u0060, \u0060debug\u0060, \u0060info\u0060, \u0060warn\u0060, \u0060error\u0060,\n\u0060fatal\u0060.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogSeverity",
           "modelAsString": false,
@@ -15617,7 +16343,7 @@
           "body_contains": {
             "minLength": 1,
             "type": "string",
-            "description": "\u0022Match records whose rendered \u0060message\u0060 contains this case-sensitive\nsubstring.\n\nRecords with a structured body are matched against their JSON\nrendering, so the substring meets JSON syntax rather than prose: a\nbare key name such as \u0060operation\u0060 matches every record carrying that\nkey, and \u0060http_status: 200\u0060 matches none, because the rendering\ncontains \u0060\\\u0022http_status\\\u0022:200\u0060 with no space.\n\u0022"
+            "description": "Match records whose rendered \u0060message\u0060 contains this case-sensitive\nsubstring.\n\nRecords with a structured body are matched against their JSON\nrendering, so the substring meets JSON syntax rather than prose: a\nbare key name such as \u0060operation\u0060 matches every record carrying that\nkey, and \u0060http_status: 200\u0060 matches none, because the rendering\ncontains \u0060\u0022http_status\u0022:200\u0060 with no space.\n"
           },
           "trace_id": {
             "pattern": "^[0-9a-f]{32}$",
@@ -15627,7 +16353,7 @@
           "logql": {
             "minLength": 1,
             "type": "string",
-            "description": "\u0022Escape hatch for selections the structured filters cannot express: a\nraw LogQL expression, evaluated against this branch\u0027s log stream.\n\nOnly stream selectors and line filters are accepted \u2014 no\naggregations and no parser stages. Supplying this alongside any\nstructured filter is rejected with \u0060conflicting_filters\u0060 rather than\nsilently ignoring one of them. \u0060limit\u0060, \u0060sort_order\u0060, and the time\nwindow still apply.\n\nThis field passes the underlying query language through to the\ncaller, so unlike the rest of this contract it may change as that\nbackend changes. Prefer the structured filters where they suffice.\n\u0022",
+            "description": "Escape hatch for selections the structured filters cannot express: a\nraw LogQL expression, evaluated against this branch\u0027s log stream.\n\nOnly stream selectors and line filters are accepted \u2014 no\naggregations and no parser stages. Supplying this alongside any\nstructured filter is rejected with \u0060conflicting_filters\u0060 rather than\nsilently ignoring one of them. \u0060limit\u0060, \u0060sort_order\u0060, and the time\nwindow still apply.\n\nThis field passes the underlying query language through to the\ncaller, so unlike the rest of this contract it may change as that\nbackend changes. Prefer the structured filters where they suffice.\n",
             "example": "{entity_type=\u0022function\u0022} |~ \u0022(?i)timeout\u0022"
           }
         },
@@ -15882,7 +16608,7 @@
           },
           "content_type": {
             "type": "string",
-            "description": "\u0022The \u0060Content-Type\u0060 to bind into the signed request. Only meaningful\nfor \u0060upload\u0060: when set, the caller MUST send the same \u0060Content-Type\u0060\nheader on the \u0060PUT\u0060, and the value is echoed back in the response\n\u0060headers\u0060. Ignored for \u0060download\u0060.\n\u0022"
+            "description": "The \u0060Content-Type\u0060 to bind into the signed request. Only meaningful\nfor \u0060upload\u0060: when set, the caller MUST send the same \u0060Content-Type\u0060\nheader on the \u0060PUT\u0060, and the value is echoed back in the response\n\u0060headers\u0060. Ignored for \u0060download\u0060.\n"
           },
           "expires_in_seconds": {
             "maximum": 604800,
@@ -15910,7 +16636,7 @@
           },
           "method": {
             "type": "string",
-            "description": "\u0022The HTTP method to use against \u0060url\u0060: \u0060PUT\u0060 for an upload,\n\u0060GET\u0060 for a download.\n\u0022"
+            "description": "The HTTP method to use against \u0060url\u0060: \u0060PUT\u0060 for an upload,\n\u0060GET\u0060 for a download.\n"
           },
           "headers": {
             "$ref": "#/components/schemas/PresignResponseHeadersProperty"
@@ -15976,7 +16702,7 @@
             }
           },
           "principal_type": {
-            "$ref": "#/components/schemas/CreateCredentialRequestPrincipalType"
+            "$ref": "#/components/schemas/UserPrincipalType"
           }
         }
       },
@@ -16245,11 +16971,11 @@
             "format": "binary"
           },
           "runtime": {
-            "$ref": "#/components/schemas/FunctionDeployRequestRuntime"
+            "$ref": "#/components/schemas/Nodejs24Runtime"
           },
           "environment": {
             "type": "string",
-            "description": "\u0022Optional JSON object (a string-to-string map) of environment\nvariables for the deployment, e.g. {\\\u0022KEY\\\u0022:\\\u0022VALUE\\\u0022}. Carried as a\nJSON-encoded string because multipart form data does not support\ntyped object parts.\n\nValues are write-only: they are encrypted at rest, and responses\ncarry only the variable names (the \u0060environment\u0060 array), never the\nvalues.\n\u0022"
+            "description": "Optional JSON object (a string-to-string map) of environment\nvariables for the deployment, e.g. {\u0022KEY\u0022:\u0022VALUE\u0022}. Carried as a\nJSON-encoded string because multipart form data does not support\ntyped object parts.\n\nValues are write-only: they are encrypted at rest, and responses\ncarry only the variable names (the \u0060environment\u0060 array), never the\nvalues.\n"
           }
         }
       },
@@ -16369,7 +17095,7 @@
             "items": {
               "type": "string"
             },
-            "description": "\u0022List of schemas to expose via the API. Default: [\\\u0022public\\\u0022]\u0022"
+            "description": "List of schemas to expose via the API. Default: [\u0022public\u0022]"
           },
           "jwt_role_claim_key": {
             "type": "string",
@@ -16391,7 +17117,7 @@
           },
           "server_timing_enabled": {
             "type": "boolean",
-            "description": "\u0022When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled.\u0022"
+            "description": "When enabled, the Data API adds \u0060Server-Timing\u0060 headers to each response showing database execution and internal processing time. Default: disabled."
           }
         },
         "description": "Configuration settings for the Data API (SubZero only)"
@@ -16519,7 +17245,7 @@
           },
           "region_id": {
             "type": "string",
-            "description": "\u0022The region identifier. Refer to our [Regions](https://neon.com/docs/introduction/regions) documentation for supported regions. Values are specified in this format: \u0060aws-us-east-1\u0060\n\u0022"
+            "description": "The region identifier. Refer to our [Regions](https://neon.com/docs/introduction/regions) documentation for supported regions. Values are specified in this format: \u0060aws-us-east-1\u0060\n"
           },
           "default_endpoint_settings": {
             "$ref": "#/components/schemas/DefaultEndpointSettings"
@@ -16538,7 +17264,7 @@
             "maximum": 2592000,
             "minimum": 0,
             "type": "integer",
-            "description": "\u0022History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n\u0022",
+            "description": "History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n",
             "format": "int32"
           },
           "org_id": {
@@ -16568,7 +17294,7 @@
             "maximum": 2592000,
             "minimum": 0,
             "type": "integer",
-            "description": "\u0022History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n\u0022",
+            "description": "History window (point-in-time restore range) for all branches, in seconds. \u00600\u0060 disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).\n",
             "format": "int32"
           }
         }
@@ -17029,7 +17755,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "description": "\u0022Type of constraint. Possible values: \u0060primary_key\u0060, \u0060unique\u0060, \u0060foreign_key\u0060\n\u0022"
+            "description": "Type of constraint. Possible values: \u0060primary_key\u0060, \u0060unique\u0060, \u0060foreign_key\u0060\n"
           },
           "columns": {
             "minItems": 1,
@@ -17181,6 +17907,16 @@
         }
       },
       "DisableNeonAuthRequest": {
+        "type": "object",
+        "properties": {
+          "delete_data": {
+            "type": "boolean",
+            "description": "If true, deletes the \u0060neon_auth\u0060 schema from the database",
+            "default": false
+          }
+        }
+      },
+      "DeleteNeonAuthIntegrationRequest": {
         "type": "object",
         "properties": {
           "delete_data": {
@@ -17452,6 +18188,10 @@
         "type": "object",
         "description": "Empty response."
       },
+      "TransferProjectsFromUserToOrg200Response": {
+        "type": "object",
+        "description": "Empty response."
+      },
       "ListSnapshots200Response": {
         "required": [
           "snapshots"
@@ -17648,7 +18388,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022How the branch was deleted: \u0027user\u0027 for manual deletion, \u0027ttl\u0027 for TTL expiration\n\u0022",
+        "description": "How the branch was deleted: \u0027user\u0027 for manual deletion, \u0027ttl\u0027 for TTL expiration\n",
         "x-ms-enum": {
           "name": "BranchRecoveryInfoDeletionMethod",
           "modelAsString": false,
@@ -17727,7 +18467,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Authentication method used for the request:\n- \u0060keycloak\u0060: Keycloak identity provider authentication.\n- \u0060session_cookie\u0060: Browser session cookie authentication.\n- \u0060api_key_user\u0060: API key scoped to a user account.\n- \u0060api_key_org\u0060: API key scoped to an organization.\n- \u0060oauth\u0060: OAuth-based authentication.\n\u0022",
+        "description": "Authentication method used for the request:\n- \u0060keycloak\u0060: Keycloak identity provider authentication.\n- \u0060session_cookie\u0060: Browser session cookie authentication.\n- \u0060api_key_user\u0060: API key scoped to a user account.\n- \u0060api_key_org\u0060: API key scoped to an organization.\n- \u0060oauth\u0060: OAuth-based authentication.\n",
         "x-ms-enum": {
           "name": "AuthDetailsResponseAuthMethod",
           "modelAsString": false,
@@ -17762,7 +18502,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Authentication provider for the Neon Data API. \u0060neon_auth\u0060: use Neon\u0027s built-in managed authentication (no JWKS configuration required). \u0060external\u0060: use an external JWT provider, which requires \u0060jwks_url\u0060. When omitted, no auth provider is configured (existing setup is kept).\u0022",
+        "description": "Authentication provider for the Neon Data API. \u0060neon_auth\u0060: use Neon\u0027s built-in managed authentication (no JWKS configuration required). \u0060external\u0060: use an external JWT provider, which requires \u0060jwks_url\u0060. When omitted, no auth provider is configured (existing setup is kept).",
         "x-ms-enum": {
           "name": "DataApiCreateRequestAuthProvider",
           "modelAsString": false,
@@ -17785,7 +18525,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.\u0022",
+        "description": "Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigCreatorRole",
           "modelAsString": false,
@@ -17808,7 +18548,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.\u0022",
+        "description": "Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigUpdateCreatorRole",
           "modelAsString": false,
@@ -17903,7 +18643,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Machine-readable reason why object storage is unavailable:\n- \u0060org_not_entitled\u0060: the org\u0027s \u0060PlatformBranchableStorage\u0060 feature flag is off.\n- \u0060region_unavailable\u0060: the project\u0027s region has no object storage admin service wired.\n- \u0060branch_directory_missing\u0060: the branch is not registered in the object storage service.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n\u0022",
+        "description": "Machine-readable reason why object storage is unavailable:\n- \u0060org_not_entitled\u0060: the org\u0027s \u0060PlatformBranchableStorage\u0060 feature flag is off.\n- \u0060region_unavailable\u0060: the project\u0027s region has no object storage admin service wired.\n- \u0060branch_directory_missing\u0060: the branch is not registered in the object storage service.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n",
         "x-ms-enum": {
           "name": "BranchStorageNotEnabledReason",
           "modelAsString": false,
@@ -17934,7 +18674,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Machine-readable reason why logs cannot be read:\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n- \u0060telemetry_not_enabled\u0060: the branch exists but is not collecting telemetry, so it\n  has no logs to serve.\n\u0022",
+        "description": "Machine-readable reason why logs cannot be read:\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n- \u0060telemetry_not_enabled\u0060: the branch exists but is not collecting telemetry, so it\n  has no logs to serve.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogsNotAvailableReason",
           "modelAsString": false,
@@ -17962,7 +18702,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Machine-readable reason why the request was rejected:\n- \u0060time_range_too_large\u0060: the requested window spans more than seven days.\n- \u0060invalid_time_range\u0060: \u0060end_time\u0060 is not after \u0060start_time\u0060.\n- \u0060conflicting_time_range\u0060: both \u0060since\u0060 and \u0060start_time\u0060 were supplied.\n- \u0060invalid_cursor\u0060: the supplied \u0060cursor\u0060 is malformed, expired, or was issued for a\n  different query.\n- \u0060unknown_field\u0060: the requested \u0060field_name\u0060 is not one of the fields the log fields\n  endpoint reports for this branch.\n- \u0060invalid_logql\u0060: the supplied \u0060logql\u0060 expression does not parse, or uses a\n  construct this endpoint does not accept.\n- \u0060conflicting_filters\u0060: \u0060logql\u0060 was supplied alongside one or more structured\n  filters. Use one or the other.\n\u0022",
+        "description": "Machine-readable reason why the request was rejected:\n- \u0060time_range_too_large\u0060: the requested window spans more than seven days.\n- \u0060invalid_time_range\u0060: \u0060end_time\u0060 is not after \u0060start_time\u0060.\n- \u0060conflicting_time_range\u0060: both \u0060since\u0060 and \u0060start_time\u0060 were supplied.\n- \u0060invalid_cursor\u0060: the supplied \u0060cursor\u0060 is malformed, expired, or was issued for a\n  different query.\n- \u0060unknown_field\u0060: the requested \u0060field_name\u0060 is not one of the fields the log fields\n  endpoint reports for this branch.\n- \u0060invalid_logql\u0060: the supplied \u0060logql\u0060 expression does not parse, or uses a\n  construct this endpoint does not accept.\n- \u0060conflicting_filters\u0060: \u0060logql\u0060 was supplied alongside one or more structured\n  filters. Use one or the other.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogsInvalidQueryReason",
           "modelAsString": false,
@@ -18028,7 +18768,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Machine-readable reason why the AI gateway is unavailable:\n- \u0060ai_gateway_unavailable\u0060: the project\u0027s region/cell has no AI gateway configured.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n\u0022",
+        "description": "Machine-readable reason why the AI gateway is unavailable:\n- \u0060ai_gateway_unavailable\u0060: the project\u0027s region/cell has no AI gateway configured.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n",
         "x-ms-enum": {
           "name": "BranchAiGatewayNotEnabledReason",
           "modelAsString": false,
@@ -18067,7 +18807,7 @@
           ]
         }
       },
-      "CreateCredentialRequestPrincipalType": {
+      "UserPrincipalType": {
         "enum": [
           "user"
         ],
@@ -18075,7 +18815,7 @@
         "additionalProperties": false,
         "description": "Principal type for the credential. Only \u0060user\u0060 is customer-managed\nand accepted here. \u0060function\u0060 and \u0060system\u0060 credentials are\nplatform-internal (e.g. function-serve auto-mint, presign signer)\nand are never issued through the customer-facing API.\n",
         "x-ms-enum": {
-          "name": "CreateCredentialRequestPrincipalType",
+          "name": "UserPrincipalType",
           "modelAsString": false,
           "values": [
             {
@@ -18118,14 +18858,14 @@
           ]
         }
       },
-      "FunctionDeployRequestRuntime": {
+      "Nodejs24Runtime": {
         "enum": [
           "nodejs24"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "FunctionDeployRequestRuntime",
+          "name": "Nodejs24Runtime",
           "modelAsString": false,
           "values": [
             {
@@ -18301,7 +19041,7 @@
         }
       },
       "GeneralError": {
-        "description": "\u0022General Error.\n\nThe request may or may not be safe to retry, depending on the HTTP method, response status code,\nand whether a response was received.\n\n- If no response is returned from the API, a network error or timeout likely occurred.\n- In some cases, the request may have reached the server and been successfully processed, but the response failed to reach the client. As a result, retrying non-idempotent requests can lead to unintended results.\n\nThe following HTTP methods are considered non-idempotent: \u0060POST\u0060, \u0060PATCH\u0060, \u0060DELETE\u0060, and \u0060PUT\u0060. Retrying these methods is generally **not safe**.\nThe following methods are considered idempotent: \u0060GET\u0060, \u0060HEAD\u0060, and \u0060OPTIONS\u0060. Retrying these methods is **safe** in the event of a network error or timeout.\n\nAny request that returns a \u0060503 Service Unavailable\u0060 response is always safe to retry.\n\nAny request that returns a \u0060423 Locked\u0060 response is safe to retry. \u0060423 Locked\u0060 indicates that the resource is temporarily locked, for example, due to another operation in progress.\n\u0022",
+        "description": "General Error.\n\nThe request may or may not be safe to retry, depending on the HTTP method, response status code,\nand whether a response was received.\n\n- If no response is returned from the API, a network error or timeout likely occurred.\n- In some cases, the request may have reached the server and been successfully processed, but the response failed to reach the client. As a result, retrying non-idempotent requests can lead to unintended results.\n\nThe following HTTP methods are considered non-idempotent: \u0060POST\u0060, \u0060PATCH\u0060, \u0060DELETE\u0060, and \u0060PUT\u0060. Retrying these methods is generally **not safe**.\nThe following methods are considered idempotent: \u0060GET\u0060, \u0060HEAD\u0060, and \u0060OPTIONS\u0060. Retrying these methods is **safe** in the event of a network error or timeout.\n\nAny request that returns a \u0060503 Service Unavailable\u0060 response is always safe to retry.\n\nAny request that returns a \u0060423 Locked\u0060 response is safe to retry. \u0060423 Locked\u0060 indicates that the resource is temporarily locked, for example, due to another operation in progress.\n",
         "content": {
           "application/json": {
             "schema": {
@@ -18364,12 +19104,6 @@
         "type": "apiKey",
         "name": "keycloak_token",
         "in": "cookie"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

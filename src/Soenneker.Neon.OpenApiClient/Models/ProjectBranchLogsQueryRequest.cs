@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Match records whose rendered `message` contains this case-sensitivesubstring.Records with a structured body are matched against their JSONrendering, so the substring meets JSON syntax rather than prose: abare key name such as `operation` matches every record carrying thatkey, and `http_status: 200` matches none, because the renderingcontains `\&quot;http_status\&quot;:200` with no space.&quot;</summary>
+        /// <summary>Match records whose rendered `message` contains this case-sensitivesubstring.Records with a structured body are matched against their JSONrendering, so the substring meets JSON syntax rather than prose: abare key name such as `operation` matches every record carrying thatkey, and `http_status: 200` matches none, because the renderingcontains `&quot;http_status&quot;:200` with no space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BodyContains { get; set; }
@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? EndTime { get; set; }
         /// <summary>Maximum number of log records to return per page.</summary>
         public int? Limit { get; set; }
-        /// <summary>&quot;Escape hatch for selections the structured filters cannot express: araw LogQL expression, evaluated against this branch&apos;s log stream.Only stream selectors and line filters are accepted — noaggregations and no parser stages. Supplying this alongside anystructured filter is rejected with `conflicting_filters` rather thansilently ignoring one of them. `limit`, `sort_order`, and the timewindow still apply.This field passes the underlying query language through to thecaller, so unlike the rest of this contract it may change as thatbackend changes. Prefer the structured filters where they suffice.&quot;</summary>
+        /// <summary>Escape hatch for selections the structured filters cannot express: araw LogQL expression, evaluated against this branch&apos;s log stream.Only stream selectors and line filters are accepted — noaggregations and no parser stages. Supplying this alongside anystructured filter is rejected with `conflicting_filters` rather thansilently ignoring one of them. `limit`, `sort_order`, and the timewindow still apply.This field passes the underlying query language through to thecaller, so unlike the rest of this contract it may change as thatbackend changes. Prefer the structured filters where they suffice.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Logql { get; set; }
@@ -42,7 +42,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Logql { get; set; }
 #endif
-        /// <summary>&quot;An OpenTelemetry severity level. A minimum severity includes everyhigher level in this order: `trace`, `debug`, `info`, `warn`, `error`,`fatal`.&quot;</summary>
+        /// <summary>An OpenTelemetry severity level. A minimum severity includes everyhigher level in this order: `trace`, `debug`, `info`, `warn`, `error`,`fatal`.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogSeverity? MinimumSeverity { get; set; }
         /// <summary>Match the OpenTelemetry instrumentation scope name exactly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

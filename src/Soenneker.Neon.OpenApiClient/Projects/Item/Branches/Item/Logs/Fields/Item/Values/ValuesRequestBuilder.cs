@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields.I
         {
         }
         /// <summary>
-        /// &quot;Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldValuesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields.I
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldValuesResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldValuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields.I
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields.Item.Values.ValuesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// Lists the distinct values observed for a low-cardinality log field inthe requested time range. Call the log fields endpoint first to learnwhich `field_name` values this branch supports; a field that branch hasnever emitted is rejected with `unknown_field`.Give the window either as `since` or as an explicit `start_time`;supplying both is rejected. If neither is given, the previous six hoursare used. The maximum supported time range is seven days.**Note**: This endpoint is currently in Private Beta.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ValuesRequestBuilderGetQueryParameters 

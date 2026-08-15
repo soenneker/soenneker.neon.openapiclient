@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Password { get; set; }
 #endif
-        /// <summary>&quot;TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).&quot;</summary>
+        /// <summary>TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission).</summary>
         public int? Port { get; set; }
         /// <summary>The email address to send the test email to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

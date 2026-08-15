@@ -12,7 +12,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     public partial class Bucket : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>&quot;Controls anonymous access to objects in the bucket.- `private`: all reads and writes require authenticated requests (default).- `public_read`: anonymous `GetObject`/`HeadObject` requests succeed; listing,  writes, and deletes still require authenticated requests.&quot;</summary>
+        /// <summary>Controls anonymous access to objects in the bucket.- `private`: all reads and writes require authenticated requests (default).- `public_read`: anonymous `GetObject`/`HeadObject` requests succeed; listing,  writes, and deletes still require authenticated requests.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BucketAccessLevel? AccessLevel { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

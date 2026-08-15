@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Authentication method used for the request:- `keycloak`: Keycloak identity provider authentication.- `session_cookie`: Browser session cookie authentication.- `api_key_user`: API key scoped to a user account.- `api_key_org`: API key scoped to an organization.- `oauth`: OAuth-based authentication.&quot;</summary>
+    /// <summary>Authentication method used for the request:- `keycloak`: Keycloak identity provider authentication.- `session_cookie`: Browser session cookie authentication.- `api_key_user`: API key scoped to a user account.- `api_key_org`: API key scoped to an organization.- `oauth`: OAuth-based authentication.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AuthDetailsResponseAuthMethod
     {

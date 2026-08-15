@@ -14,11 +14,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Always `true` in 200 responses. Present for forward compatibility: afuture version may add intermediate states; callers should treat `true`as \&quot;object storage is usable for this branch right now.\&quot;&quot;</summary>
+        /// <summary>Always `true` in 200 responses. Present for forward compatibility: afuture version may add intermediate states; callers should treat `true`as &quot;object storage is usable for this branch right now.&quot;</summary>
         public bool? Enabled { get; set; }
-        /// <summary>&quot;Whether the S3 client must use path-style addressing(bucket-in-path rather than virtual-hosted subdomain).Always true: the wildcard TLS cert covers one level of subdomain(*.storage.&lt;suffix&gt;), so the branch ID occupies that label and thebucket name must travel in the request path, not as a furthersubdomain. Callers must set the S3 SDK&apos;s ForcePathStyle (orequivalent) to true.&quot;</summary>
+        /// <summary>Whether the S3 client must use path-style addressing(bucket-in-path rather than virtual-hosted subdomain).Always true: the wildcard TLS cert covers one level of subdomain(*.storage.&lt;suffix&gt;), so the branch ID occupies that label and thebucket name must travel in the request path, not as a furthersubdomain. Callers must set the S3 SDK&apos;s ForcePathStyle (orequivalent) to true.</summary>
         public bool? ForcePathStyle { get; set; }
-        /// <summary>&quot;The AWS region for this branch&apos;s object storage. The platform normalizesthe us-east-1 convention server-side: a non-empty region string isalways returned in 200 responses (e.g. `\&quot;us-east-1\&quot;` for the S3default region).&quot;</summary>
+        /// <summary>The AWS region for this branch&apos;s object storage. The platform normalizesthe us-east-1 convention server-side: a non-empty region string isalways returned in 200 responses (e.g. `&quot;us-east-1&quot;` for the S3default region).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Region { get; set; }

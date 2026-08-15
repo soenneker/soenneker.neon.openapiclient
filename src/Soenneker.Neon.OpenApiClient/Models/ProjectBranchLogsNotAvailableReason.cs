@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Machine-readable reason why logs cannot be read:- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.- `telemetry_not_enabled`: the branch exists but is not collecting telemetry, so it  has no logs to serve.&quot;</summary>
+    /// <summary>Machine-readable reason why logs cannot be read:- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.- `telemetry_not_enabled`: the branch exists but is not collecting telemetry, so it  has no logs to serve.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectBranchLogsNotAvailableReason
     {

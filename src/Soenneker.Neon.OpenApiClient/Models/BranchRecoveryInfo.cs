@@ -17,7 +17,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp when the branch was deleted</summary>
         public DateTimeOffset? DeletedAt { get; set; }
-        /// <summary>&quot;How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration&quot;</summary>
+        /// <summary>How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod? DeletionMethod { get; set; }
         /// <summary>Timestamp when the recovery window expires and the branch will be permanently deleted</summary>
         public DateTimeOffset? RecoverableUntil { get; set; }

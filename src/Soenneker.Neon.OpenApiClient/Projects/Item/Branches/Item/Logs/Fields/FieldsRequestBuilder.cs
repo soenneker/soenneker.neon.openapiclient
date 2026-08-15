@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields
         {
         }
         /// <summary>
-        /// &quot;Lists the low-cardinality log fields observed on this branch whosedistinct values can be discovered with the log field-values endpoint.The set is computed per branch and grows as new fields are observed, sotreat it as data rather than a fixed list: discover a field here, thenpass it as `field_name` to the field-values endpoint.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// Lists the low-cardinality log fields observed on this branch whosedistinct values can be discovered with the log field-values endpoint.The set is computed per branch and grows as new fields are observed, sotreat it as data rather than a fixed list: discover a field here, thenpass it as `field_name` to the field-values endpoint.**Note**: This endpoint is currently in Private Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -72,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogFieldsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists the low-cardinality log fields observed on this branch whosedistinct values can be discovered with the log field-values endpoint.The set is computed per branch and grows as new fields are observed, sotreat it as data rather than a fixed list: discover a field here, thenpass it as `field_name` to the field-values endpoint.**Note**: This endpoint is currently in Private Beta.&quot;
+        /// Lists the low-cardinality log fields observed on this branch whosedistinct values can be discovered with the log field-values endpoint.The set is computed per branch and grows as new fields are observed, sotreat it as data rather than a fixed list: discover a field here, thenpass it as `field_name` to the field-values endpoint.**Note**: This endpoint is currently in Private Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

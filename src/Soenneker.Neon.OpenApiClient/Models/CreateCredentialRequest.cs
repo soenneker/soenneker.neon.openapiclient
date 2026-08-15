@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Principal type for the credential. Only `user` is customer-managedand accepted here. `function` and `system` credentials areplatform-internal (e.g. function-serve auto-mint, presign signer)and are never issued through the customer-facing API.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType? PrincipalType { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType? PrincipalType { get; set; }
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "principal_type", n => { PrincipalType = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType>(); } },
+                { "principal_type", n => { PrincipalType = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>()?.AsList(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.CreateCredentialRequestPrincipalType>("principal_type", PrincipalType);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>("principal_type", PrincipalType);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>("scopes", Scopes);
             writer.WriteAdditionalData(AdditionalData);
         }

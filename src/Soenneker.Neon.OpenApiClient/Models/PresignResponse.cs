@@ -24,7 +24,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.PresignResponseHeadersProperty Headers { get; set; }
 #endif
-        /// <summary>&quot;The HTTP method to use against `url`: `PUT` for an upload,`GET` for a download.&quot;</summary>
+        /// <summary>The HTTP method to use against `url`: `PUT` for an upload,`GET` for a download.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Method { get; set; }

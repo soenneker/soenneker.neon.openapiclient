@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.&quot;
+        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.&quot;
+        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

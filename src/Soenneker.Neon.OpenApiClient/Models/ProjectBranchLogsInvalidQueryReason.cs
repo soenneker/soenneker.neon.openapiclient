@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Machine-readable reason why the request was rejected:- `time_range_too_large`: the requested window spans more than seven days.- `invalid_time_range`: `end_time` is not after `start_time`.- `conflicting_time_range`: both `since` and `start_time` were supplied.- `invalid_cursor`: the supplied `cursor` is malformed, expired, or was issued for a  different query.- `unknown_field`: the requested `field_name` is not one of the fields the log fields  endpoint reports for this branch.- `invalid_logql`: the supplied `logql` expression does not parse, or uses a  construct this endpoint does not accept.- `conflicting_filters`: `logql` was supplied alongside one or more structured  filters. Use one or the other.&quot;</summary>
+    /// <summary>Machine-readable reason why the request was rejected:- `time_range_too_large`: the requested window spans more than seven days.- `invalid_time_range`: `end_time` is not after `start_time`.- `conflicting_time_range`: both `since` and `start_time` were supplied.- `invalid_cursor`: the supplied `cursor` is malformed, expired, or was issued for a  different query.- `unknown_field`: the requested `field_name` is not one of the fields the log fields  endpoint reports for this branch.- `invalid_logql`: the supplied `logql` expression does not parse, or uses a  construct this endpoint does not accept.- `conflicting_filters`: `logql` was supplied alongside one or more structured  filters. Use one or the other.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ProjectBranchLogsInvalidQueryReason
     {

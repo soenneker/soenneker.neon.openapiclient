@@ -17,7 +17,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public bool? AddDefaultGrants { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Authentication provider for the Neon Data API. `neon_auth`: use Neon&apos;s built-in managed authentication (no JWKS configuration required). `external`: use an external JWT provider, which requires `jwks_url`. When omitted, no auth provider is configured (existing setup is kept).&quot;</summary>
+        /// <summary>Authentication provider for the Neon Data API. `neon_auth`: use Neon&apos;s built-in managed authentication (no JWKS configuration required). `external`: use an external JWT provider, which requires `jwks_url`. When omitted, no auth provider is configured (existing setup is kept).</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.DataApiCreateRequestAuthProvider? AuthProvider { get; set; }
         /// <summary>URL of the JWKS endpoint used to verify JWTs for this Data API. Required when configuring JWT-based authentication; omit when using a non-JWT auth provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

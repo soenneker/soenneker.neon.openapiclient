@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
         {
         }
         /// <summary>
-        /// &quot;Creates a deployment for the function. Supply any subset of zip,environment, and runtime; omitted fields inherit thefunction&apos;s latest version. At least one field must be supplied. Thefirst deployment of a function must include zip. The newest deploymentbecomes active.**Note**: This endpoint is currently in Beta.&quot;
+        /// Creates a deployment for the function. Supply any subset of zip,environment, and runtime; omitted fields inherit thefunction&apos;s latest version. At least one field must be supplied. Thefirst deployment of a function must include zip. The newest deploymentbecomes active.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionDeploymentResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionDeploymentResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.NeonFunctionDeploymentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a deployment for the function. Supply any subset of zip,environment, and runtime; omitted fields inherit thefunction&apos;s latest version. At least one field must be supplied. Thefirst deployment of a function must include zip. The newest deploymentbecomes active.**Note**: This endpoint is currently in Beta.&quot;
+        /// Creates a deployment for the function. Supply any subset of zip,environment, and runtime; omitted fields inherit thefunction&apos;s latest version. At least one field must be supplied. Thefirst deployment of a function must include zip. The newest deploymentbecomes active.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

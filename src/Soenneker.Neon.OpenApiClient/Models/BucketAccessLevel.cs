@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Controls anonymous access to objects in the bucket.- `private`: all reads and writes require authenticated requests (default).- `public_read`: anonymous `GetObject`/`HeadObject` requests succeed; listing,  writes, and deletes still require authenticated requests.&quot;</summary>
+    /// <summary>Controls anonymous access to objects in the bucket.- `private`: all reads and writes require authenticated requests (default).- `public_read`: anonymous `GetObject`/`HeadObject` requests succeed; listing,  writes, and deletes still require authenticated requests.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BucketAccessLevel
     {

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.&quot;</summary>
+    /// <summary>Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NeonAuthOrganizationConfigCreatorRole
     {

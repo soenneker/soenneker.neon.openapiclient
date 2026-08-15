@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>&quot;Machine-readable reason why the AI gateway is unavailable:- `ai_gateway_unavailable`: the project&apos;s region/cell has no AI gateway configured.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
+    /// <summary>Machine-readable reason why the AI gateway is unavailable:- `ai_gateway_unavailable`: the project&apos;s region/cell has no AI gateway configured.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BranchAiGatewayNotEnabledReason
     {

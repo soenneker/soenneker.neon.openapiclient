@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions
         {
         }
         /// <summary>
-        /// &quot;Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranchFunctions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranchFunctions200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ListProjectBranchFunctions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Functions.FunctionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.&quot;
+        /// Lists functions on the specified branch.**Note**: This endpoint is currently in Beta.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FunctionsRequestBuilderGetQueryParameters 

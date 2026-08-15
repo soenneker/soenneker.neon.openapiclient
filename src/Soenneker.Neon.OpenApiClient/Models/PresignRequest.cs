@@ -15,7 +15,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The `Content-Type` to bind into the signed request. Only meaningfulfor `upload`: when set, the caller MUST send the same `Content-Type`header on the `PUT`, and the value is echoed back in the response`headers`. Ignored for `download`.&quot;</summary>
+        /// <summary>The `Content-Type` to bind into the signed request. Only meaningfulfor `upload`: when set, the caller MUST send the same `Content-Type`header on the `PUT`, and the value is echoed back in the response`headers`. Ignored for `download`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentType { get; set; }

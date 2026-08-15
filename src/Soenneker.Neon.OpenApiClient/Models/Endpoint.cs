@@ -44,7 +44,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreationSource { get; set; }
 #endif
-        /// <summary>&quot;Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).&quot;</summary>
+        /// <summary>Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? CurrentState { get; set; }
         /// <summary>Whether to restrict connections to the compute endpoint.Enabling this option schedules a suspend compute operation.A disabled compute endpoint cannot be enabled by a connection orconsole action.</summary>
         public bool? Disabled { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Host { get; set; }
 #endif
-        /// <summary>&quot;The compute endpoint ID. Compute endpoint IDs have an `ep-` prefix. For example: `ep-little-smoke-851426`&quot;</summary>
+        /// <summary>The compute endpoint ID. Compute endpoint IDs have an `ep-` prefix. For example: `ep-little-smoke-851426`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether to permit passwordless access to the compute endpoint</summary>
         public bool? PasswordlessAccess { get; set; }
-        /// <summary>&quot;Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).&quot;</summary>
+        /// <summary>Lifecycle state of the compute endpoint. `init`: being initialized. `active`: running and accepting connections. `idle`: suspended (scaled to zero).</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointState? PendingState { get; set; }
         /// <summary>Deprecated. To use connection pooling, append `-pooler` to the endpoint ID in the connection string.</summary>
         [Obsolete("")]
@@ -130,7 +130,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? SuspendedAt { get; set; }
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
         public long? SuspendTimeoutSeconds { get; set; }
-        /// <summary>&quot;Compute endpoint type. `read_write`: the primary read-write endpoint (one per branch). `read_only`: a read replica endpoint (multiple allowed per branch).&quot;</summary>
+        /// <summary>Compute endpoint type. `read_write`: the primary read-write endpoint (one per branch). `read_only`: a read replica endpoint (multiple allowed per branch).</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointType? Type { get; set; }
         /// <summary>A timestamp indicating when the compute endpoint was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

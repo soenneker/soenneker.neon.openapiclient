@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.&quot;</summary>
+        /// <summary>Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigCreatorRole? CreatorRole { get; set; }
         /// <summary>Whether the organization plugin is enabled.</summary>
         public bool? Enabled { get; set; }

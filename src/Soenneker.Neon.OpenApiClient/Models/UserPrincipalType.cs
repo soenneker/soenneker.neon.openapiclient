@@ -5,7 +5,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>Principal type for the credential. Only `user` is customer-managedand accepted here. `function` and `system` credentials areplatform-internal (e.g. function-serve auto-mint, presign signer)and are never issued through the customer-facing API.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CreateCredentialRequestPrincipalType
+    public enum UserPrincipalType
     {
         [EnumMember(Value = "user")]
         #pragma warning disable CS1591

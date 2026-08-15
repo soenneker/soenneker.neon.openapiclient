@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_rest
         {
         }
         /// <summary>
-        /// &quot;Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.&quot;
+        /// Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Finalize_rest
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.OperationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.&quot;
+        /// Finalize the restore operation for a branch created from a snapshot.This operation updates the branch so it functions as the original branch it replaced.This includes:  - Reassigning any computes from the original branch to the restored branch (this will restart the computes)  - Renaming the restored branch to the original branch&apos;s name  - Renaming the original branch so it no longer uses the original nameThis operation only applies to branches created using the `restoreSnapshot` endpoint with `finalize_restore: false`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

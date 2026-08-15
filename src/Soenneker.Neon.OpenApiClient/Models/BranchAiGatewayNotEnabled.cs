@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string MessageEscaped { get; set; }
 #endif
-        /// <summary>&quot;Machine-readable reason why the AI gateway is unavailable:- `ai_gateway_unavailable`: the project&apos;s region/cell has no AI gateway configured.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.&quot;</summary>
+        /// <summary>Machine-readable reason why the AI gateway is unavailable:- `ai_gateway_unavailable`: the project&apos;s region/cell has no AI gateway configured.- `branch_not_found`: the project or branch does not exist, or the caller does not  have access to it.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BranchAiGatewayNotEnabledReason? Reason { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchAiGatewayNotEnabled"/> and sets the default values.
