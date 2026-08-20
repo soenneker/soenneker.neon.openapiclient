@@ -34,13 +34,14 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_tes
         {
         }
         /// <summary>
-        /// Sends a test email using the configured email server settings to verify SMTP connectivity and credentials.The request body must include the SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.
+        /// Sends a test email using the SMTP server settings supplied in the request body to verify connectivity and credentials.The request body must include the full SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.Deprecated: to test a branch&apos;s already-saved configuration, use `sendNeonAuthEmailProviderTest`, whichreuses the stored SMTP password server-side so the caller never has to re-supply (or be able to read) it.This endpoint remains available for testing an unsaved full configuration and for non-Better-Auth providers.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse?> PostAsync(global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -59,11 +60,12 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_tes
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sends a test email using the configured email server settings to verify SMTP connectivity and credentials.The request body must include the SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.
+        /// Sends a test email using the SMTP server settings supplied in the request body to verify connectivity and credentials.The request body must include the full SMTP server settings(`host`, `port`, `username`, `password`, `sender_email`, `sender_name`) and the `recipient_email` address.Deprecated: to test a branch&apos;s already-saved configuration, use `sendNeonAuthEmailProviderTest`, whichreuses the stored SMTP password server-side so the caller never has to re-supply (or be able to read) it.This endpoint remains available for testing an unsaved full configuration and for non-Better-Auth providers.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPostRequestInformation(global::Soenneker.Neon.OpenApiClient.Models.SendNeonAuthTestEmailRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -85,6 +87,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_tes
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email.Send_test_emailRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email.Send_test_emailRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email.Send_test_emailRequestBuilder(rawUrl, RequestAdapter);

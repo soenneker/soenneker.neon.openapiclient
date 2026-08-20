@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Test;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_pr
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Email_providerRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The test property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Test.TestRequestBuilder Test
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Test.TestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Email_providerRequestBuilder"/> and sets the default values.
         /// </summary>
