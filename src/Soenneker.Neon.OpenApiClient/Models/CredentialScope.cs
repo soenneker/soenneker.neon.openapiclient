@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>A single capability a credential may exercise. A credential is granteda set of these; it may only perform actions explicitly listed in itsscopes.</summary>
+    /// <summary>A single capability you may request when issuing a credential. Acredential is granted a set of these; it may only perform actionsexplicitly listed in its scopes.This is the *requestable* set. Responses describing an existingcredential use `GrantedCredentialScope`, which is deliberately wider:a credential may have been granted a scope that this endpoint does notoffer, and a response must be able to report it.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CredentialScope
     {

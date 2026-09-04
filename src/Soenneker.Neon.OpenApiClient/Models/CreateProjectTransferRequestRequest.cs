@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public CreateProjectTransferRequestRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            TtlSeconds = 86400;
+            TtlSeconds = 86400L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

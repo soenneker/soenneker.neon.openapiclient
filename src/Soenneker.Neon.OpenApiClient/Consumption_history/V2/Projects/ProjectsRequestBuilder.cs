@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ProjectsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/projects?from={from}&granularity={granularity}&metrics={metrics}&org_id={org_id}&to={to}{&cursor*,limit*,project_ids*}", pathParameters)
+        public ProjectsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/projects?from={from}&granularity={granularity}&org_id={org_id}&to={to}{&cursor*,limit*,project_ids*,metrics*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Projects
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ProjectsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/projects?from={from}&granularity={granularity}&metrics={metrics}&org_id={org_id}&to={to}{&cursor*,limit*,project_ids*}", rawUrl)
+        public ProjectsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/projects?from={from}&granularity={granularity}&org_id={org_id}&to={to}{&cursor*,limit*,project_ids*,metrics*}", rawUrl)
         {
         }
         /// <summary>

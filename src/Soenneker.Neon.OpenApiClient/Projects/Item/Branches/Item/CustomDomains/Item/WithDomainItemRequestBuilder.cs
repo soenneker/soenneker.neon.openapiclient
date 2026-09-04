@@ -4,53 +4,40 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Reveal;
-using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Rotate;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item
+namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\credentials\{tokenId}
+    /// Builds and executes requests for operations under \projects\{projectId}\branches\{branchId}\custom-domains\{domain}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithTokenItemRequestBuilder : BaseRequestBuilder
+    public partial class WithDomainItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The reveal property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Reveal.RevealRequestBuilder Reveal
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Reveal.RevealRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The rotate property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Rotate.RotateRequestBuilder Rotate
-        {
-            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.Rotate.RotateRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.WithTokenItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item.WithDomainItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTokenItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/credentials/{tokenId}", pathParameters)
+        public WithDomainItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/custom-domains/{domain}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.WithTokenItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item.WithDomainItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithTokenItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/credentials/{tokenId}", rawUrl)
+        public WithDomainItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/custom-domains/{domain}", rawUrl)
         {
         }
         /// <summary>
-        /// Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Beta.
+        /// Removes a custom domain registered on the branch and stops routing it.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,13 +51,12 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.I
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Soft-deletes the credential.  Idempotent.**Note**: This endpoint is currently in Beta.
+        /// Removes a custom domain registered on the branch and stops routing it.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,11 +77,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.I
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.WithTokenItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item.WithDomainItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.WithTokenItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item.WithDomainItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.Item.WithTokenItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.Item.WithDomainItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

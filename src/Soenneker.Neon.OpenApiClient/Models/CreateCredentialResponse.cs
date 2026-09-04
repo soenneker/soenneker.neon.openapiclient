@@ -53,10 +53,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope?>? Scopes { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope?>? Scopes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope?> Scopes { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope?> Scopes { get; set; }
 #endif
         /// <summary>Opaque credential id (e.g. nak_live_&lt;32hex&gt;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "s3_secret_access_key", n => { S3SecretAccessKey = n.GetStringValue(); } },
-                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>()?.AsList(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope>()?.AsList(); } },
                 { "token_id", n => { TokenId = n.GetStringValue(); } },
                 { "token_id_short", n => { TokenIdShort = n.GetStringValue(); } },
             };
@@ -123,7 +123,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("s3_secret_access_key", S3SecretAccessKey);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>("scopes", Scopes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope>("scopes", Scopes);
             writer.WriteStringValue("token_id", TokenId);
             writer.WriteStringValue("token_id_short", TokenIdShort);
             writer.WriteAdditionalData(AdditionalData);

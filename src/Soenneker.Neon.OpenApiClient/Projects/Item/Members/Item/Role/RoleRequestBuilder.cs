@@ -137,8 +137,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Members.Item.Role
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RoleRequestBuilderDeleteQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("confirm_self_lockout")]
             public bool? ConfirmSelfLockout { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Idempotently sets or updates the explicit project grant of the specified org member.Self-demotion requires `confirm_self_demotion=true`.
@@ -146,8 +148,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Members.Item.Role
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RoleRequestBuilderPutQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("confirm_self_demotion")]
             public bool? ConfirmSelfDemotion { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

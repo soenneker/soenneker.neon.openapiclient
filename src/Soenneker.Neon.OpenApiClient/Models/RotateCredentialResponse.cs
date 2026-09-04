@@ -7,13 +7,22 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// The replacement secret material for an existing credential, returnedexactly once. `token_id`, `scopes`, `branch_id` and `created_at` areunchanged by the rotation — only `api_token` and`s3_secret_access_key` are new.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CredentialMeta : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class RotateCredentialResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The new Bearer token; returned exactly once.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApiToken { get; set; }
+#nullable restore
+#else
+        public string ApiToken { get; set; }
+#endif
         /// <summary>The branch_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,21 +31,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string BranchId { get; set; }
 #endif
-        /// <summary>The created_at property</summary>
+        /// <summary>When the credential was originally issued. Rotation replaces thesecrets in place and does not reset this.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>When the credential expires; absent means never expires. Theverifier refuses to authenticate after `expires_at &lt;= now()`.</summary>
+        /// <summary>When the credential expires; absent means never expires. Rotationdoes not extend it.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The function_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FunctionId { get; set; }
-#nullable restore
-#else
-        public string FunctionId { get; set; }
-#endif
-        /// <summary>The last_used_at property</summary>
-        public DateTimeOffset? LastUsedAt { get; set; }
-        /// <summary>Customer-supplied label; absent when not provided at issuance.</summary>
+        /// <summary>Customer-supplied label carried on the credential. Absent when none was set at issuance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -44,16 +43,16 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The principal_type property</summary>
+        /// <summary>Principal type for the credential. Only `user` is customer-managedand accepted here. `function` and `system` credentials areplatform-internal (e.g. function-serve auto-mint, presign signer)and are never issued through the customer-facing API.</summary>
+        public global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType? PrincipalType { get; set; }
+        /// <summary>The new nsk_live_&lt;64 hex&gt; AWS_SECRET_ACCESS_KEY; returned exactly once.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrincipalType { get; set; }
+        public string? S3SecretAccessKey { get; set; }
 #nullable restore
 #else
-        public string PrincipalType { get; set; }
+        public string S3SecretAccessKey { get; set; }
 #endif
-        /// <summary>The revoked_at property</summary>
-        public DateTimeOffset? RevokedAt { get; set; }
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +61,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope?> Scopes { get; set; }
 #endif
-        /// <summary>Opaque credential id (e.g. nak_live_&lt;32hex&gt;).</summary>
+        /// <summary>Opaque credential id (e.g. nak_live_&lt;32hex&gt;), unchanged by therotation. Doubles as the `AWS_ACCESS_KEY_ID` for SigV4.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TokenId { get; set; }
@@ -70,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string TokenId { get; set; }
 #endif
-        /// <summary>The token_id_short property</summary>
+        /// <summary>First 12 hex chars of token_id; safe to log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TokenIdShort { get; set; }
@@ -79,21 +78,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string TokenIdShort { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.CredentialMeta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.RotateCredentialResponse"/> and sets the default values.
         /// </summary>
-        public CredentialMeta()
+        public RotateCredentialResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.CredentialMeta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.RotateCredentialResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Neon.OpenApiClient.Models.CredentialMeta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Neon.OpenApiClient.Models.RotateCredentialResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.CredentialMeta();
+            return new global::Soenneker.Neon.OpenApiClient.Models.RotateCredentialResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,14 +102,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "api_token", n => { ApiToken = n.GetStringValue(); } },
                 { "branch_id", n => { BranchId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "function_id", n => { FunctionId = n.GetStringValue(); } },
-                { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "principal_type", n => { PrincipalType = n.GetStringValue(); } },
-                { "revoked_at", n => { RevokedAt = n.GetDateTimeOffsetValue(); } },
+                { "principal_type", n => { PrincipalType = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>(); } },
+                { "s3_secret_access_key", n => { S3SecretAccessKey = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope>()?.AsList(); } },
                 { "token_id", n => { TokenId = n.GetStringValue(); } },
                 { "token_id_short", n => { TokenIdShort = n.GetStringValue(); } },
@@ -123,14 +121,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("api_token", ApiToken);
             writer.WriteStringValue("branch_id", BranchId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteStringValue("function_id", FunctionId);
-            writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("principal_type", PrincipalType);
-            writer.WriteDateTimeOffsetValue("revoked_at", RevokedAt);
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>("principal_type", PrincipalType);
+            writer.WriteStringValue("s3_secret_access_key", S3SecretAccessKey);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.GrantedCredentialScope>("scopes", Scopes);
             writer.WriteStringValue("token_id", TokenId);
             writer.WriteStringValue("token_id_short", TokenIdShort);

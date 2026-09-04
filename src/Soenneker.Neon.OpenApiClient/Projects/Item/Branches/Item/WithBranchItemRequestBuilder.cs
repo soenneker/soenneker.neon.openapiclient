@@ -12,6 +12,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Backup_schedule;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Compare_schema;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Databases;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Endpoints;
@@ -77,6 +78,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.CredentialsRequestBuilder Credentials
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Credentials.CredentialsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The customDomains property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.CustomDomainsRequestBuilder CustomDomains
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.CustomDomains.CustomDomainsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dataApi property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.DataApi.DataApiRequestBuilder DataApi

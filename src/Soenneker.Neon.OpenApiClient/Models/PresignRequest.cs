@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public PresignRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            ExpiresInSeconds = 900;
+            ExpiresInSeconds = 900L;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

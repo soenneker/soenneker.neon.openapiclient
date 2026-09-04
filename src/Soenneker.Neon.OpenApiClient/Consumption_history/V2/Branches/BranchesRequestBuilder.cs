@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Branches
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BranchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/branches?from={from}&granularity={granularity}&metrics={metrics}&org_id={org_id}&project_ids={project_ids}&to={to}{&branch_ids*,cursor*,limit*}", pathParameters)
+        public BranchesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/branches?from={from}&granularity={granularity}&org_id={org_id}&to={to}{&branch_ids*,cursor*,limit*,metrics*,project_ids*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.V2.Branches
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BranchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/branches?from={from}&granularity={granularity}&metrics={metrics}&org_id={org_id}&project_ids={project_ids}&to={to}{&branch_ids*,cursor*,limit*}", rawUrl)
+        public BranchesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/consumption_history/v2/branches?from={from}&granularity={granularity}&org_id={org_id}&to={to}{&branch_ids*,cursor*,limit*,metrics*,project_ids*}", rawUrl)
         {
         }
         /// <summary>
