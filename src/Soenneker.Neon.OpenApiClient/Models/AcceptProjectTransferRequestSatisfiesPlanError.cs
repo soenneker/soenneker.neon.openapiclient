@@ -16,7 +16,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
+        public override string Message { get => MessageEscaped ?? string.Empty; }
+        /// <summary>The primary error message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageEscaped { get; set; }
+#nullable restore
+#else
+        public string MessageEscaped { get; set; }
+#endif
         /// <summary>List of reasons why the target account&apos;s plan cannot satisfy the transfer requirements. Each item contains a `code` identifying the constraint and a `message` with a human-readable explanation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +58,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "reasons", n => { Reasons = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>(global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -60,6 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("message", MessageEscaped);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem>("reasons", Reasons);
             writer.WriteAdditionalData(AdditionalData);
         }

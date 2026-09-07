@@ -9431,6 +9431,191 @@
         }
       ]
     },
+    "/projects/{projectId}/branches/{branchId}/triggers": {
+      "get": {
+        "tags": [
+          "Functions"
+        ],
+        "summary": "List triggers on the branch",
+        "description": "Lists the complete project-bounded set of triggers visible on the branch,\nordered by \u0060trigger_id\u0060. An inherited trigger keeps its project-wide ID\nand source branch, and is disabled on the child until explicitly enabled\nthere.\n\nThe only currently supported trigger type is \u0060schedule\u0060.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "operationId": "ListProjectBranchTriggers",
+        "responses": {
+          "200": {
+            "description": "The branch-effective trigger list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggersListResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Functions"
+        ],
+        "summary": "Create a trigger",
+        "description": "Creates a trigger for a Function visible on the branch. The required\n\u0060type\u0060 discriminator selects the trigger-specific configuration. The\nonly currently supported type is \u0060schedule\u0060, whose cron is a numeric\nfive-field expression and timezone is an IANA timezone name.\n\nThe name must be unique among triggers visible on the branch, including\ninherited triggers.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "operationId": "CreateProjectBranchTrigger",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriggerCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Trigger created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchId",
+          "in": "path",
+          "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/projects/{projectId}/branches/{branchId}/triggers/{triggerId}": {
+      "get": {
+        "tags": [
+          "Functions"
+        ],
+        "summary": "Get a trigger",
+        "description": "Returns the trigger visible on the branch. The only currently supported\ntrigger type is \u0060schedule\u0060.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "operationId": "GetProjectBranchTrigger",
+        "responses": {
+          "200": {
+            "description": "The trigger",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Functions"
+        ],
+        "summary": "Update a trigger",
+        "description": "Applies a partial update. The required \u0060type\u0060 discriminator must identify\nthe existing trigger kind; the only currently supported type is\n\u0060schedule\u0060. Editing an inherited trigger creates a child-local shadow\nwith the same \u0060trigger_id\u0060; it remains disabled unless this request\nexplicitly enables it. Updating the schedule or enabled state increments\n\u0060version\u0060 and recomputes \u0060next_run_at\u0060.\n\nDisabling stops future scheduling but does not cancel occurrences already\ncommitted for delivery.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "operationId": "UpdateProjectBranchTrigger",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriggerUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The updated trigger",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Functions"
+        ],
+        "summary": "Delete a trigger",
+        "description": "Deletes a branch-local trigger or writes a branch-local tombstone for an\ninherited trigger so it does not reappear. Deletion stops future\nscheduling but does not cancel occurrences already committed for delivery.\nThe only currently supported trigger type is \u0060schedule\u0060.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "operationId": "DeleteProjectBranchTrigger",
+        "responses": {
+          "204": {
+            "description": "Trigger deleted"
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "description": "The Neon project ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchId",
+          "in": "path",
+          "description": "The Neon branch ID",
+          "required": true,
+          "schema": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          }
+        },
+        {
+          "name": "triggerId",
+          "in": "path",
+          "description": "The opaque, project-wide trigger ID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/projects/{projectId}/branches/{branchId}/custom-domains": {
       "post": {
         "tags": [
@@ -9581,17 +9766,36 @@
   },
   "components": {
     "schemas": {
-      "OrgApiKeysListResponseItemAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
+      "ProjectListItemEffectiveProjectPermission": {
+        "enum": [
+          "VIEWER",
+          "EDITOR",
+          "ADMIN"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "ProjectListItemEffectiveProjectPermission",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "VIEWER",
+              "name": "Viewer"
+            },
+            {
+              "value": "EDITOR",
+              "name": "Editor"
+            },
+            {
+              "value": "ADMIN",
+              "name": "Admin"
+            }
+          ]
         }
       },
-      "OrgApiKeyRevokeResponseAllOf2": {
+      "OrgApiKeysListResponseItemAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -10997,6 +11201,10 @@
               "$ref": "#/components/schemas/AcceptProjectTransferRequestSatisfiesPlanErrorReasonsItem"
             },
             "description": "List of reasons why the target account\u0027s plan cannot satisfy the transfer requirements. Each item contains a \u0060code\u0060 identifying the constraint and a \u0060message\u0060 with a human-readable explanation."
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -12049,7 +12257,7 @@
           "cpu_used_sec": 461100
         }
       },
-      "OrgApiKeyCreateResponseAllOf2": {
+      "OrgApiKeyRevokeResponseAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -12059,7 +12267,7 @@
           }
         }
       },
-      "OrgApiKeyCreateRequestAllOf2": {
+      "OrgApiKeyCreateResponseAllOf2": {
         "type": "object",
         "properties": {
           "project_id": {
@@ -12764,28 +12972,13 @@
           ]
         }
       },
-      "RestoredSnapshotResponse": {
-        "required": [
-          "branch",
-          "operations"
-        ],
+      "OrgApiKeyCreateRequestAllOf2": {
         "type": "object",
         "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints associated with the project."
-          },
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
           }
         }
       },
@@ -14312,13 +14505,10 @@
         "deprecated": true,
         "x-sunset": "2026-06-20"
       },
-      "CreatedBranchResponse": {
+      "RestoredSnapshotResponse": {
         "required": [
           "branch",
-          "endpoints",
-          "operations",
-          "roles",
-          "databases"
+          "operations"
         ],
         "type": "object",
         "properties": {
@@ -14330,34 +14520,13 @@
             "items": {
               "$ref": "#/components/schemas/Endpoint"
             },
-            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
+            "description": "Compute endpoints associated with the project."
           },
           "operations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Operation"
             }
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Role"
-            },
-            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
-          },
-          "databases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Database"
-            },
-            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
-          },
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
-            },
-            "description": "Connection URIs for the compute endpoint, including credentials."
           }
         }
       },
@@ -15878,27 +16047,31 @@
           }
         }
       },
-      "CreatedProjectResponse": {
+      "CreatedBranchResponse": {
         "required": [
-          "project",
-          "connection_uris",
-          "roles",
-          "databases",
-          "operations",
           "branch",
-          "endpoints"
+          "endpoints",
+          "operations",
+          "roles",
+          "databases"
         ],
         "type": "object",
         "properties": {
-          "project": {
-            "$ref": "#/components/schemas/Project"
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
           },
-          "connection_uris": {
+          "endpoints": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
+              "$ref": "#/components/schemas/Endpoint"
             },
-            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
           },
           "roles": {
             "type": "array",
@@ -15914,21 +16087,12 @@
             },
             "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
           },
-          "operations": {
+          "connection_uris": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
+              "$ref": "#/components/schemas/ConnectionDetails"
             },
-            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
+            "description": "Connection URIs for the compute endpoint, including credentials."
           }
         }
       },
@@ -16595,20 +16759,57 @@
           ]
         }
       },
-      "ListOperationsResponse": {
+      "CreatedProjectResponse": {
         "required": [
-          "operations"
+          "project",
+          "connection_uris",
+          "roles",
+          "databases",
+          "operations",
+          "branch",
+          "endpoints"
         ],
         "type": "object",
         "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "connection_uris": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDetails"
+            },
+            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
+          },
+          "databases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Database"
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
+          },
           "operations": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Operation"
             }
           },
-          "pagination": {
-            "$ref": "#/components/schemas/Pagination"
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
           }
         }
       },
@@ -17429,6 +17630,379 @@
           }
         }
       },
+      "ListOperationsResponse": {
+        "required": [
+          "operations"
+        ],
+        "type": "object",
+        "properties": {
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "FunctionTriggerSchedule": {
+        "required": [
+          "cron"
+        ],
+        "type": "object",
+        "properties": {
+          "cron": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string",
+            "description": "Numeric five-field cron expression (minute through day-of-week).",
+            "example": "0 9 * * 1-5"
+          },
+          "timezone": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string",
+            "description": "IANA timezone name. Defaults to UTC when omitted.",
+            "default": "UTC",
+            "example": "America/New_York"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TriggerCreateRequest": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ScheduleTriggerCreateRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "function_slug": {
+            "pattern": "^[a-z0-9]{1,20}$",
+            "type": "string",
+            "description": "The branch-local Function slug to invoke."
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "Human-readable name, unique among triggers visible on the branch."
+          },
+          "function_path": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string",
+            "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+            "default": "/"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether future occurrences should be scheduled.",
+            "default": true
+          }
+        },
+        "description": "Trigger creation payload discriminated by \u0060type\u0060. The only currently\nsupported trigger type is \u0060schedule\u0060.\n",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
+            "ScheduleTriggerCreateRequest": "#/components/schemas/ScheduleTriggerCreateRequest"
+          }
+        }
+      },
+      "ScheduleTriggerCreateRequest": {
+        "required": [
+          "type",
+          "function_slug",
+          "name",
+          "schedule"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "function_slug": {
+            "pattern": "^[a-z0-9]{1,20}$",
+            "type": "string",
+            "description": "The branch-local Function slug to invoke."
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string",
+            "description": "Human-readable name, unique among triggers visible on the branch."
+          },
+          "function_path": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string",
+            "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+            "default": "/"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether future occurrences should be scheduled.",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TriggerUpdateRequest": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ScheduleTriggerUpdateRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "function_slug": {
+            "pattern": "^[a-z0-9]{1,20}$",
+            "type": "string",
+            "description": "Replacement branch-local Function slug."
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "function_path": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "True enables and false disables future scheduling."
+          }
+        },
+        "description": "Partial trigger update discriminated by \u0060type\u0060. The only currently\nsupported trigger type is \u0060schedule\u0060.\n",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
+            "ScheduleTriggerUpdateRequest": "#/components/schemas/ScheduleTriggerUpdateRequest"
+          }
+        }
+      },
+      "ScheduleTriggerUpdateRequest": {
+        "minProperties": 2,
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "function_slug": {
+            "pattern": "^[a-z0-9]{1,20}$",
+            "type": "string",
+            "description": "Replacement branch-local Function slug."
+          },
+          "name": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "function_path": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "True enables and false disables future scheduling."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Trigger": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ScheduleTrigger"
+          }
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "trigger_id": {
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+            "type": "string",
+            "description": "Opaque, server-minted project-wide trigger identifier."
+          },
+          "function_slug": {
+            "type": "string",
+            "description": "The branch-local Function slug resolved when an occurrence is consumed."
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable trigger name."
+          },
+          "function_path": {
+            "type": "string",
+            "description": "Path passed to the target Function."
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "version": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Monotonic configuration version.",
+            "format": "int64"
+          },
+          "next_run_at": {
+            "type": "string",
+            "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
+            "nullable": true
+          },
+          "source_branch_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "The public \u0060branch_id\u0060 of the branch that authored the effective configuration."
+          },
+          "inherited": {
+            "type": "boolean",
+            "description": "True when the effective configuration was authored on an ancestor branch."
+          }
+        },
+        "description": "A branch-effective trigger discriminated by \u0060type\u0060. The only currently\nsupported trigger type is \u0060schedule\u0060.\n",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/ScheduleTrigger",
+            "ScheduleTrigger": "#/components/schemas/ScheduleTrigger"
+          }
+        }
+      },
+      "ScheduleTrigger": {
+        "required": [
+          "type",
+          "trigger_id",
+          "function_slug",
+          "name",
+          "function_path",
+          "schedule",
+          "enabled",
+          "version",
+          "next_run_at",
+          "source_branch_id",
+          "inherited"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduleType"
+          },
+          "trigger_id": {
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+            "type": "string",
+            "description": "Opaque, server-minted project-wide trigger identifier."
+          },
+          "function_slug": {
+            "type": "string",
+            "description": "The branch-local Function slug resolved when an occurrence is consumed."
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable trigger name."
+          },
+          "function_path": {
+            "type": "string",
+            "description": "Path passed to the target Function."
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/FunctionTriggerSchedule"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "version": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Monotonic configuration version.",
+            "format": "int64"
+          },
+          "next_run_at": {
+            "type": "string",
+            "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
+            "nullable": true
+          },
+          "source_branch_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "The public \u0060branch_id\u0060 of the branch that authored the effective configuration."
+          },
+          "inherited": {
+            "type": "boolean",
+            "description": "True when the effective configuration was authored on an ancestor branch."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A branch-effective schedule trigger for a Function."
+      },
+      "TriggerResponse": {
+        "required": [
+          "trigger"
+        ],
+        "type": "object",
+        "properties": {
+          "trigger": {
+            "$ref": "#/components/schemas/Trigger"
+          }
+        }
+      },
+      "TriggersListResponse": {
+        "required": [
+          "triggers"
+        ],
+        "type": "object",
+        "properties": {
+          "triggers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trigger"
+            }
+          }
+        }
+      },
       "CustomDomain": {
         "required": [
           "domain",
@@ -17556,35 +18130,6 @@
             "type": "string",
             "description": "Optional JSON object (a string-to-string map) of environment\nvariables for the deployment, e.g. {\u0022KEY\u0022:\u0022VALUE\u0022}. Carried as a\nJSON-encoded string because multipart form data does not support\ntyped object parts.\n\nValues are write-only: they are encrypted at rest, and responses\ncarry only the variable names (the \u0060environment\u0060 array), never the\nvalues.\n"
           }
-        }
-      },
-      "ProjectListItemEffectiveProjectPermission": {
-        "enum": [
-          "VIEWER",
-          "EDITOR",
-          "ADMIN"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "ProjectListItemEffectiveProjectPermission",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "VIEWER",
-              "name": "Viewer"
-            },
-            {
-              "value": "EDITOR",
-              "name": "Editor"
-            },
-            {
-              "value": "ADMIN",
-              "name": "Admin"
-            }
-          ]
         }
       },
       "ProjectEffectiveProjectPermission": {
@@ -19450,6 +19995,24 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "ScheduleType": {
+        "enum": [
+          "schedule"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Trigger type discriminator.",
+        "x-ms-enum": {
+          "name": "ScheduleType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "schedule",
+              "name": "Schedule"
             }
           ]
         }

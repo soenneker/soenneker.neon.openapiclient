@@ -26,6 +26,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Schema;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Set_as_default;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -148,6 +149,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage.StorageRequestBuilder Storage
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Storage.StorageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The triggers property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.TriggersRequestBuilder Triggers
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.TriggersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.WithBranchItemRequestBuilder"/> and sets the default values.
