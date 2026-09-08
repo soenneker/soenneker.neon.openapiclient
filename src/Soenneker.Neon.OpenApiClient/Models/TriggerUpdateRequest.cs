@@ -41,7 +41,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The schedule property</summary>
+        /// <summary>A numeric five-field cron schedule interpreted in UTC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule? Schedule { get; set; }

@@ -7,12 +7,13 @@ using System.IO;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
+    /// <summary>
+    /// A numeric five-field cron schedule interpreted in UTC.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class FunctionTriggerSchedule : IParsable
-    #pragma warning restore CS1591
     {
-        /// <summary>Numeric five-field cron expression (minute through day-of-week).</summary>
+        /// <summary>Numeric five-field cron expression (minute through day-of-week), interpreted in UTC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Cron { get; set; }
@@ -20,21 +21,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Cron { get; set; }
 #endif
-        /// <summary>IANA timezone name. Defaults to UTC when omitted.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Timezone { get; set; }
-#nullable restore
-#else
-        public string Timezone { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule"/> and sets the default values.
-        /// </summary>
-        public FunctionTriggerSchedule()
-        {
-            Timezone = "UTC";
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,7 +40,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cron", n => { Cron = n.GetStringValue(); } },
-                { "timezone", n => { Timezone = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -65,7 +50,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cron", Cron);
-            writer.WriteStringValue("timezone", Timezone);
         }
     }
 }

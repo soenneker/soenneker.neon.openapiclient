@@ -9460,7 +9460,7 @@
           "Functions"
         ],
         "summary": "Create a trigger",
-        "description": "Creates a trigger for a Function visible on the branch. The required\n\u0060type\u0060 discriminator selects the trigger-specific configuration. The\nonly currently supported type is \u0060schedule\u0060, whose cron is a numeric\nfive-field expression and timezone is an IANA timezone name.\n\nThe name must be unique among triggers visible on the branch, including\ninherited triggers.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "description": "Creates a trigger for a Function visible on the branch. The required\n\u0060type\u0060 discriminator selects the trigger-specific configuration. The\nonly currently supported type is \u0060schedule\u0060, whose cron is a numeric\nfive-field expression interpreted in UTC.\n\nThe name must be unique among triggers visible on the branch, including\ninherited triggers.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "CreateProjectBranchTrigger",
         "requestBody": {
           "content": {
@@ -17657,19 +17657,12 @@
             "maxLength": 1024,
             "minLength": 1,
             "type": "string",
-            "description": "Numeric five-field cron expression (minute through day-of-week).",
+            "description": "Numeric five-field cron expression (minute through day-of-week), interpreted in UTC.",
             "example": "0 9 * * 1-5"
-          },
-          "timezone": {
-            "maxLength": 1024,
-            "minLength": 1,
-            "type": "string",
-            "description": "IANA timezone name. Defaults to UTC when omitted.",
-            "default": "UTC",
-            "example": "America/New_York"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "A numeric five-field cron schedule interpreted in UTC."
       },
       "TriggerCreateRequest": {
         "required": [

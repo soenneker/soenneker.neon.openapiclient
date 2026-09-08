@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression and timezone is an IANA timezone name.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
+        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression interpreted in UTC.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse"/></returns>
         /// <param name="body">Trigger creation payload discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return requestInfo;
         }
         /// <summary>
-        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression and timezone is an IANA timezone name.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
+        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression interpreted in UTC.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Trigger creation payload discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
