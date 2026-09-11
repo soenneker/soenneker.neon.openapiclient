@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
         {
         }
         /// <summary>
-        /// Deletes a branch-local trigger or writes a branch-local tombstone for aninherited trigger so it does not reappear. Deletion stops futurescheduling but does not cancel occurrences already committed for delivery.The only currently supported trigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Deletes a branch-local trigger or writes a branch-local tombstone for aninherited trigger so it does not reappear. Deletion stops futurescheduling or storage-event matching but does not cancel invocationsalready committed for delivery. The supported trigger types are`schedule` and `storage_object_created`.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the trigger visible on the branch. The only currently supportedtrigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Returns the trigger visible on the branch. The supported trigger typesare `schedule` and `storage_object_created`.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -79,10 +79,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Applies a partial update. The required `type` discriminator must identifythe existing trigger kind; the only currently supported type is`schedule`. Editing an inherited trigger creates a child-local shadowwith the same `trigger_id`; it remains disabled unless this requestexplicitly enables it. Updating the schedule or enabled state increments`version` and recomputes `next_run_at`.Disabling stops future scheduling but does not cancel occurrences alreadycommitted for delivery.**Note**: This endpoint is currently in Beta.
+        /// Applies a partial update. The required `type` discriminator must identifythe existing trigger kind. The supported types are `schedule` and`storage_object_created`. Editing an inherited trigger creates achild-local shadow with the same `trigger_id`; it remains disabled unlessthis request explicitly enables it. For a schedule trigger, updating theschedule or enabled state increments `version` and recomputes`next_run_at`.Disabling stops future scheduling but does not cancel occurrences alreadycommitted for delivery. For `storage_object_created`, the configurationselects one exact bucket. An omitted object-key prefix matches every keyin that bucket; a present prefix is matched byte-for-byte andcase-sensitively against the full key, without path normalization or apath-segment boundary.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse"/></returns>
-        /// <param name="body">Partial trigger update discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
+        /// <param name="body">Partial trigger update discriminated by `type`. The supported triggertypes are `schedule` and `storage_object_created`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
@@ -104,7 +104,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a branch-local trigger or writes a branch-local tombstone for aninherited trigger so it does not reappear. Deletion stops futurescheduling but does not cancel occurrences already committed for delivery.The only currently supported trigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Deletes a branch-local trigger or writes a branch-local tombstone for aninherited trigger so it does not reappear. Deletion stops futurescheduling or storage-event matching but does not cancel invocationsalready committed for delivery. The supported trigger types are`schedule` and `storage_object_created`.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns the trigger visible on the branch. The only currently supportedtrigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Returns the trigger visible on the branch. The supported trigger typesare `schedule` and `storage_object_created`.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,10 +142,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers.Item
             return requestInfo;
         }
         /// <summary>
-        /// Applies a partial update. The required `type` discriminator must identifythe existing trigger kind; the only currently supported type is`schedule`. Editing an inherited trigger creates a child-local shadowwith the same `trigger_id`; it remains disabled unless this requestexplicitly enables it. Updating the schedule or enabled state increments`version` and recomputes `next_run_at`.Disabling stops future scheduling but does not cancel occurrences alreadycommitted for delivery.**Note**: This endpoint is currently in Beta.
+        /// Applies a partial update. The required `type` discriminator must identifythe existing trigger kind. The supported types are `schedule` and`storage_object_created`. Editing an inherited trigger creates achild-local shadow with the same `trigger_id`; it remains disabled unlessthis request explicitly enables it. For a schedule trigger, updating theschedule or enabled state increments `version` and recomputes`next_run_at`.Disabling stops future scheduling but does not cancel occurrences alreadycommitted for delivery. For `storage_object_created`, the configurationselects one exact bucket. An omitted object-key prefix matches every keyin that bucket; a present prefix is matched byte-for-byte andcase-sensitively against the full key, without path normalization or apath-segment boundary.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Partial trigger update discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
+        /// <param name="body">Partial trigger update discriminated by `type`. The supported triggertypes are `schedule` and `storage_object_created`.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

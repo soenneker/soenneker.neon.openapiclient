@@ -14,7 +14,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A branch-effective trigger discriminated by `type`. The only currentlysupported trigger type is `schedule`.</summary>
+        /// <summary>A branch-effective trigger discriminated by `type`. The supported triggertypes are `schedule` and `storage_object_created`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.Trigger? Trigger { get; set; }

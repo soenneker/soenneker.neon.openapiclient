@@ -8,56 +8,27 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// Partial trigger update discriminated by `type`. The only currentlysupported trigger type is `schedule`.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest"/>, <see cref="global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TriggerUpdateRequest : IAdditionalDataHolder, IParsable
+    public partial class TriggerUpdateRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>True enables and false disables future scheduling.</summary>
-        public bool? Enabled { get; set; }
-        /// <summary>The function_path property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FunctionPath { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest? ScheduleTriggerUpdateRequest { get; set; }
 #nullable restore
 #else
-        public string FunctionPath { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest ScheduleTriggerUpdateRequest { get; set; }
 #endif
-        /// <summary>Replacement branch-local Function slug.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FunctionSlug { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest? StorageObjectCreatedTriggerUpdateRequest { get; set; }
 #nullable restore
 #else
-        public string FunctionSlug { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest StorageObjectCreatedTriggerUpdateRequest { get; set; }
 #endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>A numeric five-field cron schedule interpreted in UTC.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule? Schedule { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule Schedule { get; set; }
-#endif
-        /// <summary>Trigger type discriminator.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ScheduleType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerUpdateRequest"/> and sets the default values.
-        /// </summary>
-        public TriggerUpdateRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -66,7 +37,17 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.TriggerUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.TriggerUpdateRequest();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Neon.OpenApiClient.Models.TriggerUpdateRequest();
+            if("schedule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ScheduleTriggerUpdateRequest = new global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest();
+            }
+            else if("StorageObjectCreatedTriggerUpdateRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.StorageObjectCreatedTriggerUpdateRequest = new global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,15 +55,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ScheduleTriggerUpdateRequest != null)
             {
-                { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "function_path", n => { FunctionPath = n.GetStringValue(); } },
-                { "function_slug", n => { FunctionSlug = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>(global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>(); } },
-            };
+                return ScheduleTriggerUpdateRequest.GetFieldDeserializers();
+            }
+            else if(StorageObjectCreatedTriggerUpdateRequest != null)
+            {
+                return StorageObjectCreatedTriggerUpdateRequest.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -91,13 +72,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteStringValue("function_path", FunctionPath);
-            writer.WriteStringValue("function_slug", FunctionSlug);
-            writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>("schedule", Schedule);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ScheduleTriggerUpdateRequest != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest>(null, ScheduleTriggerUpdateRequest);
+            }
+            else if(StorageObjectCreatedTriggerUpdateRequest != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTriggerUpdateRequest>(null, StorageObjectCreatedTriggerUpdateRequest);
+            }
         }
     }
 }

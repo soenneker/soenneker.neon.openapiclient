@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
         {
         }
         /// <summary>
-        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The only currently supported trigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,10 +70,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression interpreted in UTC.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
+        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Thesupported types are `schedule` and `storage_object_created`. A scheduletrigger uses a numeric five-field cron expression interpreted in UTC. Astorage-object-created trigger fires only after a successful upload toone exact bucket and may narrow matches to an object-key prefix.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse"/></returns>
-        /// <param name="body">Trigger creation payload discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
+        /// <param name="body">Trigger creation payload discriminated by `type`. The supported triggertypes are `schedule` and `storage_object_created`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The only currently supported trigger type is `schedule`.**Note**: This endpoint is currently in Beta.
+        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,10 +114,10 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return requestInfo;
         }
         /// <summary>
-        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Theonly currently supported type is `schedule`, whose cron is a numericfive-field expression interpreted in UTC.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
+        /// Creates a trigger for a Function visible on the branch. The required`type` discriminator selects the trigger-specific configuration. Thesupported types are `schedule` and `storage_object_created`. A scheduletrigger uses a numeric five-field cron expression interpreted in UTC. Astorage-object-created trigger fires only after a successful upload toone exact bucket and may narrow matches to an object-key prefix.The name must be unique among triggers visible on the branch, includinginherited triggers.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Trigger creation payload discriminated by `type`. The only currentlysupported trigger type is `schedule`.</param>
+        /// <param name="body">Trigger creation payload discriminated by `type`. The supported triggertypes are `schedule` and `storage_object_created`.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
