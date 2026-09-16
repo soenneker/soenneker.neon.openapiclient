@@ -41,14 +41,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The public `branch_id` of the branch that authored the effective configuration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SourceBranchId { get; set; }
-#nullable restore
-#else
-        public string SourceBranchId { get; set; }
-#endif
         /// <summary>Matches successful uploads to one exact bucket and, when configured, anobject-key prefix. The Function receives a JSON request body with`type` set to `storage_object_created` and a `data` object containingexactly `bucket_name` and `object_key`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,7 +84,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "function_slug", n => { FunctionSlug = n.GetStringValue(); } },
                 { "inherited", n => { Inherited = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "source_branch_id", n => { SourceBranchId = n.GetStringValue(); } },
                 { "storage_object_created", n => { StorageObjectCreated = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerStorageObjectCreated>(global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerStorageObjectCreated.CreateFromDiscriminatorValue); } },
                 { "trigger_id", n => { TriggerId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedType>(); } },
@@ -111,7 +102,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("function_slug", FunctionSlug);
             writer.WriteBoolValue("inherited", Inherited);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("source_branch_id", SourceBranchId);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerStorageObjectCreated>("storage_object_created", StorageObjectCreated);
             writer.WriteStringValue("trigger_id", TriggerId);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedType>("type", Type);

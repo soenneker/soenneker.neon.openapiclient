@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
         {
         }
         /// <summary>
-        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
+        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand configuration, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggersListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Triggers
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.TriggerResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand source branch, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
+        /// Lists the complete project-bounded set of triggers visible on the branch,ordered by `trigger_id`. An inherited trigger keeps its project-wide IDand configuration, and is disabled on the child until explicitly enabledthere.The supported trigger types are `schedule` and`storage_object_created`. A storage-object-created trigger watches oneexact bucket and fires only after an object upload succeeds.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -9426,7 +9426,7 @@
           "Functions"
         ],
         "summary": "List triggers on the branch",
-        "description": "Lists the complete project-bounded set of triggers visible on the branch,\nordered by \u0060trigger_id\u0060. An inherited trigger keeps its project-wide ID\nand source branch, and is disabled on the child until explicitly enabled\nthere.\n\nThe supported trigger types are \u0060schedule\u0060 and\n\u0060storage_object_created\u0060. A storage-object-created trigger watches one\nexact bucket and fires only after an object upload succeeds.\n\n**Note**: This endpoint is currently in Beta.\n",
+        "description": "Lists the complete project-bounded set of triggers visible on the branch,\nordered by \u0060trigger_id\u0060. An inherited trigger keeps its project-wide ID\nand configuration, and is disabled on the child until explicitly enabled\nthere.\n\nThe supported trigger types are \u0060schedule\u0060 and\n\u0060storage_object_created\u0060. A storage-object-created trigger watches one\nexact bucket and fires only after an object upload succeeds.\n\n**Note**: This endpoint is currently in Beta.\n",
         "operationId": "ListProjectBranchTriggers",
         "responses": {
           "200": {
@@ -17989,11 +17989,6 @@
             "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
             "nullable": true
           },
-          "source_branch_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "The public \u0060branch_id\u0060 of the branch that authored the effective configuration."
-          },
           "inherited": {
             "type": "boolean",
             "description": "True when the effective configuration was authored on an ancestor branch."
@@ -18027,7 +18022,6 @@
           "enabled",
           "version",
           "next_run_at",
-          "source_branch_id",
           "inherited"
         ],
         "type": "object",
@@ -18070,11 +18064,6 @@
             "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
             "nullable": true
           },
-          "source_branch_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "The public \u0060branch_id\u0060 of the branch that authored the effective configuration."
-          },
           "inherited": {
             "type": "boolean",
             "description": "True when the effective configuration was authored on an ancestor branch."
@@ -18093,7 +18082,6 @@
           "storage_object_created",
           "enabled",
           "version",
-          "source_branch_id",
           "inherited"
         ],
         "type": "object",
@@ -18130,11 +18118,6 @@
             "type": "integer",
             "description": "Monotonic configuration version.",
             "format": "int64"
-          },
-          "source_branch_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "The public \u0060branch_id\u0060 of the branch that authored the effective configuration."
           },
           "inherited": {
             "type": "boolean",

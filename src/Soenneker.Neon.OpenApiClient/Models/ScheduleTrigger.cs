@@ -57,14 +57,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule Schedule { get; set; }
 #endif
-        /// <summary>The public `branch_id` of the branch that authored the effective configuration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SourceBranchId { get; set; }
-#nullable restore
-#else
-        public string SourceBranchId { get; set; }
-#endif
         /// <summary>Opaque, server-minted project-wide trigger identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -102,7 +94,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "next_run_at", n => { NextRunAt = n.GetStringValue(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>(global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule.CreateFromDiscriminatorValue); } },
-                { "source_branch_id", n => { SourceBranchId = n.GetStringValue(); } },
                 { "trigger_id", n => { TriggerId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>(); } },
                 { "version", n => { Version = n.GetLongValue(); } },
@@ -122,7 +113,6 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("next_run_at", NextRunAt);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>("schedule", Schedule);
-            writer.WriteStringValue("source_branch_id", SourceBranchId);
             writer.WriteStringValue("trigger_id", TriggerId);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>("type", Type);
             writer.WriteLongValue("version", Version);
