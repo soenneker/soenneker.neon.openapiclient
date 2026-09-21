@@ -74,7 +74,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "alpha"
       },
       "parameters": [
         {
@@ -319,7 +320,8 @@
             "schema": {
               "type": "boolean",
               "default": false
-            }
+            },
+            "x-stability-level": "beta"
           }
         ],
         "responses": {
@@ -771,7 +773,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -1527,7 +1530,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       }
     },
     "/projects/{projectId}/branches/{branchId}/auth": {
@@ -1552,7 +1556,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "post": {
         "tags": [
@@ -1585,7 +1590,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -1610,7 +1616,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -1658,7 +1665,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "post": {
         "tags": [
@@ -1685,7 +1693,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "delete": {
         "tags": [
@@ -1712,7 +1721,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "parameters": [
         {
@@ -1749,7 +1759,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "post": {
         "tags": [
@@ -1775,7 +1786,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -1801,7 +1813,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -1894,7 +1907,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       }
     },
     "/projects/{projectId}/branches/{branchId}/auth/users": {
@@ -1929,7 +1943,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -1969,7 +1984,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -2106,7 +2122,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       }
     },
     "/projects/auth/transfer_ownership": {
@@ -2179,7 +2196,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       }
     },
     "/projects/{projectId}/auth/oauth_providers": {
@@ -2205,7 +2223,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "post": {
         "tags": [
@@ -2239,7 +2258,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "parameters": [
         {
@@ -2276,7 +2296,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "post": {
         "tags": [
@@ -2309,7 +2330,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -2367,7 +2389,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "delete": {
         "tags": [
@@ -2384,7 +2407,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "parameters": [
         {
@@ -2440,7 +2464,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -2456,7 +2481,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -2513,7 +2539,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "patch": {
         "tags": [
@@ -2547,7 +2574,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       },
       "parameters": [
         {
@@ -2595,7 +2623,9 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2027-02-28",
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -2652,7 +2682,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -2883,7 +2914,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-03-01"
       }
     },
     "/projects/{projectId}/connection_uri": {
@@ -3183,7 +3215,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-internal": true
       },
       "parameters": [
         {
@@ -6618,7 +6651,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       }
     },
     "/organizations/{orgId}": {
@@ -6828,7 +6862,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "put": {
         "tags": [
@@ -6861,7 +6896,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -6884,7 +6920,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -7593,7 +7630,8 @@
             "$ref": "#/components/responses/GeneralError"
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "x-sunset": "2026-07-01"
       }
     },
     "/auth": {
@@ -7837,7 +7875,8 @@
             "deprecated": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "x-sunset": "2025-11-29"
           }
         ],
         "requestBody": {
@@ -7856,7 +7895,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -7989,7 +8029,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "get": {
         "tags": [
@@ -8012,7 +8053,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8062,7 +8104,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8130,7 +8173,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8187,7 +8231,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8264,7 +8309,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8321,7 +8367,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8435,7 +8482,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8530,7 +8578,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8591,7 +8640,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8697,7 +8747,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8789,7 +8840,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8867,7 +8919,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -8946,7 +8999,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "get": {
         "tags": [
@@ -8969,7 +9023,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9019,7 +9074,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9095,7 +9151,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9151,7 +9208,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9222,7 +9280,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9269,7 +9328,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "patch": {
         "tags": [
@@ -9302,7 +9362,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -9318,7 +9379,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9385,7 +9447,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9442,7 +9505,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "post": {
         "tags": [
@@ -9475,7 +9539,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9522,7 +9587,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "patch": {
         "tags": [
@@ -9555,7 +9621,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "delete": {
         "tags": [
@@ -9571,7 +9638,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9637,7 +9705,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "get": {
         "tags": [
@@ -9675,7 +9744,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -9715,7 +9785,8 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        }
+        },
+        "x-stability-level": "beta"
       },
       "parameters": [
         {
@@ -20521,5 +20592,10 @@
       "name": "Credentials",
       "description": "These methods allow you to issue and manage scoped credentials on your Neon branches."
     }
-  ]
+  ],
+  "x-readme": {
+    "samples-languages": [
+      "shell"
+    ]
+  }
 }
