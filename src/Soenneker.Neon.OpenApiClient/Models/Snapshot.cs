@@ -60,6 +60,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Snapshot resource ID, unique within the project. Distinct from the internal snapshot ID and display name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Slug { get; set; }
+#nullable restore
+#else
+        public string Slug { get; set; }
+#endif
         /// <summary>Branch from which this snapshot was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +117,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "lsn", n => { Lsn = n.GetStringValue(); } },
                 { "manual", n => { Manual = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "slug", n => { Slug = n.GetStringValue(); } },
                 { "source_branch_id", n => { SourceBranchId = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
             };
@@ -128,6 +137,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("lsn", Lsn);
             writer.WriteBoolValue("manual", Manual);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("source_branch_id", SourceBranchId);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);

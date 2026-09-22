@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SnapshotRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/snapshot{?expires_at*,lsn*,name*,timestamp*}", pathParameters)
+        public SnapshotRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/snapshot{?expires_at*,lsn*,name*,slug*,timestamp*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SnapshotRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/snapshot{?expires_at*,lsn*,name*,timestamp*}", rawUrl)
+        public SnapshotRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/projects/{projectId}/branches/{branchId}/snapshot{?expires_at*,lsn*,name*,slug*,timestamp*}", rawUrl)
         {
         }
         /// <summary>
@@ -119,6 +119,16 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Snapshot
 #else
             [QueryParameter("name")]
             public string Name { get; set; }
+#endif
+            /// <summary>User-defined snapshot resource ID. Must be unique within the project.Must start with a lowercase letter, contain only lowercase letters, numbers, and hyphens,and end with a letter or number. If omitted, the control plane generates a value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("slug")]
+            public string? Slug { get; set; }
+#nullable restore
+#else
+            [QueryParameter("slug")]
+            public string Slug { get; set; }
 #endif
             /// <summary>The target timestamp for the snapshot. Must fall within the restore window. RFC 3339 format. Cannot be used with `lsn`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

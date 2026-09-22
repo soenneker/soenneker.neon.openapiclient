@@ -7694,6 +7694,17 @@
             }
           },
           {
+            "name": "slug",
+            "in": "query",
+            "description": "User-defined snapshot resource ID. Must be unique within the project.\nMust start with a lowercase letter, contain only lowercase letters, numbers, and hyphens,\nand end with a letter or number. If omitted, the control plane generates a value.\n",
+            "schema": {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$",
+              "type": "string"
+            }
+          },
+          {
             "name": "expires_at",
             "in": "query",
             "description": "The time at which the snapshot will be automatically deleted. RFC 3339 format.\n",
@@ -8407,7 +8418,9 @@
             "in": "query",
             "description": "Length of the lookup window, ending at \u0060end_time\u0060 or at the current\ntime when \u0060end_time\u0060 is omitted. Mutually exclusive with\n\u0060start_time\u0060. Defaults to six hours.\n",
             "schema": {
-              "type": "string"
+              "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+              "type": "string",
+              "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
             }
           },
           {
@@ -9668,7 +9681,11 @@
           "description": "The opaque, project-wide trigger ID",
           "required": true,
           "schema": {
-            "type": "string"
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+            "type": "string",
+            "description": "Opaque, server-minted project-wide trigger identifier."
           }
         }
       ]
@@ -9826,44 +9843,14 @@
   },
   "components": {
     "schemas": {
-      "ProjectListItemEffectiveProjectPermission": {
-        "enum": [
-          "VIEWER",
-          "EDITOR",
-          "ADMIN"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
-        "nullable": true,
-        "x-ms-enum": {
-          "name": "ProjectListItemEffectiveProjectPermission",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "VIEWER",
-              "name": "Viewer"
-            },
-            {
-              "value": "EDITOR",
-              "name": "Editor"
-            },
-            {
-              "value": "ADMIN",
-              "name": "Admin"
-            }
-          ]
-        }
+      "ComputeUnit": {
+        "minimum": 0.25,
+        "type": "number"
       },
-      "OrgApiKeysListResponseItemAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
+      "Provisioner": {
+        "type": "string",
+        "description": "",
+        "example": "k8s-neonvm"
       },
       "PaginationResponse": {
         "type": "object",
@@ -12317,25 +12304,13 @@
           "cpu_used_sec": 461100
         }
       },
-      "OrgApiKeyRevokeResponseAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
+      "BranchState": {
+        "type": "string",
+        "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.\n"
       },
-      "OrgApiKeyCreateResponseAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
+      "BranchRestoreStatus": {
+        "type": "string",
+        "description": "Could be \u0060restored\u0060, \u0060finalized\u0060 or \u0060detaching\u0060.\nA \u0060restored\u0060 branch becomes permanently \u0060finalized\u0060 when you call \u0060finalizeRestoreBranch\u0060\nA \u0060restored\u0060 or \u0060finalized\u0060 branch may begin \u0060detaching\u0060 as a one-time performance optimisation, after which it will continue in its original state\n"
       },
       "BranchRestrictedAction": {
         "required": [
@@ -13032,15 +13007,12 @@
           ]
         }
       },
-      "OrgApiKeyCreateRequestAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
+      "SuspendTimeoutSeconds": {
+        "maximum": 604800,
+        "minimum": -1,
+        "type": "integer",
+        "description": "Duration of inactivity in seconds after which the compute endpoint is\nautomatically suspended. The value \u00600\u0060 means use the default value.\nThe value \u0060-1\u0060 means never suspend. The default value is \u0060300\u0060 seconds (5 minutes).\nThe minimum value is \u006060\u0060 seconds (1 minute).\nThe maximum value is \u0060604800\u0060 seconds (1 week). For more information, see\n[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).\n",
+        "format": "int64"
       },
       "AllowedIps": {
         "type": "object",
@@ -14565,30 +14537,13 @@
         "deprecated": true,
         "x-sunset": "2026-06-20"
       },
-      "RestoredSnapshotResponse": {
-        "required": [
-          "branch",
-          "operations"
-        ],
-        "type": "object",
-        "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints associated with the project."
-          },
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          }
-        }
+      "PgVersion": {
+        "maximum": 19,
+        "minimum": 14,
+        "type": "integer",
+        "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
+        "default": 18,
+        "example": 18
       },
       "ProjectOwnerData": {
         "required": [
@@ -16107,54 +16062,8 @@
           }
         }
       },
-      "CreatedBranchResponse": {
-        "required": [
-          "branch",
-          "endpoints",
-          "operations",
-          "roles",
-          "databases"
-        ],
-        "type": "object",
-        "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
-          },
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Role"
-            },
-            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
-          },
-          "databases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Database"
-            },
-            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
-          },
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
-            },
-            "description": "Connection URIs for the compute endpoint, including credentials."
-          }
-        }
+      "ErrorCode": {
+        "type": "string"
       },
       "BranchOperations": {
         "required": [
@@ -16493,6 +16402,10 @@
             "type": "string",
             "description": "Human-readable label for the snapshot."
           },
+          "slug": {
+            "type": "string",
+            "description": "Snapshot resource ID, unique within the project. Distinct from the internal snapshot ID and display name."
+          },
           "lsn": {
             "type": "string",
             "description": "WAL position (Log Sequence Number) at which the snapshot was captured, in Postgres LSN format (for example, \u00600/3000000\u0060)."
@@ -16819,59 +16732,11 @@
           ]
         }
       },
-      "CreatedProjectResponse": {
-        "required": [
-          "project",
-          "connection_uris",
-          "roles",
-          "databases",
-          "operations",
-          "branch",
-          "endpoints"
-        ],
-        "type": "object",
-        "properties": {
-          "project": {
-            "$ref": "#/components/schemas/Project"
-          },
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
-            },
-            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Role"
-            },
-            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
-          },
-          "databases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Database"
-            },
-            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
-          },
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
-          }
-        }
+      "ProjectBranchLogDuration": {
+        "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+        "type": "string",
+        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+        "example": "1h"
       },
       "ProjectBranchLogsNotAvailable": {
         "required": [
@@ -17690,22 +17555,12 @@
           }
         }
       },
-      "ListOperationsResponse": {
-        "required": [
-          "operations"
-        ],
-        "type": "object",
-        "properties": {
-          "operations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Operation"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/Pagination"
-          }
-        }
+      "TriggerId": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+        "type": "string",
+        "description": "Opaque, server-minted project-wide trigger identifier."
       },
       "FunctionTriggerSchedule": {
         "required": [
@@ -18350,6 +18205,220 @@
             "type": "string",
             "description": "Optional JSON object (a string-to-string map) of environment\nvariables for the deployment, e.g. {\u0022KEY\u0022:\u0022VALUE\u0022}. Carried as a\nJSON-encoded string because multipart form data does not support\ntyped object parts.\n\nValues are write-only: they are encrypted at rest, and responses\ncarry only the variable names (the \u0060environment\u0060 array), never the\nvalues.\n"
           }
+        }
+      },
+      "ListOperationsResponse": {
+        "required": [
+          "operations"
+        ],
+        "type": "object",
+        "properties": {
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "CreatedProjectResponse": {
+        "required": [
+          "project",
+          "connection_uris",
+          "roles",
+          "databases",
+          "operations",
+          "branch",
+          "endpoints"
+        ],
+        "type": "object",
+        "properties": {
+          "project": {
+            "$ref": "#/components/schemas/Project"
+          },
+          "connection_uris": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDetails"
+            },
+            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
+          },
+          "databases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Database"
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          },
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
+          }
+        }
+      },
+      "CreatedBranchResponse": {
+        "required": [
+          "branch",
+          "endpoints",
+          "operations",
+          "roles",
+          "databases"
+        ],
+        "type": "object",
+        "properties": {
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            },
+            "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "description": "Roles belonging to the branch. Each role includes fields such as \u0060branch_id\u0060, \u0060name\u0060, \u0060protected\u0060, \u0060created_at\u0060, and \u0060updated_at\u0060.\n"
+          },
+          "databases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Database"
+            },
+            "description": "Databases on the branch. Each includes \u0060id\u0060, \u0060name\u0060, \u0060owner_name\u0060, and \u0060created_at\u0060."
+          },
+          "connection_uris": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDetails"
+            },
+            "description": "Connection URIs for the compute endpoint, including credentials."
+          }
+        }
+      },
+      "RestoredSnapshotResponse": {
+        "required": [
+          "branch",
+          "operations"
+        ],
+        "type": "object",
+        "properties": {
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            },
+            "description": "Compute endpoints associated with the project."
+          },
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          }
+        }
+      },
+      "OrgApiKeyCreateRequestAllOf2": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
+          }
+        }
+      },
+      "OrgApiKeyCreateResponseAllOf2": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
+          }
+        }
+      },
+      "OrgApiKeyRevokeResponseAllOf2": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
+          }
+        }
+      },
+      "OrgApiKeysListResponseItemAllOf2": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string",
+            "description": "If set, the API key can access only this project"
+          }
+        }
+      },
+      "ProjectListItemEffectiveProjectPermission": {
+        "enum": [
+          "VIEWER",
+          "EDITOR",
+          "ADMIN"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
+        "nullable": true,
+        "x-ms-enum": {
+          "name": "ProjectListItemEffectiveProjectPermission",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "VIEWER",
+              "name": "Viewer"
+            },
+            {
+              "value": "EDITOR",
+              "name": "Editor"
+            },
+            {
+              "value": "ADMIN",
+              "name": "Admin"
+            }
+          ]
         }
       },
       "ProjectEffectiveProjectPermission": {
