@@ -24,7 +24,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public int? LogicalSizeBytes { get; set; }
         /// <summary>Bytes-Hour. The amount of logical size consumed hourly.</summary>
         public int? LogicalSizeBytesHour { get; set; }
-        /// <summary>Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
+        /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
+        [Obsolete("")]
         public int? SyntheticStorageSizeBytes { get; set; }
         /// <summary>The specified end date-time for the reported consumption.</summary>
         public DateTimeOffset? TimeframeEnd { get; set; }

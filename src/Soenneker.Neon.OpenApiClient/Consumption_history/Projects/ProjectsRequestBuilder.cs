@@ -121,7 +121,7 @@ namespace Soenneker.Neon.OpenApiClient.Consumption_history.Projects
             /// <summary>Specify a value from 1 to 100 to limit number of projects in the response.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Specify a list of metrics to include in the response.If omitted, active_time, compute_time, written_data, synthetic_storage_size are returned.Possible values:- `active_time_seconds`- `compute_time_seconds`- `written_data_bytes`- `synthetic_storage_size_bytes`- `data_storage_bytes_hour`- `logical_size_bytes`- `logical_size_bytes_hour`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=cpu_seconds&amp;metrics=ram_bytes`- As a comma-separated list in a single parameter value: `metrics=cpu_seconds,ram_bytes`</summary>
+            /// <summary>Specify a list of metrics to include in the response.If omitted, active_time, compute_time, written_data are returned.Possible values:- `active_time_seconds`- `compute_time_seconds`- `written_data_bytes`- `synthetic_storage_size_bytes` (deprecated: always returns 0; use the consumption history v2 endpoints instead)- `data_storage_bytes_hour`- `logical_size_bytes`- `logical_size_bytes_hour`A list of metrics can be specified as an array of parameter values or as a comma-separated list in a single parameter value.- As an array of parameter values: `metrics=cpu_seconds&amp;metrics=ram_bytes`- As a comma-separated list in a single parameter value: `metrics=cpu_seconds,ram_bytes`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metrics")]
