@@ -14110,6 +14110,95 @@
           }
         }
       },
+      "ScimToken": {
+        "required": [
+          "id",
+          "name",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The SCIM token\u0027s unique ID. Distinct from the token value.",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "The admin-specified token name"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "A timestamp indicating when the SCIM token was created",
+            "format": "date-time"
+          },
+          "last_used_at": {
+            "type": "string",
+            "description": "A timestamp indicating when the token was last used to authenticate, if ever",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "ScimTokensListResponse": {
+        "required": [
+          "tokens"
+        ],
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScimToken"
+            }
+          }
+        }
+      },
+      "ScimTokenCreateRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "A name to identify the SCIM token"
+          }
+        }
+      },
+      "ScimTokenCreateResponse": {
+        "required": [
+          "token",
+          "scim_token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "The generated SCIM bearer token. Shown once \u2014 store it securely; it cannot be retrieved later."
+          },
+          "scim_token": {
+            "$ref": "#/components/schemas/ScimToken"
+          }
+        },
+        "x-sensitive": [
+          "token"
+        ]
+      },
+      "ScimTokenRevokeResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The revoked SCIM token\u0027s unique ID",
+            "format": "uuid"
+          }
+        }
+      },
       "OrganizationInviteCreateRequest": {
         "required": [
           "email",
