@@ -41,7 +41,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CreationSource { get; set; }
 #endif
-        /// <summary>Bytes-Hour. Project consumed that much Postgres storage hourly during the billing period. The value has some lag.The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes-Hour. Project consumed that much Postgres storage hourly during the billing period. The value has some lag.The value is reset at the beginning of each billing period.</summary>
+        [Obsolete("")]
         public long? DataStorageBytesHour { get; set; }
         /// <summary>Bytes. Egress traffic from the Neon cloud to the client for given project over the billing period.Includes deleted endpoints. The value has some lag. The value is reset at the beginning of each billing period.</summary>
         public long? DataTransferBytes { get; set; }

@@ -18,7 +18,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seconds. The number of CPU seconds used by compute endpoints, including compute endpoints that have been deleted.</summary>
         public int? ComputeTimeSeconds { get; set; }
-        /// <summary>Bytes-Hour. The amount of Postgres storage consumed hourly.</summary>
+        /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes-Hour. The amount of Postgres storage consumed hourly.</summary>
+        [Obsolete("")]
         public int? DataStorageBytesHour { get; set; }
         /// <summary>Bytes. The amount of logical size consumed.</summary>
         public int? LogicalSizeBytes { get; set; }
