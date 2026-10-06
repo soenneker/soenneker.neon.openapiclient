@@ -13307,7 +13307,7 @@
           },
           "authentication_method": {
             "type": "string",
-            "description": "Authentication method configured for this role: \u0060password\u0060, \u0060oauth\u0060, or \u0060no_login\u0060.\n",
+            "description": "Authentication method configured for this role: \u0060password\u0060, \u0060oauth\u0060, \u0060oidc\u0060, or \u0060no_login\u0060.\n",
             "example": "password"
           },
           "created_at": {
@@ -18186,7 +18186,7 @@
         "properties": {
           "zip": {
             "type": "string",
-            "description": "Optional ZIP archive of the function source code. Omit to reuse the\nlatest version\u0027s bundle (a config-only change). Required for the\nfirst deployment of a function.\n",
+            "description": "Optional ZIP archive of the function source code. Omit to reuse the\nlatest version\u0027s bundle (a config-only change). Required for the\nfirst deployment of a function.\n\nPlace \u0060index.mjs\u0060 or \u0060index.js\u0060 at the archive root, without a\ncontaining directory. If both exist, \u0060index.mjs\u0060 is loaded. Export a\nrequest handler function or an object with a \u0060fetch\u0060 method. Use\n\u0060export default\u0060 for ESM or \u0060module.exports\u0060 for CommonJS; prefer\n\u0060index.mjs\u0060 for ESM.\n\nUpload JavaScript ready to run on Node.js 24. Compile TypeScript\nbefore uploading. Bundle dependencies into the entry module, or\ninclude the required modules and assets in the archive with their\nrelative paths preserved (including \u0060node_modules\u0060 for external\npackages). Node.js built-in modules do not need to be bundled.\nThe API does not transpile, bundle, or install dependencies.\nThe ZIP is limited to 32 MiB compressed and 128 MiB extracted, with\nat most 32,768 entries and 64 MiB per file. Bundle large dependency\ntrees to keep the archive small. ZIPs larger than 32 MiB are rejected\nwith HTTP 413 before creating a deployment. The extracted-size,\nentry-count, and per-file limits are enforced during the asynchronous\nbuild; an accepted upload that exceeds them fails the build.\n\nFor example, a self-contained ESM bundle needs only \u0060index.mjs\u0060\nat the ZIP root. The Neon CLI bundles source into this layout by\ndefault; \u0060neon function deploy --no-bundle\u0060 packages a prebuilt\ndirectory or an entry file named \u0060index.mjs\u0060 or \u0060index.js\u0060.\n",
             "format": "binary"
           },
           "runtime": {
