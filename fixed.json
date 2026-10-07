@@ -10874,8 +10874,9 @@
           },
           "synthetic_storage_size": {
             "type": "integer",
-            "description": "The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
-            "format": "int64"
+            "description": "Deprecated: always returns 0. Use the consumption history v2 endpoints (\u0060/consumption_history/v2/projects\u0060, \u0060/consumption_history/v2/branches\u0060) instead.\nThe current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
+            "format": "int64",
+            "deprecated": true
           },
           "quota_reset_at": {
             "type": "string",
@@ -11088,8 +11089,9 @@
           },
           "synthetic_storage_size": {
             "type": "integer",
-            "description": "The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
-            "format": "int64"
+            "description": "Deprecated: always returns 0. Use the consumption history v2 endpoints (\u0060/consumption_history/v2/projects\u0060, \u0060/consumption_history/v2/branches\u0060) instead.\nThe current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.\n",
+            "format": "int64",
+            "deprecated": true
           },
           "consumption_period_start": {
             "type": "string",

@@ -143,7 +143,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>Whether or not passwords are stored for roles in the Neon project. Storing passwords facilitates access to Neon features that require authorization.</summary>
         public bool? StorePasswords { get; set; }
-        /// <summary>The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
+        /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
+        [Obsolete("")]
         public long? SyntheticStorageSize { get; set; }
         /// <summary>A timestamp indicating when the project was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
