@@ -23,6 +23,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public List<string> AvailableSchemas { get; set; }
 #endif
+        /// <summary>When `settings` and `available_schemas` were read from the database. While thecompute is suspended they are served from that read, so a change made directly inthe database since then shows up in the first response served while the compute isactive.</summary>
+        public DateTimeOffset? ObservedAt { get; set; }
         /// <summary>Configuration settings for the Data API (SubZero only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +75,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_schemas", n => { AvailableSchemas = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "observed_at", n => { ObservedAt = n.GetDateTimeOffsetValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings>(global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -86,6 +89,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("available_schemas", AvailableSchemas);
+            writer.WriteDateTimeOffsetValue("observed_at", ObservedAt);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings>("settings", Settings);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("url", Url);
