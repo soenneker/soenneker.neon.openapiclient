@@ -63,6 +63,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string Provisioner { get; set; }
 #endif
+        /// <summary>The realtime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions? Realtime { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions Realtime { get; set; }
+#endif
         /// <summary>The region identifier. Refer to our [Regions](https://neon.com/docs/introduction/regions) documentation for supported regions. Values are specified in this format: `aws-us-east-1`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +123,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "pg_version", n => { PgVersion = n.GetIntValue(); } },
                 { "provisioner", n => { Provisioner = n.GetStringValue(); } },
+                { "realtime", n => { Realtime = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions>(global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions.CreateFromDiscriminatorValue); } },
                 { "region_id", n => { RegionId = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData>(global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData.CreateFromDiscriminatorValue); } },
                 { "store_passwords", n => { StorePasswords = n.GetBoolValue(); } },
@@ -136,6 +145,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteIntValue("pg_version", PgVersion);
             writer.WriteStringValue("provisioner", Provisioner);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions>("realtime", Realtime);
             writer.WriteStringValue("region_id", RegionId);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData>("settings", Settings);
             writer.WriteBoolValue("store_passwords", StorePasswords);

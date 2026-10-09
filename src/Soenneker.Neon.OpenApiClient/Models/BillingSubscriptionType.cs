@@ -31,6 +31,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         FreeV3,
         #pragma warning restore CS1591
+        [EnumMember(Value = "build")]
+        #pragma warning disable CS1591
+        Build,
+        #pragma warning restore CS1591
         [EnumMember(Value = "launch")]
         #pragma warning disable CS1591
         Launch,

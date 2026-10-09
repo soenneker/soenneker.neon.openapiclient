@@ -55,6 +55,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? ParentTimestamp { get; set; }
         /// <summary>Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project. Can be gated by `protected_branches_only` in the IP allowlist. Paid plans only.</summary>
         public bool? Protected { get; set; }
+        /// <summary>The realtime property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions? Realtime { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions Realtime { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestBranch"/> and sets the default values.
         /// </summary>
@@ -89,6 +97,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "parent_lsn", n => { ParentLsn = n.GetStringValue(); } },
                 { "parent_timestamp", n => { ParentTimestamp = n.GetDateTimeOffsetValue(); } },
                 { "protected", n => { Protected = n.GetBoolValue(); } },
+                { "realtime", n => { Realtime = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions>(global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -106,6 +115,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("parent_lsn", ParentLsn);
             writer.WriteDateTimeOffsetValue("parent_timestamp", ParentTimestamp);
             writer.WriteBoolValue("protected", Protected);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions>("realtime", Realtime);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
