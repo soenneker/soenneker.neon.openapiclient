@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.MagicLink;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.OauthProvider;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Organization;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PhoneNumber;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.MagicLink.MagicLinkRequestBuilder MagicLink
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.MagicLink.MagicLinkRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauthProvider property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.OauthProvider.OauthProviderRequestBuilder OauthProvider
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.OauthProvider.OauthProviderRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The organization property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.Organization.OrganizationRequestBuilder Organization

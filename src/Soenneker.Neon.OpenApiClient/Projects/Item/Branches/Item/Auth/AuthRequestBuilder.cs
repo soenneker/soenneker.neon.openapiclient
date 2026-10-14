@@ -9,6 +9,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Config;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_and_password;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.OauthProvider;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email;
@@ -56,6 +57,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Oauth_providersRequestBuilder Oauth_providers
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Oauth_providersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauthProvider property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.OauthProvider.OauthProviderRequestBuilder OauthProvider
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.OauthProvider.OauthProviderRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The plugins property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PluginsRequestBuilder Plugins

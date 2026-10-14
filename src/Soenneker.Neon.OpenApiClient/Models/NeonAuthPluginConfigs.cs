@@ -41,6 +41,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig MagicLink { get; set; }
 #endif
+        /// <summary>The oauth_provider property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig? OauthProvider { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig OauthProvider { get; set; }
+#endif
         /// <summary>OAuth provider configurations enabled for this auth setup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +102,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "email_and_password", n => { EmailAndPassword = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue); } },
                 { "email_provider", n => { EmailProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse.CreateFromDiscriminatorValue); } },
                 { "magic_link", n => { MagicLink = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig.CreateFromDiscriminatorValue); } },
+                { "oauth_provider", n => { OauthProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig.CreateFromDiscriminatorValue); } },
                 { "oauth_providers", n => { OauthProviders = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "organization", n => { Organization = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig.CreateFromDiscriminatorValue); } },
                 { "phone_number", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig.CreateFromDiscriminatorValue); } },
@@ -110,6 +119,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>("email_and_password", EmailAndPassword);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>("email_provider", EmailProvider);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>("magic_link", MagicLink);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig>("oauth_provider", OauthProvider);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>("oauth_providers", OauthProviders);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig>("organization", Organization);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig>("phone_number", PhoneNumber);
