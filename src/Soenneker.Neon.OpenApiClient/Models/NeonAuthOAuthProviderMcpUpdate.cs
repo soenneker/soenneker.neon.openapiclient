@@ -14,9 +14,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether MCP clients may identify themselves with an https Client ID Metadata Document (CIMD) URL. When omitted, the stored value is kept.</summary>
+        public bool? ClientIdMetadataDocuments { get; set; }
         /// <summary>Whether MCP clients may register themselves via dynamic client registration (RFC 7591). When omitted, the stored value is kept.</summary>
         public bool? DynamicRegistration { get; set; }
-        /// <summary>The MCP server URL that dynamically registered clients are linked to.</summary>
+        /// <summary>The MCP server URL that MCP clients (Client ID Metadata Document and dynamically registered) are linked to. Required for either to be accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Resource { get; set; }
@@ -49,6 +51,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "client_id_metadata_documents", n => { ClientIdMetadataDocuments = n.GetBoolValue(); } },
                 { "dynamic_registration", n => { DynamicRegistration = n.GetBoolValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
             };
@@ -60,6 +63,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("client_id_metadata_documents", ClientIdMetadataDocuments);
             writer.WriteBoolValue("dynamic_registration", DynamicRegistration);
             writer.WriteStringValue("resource", Resource);
             writer.WriteAdditionalData(AdditionalData);
