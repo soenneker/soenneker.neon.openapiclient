@@ -147,7 +147,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.
+        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.The usage metrics are not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -214,7 +214,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.
+        /// Retrieves information about the specified project.Returned details include the project settings, compute configuration, history retention, owner information, and current usage metrics.The usage metrics are not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
 using Soenneker.Neon.OpenApiClient.Projects.Auth;
+using Soenneker.Neon.OpenApiClient.Projects.Count;
 using Soenneker.Neon.OpenApiClient.Projects.Item;
 using Soenneker.Neon.OpenApiClient.Projects.Shared;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects
         public global::Soenneker.Neon.OpenApiClient.Projects.Auth.AuthRequestBuilder Auth
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The count property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Count.CountRequestBuilder Count
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Count.CountRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The shared property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Shared.SharedRequestBuilder Shared

@@ -201,7 +201,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.BranchOperations>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.BranchOperations.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
+        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).The usage metrics are not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.GetProjectBranch200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -268,7 +268,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item
             return requestInfo;
         }
         /// <summary>
-        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).
+        /// Retrieves information about the specified branch.A `branch_id` value has a `br-` prefix.Each Neon project is initially created with a root and default branch named `main`.A project can contain one or more branches.A parent branch is identified by a `parent_id` value, which is the `id` of the parent branch.For related information, see [Manage branches](https://neon.com/docs/manage/branches/).The usage metrics are not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

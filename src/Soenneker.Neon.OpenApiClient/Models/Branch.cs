@@ -12,11 +12,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
     public partial class Branch : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Total time this branch&apos;s compute has been active during the current billing period, in seconds (not weighted by compute size). Distinct from `compute_time_seconds`, which is CU-weighted.</summary>
+        /// <summary>Total time this branch&apos;s compute has been active during the current billing period, in seconds (not weighted by compute size). Distinct from `compute_time_seconds`, which is CU-weighted.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
         public long? ActiveTimeSeconds { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Total Postgres compute time consumed by this branch during the current billing period, in CU-seconds (weighted by compute size). Divide by 3600 for CU-hours.</summary>
+        /// <summary>Total Postgres compute time consumed by this branch during the current billing period, in CU-seconds (weighted by compute size). Divide by 3600 for CU-hours.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
         public long? ComputeTimeSeconds { get; set; }
         /// <summary>Deprecated. Use `compute_time_seconds` instead. CPU seconds used by all of the branch&apos;s compute endpoints, including deleted ones. This value is reset at the beginning of each billing period.</summary>
         [Obsolete("")]
@@ -47,7 +47,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string CurrentState { get; set; }
 #endif
-        /// <summary>Total data transferred out of the branch, in bytes. Used as a consumption metric.</summary>
+        /// <summary>Total data transferred out of the branch, in bytes. Used as a consumption metric.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
         public long? DataTransferBytes { get; set; }
         /// <summary>Whether the branch is the project&apos;s default branch</summary>
         public bool? Default { get; set; }
@@ -166,7 +166,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public int? TtlIntervalSeconds { get; set; }
         /// <summary>A timestamp indicating when the branch was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Data written by this branch during the current billing period, in bytes.</summary>
+        /// <summary>Data written by this branch during the current billing period, in bytes.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
         public long? WrittenDataBytes { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Branch"/> and sets the default values.

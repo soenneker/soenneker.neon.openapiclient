@@ -13,7 +13,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectListItem : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Control plane observed endpoints of this project being active this amount of wall-clock time.</summary>
+        /// <summary>Control plane observed endpoints of this project being active this amount of wall-clock time.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
         public long? ActiveTime { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

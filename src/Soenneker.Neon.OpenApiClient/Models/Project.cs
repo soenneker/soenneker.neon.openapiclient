@@ -12,7 +12,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     public partial class Project : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Seconds. Control plane observed endpoints of this project being active this amount of wall-clock time.The value has some lag.The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Seconds. Control plane observed endpoints of this project being active this amount of wall-clock time.The value has some lag.The value is reset at the beginning of each billing period.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
         public long? ActiveTimeSeconds { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public long? BranchLogicalSizeLimitBytes { get; set; }
         /// <summary>The most recent time when any endpoint of this project was active.Omitted when observed no activity for endpoints of this project.</summary>
         public DateTimeOffset? ComputeLastActiveAt { get; set; }
-        /// <summary>Seconds. The number of CPU seconds used by the project&apos;s compute endpoints, including compute endpoints that have been deleted.The value has some lag. The value is reset at the beginning of each billing period.Examples:1. An endpoint that uses 1 CPU for 1 second is equal to `compute_time=1`.2. An endpoint that uses 2 CPUs simultaneously for 1 second is equal to `compute_time=2`.</summary>
+        /// <summary>Seconds. The number of CPU seconds used by the project&apos;s compute endpoints, including compute endpoints that have been deleted.The value has some lag. The value is reset at the beginning of each billing period.Examples:1. An endpoint that uses 1 CPU for 1 second is equal to `compute_time=1`.2. An endpoint that uses 2 CPUs simultaneously for 1 second is equal to `compute_time=2`.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
         public long? ComputeTimeSeconds { get; set; }
         /// <summary>A date-time indicating when Neon Cloud plans to stop measuring consumption for current consumption period.</summary>
         public DateTimeOffset? ConsumptionPeriodEnd { get; set; }
@@ -44,7 +44,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes-Hour. Project consumed that much Postgres storage hourly during the billing period. The value has some lag.The value is reset at the beginning of each billing period.</summary>
         [Obsolete("")]
         public long? DataStorageBytesHour { get; set; }
-        /// <summary>Bytes. Egress traffic from the Neon cloud to the client for given project over the billing period.Includes deleted endpoints. The value has some lag. The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Bytes. Egress traffic from the Neon cloud to the client for given project over the billing period.Includes deleted endpoints. The value has some lag. The value is reset at the beginning of each billing period.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
         public long? DataTransferBytes { get; set; }
         /// <summary>A collection of settings for a Neon endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,7 +156,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public long? SyntheticStorageSize { get; set; }
         /// <summary>A timestamp indicating when the project was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>Bytes. Amount of WAL that travelled through Postgres storage for given project across all branches.The value has some lag. The value is reset at the beginning of each billing period.</summary>
+        /// <summary>Bytes. Amount of WAL that travelled through Postgres storage for given project across all branches.The value has some lag. The value is reset at the beginning of each billing period.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
         public long? WrittenDataBytes { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Project"/> and sets the default values.
