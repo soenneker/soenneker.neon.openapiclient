@@ -16,6 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings? PgbouncerSettings { get; set; }

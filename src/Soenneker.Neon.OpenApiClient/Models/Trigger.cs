@@ -43,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             {
                 result.ScheduleTrigger = new global::Soenneker.Neon.OpenApiClient.Models.ScheduleTrigger();
             }
-            else if("StorageObjectCreatedTrigger".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("storage_object_created".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.StorageObjectCreatedTrigger = new global::Soenneker.Neon.OpenApiClient.Models.StorageObjectCreatedTrigger();
             }

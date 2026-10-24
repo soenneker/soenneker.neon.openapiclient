@@ -164,6 +164,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public Project()
         {
             AdditionalData = new Dictionary<string, object>();
+            PgVersion = 18;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

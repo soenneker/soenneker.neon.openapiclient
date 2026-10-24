@@ -7804,7 +7804,7 @@
         }
       ]
     },
-    "/organizations/{sourceOrgId}/projects/transfer": {
+    "/organizations/{orgId}/projects/transfer": {
       "post": {
         "tags": [
           "Organizations"
@@ -7860,7 +7860,7 @@
       },
       "parameters": [
         {
-          "name": "sourceOrgId",
+          "name": "orgId",
           "in": "path",
           "description": "The Neon organization ID (source org, which currently owns the project)",
           "required": true,
@@ -8970,7 +8970,8 @@
             "schema": {
               "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
               "type": "string",
-              "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
+              "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+              "example": "1h"
             }
           },
           {
@@ -10581,7 +10582,6 @@
           "PERFORMANCE"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Category of an advisor issue",
         "x-ms-enum": {
           "name": "AdvisorCategory",
@@ -10636,7 +10636,10 @@
             "items": {
               "$ref": "#/components/schemas/AdvisorCategory"
             },
-            "description": "Categories this issue belongs to"
+            "description": "Categories this issue belongs to",
+            "example": [
+              "SECURITY"
+            ]
           },
           "description": {
             "type": "string",
@@ -11123,7 +11126,6 @@
           "epc_sync"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The action performed by the operation",
         "x-ms-enum": {
           "name": "OperationAction",
@@ -11288,7 +11290,6 @@
           "skipped"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Lifecycle state of the operation. \u0060scheduling\u0060: queued, not yet started. \u0060running\u0060: actively executing. \u0060finished\u0060: completed successfully. \u0060failed\u0060: ended with a failure. \u0060error\u0060: ended with a terminal error. \u0060cancelling\u0060: cancellation requested but not yet complete. \u0060cancelled\u0060: stopped before completion. \u0060skipped\u0060: bypassed without executing.",
         "x-ms-enum": {
           "name": "OperationStatus",
@@ -11370,7 +11371,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "default_endpoint_settings": {
             "$ref": "#/components/schemas/DefaultEndpointSettings"
@@ -11382,7 +11384,9 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
+            "default": 18,
+            "example": 18
           },
           "proxy_host": {
             "type": "string",
@@ -11592,7 +11596,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "default_endpoint_settings": {
             "$ref": "#/components/schemas/DefaultEndpointSettings"
@@ -11604,7 +11609,9 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
+            "default": 18,
+            "example": 18
           },
           "proxy_host": {
             "type": "string",
@@ -11984,7 +11991,6 @@
           "admin"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Per-project role. \u0060viewer\u0060 maps to \u0060VIEWER\u0060, \u0060editor\u0060 maps to \u0060EDITOR\u0060,\nand \u0060admin\u0060 maps to \u0060ADMIN\u0060.\n",
         "x-ms-enum": {
           "name": "ProjectRole",
@@ -12012,7 +12018,6 @@
           "ADMIN"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "x-ms-enum": {
           "name": "ProjectPermissionLevel",
@@ -12041,7 +12046,6 @@
           "unassigned"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "How a member\u0027s project access is granted.\n",
         "x-ms-enum": {
           "name": "ProjectMemberGrantSource",
@@ -12075,7 +12079,6 @@
           "collaborator"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Organization-level role used by project member role management.\n",
         "x-ms-enum": {
           "name": "ProjectMemberOrgRole",
@@ -12592,7 +12595,6 @@
           "monthly"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ConsumptionHistoryGranularity",
           "modelAsString": false,
@@ -12625,7 +12627,6 @@
           "full"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ProjectAuditLogLevel",
           "modelAsString": false,
@@ -12949,7 +12950,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "suspend_timeout_seconds": {
             "maximum": 604800,
@@ -13471,7 +13473,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "compute_release_version": {
             "type": "string",
@@ -13515,7 +13518,6 @@
           "idle"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Lifecycle state of the compute endpoint. \u0060init\u0060: being initialized. \u0060active\u0060: running and accepting connections. \u0060idle\u0060: suspended (scaled to zero).",
         "x-ms-enum": {
           "name": "EndpointState",
@@ -13542,7 +13544,6 @@
           "read_write"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Compute endpoint type. \u0060read_write\u0060: the primary read-write endpoint (one per branch). \u0060read_only\u0060: a read replica endpoint (multiple allowed per branch).",
         "x-ms-enum": {
           "name": "EndpointType",
@@ -13564,7 +13565,6 @@
           "transaction"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Deprecated. The connection pooler mode. Neon supports PgBouncer in \u0060transaction\u0060 mode only. Removal scheduled for June 20, 2026.\n",
         "deprecated": true,
         "x-sunset": "2026-06-20",
@@ -14230,7 +14230,6 @@
           "deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "State of the billing account.\n",
         "x-ms-enum": {
           "name": "BillingAccountState",
@@ -14276,7 +14275,6 @@
           "vercel_pg_legacy"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of subscription to Neon Cloud.\nNotice that for users without billing account this will be \u0022UNKNOWN\u0022\n",
         "x-ms-enum": {
           "name": "BillingSubscriptionType",
@@ -14352,7 +14350,6 @@
           "shared_payment_token"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates whether and how an account makes payments.\n",
         "x-ms-enum": {
           "name": "BillingPaymentMethod",
@@ -14566,7 +14563,6 @@
           "collaborator"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Organization member\u0027s role. \u0060admin\u0060: full administrative access. \u0060editor\u0060 (and its legacy alias \u0060member\u0060): standard access governed by project permissions. \u0060viewer\u0060 and \u0060collaborator\u0060: additional scoped project roles. Some values may not be available for all organizations.",
         "x-ms-enum": {
           "name": "MemberRole",
@@ -15052,7 +15048,6 @@
           "keycloak"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Identity provider id from keycloak",
         "x-ms-enum": {
           "name": "IdentityProviderId",
@@ -15448,7 +15443,6 @@
           "better_auth"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Authentication provider integrated with this Neon Auth configuration. \u0060better_auth\u0060 integrates with Better Auth (the current, recommended provider). \u0060stack\u0060 integrates with Stack Auth (deprecated). \u0060mock\u0060 is a simulated provider for local development and testing only.",
         "x-ms-enum": {
           "name": "NeonAuthSupportedAuthProvider",
@@ -15475,7 +15469,6 @@
           "neon"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NeonAuthProviderProjectOwnedBy",
           "modelAsString": false,
@@ -15497,7 +15490,6 @@
           "finished"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NeonAuthProviderProjectTransferStatus",
           "modelAsString": false,
@@ -15799,7 +15791,10 @@
             "items": {
               "type": "string"
             },
-            "description": "Roles to assign to the user in the Neon Auth (Better Auth) directory. \u0060user\u0060 and \u0060admin\u0060 are the built-in roles; custom role strings are also supported."
+            "description": "Roles to assign to the user in the Neon Auth (Better Auth) directory. \u0060user\u0060 and \u0060admin\u0060 are the built-in roles; custom role strings are also supported.",
+            "example": [
+              "admin"
+            ]
           }
         }
       },
@@ -16104,7 +16099,6 @@
           "public"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Confidential clients authenticate with a client secret. Public clients have no secret.",
         "x-ms-enum": {
           "name": "NeonAuthOAuthClientType",
@@ -16500,7 +16494,6 @@
           "vercel"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NeonAuthOAuthProviderId",
           "modelAsString": false,
@@ -16530,7 +16523,6 @@
           "shared"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NeonAuthOAuthProviderType",
           "modelAsString": false,
@@ -16695,30 +16687,6 @@
           }
         ],
         "properties": {
-          "host": {
-            "type": "string",
-            "description": "Hostname of the email server."
-          },
-          "port": {
-            "type": "integer",
-            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
-          },
-          "username": {
-            "type": "string",
-            "description": "Username for authenticating with the SMTP server."
-          },
-          "password": {
-            "type": "string",
-            "description": "Password for authenticating with the SMTP server."
-          },
-          "sender_email": {
-            "type": "string",
-            "description": "Email address used as the From address on outgoing auth emails."
-          },
-          "sender_name": {
-            "type": "string",
-            "description": "Display name shown as the sender in outgoing emails."
-          },
           "type": {
             "type": "string"
           }
@@ -16727,9 +16695,7 @@
           "propertyName": "type",
           "mapping": {
             "standard": "#/components/schemas/StandardEmailServer",
-            "shared": "#/components/schemas/SharedEmailServer",
-            "StandardEmailServer": "#/components/schemas/StandardEmailServer",
-            "SharedEmailServer": "#/components/schemas/SharedEmailServer"
+            "shared": "#/components/schemas/SharedEmailServer"
           }
         }
       },
@@ -16747,30 +16713,6 @@
           }
         ],
         "properties": {
-          "host": {
-            "type": "string",
-            "description": "Hostname of the email server."
-          },
-          "port": {
-            "type": "integer",
-            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
-          },
-          "username": {
-            "type": "string",
-            "description": "Username for authenticating with the SMTP server."
-          },
-          "password": {
-            "type": "string",
-            "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
-          },
-          "sender_email": {
-            "type": "string",
-            "description": "Email address used as the From address on outgoing auth emails."
-          },
-          "sender_name": {
-            "type": "string",
-            "description": "Display name shown as the sender in outgoing emails."
-          },
           "type": {
             "type": "string"
           }
@@ -16779,9 +16721,7 @@
           "propertyName": "type",
           "mapping": {
             "standard": "#/components/schemas/StandardEmailServerResponse",
-            "shared": "#/components/schemas/SharedEmailServer",
-            "StandardEmailServerResponse": "#/components/schemas/StandardEmailServerResponse",
-            "SharedEmailServer": "#/components/schemas/SharedEmailServer"
+            "shared": "#/components/schemas/SharedEmailServer"
           }
         }
       },
@@ -16873,7 +16813,6 @@
           "otp"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The email verification method to use.\n- \u0060link\u0060: Sends a verification link via email\n- \u0060otp\u0060: Sends a one-time password (OTP) via email\n",
         "x-ms-enum": {
           "name": "NeonAuthEmailVerificationMethod",
@@ -17061,7 +17000,8 @@
             "description": "Unique identifier for the request, useful for debugging.\nYou can set this value manually by including an \u0060X-Request-ID\u0060 header in the request. If not provided, the value will be generated automatically.\n"
           },
           "code": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           },
           "message": {
             "type": "string",
@@ -17070,7 +17010,8 @@
         }
       },
       "ErrorCode": {
-        "type": "string"
+        "type": "string",
+        "default": ""
       },
       "BranchOperations": {
         "required": [
@@ -17291,7 +17232,6 @@
           "opentelemetry"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of application integration",
         "x-ms-enum": {
           "name": "ApplicationType",
@@ -17532,7 +17472,6 @@
           "public_read"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Controls anonymous access to objects in the bucket.\n- \u0060private\u0060: all reads and writes require authenticated requests (default).\n- \u0060public_read\u0060: anonymous \u0060GetObject\u0060/\u0060HeadObject\u0060 requests succeed; listing,\n  writes, and deletes still require authenticated requests.\n",
         "x-ms-enum": {
           "name": "BucketAccessLevel",
@@ -17671,7 +17610,6 @@
           "pg_endpoint"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The Neon service that emitted the log record.",
         "x-ms-enum": {
           "name": "ProjectBranchLogSource",
@@ -17702,7 +17640,6 @@
           "fatal"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "An OpenTelemetry severity level. A minimum severity includes every\nhigher level in this order: \u0060trace\u0060, \u0060debug\u0060, \u0060info\u0060, \u0060warn\u0060, \u0060error\u0060,\n\u0060fatal\u0060.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogSeverity",
@@ -17787,7 +17724,8 @@
           "since": {
             "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
             "type": "string",
-            "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
+            "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+            "example": "1h"
           },
           "start_time": {
             "type": "string",
@@ -18150,7 +18088,6 @@
           "functions:invoke"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "A single capability you may request when issuing a credential. A\ncredential is granted a set of these; it may only perform actions\nexplicitly listed in its scopes.\n\nThis is the *requestable* set. Responses describing an existing\ncredential use \u0060GrantedCredentialScope\u0060, which is deliberately wider:\na credential may have been granted a scope that this endpoint does not\noffer, and a response must be able to report it.\n",
         "x-ms-enum": {
           "name": "CredentialScope",
@@ -18184,7 +18121,6 @@
           "functions:invoke"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "A single capability a credential actually carries, as reported by\nresponses that describe an existing credential.\n\nThis set is a superset of \u0060CredentialScope\u0060 (the requestable set)\nbecause a credential\u0027s scopes are not limited to what this API offers:\nthe platform accepts additional scopes for customer-managed (\u0060user\u0060)\ncredentials, so one may exist on your branch that was not issued\nthrough this endpoint. Responses must be able to report such a\ncredential rather than fail to describe it \u2014 a client that rejected\nthe value would, on rotate, discard the replacement secret after the\nrotation had already committed. Treat unknown values as opaque.\n",
         "x-ms-enum": {
           "name": "GrantedCredentialScope",
@@ -18619,35 +18555,6 @@
           }
         ],
         "properties": {
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "The branch-local Function slug to invoke."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string",
-            "description": "Human-readable name, unique among triggers visible on the branch."
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string",
-            "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
-            "default": "/"
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether future occurrences should be scheduled.",
-            "default": true
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
           "type": {
             "type": "string"
           }
@@ -18657,9 +18564,7 @@
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
-            "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest",
-            "ScheduleTriggerCreateRequest": "#/components/schemas/ScheduleTriggerCreateRequest",
-            "StorageObjectCreatedTriggerCreateRequest": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
+            "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
           }
         }
       },
@@ -18759,31 +18664,6 @@
           }
         ],
         "properties": {
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "Replacement branch-local Function slug."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string"
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "True enables and false disables future scheduling."
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
           "type": {
             "type": "string"
           }
@@ -18793,9 +18673,7 @@
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
-            "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest",
-            "ScheduleTriggerUpdateRequest": "#/components/schemas/ScheduleTriggerUpdateRequest",
-            "StorageObjectCreatedTriggerUpdateRequest": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
+            "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
           }
         }
       },
@@ -18883,48 +18761,6 @@
           }
         ],
         "properties": {
-          "trigger_id": {
-            "maxLength": 128,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
-            "type": "string",
-            "description": "Opaque, server-minted project-wide trigger identifier."
-          },
-          "function_slug": {
-            "type": "string",
-            "description": "The branch-local Function slug resolved when an occurrence is consumed."
-          },
-          "name": {
-            "type": "string",
-            "description": "Human-readable trigger name."
-          },
-          "function_path": {
-            "type": "string",
-            "description": "Path passed to the target Function."
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "version": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "Monotonic configuration version.",
-            "format": "int64"
-          },
-          "next_run_at": {
-            "type": "string",
-            "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
-            "nullable": true
-          },
-          "inherited": {
-            "type": "boolean",
-            "description": "True when the effective configuration was authored on an ancestor branch."
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
           "type": {
             "type": "string"
           }
@@ -18934,9 +18770,7 @@
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTrigger",
-            "storage_object_created": "#/components/schemas/StorageObjectCreatedTrigger",
-            "ScheduleTrigger": "#/components/schemas/ScheduleTrigger",
-            "StorageObjectCreatedTrigger": "#/components/schemas/StorageObjectCreatedTrigger"
+            "storage_object_created": "#/components/schemas/StorageObjectCreatedTrigger"
           }
         }
       },
@@ -18960,6 +18794,7 @@
           },
           "trigger_id": {
             "maxLength": 128,
+            "minLength": 1,
             "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
             "type": "string",
             "description": "Opaque, server-minted project-wide trigger identifier."
@@ -19020,6 +18855,7 @@
           },
           "trigger_id": {
             "maxLength": 128,
+            "minLength": 1,
             "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
             "type": "string",
             "description": "Opaque, server-minted project-wide trigger identifier."
@@ -19402,7 +19238,6 @@
           "ADMIN"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "nullable": true,
         "x-ms-enum": {
@@ -19431,7 +19266,6 @@
           "ADMIN"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The caller\u0027s effective permission for a project when\nper-project permissions are enabled. \u0060VIEWER\u0060 grants read access,\n\u0060EDITOR\u0060 adds update access, and \u0060ADMIN\u0060 grants full management.\nOmitted for personal projects, flag-off organizations, and non-user\nsubjects.\n",
         "nullable": true,
         "x-ms-enum": {
@@ -19553,8 +19387,8 @@
       "ProjectBranchLogsQueryRequestSince": {
         "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n"
+        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+        "example": "1h"
       },
       "NeonFunctionCurrentDeployment": {
         "required": [
@@ -19672,7 +19506,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "region_id": {
             "type": "string",
@@ -19685,7 +19520,9 @@
             "maximum": 19,
             "minimum": 14,
             "type": "integer",
-            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error."
+            "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
+            "default": 18,
+            "example": 18
           },
           "store_passwords": {
             "type": "boolean",
@@ -19866,7 +19703,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "pooler_enabled": {
             "type": "boolean",
@@ -19919,7 +19757,8 @@
           },
           "provisioner": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "example": "k8s-neonvm"
           },
           "settings": {
             "$ref": "#/components/schemas/EndpointSettingsData"
@@ -20238,7 +20077,33 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ApiKeysListResponseItem"
-        }
+        },
+        "example": [
+          {
+            "id": 165432,
+            "name": "mykey_1",
+            "created_at": "2022-11-15T20:13:35Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:22:51Z",
+            "last_used_from_addr": "192.0.2.255"
+          },
+          {
+            "id": 165433,
+            "name": "mykey_2",
+            "created_at": "2022-11-15T20:12:36Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:15:04Z",
+            "last_used_from_addr": "192.0.2.255"
+          }
+        ]
       },
       "ListProjects200Response": {
         "required": [
@@ -20495,7 +20360,33 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/OrgApiKeysListResponseItem"
-        }
+        },
+        "example": [
+          {
+            "id": 165432,
+            "name": "orgkey_1",
+            "created_at": "2022-11-15T20:13:35Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:22:51Z",
+            "last_used_from_addr": "192.0.2.255"
+          },
+          {
+            "id": 165433,
+            "name": "orgkey_2",
+            "created_at": "2022-11-15T20:12:36Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:15:04Z",
+            "last_used_from_addr": "192.0.2.255"
+          }
+        ]
       },
       "GetOrganizationMembers200Response": {
         "required": [
@@ -20611,7 +20502,33 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ApiKeysListResponseItem"
-        }
+        },
+        "example": [
+          {
+            "id": 165432,
+            "name": "mykey_1",
+            "created_at": "2022-11-15T20:13:35Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:22:51Z",
+            "last_used_from_addr": "192.0.2.255"
+          },
+          {
+            "id": 165433,
+            "name": "mykey_2",
+            "created_at": "2022-11-15T20:12:36Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:15:04Z",
+            "last_used_from_addr": "192.0.2.255"
+          }
+        ]
       },
       "UpdateProjectBranchDataApi201Response": {
         "type": "object",
@@ -20625,7 +20542,33 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/OrgApiKeysListResponseItem"
-        }
+        },
+        "example": [
+          {
+            "id": 165432,
+            "name": "orgkey_1",
+            "created_at": "2022-11-15T20:13:35Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:22:51Z",
+            "last_used_from_addr": "192.0.2.255"
+          },
+          {
+            "id": 165433,
+            "name": "orgkey_2",
+            "created_at": "2022-11-15T20:12:36Z",
+            "created_by": {
+              "id": "629982cc-de05-43db-ae16-28f2399c4910",
+              "name": "John Smith",
+              "image": "http://link.to.image"
+            },
+            "last_used_at": "2022-11-15T20:15:04Z",
+            "last_used_from_addr": "192.0.2.255"
+          }
+        ]
       },
       "DeleteOrganizationSpendingLimit200Response": {
         "type": "object",
@@ -20681,11 +20624,18 @@
         "description": "Additional context-specific metadata"
       },
       "BranchAnonymizedCreateRequestAnnotationValue": {
+        "maxProperties": 50,
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+        "example": {
+          "github-commit-ref": "github-branch-name"
+        },
+        "x-tags": [
+          "Branch"
+        ]
       },
       "EndpointSettingsDataPgSettings": {
         "type": "object",
@@ -20699,7 +20649,9 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n"
+        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n",
+        "deprecated": true,
+        "x-sunset": "2026-06-20"
       },
       "DefaultEndpointSettingsPgSettings": {
         "type": "object",
@@ -20713,21 +20665,37 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n"
+        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n",
+        "deprecated": true,
+        "x-sunset": "2026-06-20"
       },
       "AnnotationDataValue": {
+        "maxProperties": 50,
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+        "example": {
+          "github-commit-ref": "github-branch-name"
+        },
+        "x-tags": [
+          "Branch"
+        ]
       },
       "AnnotationCreateValueRequestAnnotationValue": {
+        "maxProperties": 50,
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+        "example": {
+          "github-commit-ref": "github-branch-name"
+        },
+        "x-tags": [
+          "Branch"
+        ]
       },
       "AnnotationsMapResponseAnnotationsProperty": {
         "type": "object",
@@ -20768,11 +20736,18 @@
         "description": "Headers the caller MUST send verbatim on the request (e.g.\n\u0060Content-Type\u0060 when it was signed on an upload). May be empty.\n"
       },
       "ProjectCreateRequestProjectBranchAnnotations": {
+        "maxProperties": 50,
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+        "example": {
+          "github-commit-ref": "github-branch-name"
+        },
+        "x-tags": [
+          "Branch"
+        ]
       },
       "ListProjects200ResponseApplications": {
         "type": "object",
@@ -20795,11 +20770,18 @@
         "description": "Map of project IDs to their associated integration details."
       },
       "CreateProjectBranchRequestAnnotationValue": {
+        "maxProperties": 50,
         "type": "object",
         "additionalProperties": {
           "type": "string"
         },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries."
+        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+        "example": {
+          "github-commit-ref": "github-branch-name"
+        },
+        "x-tags": [
+          "Branch"
+        ]
       },
       "ListProjectBranches200ResponseAnnotations": {
         "type": "object",
@@ -20814,7 +20796,6 @@
           "INTERNAL"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Whether this issue affects external API exposure or is internal only",
         "example": "EXTERNAL",
         "x-ms-enum": {
@@ -20838,7 +20819,6 @@
           "ttl"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "How the branch was deleted: \u0027user\u0027 for manual deletion, \u0027ttl\u0027 for TTL expiration\n",
         "x-ms-enum": {
           "name": "BranchRecoveryInfoDeletionMethod",
@@ -20867,7 +20847,6 @@
           "visa"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Card network reported by the payment processor. Set to \u0060unknown\u0060 when the network cannot be determined.\n",
         "x-ms-enum": {
           "name": "PaymentSourceBankCardBrand",
@@ -20917,7 +20896,6 @@
           "oauth"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Authentication method used for the request:\n- \u0060keycloak\u0060: Keycloak identity provider authentication.\n- \u0060session_cookie\u0060: Browser session cookie authentication.\n- \u0060api_key_user\u0060: API key scoped to a user account.\n- \u0060api_key_org\u0060: API key scoped to an organization.\n- \u0060oauth\u0060: OAuth-based authentication.\n",
         "x-ms-enum": {
           "name": "AuthDetailsResponseAuthMethod",
@@ -20952,7 +20930,6 @@
           "external"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Authentication provider for the Neon Data API. \u0060neon_auth\u0060: use Neon\u0027s built-in managed authentication (no JWKS configuration required). \u0060external\u0060: use an external JWT provider, which requires \u0060jwks_url\u0060. When omitted, no auth provider is configured (existing setup is kept).",
         "x-ms-enum": {
           "name": "DataApiCreateRequestAuthProvider",
@@ -20975,7 +20952,6 @@
           "owner"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigCreatorRole",
@@ -20998,7 +20974,6 @@
           "owner"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Role of the organization\u0027s creator. \u0060owner\u0060: full control, including deleting the org and transferring ownership. \u0060admin\u0060: manage members and settings only.",
         "x-ms-enum": {
           "name": "NeonAuthOrganizationConfigUpdateCreatorRole",
@@ -21026,7 +21001,6 @@
           "phone_number.verified"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NeonAuthWebhookConfigEnabledEventsItem",
           "modelAsString": false,
@@ -21068,7 +21042,6 @@
           "public_read"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Access level for the bucket. Defaults to \u0060private\u0060. Set to \u0060public_read\u0060\nto allow anonymous \u0060GetObject\u0060/\u0060HeadObject\u0060 on objects in this bucket.\n",
         "x-ms-enum": {
           "name": "BucketCreateRequestAccessLevel",
@@ -21093,7 +21066,6 @@
           "branch_not_found"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Machine-readable reason why object storage is unavailable:\n- \u0060org_not_entitled\u0060: the org\u0027s \u0060PlatformBranchableStorage\u0060 feature flag is off.\n- \u0060region_unavailable\u0060: the project\u0027s region has no object storage admin service wired.\n- \u0060branch_directory_missing\u0060: the branch is not registered in the object storage service.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n",
         "x-ms-enum": {
           "name": "BranchStorageNotEnabledReason",
@@ -21124,7 +21096,6 @@
           "telemetry_not_enabled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Machine-readable reason why logs cannot be read:\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n- \u0060telemetry_not_enabled\u0060: the branch exists but is not collecting telemetry, so it\n  has no logs to serve.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogsNotAvailableReason",
@@ -21152,7 +21123,6 @@
           "conflicting_filters"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Machine-readable reason why the request was rejected:\n- \u0060time_range_too_large\u0060: the requested window spans more than seven days.\n- \u0060invalid_time_range\u0060: \u0060end_time\u0060 is not after \u0060start_time\u0060.\n- \u0060conflicting_time_range\u0060: both \u0060since\u0060 and \u0060start_time\u0060 were supplied.\n- \u0060invalid_cursor\u0060: the supplied \u0060cursor\u0060 is malformed, expired, or was issued for a\n  different query.\n- \u0060unknown_field\u0060: the requested \u0060field_name\u0060 is not one of the fields the log fields\n  endpoint reports for this branch.\n- \u0060invalid_logql\u0060: the supplied \u0060logql\u0060 expression does not parse, or uses a\n  construct this endpoint does not accept.\n- \u0060conflicting_filters\u0060: \u0060logql\u0060 was supplied alongside one or more structured\n  filters. Use one or the other.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogsInvalidQueryReason",
@@ -21195,7 +21165,6 @@
           "desc"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Order matching records by timestamp. \u0060desc\u0060, the default, returns\nthe newest records first.\n",
         "x-ms-enum": {
           "name": "ProjectBranchLogsQueryRequestSortOrder",
@@ -21218,7 +21187,6 @@
           "branch_not_found"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Machine-readable reason why the AI gateway is unavailable:\n- \u0060ai_gateway_unavailable\u0060: the project\u0027s region/cell has no AI gateway configured.\n- \u0060branch_not_found\u0060: the project or branch does not exist, or the caller does not\n  have access to it.\n",
         "x-ms-enum": {
           "name": "BranchAiGatewayNotEnabledReason",
@@ -21241,7 +21209,6 @@
           "download"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The transfer direction. \u0060upload\u0060 returns a presigned \u0060PUT\u0060 URL;\n\u0060download\u0060 returns a presigned \u0060GET\u0060 URL.\n",
         "x-ms-enum": {
           "name": "PresignRequestOperation",
@@ -21263,7 +21230,6 @@
           "user"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Principal type for the credential. Only \u0060user\u0060 is customer-managed\nand accepted here. \u0060function\u0060 and \u0060system\u0060 credentials are\nplatform-internal (e.g. function-serve auto-mint, presign signer)\nand are never issued through the customer-facing API.\n",
         "x-ms-enum": {
           "name": "UserPrincipalType",
@@ -21284,7 +21250,6 @@
           "failed"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Build lifecycle status of the deployment.",
         "x-ms-enum": {
           "name": "NeonFunctionDeploymentStatus",
@@ -21314,7 +21279,6 @@
           "schedule"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Trigger type discriminator.",
         "x-ms-enum": {
           "name": "ScheduleType",
@@ -21332,7 +21296,6 @@
           "storage_object_created"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Trigger type discriminator.",
         "x-ms-enum": {
           "name": "StorageObjectCreatedType",
@@ -21350,7 +21313,6 @@
           "nodejs24"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "Nodejs24Runtime",
           "modelAsString": false,
@@ -21368,7 +21330,6 @@
           "desc"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SortOrderParam",
           "modelAsString": false,
@@ -21391,7 +21352,6 @@
           "ERROR"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetProjectAdvisorSecurityIssuesMinSeverityParameter",
           "modelAsString": false,
@@ -21418,7 +21378,6 @@
           "updated_at"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListProjectBranchesSortByParameter",
           "modelAsString": false,
@@ -21445,7 +21404,6 @@
           "joined_at"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetOrganizationMembersSortByParameter",
           "modelAsString": false,

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org-id}\billing\spending_limit
+    /// Builds and executes requests for operations under \organizations\{orgId}\billing\spending_limit
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Spending_limitRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spending_limitRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/billing/spending_limit", pathParameters)
+        public Spending_limitRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}/billing/spending_limit", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Spending_limitRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/billing/spending_limit", rawUrl)
+        public Spending_limitRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}/billing/spending_limit", rawUrl)
         {
         }
         /// <summary>

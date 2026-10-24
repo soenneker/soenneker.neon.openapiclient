@@ -10,7 +10,7 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org-id}\vpc\region\{regionId}
+    /// Builds and executes requests for operations under \organizations\{orgId}\vpc\region\{regionId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithRegionItemRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRegionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc/region/{regionId}", pathParameters)
+        public WithRegionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}/vpc/region/{regionId}", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.Region.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithRegionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}/vpc/region/{regionId}", rawUrl)
+        public WithRegionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}/vpc/region/{regionId}", rawUrl)
         {
         }
     }

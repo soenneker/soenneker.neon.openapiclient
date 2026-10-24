@@ -17,14 +17,14 @@ namespace Soenneker.Neon.OpenApiClient.Organizations
     {
         /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.organizations.item collection</summary>
         /// <param name="position">The Neon organization ID</param>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder"/></returns>
-        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("org%2Did", position);
-                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("orgId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

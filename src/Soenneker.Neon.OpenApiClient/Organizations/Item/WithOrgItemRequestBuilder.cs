@@ -18,10 +18,10 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Organizations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{org-id}
+    /// Builds and executes requests for operations under \organizations\{orgId}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OrgItemRequestBuilder : BaseRequestBuilder
+    public partial class WithOrgItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The api_keys property</summary>
         public global::Soenneker.Neon.OpenApiClient.Organizations.Item.Api_keys.Api_keysRequestBuilder Api_keys
@@ -54,19 +54,19 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item
             get => new global::Soenneker.Neon.OpenApiClient.Organizations.Item.Vpc.VpcRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrgItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}", pathParameters)
+        public WithOrgItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public OrgItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{org%2Did}", rawUrl)
+        public WithOrgItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgId}", rawUrl)
         {
         }
         /// <summary>
@@ -114,11 +114,11 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.OrgItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Neon.OpenApiClient.Organizations.Item.WithOrgItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

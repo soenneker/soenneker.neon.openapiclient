@@ -10,6 +10,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// <summary>
     /// Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EndpointSettingsDataPgbouncerSettings : IAdditionalDataHolder, IParsable
     {
