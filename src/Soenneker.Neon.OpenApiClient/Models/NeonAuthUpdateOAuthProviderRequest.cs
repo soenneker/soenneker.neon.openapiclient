@@ -14,6 +14,22 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Key ID of the Sign in with Apple private key supplied in `client_secret`. Supply this field when the provider is apple; it has no effect for other providers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleKeyId { get; set; }
+#nullable restore
+#else
+        public string AppleKeyId { get; set; }
+#endif
+        /// <summary>Apple Developer Team ID. Supply this field when the provider is apple; it has no effect for other providers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleTeamId { get; set; }
+#nullable restore
+#else
+        public string AppleTeamId { get; set; }
+#endif
         /// <summary>The OAuth client ID registered with the provider. Omit to keep the currently configured value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +79,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "apple_key_id", n => { AppleKeyId = n.GetStringValue(); } },
+                { "apple_team_id", n => { AppleTeamId = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "microsoft_tenant_id", n => { MicrosoftTenantId = n.GetStringValue(); } },
@@ -75,6 +93,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("apple_key_id", AppleKeyId);
+            writer.WriteStringValue("apple_team_id", AppleTeamId);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteStringValue("microsoft_tenant_id", MicrosoftTenantId);

@@ -14,6 +14,22 @@ namespace Soenneker.Neon.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Key ID of the Sign in with Apple private key. Present only for the Apple OAuth provider.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleKeyId { get; set; }
+#nullable restore
+#else
+        public string AppleKeyId { get; set; }
+#endif
+        /// <summary>Apple Developer Team ID. Present only for the Apple OAuth provider.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppleTeamId { get; set; }
+#nullable restore
+#else
+        public string AppleTeamId { get; set; }
+#endif
         /// <summary>Public identifier for the OAuth application, issued by the provider when the application is registered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,6 +75,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "apple_key_id", n => { AppleKeyId = n.GetStringValue(); } },
+                { "apple_team_id", n => { AppleTeamId = n.GetStringValue(); } },
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>(); } },
@@ -72,6 +90,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("apple_key_id", AppleKeyId);
+            writer.WriteStringValue("apple_team_id", AppleTeamId);
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>("id", Id);

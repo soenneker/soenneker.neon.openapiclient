@@ -24,5 +24,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Vercel,
         #pragma warning restore CS1591
+        [EnumMember(Value = "apple")]
+        #pragma warning disable CS1591
+        Apple,
+        #pragma warning restore CS1591
     }
 }

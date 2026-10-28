@@ -16480,6 +16480,14 @@
           "client_secret": {
             "type": "string",
             "description": "OAuth client secret for the provider."
+          },
+          "apple_team_id": {
+            "type": "string",
+            "description": "Apple Developer Team ID. Present only for the Apple OAuth provider."
+          },
+          "apple_key_id": {
+            "type": "string",
+            "description": "Key ID of the Sign in with Apple private key. Present only for the Apple OAuth provider."
           }
         },
         "x-sensitive": [
@@ -16491,7 +16499,8 @@
           "google",
           "github",
           "microsoft",
-          "vercel"
+          "vercel",
+          "apple"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -16513,6 +16522,10 @@
             {
               "value": "vercel",
               "name": "Vercel"
+            },
+            {
+              "value": "apple",
+              "name": "Apple"
             }
           ]
         }
@@ -16558,6 +16571,14 @@
           "microsoft_tenant_id": {
             "type": "string",
             "description": "Tenant ID for the Microsoft OAuth provider. Only relevant when the OAuth provider is Microsoft; omit or leave blank for other providers."
+          },
+          "apple_team_id": {
+            "type": "string",
+            "description": "Apple Developer Team ID. Only relevant when the OAuth provider is Apple; omit for other providers."
+          },
+          "apple_key_id": {
+            "type": "string",
+            "description": "Key ID of the Sign in with Apple private key supplied in \u0060client_secret\u0060. Only relevant when the OAuth provider is Apple; omit for other providers."
           }
         },
         "x-sensitive": [
@@ -16578,6 +16599,14 @@
           "microsoft_tenant_id": {
             "type": "string",
             "description": "The tenant ID scoping the Microsoft OAuth provider. Supply this field when the provider type is microsoft; it has no effect for other provider types."
+          },
+          "apple_team_id": {
+            "type": "string",
+            "description": "Apple Developer Team ID. Supply this field when the provider is apple; it has no effect for other providers."
+          },
+          "apple_key_id": {
+            "type": "string",
+            "description": "Key ID of the Sign in with Apple private key supplied in \u0060client_secret\u0060. Supply this field when the provider is apple; it has no effect for other providers."
           }
         },
         "x-sensitive": [
