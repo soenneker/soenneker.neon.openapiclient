@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>OAuth client secret for the provider.</summary>
+        /// <summary>Masked OAuth client secret for the provider. For `apple`, a masked fingerprint of the Sign in with Apple `.p8` private key; the key itself is never returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }
@@ -48,6 +48,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? Id { get; set; }
+        /// <summary>Tenant ID of the Microsoft OAuth provider. Present only for the Microsoft OAuth provider when a tenant is configured.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MicrosoftTenantId { get; set; }
+#nullable restore
+#else
+        public string MicrosoftTenantId { get; set; }
+#endif
         /// <summary>The type property</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType? Type { get; set; }
         /// <summary>
@@ -80,6 +88,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>(); } },
+                { "microsoft_tenant_id", n => { MicrosoftTenantId = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType>(); } },
             };
         }
@@ -95,6 +104,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("client_id", ClientId);
             writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>("id", Id);
+            writer.WriteStringValue("microsoft_tenant_id", MicrosoftTenantId);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

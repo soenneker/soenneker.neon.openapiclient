@@ -38,7 +38,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>OAuth client secret for the provider. Omit to leave the existing secret unchanged.</summary>
+        /// <summary>OAuth client secret for the provider. Omit to leave the existing secret unchanged.For `apple`, a new `.p8` private key must be sent together with its `apple_key_id` in the same request; omit both to keep the stored key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }

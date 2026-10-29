@@ -16479,7 +16479,11 @@
           },
           "client_secret": {
             "type": "string",
-            "description": "OAuth client secret for the provider."
+            "description": "Masked OAuth client secret for the provider. For \u0060apple\u0060, a masked fingerprint of the Sign in with Apple \u0060.p8\u0060 private key; the key itself is never returned.\n"
+          },
+          "microsoft_tenant_id": {
+            "type": "string",
+            "description": "Tenant ID of the Microsoft OAuth provider. Present only for the Microsoft OAuth provider when a tenant is configured."
           },
           "apple_team_id": {
             "type": "string",
@@ -16566,7 +16570,7 @@
           },
           "client_secret": {
             "type": "string",
-            "description": "OAuth client secret for the provider."
+            "description": "OAuth client secret for the provider. For \u0060apple\u0060, the contents of the Sign in with Apple \u0060.p8\u0060 private key. For \u0060microsoft\u0060, the client secret value from Microsoft Entra ID.\n"
           },
           "microsoft_tenant_id": {
             "type": "string",
@@ -16594,7 +16598,7 @@
           },
           "client_secret": {
             "type": "string",
-            "description": "OAuth client secret for the provider. Omit to leave the existing secret unchanged."
+            "description": "OAuth client secret for the provider. Omit to leave the existing secret unchanged.\nFor \u0060apple\u0060, a new \u0060.p8\u0060 private key must be sent together with its \u0060apple_key_id\u0060 in the same request; omit both to keep the stored key.\n"
           },
           "microsoft_tenant_id": {
             "type": "string",
