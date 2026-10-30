@@ -17,8 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("annotation") is { } nullNodeAnnotation && nullNodeAnnotation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Annotation = null;
-            if (parseNode.GetChildNode("branch") is { } nullNodeBranch && nullNodeBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branch = null;
+            if (parseNode.GetChildNode("annotation") is null) { _explicitNullValueAnnotation = default!; _explicitNullProperties?.Remove("annotation"); }
+            else if (parseNode.GetChildNode("annotation") is { } nullNodeAnnotation && nullNodeAnnotation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Annotation = null;
+            if (parseNode.GetChildNode("branch") is null) { _explicitNullValueBranch = default!; _explicitNullProperties?.Remove("branch"); }
+            else if (parseNode.GetChildNode("branch") is { } nullNodeBranch && nullNodeBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The annotation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData? Annotation { get => _explicitNullValueAnnotation; set { _explicitNullValueAnnotation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation"); else _explicitNullProperties?.Remove("annotation"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData? Annotation { get => _explicitNullValueAnnotation; set { _explicitNullValueAnnotation = value; AdditionalData?.Remove("annotation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation"); else _explicitNullProperties?.Remove("annotation"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.AnnotationData? _explicitNullValueAnnotation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData Annotation { get => _explicitNullValueAnnotation; set { _explicitNullValueAnnotation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation"); else _explicitNullProperties?.Remove("annotation"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.AnnotationData Annotation { get => _explicitNullValueAnnotation; set { _explicitNullValueAnnotation = value; AdditionalData?.Remove("annotation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation"); else _explicitNullProperties?.Remove("annotation"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.AnnotationData _explicitNullValueAnnotation = default!;
 #endif
         /// <summary>The branch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.Branch? Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.Branch? Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; AdditionalData?.Remove("branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.Branch? _explicitNullValueBranch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.Branch Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.Branch Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; AdditionalData?.Remove("branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.Branch _explicitNullValueBranch = default!;
 #endif
         /// <summary>

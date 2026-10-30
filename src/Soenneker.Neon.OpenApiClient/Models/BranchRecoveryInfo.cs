@@ -18,21 +18,24 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("deleted_at") is { } nullNodeDeletedAt && nullNodeDeletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletedAt = null;
-            if (parseNode.GetChildNode("deletion_method") is { } nullNodeDeletionMethod && nullNodeDeletionMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletionMethod = null;
-            if (parseNode.GetChildNode("recoverable_until") is { } nullNodeRecoverableUntil && nullNodeRecoverableUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoverableUntil = null;
+            if (parseNode.GetChildNode("deleted_at") is null) { _explicitNullValueDeletedAt = default!; _explicitNullProperties?.Remove("deleted_at"); }
+            else if (parseNode.GetChildNode("deleted_at") is { } nullNodeDeletedAt && nullNodeDeletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletedAt = null;
+            if (parseNode.GetChildNode("deletion_method") is null) { _explicitNullValueDeletionMethod = default!; _explicitNullProperties?.Remove("deletion_method"); }
+            else if (parseNode.GetChildNode("deletion_method") is { } nullNodeDeletionMethod && nullNodeDeletionMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletionMethod = null;
+            if (parseNode.GetChildNode("recoverable_until") is null) { _explicitNullValueRecoverableUntil = default!; _explicitNullProperties?.Remove("recoverable_until"); }
+            else if (parseNode.GetChildNode("recoverable_until") is { } nullNodeRecoverableUntil && nullNodeRecoverableUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoverableUntil = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp when the branch was deleted</summary>
-        public DateTimeOffset? DeletedAt { get => _explicitNullValueDeletedAt; set { _explicitNullValueDeletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_at"); else _explicitNullProperties?.Remove("deleted_at"); } }
+        public DateTimeOffset? DeletedAt { get => _explicitNullValueDeletedAt; set { _explicitNullValueDeletedAt = value; AdditionalData?.Remove("deleted_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_at"); else _explicitNullProperties?.Remove("deleted_at"); } }
         private DateTimeOffset? _explicitNullValueDeletedAt = default!;
         /// <summary>How the branch was deleted: &apos;user&apos; for manual deletion, &apos;ttl&apos; for TTL expiration</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod? DeletionMethod { get => _explicitNullValueDeletionMethod; set { _explicitNullValueDeletionMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletion_method"); else _explicitNullProperties?.Remove("deletion_method"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod? DeletionMethod { get => _explicitNullValueDeletionMethod; set { _explicitNullValueDeletionMethod = value; AdditionalData?.Remove("deletion_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deletion_method"); else _explicitNullProperties?.Remove("deletion_method"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod? _explicitNullValueDeletionMethod = default!;
         /// <summary>Timestamp when the recovery window expires and the branch will be permanently deleted</summary>
-        public DateTimeOffset? RecoverableUntil { get => _explicitNullValueRecoverableUntil; set { _explicitNullValueRecoverableUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recoverable_until"); else _explicitNullProperties?.Remove("recoverable_until"); } }
+        public DateTimeOffset? RecoverableUntil { get => _explicitNullValueRecoverableUntil; set { _explicitNullValueRecoverableUntil = value; AdditionalData?.Remove("recoverable_until"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recoverable_until"); else _explicitNullProperties?.Remove("recoverable_until"); } }
         private DateTimeOffset? _explicitNullValueRecoverableUntil = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo"/> and sets the default values.
@@ -60,7 +63,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
-                { "deletion_method", n => { DeletionMethod = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod>(); } },
+                { "deletion_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfoDeletionMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDeletionMethod = default; _explicitNullProperties?.Remove("deletion_method"); AdditionalData["deletion_method"] = unknown; } else { DeletionMethod = parsed; AdditionalData.Remove("deletion_method"); } } },
                 { "recoverable_until", n => { RecoverableUntil = n.GetDateTimeOffsetValue(); } },
             };
         }

@@ -17,8 +17,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_parameters") is { } nullNodeConnectionParameters && nullNodeConnectionParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionParameters = null;
-            if (parseNode.GetChildNode("connection_uri") is { } nullNodeConnectionUri && nullNodeConnectionUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionUri = null;
+            if (parseNode.GetChildNode("connection_parameters") is null) { _explicitNullValueConnectionParameters = default!; _explicitNullProperties?.Remove("connection_parameters"); }
+            else if (parseNode.GetChildNode("connection_parameters") is { } nullNodeConnectionParameters && nullNodeConnectionParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionParameters = null;
+            if (parseNode.GetChildNode("connection_uri") is null) { _explicitNullValueConnectionUri = default!; _explicitNullProperties?.Remove("connection_uri"); }
+            else if (parseNode.GetChildNode("connection_uri") is { } nullNodeConnectionUri && nullNodeConnectionUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionUri = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The connection_parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters? ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters? ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; AdditionalData?.Remove("connection_parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters? _explicitNullValueConnectionParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters ConnectionParameters { get => _explicitNullValueConnectionParameters; set { _explicitNullValueConnectionParameters = value; AdditionalData?.Remove("connection_parameters"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_parameters"); else _explicitNullProperties?.Remove("connection_parameters"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.ConnectionParameters _explicitNullValueConnectionParameters = default!;
 #endif
         /// <summary>The connection URI is defined as specified here: [Connection URIs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING-URIS)The connection URI can be used to connect to a Postgres database with psql or defined in a DATABASE_URL environment variable.When creating a branch from a parent with more than one role or database, the response body does not include a connection URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionUri { get => _explicitNullValueConnectionUri; set { _explicitNullValueConnectionUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_uri"); else _explicitNullProperties?.Remove("connection_uri"); } }
+        public string? ConnectionUri { get => _explicitNullValueConnectionUri; set { _explicitNullValueConnectionUri = value; AdditionalData?.Remove("connection_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_uri"); else _explicitNullProperties?.Remove("connection_uri"); } }
         private string? _explicitNullValueConnectionUri = default!;
 #nullable restore
 #else
-        public string ConnectionUri { get => _explicitNullValueConnectionUri; set { _explicitNullValueConnectionUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_uri"); else _explicitNullProperties?.Remove("connection_uri"); } }
+        public string ConnectionUri { get => _explicitNullValueConnectionUri; set { _explicitNullValueConnectionUri = value; AdditionalData?.Remove("connection_uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_uri"); else _explicitNullProperties?.Remove("connection_uri"); } }
         private string _explicitNullValueConnectionUri = default!;
 #endif
         /// <summary>

@@ -18,89 +18,97 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_localhost") is { } nullNodeAllowLocalhost && nullNodeAllowLocalhost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowLocalhost = null;
-            if (parseNode.GetChildNode("email_and_password") is { } nullNodeEmailAndPassword && nullNodeEmailAndPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAndPassword = null;
-            if (parseNode.GetChildNode("email_provider") is { } nullNodeEmailProvider && nullNodeEmailProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailProvider = null;
-            if (parseNode.GetChildNode("magic_link") is { } nullNodeMagicLink && nullNodeMagicLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MagicLink = null;
-            if (parseNode.GetChildNode("oauth_provider") is { } nullNodeOauthProvider && nullNodeOauthProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthProvider = null;
-            if (parseNode.GetChildNode("oauth_providers") is { } nullNodeOauthProviders && nullNodeOauthProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthProviders = null;
-            if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
-            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("allow_localhost") is null) { _explicitNullValueAllowLocalhost = default!; _explicitNullProperties?.Remove("allow_localhost"); }
+            else if (parseNode.GetChildNode("allow_localhost") is { } nullNodeAllowLocalhost && nullNodeAllowLocalhost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowLocalhost = null;
+            if (parseNode.GetChildNode("email_and_password") is null) { _explicitNullValueEmailAndPassword = default!; _explicitNullProperties?.Remove("email_and_password"); }
+            else if (parseNode.GetChildNode("email_and_password") is { } nullNodeEmailAndPassword && nullNodeEmailAndPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAndPassword = null;
+            if (parseNode.GetChildNode("email_provider") is null) { _explicitNullValueEmailProvider = default!; _explicitNullProperties?.Remove("email_provider"); }
+            else if (parseNode.GetChildNode("email_provider") is { } nullNodeEmailProvider && nullNodeEmailProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailProvider = null;
+            if (parseNode.GetChildNode("magic_link") is null) { _explicitNullValueMagicLink = default!; _explicitNullProperties?.Remove("magic_link"); }
+            else if (parseNode.GetChildNode("magic_link") is { } nullNodeMagicLink && nullNodeMagicLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MagicLink = null;
+            if (parseNode.GetChildNode("oauth_provider") is null) { _explicitNullValueOauthProvider = default!; _explicitNullProperties?.Remove("oauth_provider"); }
+            else if (parseNode.GetChildNode("oauth_provider") is { } nullNodeOauthProvider && nullNodeOauthProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthProvider = null;
+            if (parseNode.GetChildNode("oauth_providers") is null) { _explicitNullValueOauthProviders = default!; _explicitNullProperties?.Remove("oauth_providers"); }
+            else if (parseNode.GetChildNode("oauth_providers") is { } nullNodeOauthProviders && nullNodeOauthProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthProviders = null;
+            if (parseNode.GetChildNode("organization") is null) { _explicitNullValueOrganization = default!; _explicitNullProperties?.Remove("organization"); }
+            else if (parseNode.GetChildNode("organization") is { } nullNodeOrganization && nullNodeOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Organization = null;
+            if (parseNode.GetChildNode("phone_number") is null) { _explicitNullValuePhoneNumber = default!; _explicitNullProperties?.Remove("phone_number"); }
+            else if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Permits authentication requests from localhost origins when true. Intended for local development; disable in production environments.</summary>
-        public bool? AllowLocalhost { get => _explicitNullValueAllowLocalhost; set { _explicitNullValueAllowLocalhost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_localhost"); else _explicitNullProperties?.Remove("allow_localhost"); } }
+        public bool? AllowLocalhost { get => _explicitNullValueAllowLocalhost; set { _explicitNullValueAllowLocalhost = value; AdditionalData?.Remove("allow_localhost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_localhost"); else _explicitNullProperties?.Remove("allow_localhost"); } }
         private bool? _explicitNullValueAllowLocalhost = default!;
         /// <summary>The email_and_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig? EmailAndPassword { get => _explicitNullValueEmailAndPassword; set { _explicitNullValueEmailAndPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_and_password"); else _explicitNullProperties?.Remove("email_and_password"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig? EmailAndPassword { get => _explicitNullValueEmailAndPassword; set { _explicitNullValueEmailAndPassword = value; AdditionalData?.Remove("email_and_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_and_password"); else _explicitNullProperties?.Remove("email_and_password"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig? _explicitNullValueEmailAndPassword = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig EmailAndPassword { get => _explicitNullValueEmailAndPassword; set { _explicitNullValueEmailAndPassword = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_and_password"); else _explicitNullProperties?.Remove("email_and_password"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig EmailAndPassword { get => _explicitNullValueEmailAndPassword; set { _explicitNullValueEmailAndPassword = value; AdditionalData?.Remove("email_and_password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_and_password"); else _explicitNullProperties?.Remove("email_and_password"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig _explicitNullValueEmailAndPassword = default!;
 #endif
         /// <summary>The email_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse? EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse? EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; AdditionalData?.Remove("email_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse? _explicitNullValueEmailProvider = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; AdditionalData?.Remove("email_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse _explicitNullValueEmailProvider = default!;
 #endif
         /// <summary>The magic_link property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig? MagicLink { get => _explicitNullValueMagicLink; set { _explicitNullValueMagicLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("magic_link"); else _explicitNullProperties?.Remove("magic_link"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig? MagicLink { get => _explicitNullValueMagicLink; set { _explicitNullValueMagicLink = value; AdditionalData?.Remove("magic_link"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("magic_link"); else _explicitNullProperties?.Remove("magic_link"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig? _explicitNullValueMagicLink = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig MagicLink { get => _explicitNullValueMagicLink; set { _explicitNullValueMagicLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("magic_link"); else _explicitNullProperties?.Remove("magic_link"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig MagicLink { get => _explicitNullValueMagicLink; set { _explicitNullValueMagicLink = value; AdditionalData?.Remove("magic_link"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("magic_link"); else _explicitNullProperties?.Remove("magic_link"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig _explicitNullValueMagicLink = default!;
 #endif
         /// <summary>The oauth_provider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig? OauthProvider { get => _explicitNullValueOauthProvider; set { _explicitNullValueOauthProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_provider"); else _explicitNullProperties?.Remove("oauth_provider"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig? OauthProvider { get => _explicitNullValueOauthProvider; set { _explicitNullValueOauthProvider = value; AdditionalData?.Remove("oauth_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_provider"); else _explicitNullProperties?.Remove("oauth_provider"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig? _explicitNullValueOauthProvider = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig OauthProvider { get => _explicitNullValueOauthProvider; set { _explicitNullValueOauthProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_provider"); else _explicitNullProperties?.Remove("oauth_provider"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig OauthProvider { get => _explicitNullValueOauthProvider; set { _explicitNullValueOauthProvider = value; AdditionalData?.Remove("oauth_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_provider"); else _explicitNullProperties?.Remove("oauth_provider"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig _explicitNullValueOauthProvider = default!;
 #endif
         /// <summary>OAuth provider configurations enabled for this auth setup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>? OauthProviders { get => _explicitNullValueOauthProviders; set { _explicitNullValueOauthProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_providers"); else _explicitNullProperties?.Remove("oauth_providers"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>? OauthProviders { get => _explicitNullValueOauthProviders; set { _explicitNullValueOauthProviders = value; AdditionalData?.Remove("oauth_providers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_providers"); else _explicitNullProperties?.Remove("oauth_providers"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>? _explicitNullValueOauthProviders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider> OauthProviders { get => _explicitNullValueOauthProviders; set { _explicitNullValueOauthProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_providers"); else _explicitNullProperties?.Remove("oauth_providers"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider> OauthProviders { get => _explicitNullValueOauthProviders; set { _explicitNullValueOauthProviders = value; AdditionalData?.Remove("oauth_providers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_providers"); else _explicitNullProperties?.Remove("oauth_providers"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider> _explicitNullValueOauthProviders = default!;
 #endif
         /// <summary>The organization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig? Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; AdditionalData?.Remove("organization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig? _explicitNullValueOrganization = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig Organization { get => _explicitNullValueOrganization; set { _explicitNullValueOrganization = value; AdditionalData?.Remove("organization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization"); else _explicitNullProperties?.Remove("organization"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfig _explicitNullValueOrganization = default!;
 #endif
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthPhoneNumberConfig _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>

@@ -17,13 +17,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("spending_limit_cents") is { } nullNodeSpendingLimitCents && nullNodeSpendingLimitCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendingLimitCents = null;
+            if (parseNode.GetChildNode("spending_limit_cents") is null) { _explicitNullValueSpendingLimitCents = default!; _explicitNullProperties?.Remove("spending_limit_cents"); }
+            else if (parseNode.GetChildNode("spending_limit_cents") is { } nullNodeSpendingLimitCents && nullNodeSpendingLimitCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpendingLimitCents = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Monthly spending cap in cents. Must be positive. To remove apreviously configured limit, send a DELETE request to thespending_limit endpoint — `0` and `null` are rejected here.The cap is alert-only: notifications fire at 80% and 100%, butcomputes are not suspended. Setting a cap below the period&apos;salready-accrued spend is permitted and will trigger theover-limit notification on the next worker run.</summary>
-        public long? SpendingLimitCents { get => _explicitNullValueSpendingLimitCents; set { _explicitNullValueSpendingLimitCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spending_limit_cents"); else _explicitNullProperties?.Remove("spending_limit_cents"); } }
+        public long? SpendingLimitCents { get => _explicitNullValueSpendingLimitCents; set { _explicitNullValueSpendingLimitCents = value; AdditionalData?.Remove("spending_limit_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spending_limit_cents"); else _explicitNullProperties?.Remove("spending_limit_cents"); } }
         private long? _explicitNullValueSpendingLimitCents = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitUpdateRequest"/> and sets the default values.

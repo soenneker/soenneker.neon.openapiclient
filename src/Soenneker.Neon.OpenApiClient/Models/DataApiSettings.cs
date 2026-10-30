@@ -18,91 +18,101 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("db_aggregates_enabled") is { } nullNodeDbAggregatesEnabled && nullNodeDbAggregatesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbAggregatesEnabled = null;
-            if (parseNode.GetChildNode("db_anon_role") is { } nullNodeDbAnonRole && nullNodeDbAnonRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbAnonRole = null;
-            if (parseNode.GetChildNode("db_extra_search_path") is { } nullNodeDbExtraSearchPath && nullNodeDbExtraSearchPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbExtraSearchPath = null;
-            if (parseNode.GetChildNode("db_max_rows") is { } nullNodeDbMaxRows && nullNodeDbMaxRows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbMaxRows = null;
-            if (parseNode.GetChildNode("db_schemas") is { } nullNodeDbSchemas && nullNodeDbSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbSchemas = null;
-            if (parseNode.GetChildNode("jwt_cache_max_lifetime") is { } nullNodeJwtCacheMaxLifetime && nullNodeJwtCacheMaxLifetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtCacheMaxLifetime = null;
-            if (parseNode.GetChildNode("jwt_role_claim_key") is { } nullNodeJwtRoleClaimKey && nullNodeJwtRoleClaimKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtRoleClaimKey = null;
-            if (parseNode.GetChildNode("openapi_mode") is { } nullNodeOpenapiMode && nullNodeOpenapiMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenapiMode = null;
-            if (parseNode.GetChildNode("server_cors_allowed_origins") is { } nullNodeServerCorsAllowedOrigins && nullNodeServerCorsAllowedOrigins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerCorsAllowedOrigins = null;
-            if (parseNode.GetChildNode("server_timing_enabled") is { } nullNodeServerTimingEnabled && nullNodeServerTimingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerTimingEnabled = null;
+            if (parseNode.GetChildNode("db_aggregates_enabled") is null) { _explicitNullValueDbAggregatesEnabled = default!; _explicitNullProperties?.Remove("db_aggregates_enabled"); }
+            else if (parseNode.GetChildNode("db_aggregates_enabled") is { } nullNodeDbAggregatesEnabled && nullNodeDbAggregatesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbAggregatesEnabled = null;
+            if (parseNode.GetChildNode("db_anon_role") is null) { _explicitNullValueDbAnonRole = default!; _explicitNullProperties?.Remove("db_anon_role"); }
+            else if (parseNode.GetChildNode("db_anon_role") is { } nullNodeDbAnonRole && nullNodeDbAnonRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbAnonRole = null;
+            if (parseNode.GetChildNode("db_extra_search_path") is null) { _explicitNullValueDbExtraSearchPath = default!; _explicitNullProperties?.Remove("db_extra_search_path"); }
+            else if (parseNode.GetChildNode("db_extra_search_path") is { } nullNodeDbExtraSearchPath && nullNodeDbExtraSearchPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbExtraSearchPath = null;
+            if (parseNode.GetChildNode("db_max_rows") is null) { _explicitNullValueDbMaxRows = default!; _explicitNullProperties?.Remove("db_max_rows"); }
+            else if (parseNode.GetChildNode("db_max_rows") is { } nullNodeDbMaxRows && nullNodeDbMaxRows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbMaxRows = null;
+            if (parseNode.GetChildNode("db_schemas") is null) { _explicitNullValueDbSchemas = default!; _explicitNullProperties?.Remove("db_schemas"); }
+            else if (parseNode.GetChildNode("db_schemas") is { } nullNodeDbSchemas && nullNodeDbSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbSchemas = null;
+            if (parseNode.GetChildNode("jwt_cache_max_lifetime") is null) { _explicitNullValueJwtCacheMaxLifetime = default!; _explicitNullProperties?.Remove("jwt_cache_max_lifetime"); }
+            else if (parseNode.GetChildNode("jwt_cache_max_lifetime") is { } nullNodeJwtCacheMaxLifetime && nullNodeJwtCacheMaxLifetime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtCacheMaxLifetime = null;
+            if (parseNode.GetChildNode("jwt_role_claim_key") is null) { _explicitNullValueJwtRoleClaimKey = default!; _explicitNullProperties?.Remove("jwt_role_claim_key"); }
+            else if (parseNode.GetChildNode("jwt_role_claim_key") is { } nullNodeJwtRoleClaimKey && nullNodeJwtRoleClaimKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtRoleClaimKey = null;
+            if (parseNode.GetChildNode("openapi_mode") is null) { _explicitNullValueOpenapiMode = default!; _explicitNullProperties?.Remove("openapi_mode"); }
+            else if (parseNode.GetChildNode("openapi_mode") is { } nullNodeOpenapiMode && nullNodeOpenapiMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenapiMode = null;
+            if (parseNode.GetChildNode("server_cors_allowed_origins") is null) { _explicitNullValueServerCorsAllowedOrigins = default!; _explicitNullProperties?.Remove("server_cors_allowed_origins"); }
+            else if (parseNode.GetChildNode("server_cors_allowed_origins") is { } nullNodeServerCorsAllowedOrigins && nullNodeServerCorsAllowedOrigins.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerCorsAllowedOrigins = null;
+            if (parseNode.GetChildNode("server_timing_enabled") is null) { _explicitNullValueServerTimingEnabled = default!; _explicitNullProperties?.Remove("server_timing_enabled"); }
+            else if (parseNode.GetChildNode("server_timing_enabled") is { } nullNodeServerTimingEnabled && nullNodeServerTimingEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServerTimingEnabled = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enable aggregates feature</summary>
-        public bool? DbAggregatesEnabled { get => _explicitNullValueDbAggregatesEnabled; set { _explicitNullValueDbAggregatesEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_aggregates_enabled"); else _explicitNullProperties?.Remove("db_aggregates_enabled"); } }
+        public bool? DbAggregatesEnabled { get => _explicitNullValueDbAggregatesEnabled; set { _explicitNullValueDbAggregatesEnabled = value; AdditionalData?.Remove("db_aggregates_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_aggregates_enabled"); else _explicitNullProperties?.Remove("db_aggregates_enabled"); } }
         private bool? _explicitNullValueDbAggregatesEnabled = default!;
         /// <summary>Database role to use for anonymous requests</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DbAnonRole { get => _explicitNullValueDbAnonRole; set { _explicitNullValueDbAnonRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_anon_role"); else _explicitNullProperties?.Remove("db_anon_role"); } }
+        public string? DbAnonRole { get => _explicitNullValueDbAnonRole; set { _explicitNullValueDbAnonRole = value; AdditionalData?.Remove("db_anon_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_anon_role"); else _explicitNullProperties?.Remove("db_anon_role"); } }
         private string? _explicitNullValueDbAnonRole = default!;
 #nullable restore
 #else
-        public string DbAnonRole { get => _explicitNullValueDbAnonRole; set { _explicitNullValueDbAnonRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_anon_role"); else _explicitNullProperties?.Remove("db_anon_role"); } }
+        public string DbAnonRole { get => _explicitNullValueDbAnonRole; set { _explicitNullValueDbAnonRole = value; AdditionalData?.Remove("db_anon_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_anon_role"); else _explicitNullProperties?.Remove("db_anon_role"); } }
         private string _explicitNullValueDbAnonRole = default!;
 #endif
         /// <summary>Extra schemas to add to the search path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DbExtraSearchPath { get => _explicitNullValueDbExtraSearchPath; set { _explicitNullValueDbExtraSearchPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_extra_search_path"); else _explicitNullProperties?.Remove("db_extra_search_path"); } }
+        public string? DbExtraSearchPath { get => _explicitNullValueDbExtraSearchPath; set { _explicitNullValueDbExtraSearchPath = value; AdditionalData?.Remove("db_extra_search_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_extra_search_path"); else _explicitNullProperties?.Remove("db_extra_search_path"); } }
         private string? _explicitNullValueDbExtraSearchPath = default!;
 #nullable restore
 #else
-        public string DbExtraSearchPath { get => _explicitNullValueDbExtraSearchPath; set { _explicitNullValueDbExtraSearchPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_extra_search_path"); else _explicitNullProperties?.Remove("db_extra_search_path"); } }
+        public string DbExtraSearchPath { get => _explicitNullValueDbExtraSearchPath; set { _explicitNullValueDbExtraSearchPath = value; AdditionalData?.Remove("db_extra_search_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_extra_search_path"); else _explicitNullProperties?.Remove("db_extra_search_path"); } }
         private string _explicitNullValueDbExtraSearchPath = default!;
 #endif
         /// <summary>Hard limit on the number of rows returned in a single Data API response. No limit when unset.</summary>
-        public int? DbMaxRows { get => _explicitNullValueDbMaxRows; set { _explicitNullValueDbMaxRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_max_rows"); else _explicitNullProperties?.Remove("db_max_rows"); } }
+        public int? DbMaxRows { get => _explicitNullValueDbMaxRows; set { _explicitNullValueDbMaxRows = value; AdditionalData?.Remove("db_max_rows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_max_rows"); else _explicitNullProperties?.Remove("db_max_rows"); } }
         private int? _explicitNullValueDbMaxRows = default!;
         /// <summary>List of schemas to expose via the API. Default: [&quot;public&quot;]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DbSchemas { get => _explicitNullValueDbSchemas; set { _explicitNullValueDbSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_schemas"); else _explicitNullProperties?.Remove("db_schemas"); } }
+        public List<string>? DbSchemas { get => _explicitNullValueDbSchemas; set { _explicitNullValueDbSchemas = value; AdditionalData?.Remove("db_schemas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_schemas"); else _explicitNullProperties?.Remove("db_schemas"); } }
         private List<string>? _explicitNullValueDbSchemas = default!;
 #nullable restore
 #else
-        public List<string> DbSchemas { get => _explicitNullValueDbSchemas; set { _explicitNullValueDbSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_schemas"); else _explicitNullProperties?.Remove("db_schemas"); } }
+        public List<string> DbSchemas { get => _explicitNullValueDbSchemas; set { _explicitNullValueDbSchemas = value; AdditionalData?.Remove("db_schemas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_schemas"); else _explicitNullProperties?.Remove("db_schemas"); } }
         private List<string> _explicitNullValueDbSchemas = default!;
 #endif
         /// <summary>Maximum lifetime of the Data API&apos;s JWT cache, in seconds.</summary>
-        public int? JwtCacheMaxLifetime { get => _explicitNullValueJwtCacheMaxLifetime; set { _explicitNullValueJwtCacheMaxLifetime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_cache_max_lifetime"); else _explicitNullProperties?.Remove("jwt_cache_max_lifetime"); } }
+        public int? JwtCacheMaxLifetime { get => _explicitNullValueJwtCacheMaxLifetime; set { _explicitNullValueJwtCacheMaxLifetime = value; AdditionalData?.Remove("jwt_cache_max_lifetime"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_cache_max_lifetime"); else _explicitNullProperties?.Remove("jwt_cache_max_lifetime"); } }
         private int? _explicitNullValueJwtCacheMaxLifetime = default!;
         /// <summary>JWT claim key to use for role extraction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JwtRoleClaimKey { get => _explicitNullValueJwtRoleClaimKey; set { _explicitNullValueJwtRoleClaimKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role_claim_key"); else _explicitNullProperties?.Remove("jwt_role_claim_key"); } }
+        public string? JwtRoleClaimKey { get => _explicitNullValueJwtRoleClaimKey; set { _explicitNullValueJwtRoleClaimKey = value; AdditionalData?.Remove("jwt_role_claim_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role_claim_key"); else _explicitNullProperties?.Remove("jwt_role_claim_key"); } }
         private string? _explicitNullValueJwtRoleClaimKey = default!;
 #nullable restore
 #else
-        public string JwtRoleClaimKey { get => _explicitNullValueJwtRoleClaimKey; set { _explicitNullValueJwtRoleClaimKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role_claim_key"); else _explicitNullProperties?.Remove("jwt_role_claim_key"); } }
+        public string JwtRoleClaimKey { get => _explicitNullValueJwtRoleClaimKey; set { _explicitNullValueJwtRoleClaimKey = value; AdditionalData?.Remove("jwt_role_claim_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role_claim_key"); else _explicitNullProperties?.Remove("jwt_role_claim_key"); } }
         private string _explicitNullValueJwtRoleClaimKey = default!;
 #endif
         /// <summary>OpenAPI specification mode (ignore-privileges, disabled)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OpenapiMode { get => _explicitNullValueOpenapiMode; set { _explicitNullValueOpenapiMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_mode"); else _explicitNullProperties?.Remove("openapi_mode"); } }
+        public string? OpenapiMode { get => _explicitNullValueOpenapiMode; set { _explicitNullValueOpenapiMode = value; AdditionalData?.Remove("openapi_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_mode"); else _explicitNullProperties?.Remove("openapi_mode"); } }
         private string? _explicitNullValueOpenapiMode = default!;
 #nullable restore
 #else
-        public string OpenapiMode { get => _explicitNullValueOpenapiMode; set { _explicitNullValueOpenapiMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_mode"); else _explicitNullProperties?.Remove("openapi_mode"); } }
+        public string OpenapiMode { get => _explicitNullValueOpenapiMode; set { _explicitNullValueOpenapiMode = value; AdditionalData?.Remove("openapi_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_mode"); else _explicitNullProperties?.Remove("openapi_mode"); } }
         private string _explicitNullValueOpenapiMode = default!;
 #endif
         /// <summary>CORS allowed origins</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServerCorsAllowedOrigins { get => _explicitNullValueServerCorsAllowedOrigins; set { _explicitNullValueServerCorsAllowedOrigins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_cors_allowed_origins"); else _explicitNullProperties?.Remove("server_cors_allowed_origins"); } }
+        public string? ServerCorsAllowedOrigins { get => _explicitNullValueServerCorsAllowedOrigins; set { _explicitNullValueServerCorsAllowedOrigins = value; AdditionalData?.Remove("server_cors_allowed_origins"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_cors_allowed_origins"); else _explicitNullProperties?.Remove("server_cors_allowed_origins"); } }
         private string? _explicitNullValueServerCorsAllowedOrigins = default!;
 #nullable restore
 #else
-        public string ServerCorsAllowedOrigins { get => _explicitNullValueServerCorsAllowedOrigins; set { _explicitNullValueServerCorsAllowedOrigins = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_cors_allowed_origins"); else _explicitNullProperties?.Remove("server_cors_allowed_origins"); } }
+        public string ServerCorsAllowedOrigins { get => _explicitNullValueServerCorsAllowedOrigins; set { _explicitNullValueServerCorsAllowedOrigins = value; AdditionalData?.Remove("server_cors_allowed_origins"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_cors_allowed_origins"); else _explicitNullProperties?.Remove("server_cors_allowed_origins"); } }
         private string _explicitNullValueServerCorsAllowedOrigins = default!;
 #endif
         /// <summary>When enabled, the Data API adds `Server-Timing` headers to each response showing database execution and internal processing time. Default: disabled.</summary>
-        public bool? ServerTimingEnabled { get => _explicitNullValueServerTimingEnabled; set { _explicitNullValueServerTimingEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_timing_enabled"); else _explicitNullProperties?.Remove("server_timing_enabled"); } }
+        public bool? ServerTimingEnabled { get => _explicitNullValueServerTimingEnabled; set { _explicitNullValueServerTimingEnabled = value; AdditionalData?.Remove("server_timing_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("server_timing_enabled"); else _explicitNullProperties?.Remove("server_timing_enabled"); } }
         private bool? _explicitNullValueServerTimingEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DataApiSettings"/> and sets the default values.

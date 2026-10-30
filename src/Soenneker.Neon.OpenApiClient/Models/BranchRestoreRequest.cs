@@ -17,10 +17,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("preserve_under_name") is { } nullNodePreserveUnderName && nullNodePreserveUnderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreserveUnderName = null;
-            if (parseNode.GetChildNode("source_branch_id") is { } nullNodeSourceBranchId && nullNodeSourceBranchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceBranchId = null;
-            if (parseNode.GetChildNode("source_lsn") is { } nullNodeSourceLsn && nullNodeSourceLsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLsn = null;
-            if (parseNode.GetChildNode("source_timestamp") is { } nullNodeSourceTimestamp && nullNodeSourceTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceTimestamp = null;
+            if (parseNode.GetChildNode("preserve_under_name") is null) { _explicitNullValuePreserveUnderName = default!; _explicitNullProperties?.Remove("preserve_under_name"); }
+            else if (parseNode.GetChildNode("preserve_under_name") is { } nullNodePreserveUnderName && nullNodePreserveUnderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreserveUnderName = null;
+            if (parseNode.GetChildNode("source_branch_id") is null) { _explicitNullValueSourceBranchId = default!; _explicitNullProperties?.Remove("source_branch_id"); }
+            else if (parseNode.GetChildNode("source_branch_id") is { } nullNodeSourceBranchId && nullNodeSourceBranchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceBranchId = null;
+            if (parseNode.GetChildNode("source_lsn") is null) { _explicitNullValueSourceLsn = default!; _explicitNullProperties?.Remove("source_lsn"); }
+            else if (parseNode.GetChildNode("source_lsn") is { } nullNodeSourceLsn && nullNodeSourceLsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLsn = null;
+            if (parseNode.GetChildNode("source_timestamp") is null) { _explicitNullValueSourceTimestamp = default!; _explicitNullProperties?.Remove("source_timestamp"); }
+            else if (parseNode.GetChildNode("source_timestamp") is { } nullNodeSourceTimestamp && nullNodeSourceTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceTimestamp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Name under which to save the current branch state before restoring. Required when the branch has children or when `source_branch_id` equals the branch being restored; in those cases all existing child branches are moved to the newly created branch. If omitted and not required, the previous state is not preserved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreserveUnderName { get => _explicitNullValuePreserveUnderName; set { _explicitNullValuePreserveUnderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_under_name"); else _explicitNullProperties?.Remove("preserve_under_name"); } }
+        public string? PreserveUnderName { get => _explicitNullValuePreserveUnderName; set { _explicitNullValuePreserveUnderName = value; AdditionalData?.Remove("preserve_under_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_under_name"); else _explicitNullProperties?.Remove("preserve_under_name"); } }
         private string? _explicitNullValuePreserveUnderName = default!;
 #nullable restore
 #else
-        public string PreserveUnderName { get => _explicitNullValuePreserveUnderName; set { _explicitNullValuePreserveUnderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_under_name"); else _explicitNullProperties?.Remove("preserve_under_name"); } }
+        public string PreserveUnderName { get => _explicitNullValuePreserveUnderName; set { _explicitNullValuePreserveUnderName = value; AdditionalData?.Remove("preserve_under_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_under_name"); else _explicitNullProperties?.Remove("preserve_under_name"); } }
         private string _explicitNullValuePreserveUnderName = default!;
 #endif
         /// <summary>The `branch_id` of the restore source branch.If `source_timestamp` and `source_lsn` are omitted, the branch will be restored to head.If `source_branch_id` is equal to the branch&apos;s id, `source_timestamp` or `source_lsn` is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceBranchId { get => _explicitNullValueSourceBranchId; set { _explicitNullValueSourceBranchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_branch_id"); else _explicitNullProperties?.Remove("source_branch_id"); } }
+        public string? SourceBranchId { get => _explicitNullValueSourceBranchId; set { _explicitNullValueSourceBranchId = value; AdditionalData?.Remove("source_branch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_branch_id"); else _explicitNullProperties?.Remove("source_branch_id"); } }
         private string? _explicitNullValueSourceBranchId = default!;
 #nullable restore
 #else
-        public string SourceBranchId { get => _explicitNullValueSourceBranchId; set { _explicitNullValueSourceBranchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_branch_id"); else _explicitNullProperties?.Remove("source_branch_id"); } }
+        public string SourceBranchId { get => _explicitNullValueSourceBranchId; set { _explicitNullValueSourceBranchId = value; AdditionalData?.Remove("source_branch_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_branch_id"); else _explicitNullProperties?.Remove("source_branch_id"); } }
         private string _explicitNullValueSourceBranchId = default!;
 #endif
         /// <summary>A Postgres LSN (for example, `0/1A2B3C4`) on the source branch to restore from.Mutually exclusive with `source_timestamp`. Omit both to restore to head.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceLsn { get => _explicitNullValueSourceLsn; set { _explicitNullValueSourceLsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_lsn"); else _explicitNullProperties?.Remove("source_lsn"); } }
+        public string? SourceLsn { get => _explicitNullValueSourceLsn; set { _explicitNullValueSourceLsn = value; AdditionalData?.Remove("source_lsn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_lsn"); else _explicitNullProperties?.Remove("source_lsn"); } }
         private string? _explicitNullValueSourceLsn = default!;
 #nullable restore
 #else
-        public string SourceLsn { get => _explicitNullValueSourceLsn; set { _explicitNullValueSourceLsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_lsn"); else _explicitNullProperties?.Remove("source_lsn"); } }
+        public string SourceLsn { get => _explicitNullValueSourceLsn; set { _explicitNullValueSourceLsn = value; AdditionalData?.Remove("source_lsn"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_lsn"); else _explicitNullProperties?.Remove("source_lsn"); } }
         private string _explicitNullValueSourceLsn = default!;
 #endif
         /// <summary>A point in time on the source branch to restore from, in RFC 3339 format. When omitted alongside `source_lsn`, the branch is restored to the latest available state of the source branch.</summary>
-        public DateTimeOffset? SourceTimestamp { get => _explicitNullValueSourceTimestamp; set { _explicitNullValueSourceTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_timestamp"); else _explicitNullProperties?.Remove("source_timestamp"); } }
+        public DateTimeOffset? SourceTimestamp { get => _explicitNullValueSourceTimestamp; set { _explicitNullValueSourceTimestamp = value; AdditionalData?.Remove("source_timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_timestamp"); else _explicitNullProperties?.Remove("source_timestamp"); } }
         private DateTimeOffset? _explicitNullValueSourceTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchRestoreRequest"/> and sets the default values.

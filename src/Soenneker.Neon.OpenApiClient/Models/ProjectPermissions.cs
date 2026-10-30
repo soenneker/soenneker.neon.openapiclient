@@ -17,7 +17,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("project_permissions") is { } nullNodeProjectPermissionsProp && nullNodeProjectPermissionsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectPermissionsProp = null;
+            if (parseNode.GetChildNode("project_permissions") is null) { _explicitNullValueProjectPermissionsProp = default!; _explicitNullProperties?.Remove("project_permissions"); }
+            else if (parseNode.GetChildNode("project_permissions") is { } nullNodeProjectPermissionsProp && nullNodeProjectPermissionsProp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectPermissionsProp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>The project_permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission>? ProjectPermissionsProp { get => _explicitNullValueProjectPermissionsProp; set { _explicitNullValueProjectPermissionsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_permissions"); else _explicitNullProperties?.Remove("project_permissions"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission>? ProjectPermissionsProp { get => _explicitNullValueProjectPermissionsProp; set { _explicitNullValueProjectPermissionsProp = value; AdditionalData?.Remove("project_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_permissions"); else _explicitNullProperties?.Remove("project_permissions"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission>? _explicitNullValueProjectPermissionsProp = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission> ProjectPermissionsProp { get => _explicitNullValueProjectPermissionsProp; set { _explicitNullValueProjectPermissionsProp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_permissions"); else _explicitNullProperties?.Remove("project_permissions"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission> ProjectPermissionsProp { get => _explicitNullValueProjectPermissionsProp; set { _explicitNullValueProjectPermissionsProp = value; AdditionalData?.Remove("project_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_permissions"); else _explicitNullProperties?.Remove("project_permissions"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermission> _explicitNullValueProjectPermissionsProp = default!;
 #endif
         /// <summary>

@@ -17,11 +17,16 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("apple_key_id") is { } nullNodeAppleKeyId && nullNodeAppleKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleKeyId = null;
-            if (parseNode.GetChildNode("apple_team_id") is { } nullNodeAppleTeamId && nullNodeAppleTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleTeamId = null;
-            if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
-            if (parseNode.GetChildNode("client_secret") is { } nullNodeClientSecret && nullNodeClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSecret = null;
-            if (parseNode.GetChildNode("microsoft_tenant_id") is { } nullNodeMicrosoftTenantId && nullNodeMicrosoftTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTenantId = null;
+            if (parseNode.GetChildNode("apple_key_id") is null) { _explicitNullValueAppleKeyId = default!; _explicitNullProperties?.Remove("apple_key_id"); }
+            else if (parseNode.GetChildNode("apple_key_id") is { } nullNodeAppleKeyId && nullNodeAppleKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleKeyId = null;
+            if (parseNode.GetChildNode("apple_team_id") is null) { _explicitNullValueAppleTeamId = default!; _explicitNullProperties?.Remove("apple_team_id"); }
+            else if (parseNode.GetChildNode("apple_team_id") is { } nullNodeAppleTeamId && nullNodeAppleTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleTeamId = null;
+            if (parseNode.GetChildNode("client_id") is null) { _explicitNullValueClientId = default!; _explicitNullProperties?.Remove("client_id"); }
+            else if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("client_secret") is null) { _explicitNullValueClientSecret = default!; _explicitNullProperties?.Remove("client_secret"); }
+            else if (parseNode.GetChildNode("client_secret") is { } nullNodeClientSecret && nullNodeClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSecret = null;
+            if (parseNode.GetChildNode("microsoft_tenant_id") is null) { _explicitNullValueMicrosoftTenantId = default!; _explicitNullProperties?.Remove("microsoft_tenant_id"); }
+            else if (parseNode.GetChildNode("microsoft_tenant_id") is { } nullNodeMicrosoftTenantId && nullNodeMicrosoftTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTenantId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Key ID of the Sign in with Apple private key supplied in `client_secret`. Supply this field when the provider is apple; it has no effect for other providers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
+        public string? AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; AdditionalData?.Remove("apple_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
         private string? _explicitNullValueAppleKeyId = default!;
 #nullable restore
 #else
-        public string AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
+        public string AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; AdditionalData?.Remove("apple_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
         private string _explicitNullValueAppleKeyId = default!;
 #endif
         /// <summary>Apple Developer Team ID. Supply this field when the provider is apple; it has no effect for other providers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
+        public string? AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; AdditionalData?.Remove("apple_team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
         private string? _explicitNullValueAppleTeamId = default!;
 #nullable restore
 #else
-        public string AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
+        public string AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; AdditionalData?.Remove("apple_team_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
         private string _explicitNullValueAppleTeamId = default!;
 #endif
         /// <summary>The OAuth client ID registered with the provider. Omit to keep the currently configured value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; AdditionalData?.Remove("client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
         private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>OAuth client secret for the provider. Omit to leave the existing secret unchanged.For `apple`, a new `.p8` private key must be sent together with its `apple_key_id` in the same request; omit both to keep the stored key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
+        public string? ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; AdditionalData?.Remove("client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
         private string? _explicitNullValueClientSecret = default!;
 #nullable restore
 #else
-        public string ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
+        public string ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; AdditionalData?.Remove("client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
         private string _explicitNullValueClientSecret = default!;
 #endif
         /// <summary>The tenant ID scoping the Microsoft OAuth provider. Supply this field when the provider type is microsoft; it has no effect for other provider types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
+        public string? MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; AdditionalData?.Remove("microsoft_tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
         private string? _explicitNullValueMicrosoftTenantId = default!;
 #nullable restore
 #else
-        public string MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
+        public string MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; AdditionalData?.Remove("microsoft_tenant_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
         private string _explicitNullValueMicrosoftTenantId = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("masking_rules") is { } nullNodeMaskingRules && nullNodeMaskingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaskingRules = null;
+            if (parseNode.GetChildNode("masking_rules") is null) { _explicitNullValueMaskingRules = default!; _explicitNullProperties?.Remove("masking_rules"); }
+            else if (parseNode.GetChildNode("masking_rules") is { } nullNodeMaskingRules && nullNodeMaskingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaskingRules = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>List of masking rules for the branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; AdditionalData?.Remove("masking_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? _explicitNullValueMaskingRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; AdditionalData?.Remove("masking_rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> _explicitNullValueMaskingRules = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("clients") is { } nullNodeClients && nullNodeClients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clients = null;
+            if (parseNode.GetChildNode("clients") is null) { _explicitNullValueClients = default!; _explicitNullProperties?.Remove("clients"); }
+            else if (parseNode.GetChildNode("clients") is { } nullNodeClients && nullNodeClients.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clients = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>OAuth clients registered for the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient>? Clients { get => _explicitNullValueClients; set { _explicitNullValueClients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clients"); else _explicitNullProperties?.Remove("clients"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient>? Clients { get => _explicitNullValueClients; set { _explicitNullValueClients = value; AdditionalData?.Remove("clients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clients"); else _explicitNullProperties?.Remove("clients"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient>? _explicitNullValueClients = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient> Clients { get => _explicitNullValueClients; set { _explicitNullValueClients = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clients"); else _explicitNullProperties?.Remove("clients"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient> Clients { get => _explicitNullValueClients; set { _explicitNullValueClients = value; AdditionalData?.Remove("clients"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clients"); else _explicitNullProperties?.Remove("clients"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthClient> _explicitNullValueClients = default!;
 #endif
         /// <summary>

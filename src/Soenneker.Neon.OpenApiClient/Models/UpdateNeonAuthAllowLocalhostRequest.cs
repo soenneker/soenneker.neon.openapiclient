@@ -17,13 +17,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("allow_localhost") is { } nullNodeAllowLocalhost && nullNodeAllowLocalhost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowLocalhost = null;
+            if (parseNode.GetChildNode("allow_localhost") is null) { _explicitNullValueAllowLocalhost = default!; _explicitNullProperties?.Remove("allow_localhost"); }
+            else if (parseNode.GetChildNode("allow_localhost") is { } nullNodeAllowLocalhost && nullNodeAllowLocalhost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowLocalhost = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to allow localhost connections</summary>
-        public bool? AllowLocalhost { get => _explicitNullValueAllowLocalhost; set { _explicitNullValueAllowLocalhost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_localhost"); else _explicitNullProperties?.Remove("allow_localhost"); } }
+        public bool? AllowLocalhost { get => _explicitNullValueAllowLocalhost; set { _explicitNullValueAllowLocalhost = value; AdditionalData?.Remove("allow_localhost"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allow_localhost"); else _explicitNullProperties?.Remove("allow_localhost"); } }
         private bool? _explicitNullValueAllowLocalhost = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.UpdateNeonAuthAllowLocalhostRequest"/> and sets the default values.

@@ -17,9 +17,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
-            if (parseNode.GetChildNode("timeframe_end") is { } nullNodeTimeframeEnd && nullNodeTimeframeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeEnd = null;
-            if (parseNode.GetChildNode("timeframe_start") is { } nullNodeTimeframeStart && nullNodeTimeframeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeStart = null;
+            if (parseNode.GetChildNode("metrics") is null) { _explicitNullValueMetrics = default!; _explicitNullProperties?.Remove("metrics"); }
+            else if (parseNode.GetChildNode("metrics") is { } nullNodeMetrics && nullNodeMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metrics = null;
+            if (parseNode.GetChildNode("timeframe_end") is null) { _explicitNullValueTimeframeEnd = default!; _explicitNullProperties?.Remove("timeframe_end"); }
+            else if (parseNode.GetChildNode("timeframe_end") is { } nullNodeTimeframeEnd && nullNodeTimeframeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeEnd = null;
+            if (parseNode.GetChildNode("timeframe_start") is null) { _explicitNullValueTimeframeStart = default!; _explicitNullProperties?.Remove("timeframe_start"); }
+            else if (parseNode.GetChildNode("timeframe_start") is { } nullNodeTimeframeStart && nullNodeTimeframeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeStart = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,18 +30,18 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Consumption metric values recorded for the timeframe.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue>? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue>? Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue>? _explicitNullValueMetrics = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue> Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue> Metrics { get => _explicitNullValueMetrics; set { _explicitNullValueMetrics = value; AdditionalData?.Remove("metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics"); else _explicitNullProperties?.Remove("metrics"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionMetricValue> _explicitNullValueMetrics = default!;
 #endif
         /// <summary>The specified end date-time for the reported consumption.</summary>
-        public DateTimeOffset? TimeframeEnd { get => _explicitNullValueTimeframeEnd; set { _explicitNullValueTimeframeEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_end"); else _explicitNullProperties?.Remove("timeframe_end"); } }
+        public DateTimeOffset? TimeframeEnd { get => _explicitNullValueTimeframeEnd; set { _explicitNullValueTimeframeEnd = value; AdditionalData?.Remove("timeframe_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_end"); else _explicitNullProperties?.Remove("timeframe_end"); } }
         private DateTimeOffset? _explicitNullValueTimeframeEnd = default!;
         /// <summary>The specified start date-time for the reported consumption.</summary>
-        public DateTimeOffset? TimeframeStart { get => _explicitNullValueTimeframeStart; set { _explicitNullValueTimeframeStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_start"); else _explicitNullProperties?.Remove("timeframe_start"); } }
+        public DateTimeOffset? TimeframeStart { get => _explicitNullValueTimeframeStart; set { _explicitNullValueTimeframeStart = value; AdditionalData?.Remove("timeframe_start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_start"); else _explicitNullProperties?.Remove("timeframe_start"); } }
         private DateTimeOffset? _explicitNullValueTimeframeStart = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2"/> and sets the default values.

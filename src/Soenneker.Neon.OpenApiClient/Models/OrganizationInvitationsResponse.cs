@@ -17,7 +17,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("invitations") is { } nullNodeInvitations && nullNodeInvitations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitations = null;
+            if (parseNode.GetChildNode("invitations") is null) { _explicitNullValueInvitations = default!; _explicitNullProperties?.Remove("invitations"); }
+            else if (parseNode.GetChildNode("invitations") is { } nullNodeInvitations && nullNodeInvitations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>List of pending invitations for the organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.Invitation>? Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.Invitation>? Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; AdditionalData?.Remove("invitations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.Invitation>? _explicitNullValueInvitations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.Invitation> Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.Invitation> Invitations { get => _explicitNullValueInvitations; set { _explicitNullValueInvitations = value; AdditionalData?.Remove("invitations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitations"); else _explicitNullProperties?.Remove("invitations"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.Invitation> _explicitNullValueInvitations = default!;
 #endif
         /// <summary>

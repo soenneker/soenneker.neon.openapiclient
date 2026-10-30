@@ -17,13 +17,14 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("delete_data") is { } nullNodeDeleteData && nullNodeDeleteData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeleteData = null;
+            if (parseNode.GetChildNode("delete_data") is null) { _explicitNullValueDeleteData = default!; _explicitNullProperties?.Remove("delete_data"); }
+            else if (parseNode.GetChildNode("delete_data") is { } nullNodeDeleteData && nullNodeDeleteData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeleteData = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, deletes the `neon_auth` schema from the database</summary>
-        public bool? DeleteData { get => _explicitNullValueDeleteData; set { _explicitNullValueDeleteData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delete_data"); else _explicitNullProperties?.Remove("delete_data"); } }
+        public bool? DeleteData { get => _explicitNullValueDeleteData; set { _explicitNullValueDeleteData = value; AdditionalData?.Remove("delete_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delete_data"); else _explicitNullProperties?.Remove("delete_data"); } }
         private bool? _explicitNullValueDeleteData = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DisableNeonAuthRequest"/> and sets the default values.

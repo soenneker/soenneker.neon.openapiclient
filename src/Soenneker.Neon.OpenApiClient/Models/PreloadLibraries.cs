@@ -18,8 +18,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enabled_libraries") is { } nullNodeEnabledLibraries && nullNodeEnabledLibraries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledLibraries = null;
-            if (parseNode.GetChildNode("use_defaults") is { } nullNodeUseDefaults && nullNodeUseDefaults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDefaults = null;
+            if (parseNode.GetChildNode("enabled_libraries") is null) { _explicitNullValueEnabledLibraries = default!; _explicitNullProperties?.Remove("enabled_libraries"); }
+            else if (parseNode.GetChildNode("enabled_libraries") is { } nullNodeEnabledLibraries && nullNodeEnabledLibraries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledLibraries = null;
+            if (parseNode.GetChildNode("use_defaults") is null) { _explicitNullValueUseDefaults = default!; _explicitNullProperties?.Remove("use_defaults"); }
+            else if (parseNode.GetChildNode("use_defaults") is { } nullNodeUseDefaults && nullNodeUseDefaults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDefaults = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Names of shared preload libraries to enable for the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EnabledLibraries { get => _explicitNullValueEnabledLibraries; set { _explicitNullValueEnabledLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_libraries"); else _explicitNullProperties?.Remove("enabled_libraries"); } }
+        public List<string>? EnabledLibraries { get => _explicitNullValueEnabledLibraries; set { _explicitNullValueEnabledLibraries = value; AdditionalData?.Remove("enabled_libraries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_libraries"); else _explicitNullProperties?.Remove("enabled_libraries"); } }
         private List<string>? _explicitNullValueEnabledLibraries = default!;
 #nullable restore
 #else
-        public List<string> EnabledLibraries { get => _explicitNullValueEnabledLibraries; set { _explicitNullValueEnabledLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_libraries"); else _explicitNullProperties?.Remove("enabled_libraries"); } }
+        public List<string> EnabledLibraries { get => _explicitNullValueEnabledLibraries; set { _explicitNullValueEnabledLibraries = value; AdditionalData?.Remove("enabled_libraries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_libraries"); else _explicitNullProperties?.Remove("enabled_libraries"); } }
         private List<string> _explicitNullValueEnabledLibraries = default!;
 #endif
         /// <summary>When true, the project&apos;s preload libraries include the platform default set in addition to any libraries listed in `enabled_libraries`.</summary>
-        public bool? UseDefaults { get => _explicitNullValueUseDefaults; set { _explicitNullValueUseDefaults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_defaults"); else _explicitNullProperties?.Remove("use_defaults"); } }
+        public bool? UseDefaults { get => _explicitNullValueUseDefaults; set { _explicitNullValueUseDefaults = value; AdditionalData?.Remove("use_defaults"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_defaults"); else _explicitNullProperties?.Remove("use_defaults"); } }
         private bool? _explicitNullValueUseDefaults = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries"/> and sets the default values.

@@ -18,7 +18,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("jwks") is { } nullNodeJwks && nullNodeJwks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jwks = null;
+            if (parseNode.GetChildNode("jwks") is null) { _explicitNullValueJwks = default!; _explicitNullProperties?.Remove("jwks"); }
+            else if (parseNode.GetChildNode("jwks") is { } nullNodeJwks && nullNodeJwks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jwks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>JWKS configurations associated with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.Jwks>? Jwks { get => _explicitNullValueJwks; set { _explicitNullValueJwks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks"); else _explicitNullProperties?.Remove("jwks"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.Jwks>? Jwks { get => _explicitNullValueJwks; set { _explicitNullValueJwks = value; AdditionalData?.Remove("jwks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks"); else _explicitNullProperties?.Remove("jwks"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.Jwks>? _explicitNullValueJwks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.Jwks> Jwks { get => _explicitNullValueJwks; set { _explicitNullValueJwks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks"); else _explicitNullProperties?.Remove("jwks"); } }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.Jwks> Jwks { get => _explicitNullValueJwks; set { _explicitNullValueJwks = value; AdditionalData?.Remove("jwks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks"); else _explicitNullProperties?.Remove("jwks"); } }
         private List<global::Soenneker.Neon.OpenApiClient.Models.Jwks> _explicitNullValueJwks = default!;
 #endif
         /// <summary>
