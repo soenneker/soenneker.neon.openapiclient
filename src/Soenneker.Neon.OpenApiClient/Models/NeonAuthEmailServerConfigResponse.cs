@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer"/>, <see cref="global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1"/>, <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NeonAuthEmailServerConfigResponse : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer? SharedEmailServer { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1? NeonAuthEmailServerConfigResponseOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer SharedEmailServer { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1 NeonAuthEmailServerConfigResponseOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse? StandardEmailServerResponse { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2? NeonAuthEmailServerConfigResponseOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse StandardEmailServerResponse { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2 NeonAuthEmailServerConfigResponseOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,17 +42,24 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse();
-            if("shared".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("NeonAuthEmailServerConfigResponseOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SharedEmailServer = new global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer();
+                
             }
-            else if("standard".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("NeonAuthEmailServerConfigResponseOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.StandardEmailServerResponse = new global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("host") != null && parseNode.GetChildNode("port") != null && parseNode.GetChildNode("username") != null && parseNode.GetChildNode("password") != null && parseNode.GetChildNode("sender_email") != null && parseNode.GetChildNode("sender_name") != null && parseNode.GetChildNode("type") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null))();
+            if (result.NeonAuthEmailServerConfigResponseOneOf1 == null && result.NeonAuthEmailServerConfigResponseOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.NeonAuthEmailServerConfigResponseOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1(), parseNode);
+            if (result.NeonAuthEmailServerConfigResponseOneOf1 == null && result.NeonAuthEmailServerConfigResponseOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.NeonAuthEmailServerConfigResponseOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2(), parseNode);
+            if (result.NeonAuthEmailServerConfigResponseOneOf1 == null && result.NeonAuthEmailServerConfigResponseOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,13 +67,13 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(SharedEmailServer != null)
+            if(NeonAuthEmailServerConfigResponseOneOf1 != null)
             {
-                return SharedEmailServer.GetFieldDeserializers();
+                return NeonAuthEmailServerConfigResponseOneOf1.GetFieldDeserializers();
             }
-            else if(StandardEmailServerResponse != null)
+            else if(NeonAuthEmailServerConfigResponseOneOf2 != null)
             {
-                return StandardEmailServerResponse.GetFieldDeserializers();
+                return NeonAuthEmailServerConfigResponseOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -71,14 +83,21 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (NeonAuthEmailServerConfigResponseOneOf1 == null && NeonAuthEmailServerConfigResponseOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (NeonAuthEmailServerConfigResponseOneOf1 != null && NeonAuthEmailServerConfigResponseOneOf2 == null) { if (NeonAuthEmailServerConfigResponseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, NeonAuthEmailServerConfigResponseOneOf1); return; }
+            if (NeonAuthEmailServerConfigResponseOneOf2 != null && NeonAuthEmailServerConfigResponseOneOf1 == null) { if (NeonAuthEmailServerConfigResponseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, NeonAuthEmailServerConfigResponseOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(SharedEmailServer != null)
+            if(NeonAuthEmailServerConfigResponseOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.SharedEmailServer>(null, SharedEmailServer);
+                if (NeonAuthEmailServerConfigResponseOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf1>(null, NeonAuthEmailServerConfigResponseOneOf1);
             }
-            else if(StandardEmailServerResponse != null)
+            else if(NeonAuthEmailServerConfigResponseOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.StandardEmailServerResponse>(null, StandardEmailServerResponse);
+                if (NeonAuthEmailServerConfigResponseOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponseOneOf2>(null, NeonAuthEmailServerConfigResponseOneOf2);
             }
         }
     }

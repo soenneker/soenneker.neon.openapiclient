@@ -11,32 +11,48 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListSharedProjects200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("projects") is { } nullNodeProjects && nullNodeProjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Projects = null;
+            if (parseNode.GetChildNode("unavailable_project_ids") is { } nullNodeUnavailableProjectIds && nullNodeUnavailableProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnavailableProjectIds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Cursor-based pagination. The `cursor` value reflects the endpoint&apos;s sort field (for example, an ID or timestamp), so pass it back unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.Pagination? Pagination { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.Pagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.Pagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.Pagination Pagination { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.Pagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.Pagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in `unavailable_project_ids`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem>? Projects { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem>? Projects { get => _explicitNullValueProjects; set { _explicitNullValueProjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("projects"); else _explicitNullProperties?.Remove("projects"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem>? _explicitNullValueProjects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem> Projects { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem> Projects { get => _explicitNullValueProjects; set { _explicitNullValueProjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("projects"); else _explicitNullProperties?.Remove("projects"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem> _explicitNullValueProjects = default!;
 #endif
         /// <summary>A list of project IDs indicating which projects are known to exist, but whose details could notbe fetched within the requested (or implicit) time limit</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UnavailableProjectIds { get; set; }
+        public List<string>? UnavailableProjectIds { get => _explicitNullValueUnavailableProjectIds; set { _explicitNullValueUnavailableProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_project_ids"); else _explicitNullProperties?.Remove("unavailable_project_ids"); } }
+        private List<string>? _explicitNullValueUnavailableProjectIds = default!;
 #nullable restore
 #else
-        public List<string> UnavailableProjectIds { get; set; }
+        public List<string> UnavailableProjectIds { get => _explicitNullValueUnavailableProjectIds; set { _explicitNullValueUnavailableProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unavailable_project_ids"); else _explicitNullProperties?.Remove("unavailable_project_ids"); } }
+        private List<string> _explicitNullValueUnavailableProjectIds = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ListSharedProjects200Response"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ListSharedProjects200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ListSharedProjects200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ListSharedProjects200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.Pagination>("pagination", Pagination);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem>("projects", Projects);
             writer.WriteCollectionOfPrimitiveValues<string>("unavailable_project_ids", UnavailableProjectIds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

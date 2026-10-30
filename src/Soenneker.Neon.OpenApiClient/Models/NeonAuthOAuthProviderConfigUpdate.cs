@@ -11,42 +11,63 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NeonAuthOAuthProviderConfigUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("consent_page") is { } nullNodeConsentPage && nullNodeConsentPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsentPage = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("login_page") is { } nullNodeLoginPage && nullNodeLoginPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoginPage = null;
+            if (parseNode.GetChildNode("mcp") is { } nullNodeMcp && nullNodeMcp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mcp = null;
+            if (parseNode.GetChildNode("resources") is { } nullNodeResources && nullNodeResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resources = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>URL of the page that authorization requests redirect to for consent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConsentPage { get; set; }
+        public string? ConsentPage { get => _explicitNullValueConsentPage; set { _explicitNullValueConsentPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_page"); else _explicitNullProperties?.Remove("consent_page"); } }
+        private string? _explicitNullValueConsentPage = default!;
 #nullable restore
 #else
-        public string ConsentPage { get; set; }
+        public string ConsentPage { get => _explicitNullValueConsentPage; set { _explicitNullValueConsentPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consent_page"); else _explicitNullProperties?.Remove("consent_page"); } }
+        private string _explicitNullValueConsentPage = default!;
 #endif
         /// <summary>Whether the OAuth provider plugin is enabled.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>URL of the page that authorization requests redirect to for sign-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoginPage { get; set; }
+        public string? LoginPage { get => _explicitNullValueLoginPage; set { _explicitNullValueLoginPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_page"); else _explicitNullProperties?.Remove("login_page"); } }
+        private string? _explicitNullValueLoginPage = default!;
 #nullable restore
 #else
-        public string LoginPage { get; set; }
+        public string LoginPage { get => _explicitNullValueLoginPage; set { _explicitNullValueLoginPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_page"); else _explicitNullProperties?.Remove("login_page"); } }
+        private string _explicitNullValueLoginPage = default!;
 #endif
         /// <summary>The mcp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate? Mcp { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate? Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate? _explicitNullValueMcp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate Mcp { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate Mcp { get => _explicitNullValueMcp; set { _explicitNullValueMcp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp"); else _explicitNullProperties?.Remove("mcp"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate _explicitNullValueMcp = default!;
 #endif
         /// <summary>Protected resources that clients can be linked to. When provided, replaces the stored list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource>? Resources { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource>? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource>? _explicitNullValueResources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource> Resources { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource> Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource> _explicitNullValueResources = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfigUpdate"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfigUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfigUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfigUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("login_page", LoginPage);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderMcpUpdate>("mcp", Mcp);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderResource>("resources", Resources);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

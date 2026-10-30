@@ -11,29 +11,54 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConsumptionHistoryPerTimeframe : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_time_seconds") is { } nullNodeActiveTimeSeconds && nullNodeActiveTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveTimeSeconds = null;
+            if (parseNode.GetChildNode("compute_time_seconds") is { } nullNodeComputeTimeSeconds && nullNodeComputeTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeTimeSeconds = null;
+            if (parseNode.GetChildNode("data_storage_bytes_hour") is { } nullNodeDataStorageBytesHour && nullNodeDataStorageBytesHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataStorageBytesHour = null;
+            if (parseNode.GetChildNode("logical_size_bytes") is { } nullNodeLogicalSizeBytes && nullNodeLogicalSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalSizeBytes = null;
+            if (parseNode.GetChildNode("logical_size_bytes_hour") is { } nullNodeLogicalSizeBytesHour && nullNodeLogicalSizeBytesHour.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalSizeBytesHour = null;
+            if (parseNode.GetChildNode("synthetic_storage_size_bytes") is { } nullNodeSyntheticStorageSizeBytes && nullNodeSyntheticStorageSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyntheticStorageSizeBytes = null;
+            if (parseNode.GetChildNode("timeframe_end") is { } nullNodeTimeframeEnd && nullNodeTimeframeEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeEnd = null;
+            if (parseNode.GetChildNode("timeframe_start") is { } nullNodeTimeframeStart && nullNodeTimeframeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeframeStart = null;
+            if (parseNode.GetChildNode("written_data_bytes") is { } nullNodeWrittenDataBytes && nullNodeWrittenDataBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WrittenDataBytes = null;
+        }
+
         /// <summary>Seconds. The amount of time the compute endpoints have been active.</summary>
-        public int? ActiveTimeSeconds { get; set; }
+        public int? ActiveTimeSeconds { get => _explicitNullValueActiveTimeSeconds; set { _explicitNullValueActiveTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time_seconds"); else _explicitNullProperties?.Remove("active_time_seconds"); } }
+        private int? _explicitNullValueActiveTimeSeconds = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seconds. The number of CPU seconds used by compute endpoints, including compute endpoints that have been deleted.</summary>
-        public int? ComputeTimeSeconds { get; set; }
+        public int? ComputeTimeSeconds { get => _explicitNullValueComputeTimeSeconds; set { _explicitNullValueComputeTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_time_seconds"); else _explicitNullProperties?.Remove("compute_time_seconds"); } }
+        private int? _explicitNullValueComputeTimeSeconds = default!;
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes-Hour. The amount of Postgres storage consumed hourly.</summary>
         [Obsolete("")]
-        public int? DataStorageBytesHour { get; set; }
+        public int? DataStorageBytesHour { get => _explicitNullValueDataStorageBytesHour; set { _explicitNullValueDataStorageBytesHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_storage_bytes_hour"); else _explicitNullProperties?.Remove("data_storage_bytes_hour"); } }
+        private int? _explicitNullValueDataStorageBytesHour = default!;
         /// <summary>Bytes. The amount of logical size consumed.</summary>
-        public int? LogicalSizeBytes { get; set; }
+        public int? LogicalSizeBytes { get => _explicitNullValueLogicalSizeBytes; set { _explicitNullValueLogicalSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes"); else _explicitNullProperties?.Remove("logical_size_bytes"); } }
+        private int? _explicitNullValueLogicalSizeBytes = default!;
         /// <summary>Bytes-Hour. The amount of logical size consumed hourly.</summary>
-        public int? LogicalSizeBytesHour { get; set; }
+        public int? LogicalSizeBytesHour { get => _explicitNullValueLogicalSizeBytesHour; set { _explicitNullValueLogicalSizeBytesHour = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes_hour"); else _explicitNullProperties?.Remove("logical_size_bytes_hour"); } }
+        private int? _explicitNullValueLogicalSizeBytesHour = default!;
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
         [Obsolete("")]
-        public int? SyntheticStorageSizeBytes { get; set; }
+        public int? SyntheticStorageSizeBytes { get => _explicitNullValueSyntheticStorageSizeBytes; set { _explicitNullValueSyntheticStorageSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("synthetic_storage_size_bytes"); else _explicitNullProperties?.Remove("synthetic_storage_size_bytes"); } }
+        private int? _explicitNullValueSyntheticStorageSizeBytes = default!;
         /// <summary>The specified end date-time for the reported consumption.</summary>
-        public DateTimeOffset? TimeframeEnd { get; set; }
+        public DateTimeOffset? TimeframeEnd { get => _explicitNullValueTimeframeEnd; set { _explicitNullValueTimeframeEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_end"); else _explicitNullProperties?.Remove("timeframe_end"); } }
+        private DateTimeOffset? _explicitNullValueTimeframeEnd = default!;
         /// <summary>The specified start date-time for the reported consumption.</summary>
-        public DateTimeOffset? TimeframeStart { get; set; }
+        public DateTimeOffset? TimeframeStart { get => _explicitNullValueTimeframeStart; set { _explicitNullValueTimeframeStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_start"); else _explicitNullProperties?.Remove("timeframe_start"); } }
+        private DateTimeOffset? _explicitNullValueTimeframeStart = default!;
         /// <summary>Bytes. The amount of written data for all branches.</summary>
-        public int? WrittenDataBytes { get; set; }
+        public int? WrittenDataBytes { get => _explicitNullValueWrittenDataBytes; set { _explicitNullValueWrittenDataBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("written_data_bytes"); else _explicitNullProperties?.Remove("written_data_bytes"); } }
+        private int? _explicitNullValueWrittenDataBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe"/> and sets the default values.
         /// </summary>
@@ -49,7 +74,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +111,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("timeframe_end", TimeframeEnd);
             writer.WriteDateTimeOffsetValue("timeframe_start", TimeframeStart);
             writer.WriteIntValue("written_data_bytes", WrittenDataBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

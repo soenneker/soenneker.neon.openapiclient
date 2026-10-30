@@ -11,31 +11,50 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConsumptionHistoryPerPeriodV2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("consumption") is { } nullNodeConsumption && nullNodeConsumption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Consumption = null;
+            if (parseNode.GetChildNode("period_end") is { } nullNodePeriodEnd && nullNodePeriodEnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodEnd = null;
+            if (parseNode.GetChildNode("period_id") is { } nullNodePeriodId && nullNodePeriodId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodId = null;
+            if (parseNode.GetChildNode("period_plan") is { } nullNodePeriodPlan && nullNodePeriodPlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodPlan = null;
+            if (parseNode.GetChildNode("period_start") is { } nullNodePeriodStart && nullNodePeriodStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodStart = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Consumption metric records for the billing period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2>? Consumption { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2>? Consumption { get => _explicitNullValueConsumption; set { _explicitNullValueConsumption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumption"); else _explicitNullProperties?.Remove("consumption"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2>? _explicitNullValueConsumption = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2> Consumption { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2> Consumption { get => _explicitNullValueConsumption; set { _explicitNullValueConsumption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumption"); else _explicitNullProperties?.Remove("consumption"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframeV2> _explicitNullValueConsumption = default!;
 #endif
         /// <summary>The end date-time of the billing period, available for the past periods only.</summary>
-        public DateTimeOffset? PeriodEnd { get; set; }
+        public DateTimeOffset? PeriodEnd { get => _explicitNullValuePeriodEnd; set { _explicitNullValuePeriodEnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_end"); else _explicitNullProperties?.Remove("period_end"); } }
+        private DateTimeOffset? _explicitNullValuePeriodEnd = default!;
         /// <summary>The ID assigned to the specified billing period.</summary>
-        public Guid? PeriodId { get; set; }
+        public Guid? PeriodId { get => _explicitNullValuePeriodId; set { _explicitNullValuePeriodId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_id"); else _explicitNullProperties?.Remove("period_id"); } }
+        private Guid? _explicitNullValuePeriodId = default!;
         /// <summary>The billing plan applicable during the billing period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PeriodPlan { get; set; }
+        public string? PeriodPlan { get => _explicitNullValuePeriodPlan; set { _explicitNullValuePeriodPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_plan"); else _explicitNullProperties?.Remove("period_plan"); } }
+        private string? _explicitNullValuePeriodPlan = default!;
 #nullable restore
 #else
-        public string PeriodPlan { get; set; }
+        public string PeriodPlan { get => _explicitNullValuePeriodPlan; set { _explicitNullValuePeriodPlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_plan"); else _explicitNullProperties?.Remove("period_plan"); } }
+        private string _explicitNullValuePeriodPlan = default!;
 #endif
         /// <summary>The start date-time of the billing period.</summary>
-        public DateTimeOffset? PeriodStart { get; set; }
+        public DateTimeOffset? PeriodStart { get => _explicitNullValuePeriodStart; set { _explicitNullValuePeriodStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_start"); else _explicitNullProperties?.Remove("period_start"); } }
+        private DateTimeOffset? _explicitNullValuePeriodStart = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2"/> and sets the default values.
         /// </summary>
@@ -51,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerPeriodV2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +99,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteGuidValue("period_id", PeriodId);
             writer.WriteStringValue("period_plan", PeriodPlan);
             writer.WriteDateTimeOffsetValue("period_start", PeriodStart);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

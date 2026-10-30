@@ -11,50 +11,79 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProjectSettingsData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_ips") is { } nullNodeAllowedIps && nullNodeAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedIps = null;
+            if (parseNode.GetChildNode("audit_log_level") is { } nullNodeAuditLogLevel && nullNodeAuditLogLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuditLogLevel = null;
+            if (parseNode.GetChildNode("block_public_connections") is { } nullNodeBlockPublicConnections && nullNodeBlockPublicConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockPublicConnections = null;
+            if (parseNode.GetChildNode("block_vpc_connections") is { } nullNodeBlockVpcConnections && nullNodeBlockVpcConnections.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockVpcConnections = null;
+            if (parseNode.GetChildNode("enable_logical_replication") is { } nullNodeEnableLogicalReplication && nullNodeEnableLogicalReplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableLogicalReplication = null;
+            if (parseNode.GetChildNode("hipaa") is { } nullNodeHipaa && nullNodeHipaa.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hipaa = null;
+            if (parseNode.GetChildNode("maintenance_window") is { } nullNodeMaintenanceWindow && nullNodeMaintenanceWindow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaintenanceWindow = null;
+            if (parseNode.GetChildNode("preload_libraries") is { } nullNodePreloadLibraries && nullNodePreloadLibraries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreloadLibraries = null;
+            if (parseNode.GetChildNode("quota") is { } nullNodeQuota && nullNodeQuota.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quota = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of IP addresses that are allowed to connect to the compute endpoint.If the list is empty or not set, all IP addresses are allowed.If protected_branches_only is true, the list will be applied only to protected branches.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.AllowedIps? AllowedIps { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AllowedIps? AllowedIps { get => _explicitNullValueAllowedIps; set { _explicitNullValueAllowedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_ips"); else _explicitNullProperties?.Remove("allowed_ips"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.AllowedIps? _explicitNullValueAllowedIps = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.AllowedIps AllowedIps { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.AllowedIps AllowedIps { get => _explicitNullValueAllowedIps; set { _explicitNullValueAllowedIps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_ips"); else _explicitNullProperties?.Remove("allowed_ips"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.AllowedIps _explicitNullValueAllowedIps = default!;
 #endif
         /// <summary>The audit_log_level property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectAuditLogLevel? AuditLogLevel { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectAuditLogLevel? AuditLogLevel { get => _explicitNullValueAuditLogLevel; set { _explicitNullValueAuditLogLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("audit_log_level"); else _explicitNullProperties?.Remove("audit_log_level"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectAuditLogLevel? _explicitNullValueAuditLogLevel = default!;
         /// <summary>When set, connections from the public internetare disallowed. This supersedes the AllowedIPs list.This parameter is under active development and its semantics may change in the future.</summary>
-        public bool? BlockPublicConnections { get; set; }
+        public bool? BlockPublicConnections { get => _explicitNullValueBlockPublicConnections; set { _explicitNullValueBlockPublicConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_public_connections"); else _explicitNullProperties?.Remove("block_public_connections"); } }
+        private bool? _explicitNullValueBlockPublicConnections = default!;
         /// <summary>When set, connections using VPC endpoints are disallowed.This parameter is under active development and its semantics may change in the future.</summary>
-        public bool? BlockVpcConnections { get; set; }
+        public bool? BlockVpcConnections { get => _explicitNullValueBlockVpcConnections; set { _explicitNullValueBlockVpcConnections = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_vpc_connections"); else _explicitNullProperties?.Remove("block_vpc_connections"); } }
+        private bool? _explicitNullValueBlockVpcConnections = default!;
         /// <summary>Sets wal_level=logical for all compute endpoints in this project.All active endpoints will be suspended.Once enabled, logical replication cannot be disabled.</summary>
-        public bool? EnableLogicalReplication { get; set; }
+        public bool? EnableLogicalReplication { get => _explicitNullValueEnableLogicalReplication; set { _explicitNullValueEnableLogicalReplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enable_logical_replication"); else _explicitNullProperties?.Remove("enable_logical_replication"); } }
+        private bool? _explicitNullValueEnableLogicalReplication = default!;
         /// <summary>Enables HIPAA compliance mode for the project, including audit logging.</summary>
-        public bool? Hipaa { get; set; }
+        public bool? Hipaa { get => _explicitNullValueHipaa; set { _explicitNullValueHipaa = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hipaa"); else _explicitNullProperties?.Remove("hipaa"); } }
+        private bool? _explicitNullValueHipaa = default!;
         /// <summary>A maintenance window is a time period during which Neon may perform maintenance on the project&apos;s infrastructure.During this time, the project&apos;s compute endpoints may be unavailable and existing connections can beinterrupted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow? MaintenanceWindow { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow? MaintenanceWindow { get => _explicitNullValueMaintenanceWindow; set { _explicitNullValueMaintenanceWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_window"); else _explicitNullProperties?.Remove("maintenance_window"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow? _explicitNullValueMaintenanceWindow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow MaintenanceWindow { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow MaintenanceWindow { get => _explicitNullValueMaintenanceWindow; set { _explicitNullValueMaintenanceWindow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_window"); else _explicitNullProperties?.Remove("maintenance_window"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow _explicitNullValueMaintenanceWindow = default!;
 #endif
         /// <summary>The shared libraries to preload into the project&apos;s compute instances.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? PreloadLibraries { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? PreloadLibraries { get => _explicitNullValuePreloadLibraries; set { _explicitNullValuePreloadLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload_libraries"); else _explicitNullProperties?.Remove("preload_libraries"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? _explicitNullValuePreloadLibraries = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries PreloadLibraries { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries PreloadLibraries { get => _explicitNullValuePreloadLibraries; set { _explicitNullValuePreloadLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload_libraries"); else _explicitNullProperties?.Remove("preload_libraries"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries _explicitNullValuePreloadLibraries = default!;
 #endif
         /// <summary>Per-project consumption quotas. If a quota is exceeded, all active computesare automatically suspended and cannot be started via API calls or incoming connections.The exception is `logical_size_bytes`, which is enforced per branch.If a branch exceeds its `logical_size_bytes` quota, computes can still be started,but write operations will fail—allowing data to be deleted to free up space.Computes on other branches are not affected.Setting `logical_size_bytes` overrides any lower value set by the `neon.max_cluster_size` Postgres setting.Quotas are enforced using per-project consumption metrics with the same names.These metrics reset at the start of each billing period. `logical_size_bytes`is also an exception—it reflects the total data stored in a branch and does not reset.A zero or empty quota value means “unlimited.”</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota? Quota { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota? Quota { get => _explicitNullValueQuota; set { _explicitNullValueQuota = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota"); else _explicitNullProperties?.Remove("quota"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota? _explicitNullValueQuota = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota Quota { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota Quota { get => _explicitNullValueQuota; set { _explicitNullValueQuota = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota"); else _explicitNullProperties?.Remove("quota"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota _explicitNullValueQuota = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData"/> and sets the default values.
@@ -71,7 +100,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +137,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.MaintenanceWindow>("maintenance_window", MaintenanceWindow);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>("preload_libraries", PreloadLibraries);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota>("quota", Quota);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

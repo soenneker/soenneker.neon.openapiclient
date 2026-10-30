@@ -16707,24 +16707,15 @@
         ]
       },
       "NeonAuthEmailServerConfig": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/StandardEmailServer"
+            "$ref": "#/components/schemas/NeonAuthEmailServerConfigOneOf1"
           },
           {
-            "$ref": "#/components/schemas/SharedEmailServer"
+            "$ref": "#/components/schemas/NeonAuthEmailServerConfigOneOf2"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "standard": "#/components/schemas/StandardEmailServer",
@@ -16733,24 +16724,15 @@
         }
       },
       "NeonAuthEmailServerConfigResponse": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/StandardEmailServerResponse"
+            "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponseOneOf1"
           },
           {
-            "$ref": "#/components/schemas/SharedEmailServer"
+            "$ref": "#/components/schemas/NeonAuthEmailServerConfigResponseOneOf2"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "standard": "#/components/schemas/StandardEmailServerResponse",
@@ -18575,10 +18557,6 @@
         "description": "Matches successful uploads to one exact bucket and, when configured, an\nobject-key prefix. The Function receives a JSON request body with\n\u0060type\u0060 set to \u0060storage_object_created\u0060 and a \u0060data\u0060 object containing\nexactly \u0060bucket_name\u0060 and \u0060object_key\u0060.\n"
       },
       "TriggerCreateRequest": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ScheduleTriggerCreateRequest"
@@ -18587,13 +18565,8 @@
             "$ref": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Trigger creation payload discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
@@ -18684,10 +18657,6 @@
         "additionalProperties": false
       },
       "TriggerUpdateRequest": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ScheduleTriggerUpdateRequest"
@@ -18696,13 +18665,8 @@
             "$ref": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Partial trigger update discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
@@ -18781,10 +18745,6 @@
         "additionalProperties": false
       },
       "Trigger": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ScheduleTrigger"
@@ -18793,13 +18753,8 @@
             "$ref": "#/components/schemas/StorageObjectCreatedTrigger"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A branch-effective trigger discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "schedule": "#/components/schemas/ScheduleTrigger",
@@ -21455,6 +21410,120 @@
             }
           ]
         }
+      },
+      "NeonAuthEmailServerConfigOneOf1": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Hostname of the email server."
+          },
+          "port": {
+            "type": "integer",
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
+          },
+          "password": {
+            "type": "string",
+            "description": "Password for authenticating with the SMTP server."
+          },
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "NeonAuthEmailServerConfigOneOf2": {
+        "type": "object",
+        "properties": {
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the sender for outgoing messages from this shared email server."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "NeonAuthEmailServerConfigResponseOneOf1": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Hostname of the email server."
+          },
+          "port": {
+            "type": "integer",
+            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+          },
+          "username": {
+            "type": "string",
+            "description": "Username for authenticating with the SMTP server."
+          },
+          "password": {
+            "type": "string",
+            "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
+          },
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the From address on outgoing auth emails."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "port",
+          "username",
+          "password",
+          "sender_email",
+          "sender_name",
+          "type"
+        ]
+      },
+      "NeonAuthEmailServerConfigResponseOneOf2": {
+        "type": "object",
+        "properties": {
+          "sender_email": {
+            "type": "string",
+            "description": "Email address used as the sender for outgoing messages from this shared email server."
+          },
+          "sender_name": {
+            "type": "string",
+            "description": "Display name shown as the sender in outgoing emails."
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
       }
     },
     "responses": {

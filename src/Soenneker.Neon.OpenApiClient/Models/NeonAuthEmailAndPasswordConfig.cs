@@ -11,23 +11,44 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NeonAuthEmailAndPasswordConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto_sign_in_after_verification") is { } nullNodeAutoSignInAfterVerification && nullNodeAutoSignInAfterVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoSignInAfterVerification = null;
+            if (parseNode.GetChildNode("disable_sign_up") is { } nullNodeDisableSignUp && nullNodeDisableSignUp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisableSignUp = null;
+            if (parseNode.GetChildNode("email_verification_method") is { } nullNodeEmailVerificationMethod && nullNodeEmailVerificationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailVerificationMethod = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("require_email_verification") is { } nullNodeRequireEmailVerification && nullNodeRequireEmailVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireEmailVerification = null;
+            if (parseNode.GetChildNode("send_verification_email_on_sign_in") is { } nullNodeSendVerificationEmailOnSignIn && nullNodeSendVerificationEmailOnSignIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendVerificationEmailOnSignIn = null;
+            if (parseNode.GetChildNode("send_verification_email_on_sign_up") is { } nullNodeSendVerificationEmailOnSignUp && nullNodeSendVerificationEmailOnSignUp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendVerificationEmailOnSignUp = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether users are automatically signed in after verifying their email</summary>
-        public bool? AutoSignInAfterVerification { get; set; }
+        public bool? AutoSignInAfterVerification { get => _explicitNullValueAutoSignInAfterVerification; set { _explicitNullValueAutoSignInAfterVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_sign_in_after_verification"); else _explicitNullProperties?.Remove("auto_sign_in_after_verification"); } }
+        private bool? _explicitNullValueAutoSignInAfterVerification = default!;
         /// <summary>Whether to disable new user sign ups</summary>
-        public bool? DisableSignUp { get; set; }
+        public bool? DisableSignUp { get => _explicitNullValueDisableSignUp; set { _explicitNullValueDisableSignUp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disable_sign_up"); else _explicitNullProperties?.Remove("disable_sign_up"); } }
+        private bool? _explicitNullValueDisableSignUp = default!;
         /// <summary>The email verification method to use.- `link`: Sends a verification link via email- `otp`: Sends a one-time password (OTP) via email</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod? EmailVerificationMethod { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod? EmailVerificationMethod { get => _explicitNullValueEmailVerificationMethod; set { _explicitNullValueEmailVerificationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_verification_method"); else _explicitNullProperties?.Remove("email_verification_method"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod? _explicitNullValueEmailVerificationMethod = default!;
         /// <summary>Whether email and password authentication is enabled</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether email verification is required before users can sign in</summary>
-        public bool? RequireEmailVerification { get; set; }
+        public bool? RequireEmailVerification { get => _explicitNullValueRequireEmailVerification; set { _explicitNullValueRequireEmailVerification = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_email_verification"); else _explicitNullProperties?.Remove("require_email_verification"); } }
+        private bool? _explicitNullValueRequireEmailVerification = default!;
         /// <summary>Whether to send a verification email when users sign in</summary>
-        public bool? SendVerificationEmailOnSignIn { get; set; }
+        public bool? SendVerificationEmailOnSignIn { get => _explicitNullValueSendVerificationEmailOnSignIn; set { _explicitNullValueSendVerificationEmailOnSignIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_verification_email_on_sign_in"); else _explicitNullProperties?.Remove("send_verification_email_on_sign_in"); } }
+        private bool? _explicitNullValueSendVerificationEmailOnSignIn = default!;
         /// <summary>Whether to send a verification email when users sign up</summary>
-        public bool? SendVerificationEmailOnSignUp { get; set; }
+        public bool? SendVerificationEmailOnSignUp { get => _explicitNullValueSendVerificationEmailOnSignUp; set { _explicitNullValueSendVerificationEmailOnSignUp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_verification_email_on_sign_up"); else _explicitNullProperties?.Remove("send_verification_email_on_sign_up"); } }
+        private bool? _explicitNullValueSendVerificationEmailOnSignUp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig"/> and sets the default values.
         /// </summary>
@@ -43,7 +64,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +97,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteBoolValue("require_email_verification", RequireEmailVerification);
             writer.WriteBoolValue("send_verification_email_on_sign_in", SendVerificationEmailOnSignIn);
             writer.WriteBoolValue("send_verification_email_on_sign_up", SendVerificationEmailOnSignUp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

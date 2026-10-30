@@ -21,11 +21,13 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Auth
     public partial class AuthRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The domains property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Domains.DomainsRequestBuilder Domains
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Domains.DomainsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The email_server property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Email_server.Email_serverRequestBuilder Email_server
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Email_server.Email_serverRequestBuilder(PathParameters, RequestAdapter);
@@ -36,11 +38,13 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Auth
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Integration.IntegrationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The integrations property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Integrations.IntegrationsRequestBuilder Integrations
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Integrations.IntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauth_providers property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Oauth_providers.Oauth_providersRequestBuilder Oauth_providers
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Auth.Oauth_providers.Oauth_providersRequestBuilder(PathParameters, RequestAdapter);

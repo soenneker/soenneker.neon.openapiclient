@@ -12,19 +12,36 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectQuota : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_time_seconds") is { } nullNodeActiveTimeSeconds && nullNodeActiveTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveTimeSeconds = null;
+            if (parseNode.GetChildNode("compute_time_seconds") is { } nullNodeComputeTimeSeconds && nullNodeComputeTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeTimeSeconds = null;
+            if (parseNode.GetChildNode("data_transfer_bytes") is { } nullNodeDataTransferBytes && nullNodeDataTransferBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataTransferBytes = null;
+            if (parseNode.GetChildNode("logical_size_bytes") is { } nullNodeLogicalSizeBytes && nullNodeLogicalSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalSizeBytes = null;
+            if (parseNode.GetChildNode("written_data_bytes") is { } nullNodeWrittenDataBytes && nullNodeWrittenDataBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WrittenDataBytes = null;
+        }
+
         /// <summary>The total amount of wall-clock time allowed to be spent by the project&apos;s compute endpoints.</summary>
-        public long? ActiveTimeSeconds { get; set; }
+        public long? ActiveTimeSeconds { get => _explicitNullValueActiveTimeSeconds; set { _explicitNullValueActiveTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time_seconds"); else _explicitNullProperties?.Remove("active_time_seconds"); } }
+        private long? _explicitNullValueActiveTimeSeconds = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The total amount of CPU seconds allowed to be spent by the project&apos;s compute endpoints.</summary>
-        public long? ComputeTimeSeconds { get; set; }
+        public long? ComputeTimeSeconds { get => _explicitNullValueComputeTimeSeconds; set { _explicitNullValueComputeTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_time_seconds"); else _explicitNullProperties?.Remove("compute_time_seconds"); } }
+        private long? _explicitNullValueComputeTimeSeconds = default!;
         /// <summary>Total amount of data transferred from all of a project&apos;s branches using the proxy.</summary>
-        public long? DataTransferBytes { get; set; }
+        public long? DataTransferBytes { get => _explicitNullValueDataTransferBytes; set { _explicitNullValueDataTransferBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_transfer_bytes"); else _explicitNullProperties?.Remove("data_transfer_bytes"); } }
+        private long? _explicitNullValueDataTransferBytes = default!;
         /// <summary>Limit on the logical size of every project&apos;s branch.If a branch exceeds its `logical_size_bytes` quota, computes can still be started,but write operations will fail—allowing data to be deleted to free up space.Computes on other branches are not affected.Setting `logical_size_bytes` overrides any lower value set by the `neon.max_cluster_size` Postgres setting.</summary>
-        public long? LogicalSizeBytes { get; set; }
+        public long? LogicalSizeBytes { get => _explicitNullValueLogicalSizeBytes; set { _explicitNullValueLogicalSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes"); else _explicitNullProperties?.Remove("logical_size_bytes"); } }
+        private long? _explicitNullValueLogicalSizeBytes = default!;
         /// <summary>Total amount of data written to all of a project&apos;s branches.</summary>
-        public long? WrittenDataBytes { get; set; }
+        public long? WrittenDataBytes { get => _explicitNullValueWrittenDataBytes; set { _explicitNullValueWrittenDataBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("written_data_bytes"); else _explicitNullProperties?.Remove("written_data_bytes"); } }
+        private long? _explicitNullValueWrittenDataBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota"/> and sets the default values.
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ProjectQuota(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +86,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteLongValue("data_transfer_bytes", DataTransferBytes);
             writer.WriteLongValue("logical_size_bytes", LogicalSizeBytes);
             writer.WriteLongValue("written_data_bytes", WrittenDataBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

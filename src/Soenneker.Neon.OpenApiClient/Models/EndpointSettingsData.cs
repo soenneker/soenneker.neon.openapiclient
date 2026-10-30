@@ -12,33 +12,49 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EndpointSettingsData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pgbouncer_settings") is { } nullNodePgbouncerSettings && nullNodePgbouncerSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgbouncerSettings = null;
+            if (parseNode.GetChildNode("pg_settings") is { } nullNodePgSettings && nullNodePgSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgSettings = null;
+            if (parseNode.GetChildNode("preload_libraries") is { } nullNodePreloadLibraries && nullNodePreloadLibraries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreloadLibraries = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings? PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings? PgbouncerSettings { get => _explicitNullValuePgbouncerSettings; set { _explicitNullValuePgbouncerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer_settings"); else _explicitNullProperties?.Remove("pgbouncer_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings? _explicitNullValuePgbouncerSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings PgbouncerSettings { get => _explicitNullValuePgbouncerSettings; set { _explicitNullValuePgbouncerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer_settings"); else _explicitNullProperties?.Remove("pgbouncer_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings _explicitNullValuePgbouncerSettings = default!;
 #endif
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings? PgSettings { get => _explicitNullValuePgSettings; set { _explicitNullValuePgSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_settings"); else _explicitNullProperties?.Remove("pg_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings? _explicitNullValuePgSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings PgSettings { get => _explicitNullValuePgSettings; set { _explicitNullValuePgSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_settings"); else _explicitNullProperties?.Remove("pg_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings _explicitNullValuePgSettings = default!;
 #endif
         /// <summary>The shared libraries to preload into the project&apos;s compute instances.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? PreloadLibraries { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? PreloadLibraries { get => _explicitNullValuePreloadLibraries; set { _explicitNullValuePreloadLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload_libraries"); else _explicitNullProperties?.Remove("preload_libraries"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries? _explicitNullValuePreloadLibraries = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries PreloadLibraries { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries PreloadLibraries { get => _explicitNullValuePreloadLibraries; set { _explicitNullValuePreloadLibraries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preload_libraries"); else _explicitNullProperties?.Remove("preload_libraries"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries _explicitNullValuePreloadLibraries = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData"/> and sets the default values.
@@ -55,7 +71,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +96,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgbouncerSettings>("pgbouncer_settings", PgbouncerSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsDataPgSettings>("pg_settings", PgSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.PreloadLibraries>("preload_libraries", PreloadLibraries);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

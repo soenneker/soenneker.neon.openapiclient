@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "44CD60D1BB6B492DF84FAAAE98509787D0F385AB15966D362765602F8C3A57C35A3D8D8A97BDAE969CEF6B7CBAA01B4F6DFA5CA85BD5D111A5DF1904601ED345",
+  "descriptionHash": "9122BCF4B9F7F679B19E172CF928D33DBE1D9260BBDA9C702637CD2D04091CF011B5166016A5609234B48DD56284E6883379F1BABA12835688460CA0FC9251CB",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.36.1",
+  "kiotaVersion": "1.37.0",
   "clientClassName": "NeonOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Neon.OpenApiClient",

@@ -11,41 +11,70 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ProjectMember : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("effective_project_permission") is { } nullNodeEffectiveProjectPermission && nullNodeEffectiveProjectPermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveProjectPermission = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("explicit_project_permission") is { } nullNodeExplicitProjectPermission && nullNodeExplicitProjectPermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExplicitProjectPermission = null;
+            if (parseNode.GetChildNode("grant_source") is { } nullNodeGrantSource && nullNodeGrantSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantSource = null;
+            if (parseNode.GetChildNode("member_id") is { } nullNodeMemberId && nullNodeMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberId = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("org_default_project_permission") is { } nullNodeOrgDefaultProjectPermission && nullNodeOrgDefaultProjectPermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgDefaultProjectPermission = null;
+            if (parseNode.GetChildNode("org_role") is { } nullNodeOrgRole && nullNodeOrgRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgRole = null;
+            if (parseNode.GetChildNode("project_role") is { } nullNodeProjectRole && nullNodeProjectRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectRole = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? EffectiveProjectPermission { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? EffectiveProjectPermission { get => _explicitNullValueEffectiveProjectPermission; set { _explicitNullValueEffectiveProjectPermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_project_permission"); else _explicitNullProperties?.Remove("effective_project_permission"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? _explicitNullValueEffectiveProjectPermission = default!;
         /// <summary>Email address of the user who has been granted access to the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? ExplicitProjectPermission { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? ExplicitProjectPermission { get => _explicitNullValueExplicitProjectPermission; set { _explicitNullValueExplicitProjectPermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("explicit_project_permission"); else _explicitNullProperties?.Remove("explicit_project_permission"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? _explicitNullValueExplicitProjectPermission = default!;
         /// <summary>How a member&apos;s project access is granted.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberGrantSource? GrantSource { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberGrantSource? GrantSource { get => _explicitNullValueGrantSource; set { _explicitNullValueGrantSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_source"); else _explicitNullProperties?.Remove("grant_source"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberGrantSource? _explicitNullValueGrantSource = default!;
         /// <summary>The organization member ID.</summary>
-        public Guid? MemberId { get; set; }
+        public Guid? MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
+        private Guid? _explicitNullValueMemberId = default!;
         /// <summary>The user&apos;s display name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? OrgDefaultProjectPermission { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? OrgDefaultProjectPermission { get => _explicitNullValueOrgDefaultProjectPermission; set { _explicitNullValueOrgDefaultProjectPermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_default_project_permission"); else _explicitNullProperties?.Remove("org_default_project_permission"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel? _explicitNullValueOrgDefaultProjectPermission = default!;
         /// <summary>Organization-level role used by project member role management.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberOrgRole? OrgRole { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberOrgRole? OrgRole { get => _explicitNullValueOrgRole; set { _explicitNullValueOrgRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_role"); else _explicitNullProperties?.Remove("org_role"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberOrgRole? _explicitNullValueOrgRole = default!;
         /// <summary>Per-project role. `viewer` maps to `VIEWER`, `editor` maps to `EDITOR`,and `admin` maps to `ADMIN`.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectRole? ProjectRole { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectRole? ProjectRole { get => _explicitNullValueProjectRole; set { _explicitNullValueProjectRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_role"); else _explicitNullProperties?.Remove("project_role"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectRole? _explicitNullValueProjectRole = default!;
         /// <summary>The user ID for the organization member.</summary>
-        public Guid? UserId { get; set; }
+        public Guid? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private Guid? _explicitNullValueUserId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectMember"/> and sets the default values.
         /// </summary>
@@ -61,7 +90,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ProjectMember CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ProjectMember();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ProjectMember(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,6 +129,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectMemberOrgRole>("org_role", OrgRole);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectRole>("project_role", ProjectRole);
             writer.WriteGuidValue("user_id", UserId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

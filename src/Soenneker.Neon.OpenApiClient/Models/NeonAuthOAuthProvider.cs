@@ -11,53 +11,79 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NeonAuthOAuthProvider : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apple_key_id") is { } nullNodeAppleKeyId && nullNodeAppleKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleKeyId = null;
+            if (parseNode.GetChildNode("apple_team_id") is { } nullNodeAppleTeamId && nullNodeAppleTeamId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppleTeamId = null;
+            if (parseNode.GetChildNode("client_id") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("client_secret") is { } nullNodeClientSecret && nullNodeClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientSecret = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("microsoft_tenant_id") is { } nullNodeMicrosoftTenantId && nullNodeMicrosoftTenantId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MicrosoftTenantId = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Key ID of the Sign in with Apple private key. Present only for the Apple OAuth provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppleKeyId { get; set; }
+        public string? AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
+        private string? _explicitNullValueAppleKeyId = default!;
 #nullable restore
 #else
-        public string AppleKeyId { get; set; }
+        public string AppleKeyId { get => _explicitNullValueAppleKeyId; set { _explicitNullValueAppleKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_key_id"); else _explicitNullProperties?.Remove("apple_key_id"); } }
+        private string _explicitNullValueAppleKeyId = default!;
 #endif
         /// <summary>Apple Developer Team ID. Present only for the Apple OAuth provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppleTeamId { get; set; }
+        public string? AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
+        private string? _explicitNullValueAppleTeamId = default!;
 #nullable restore
 #else
-        public string AppleTeamId { get; set; }
+        public string AppleTeamId { get => _explicitNullValueAppleTeamId; set { _explicitNullValueAppleTeamId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apple_team_id"); else _explicitNullProperties?.Remove("apple_team_id"); } }
+        private string _explicitNullValueAppleTeamId = default!;
 #endif
         /// <summary>Public identifier for the OAuth application, issued by the provider when the application is registered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get; set; }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get; set; }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_id"); else _explicitNullProperties?.Remove("client_id"); } }
+        private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>Masked OAuth client secret for the provider. For `apple`, a masked fingerprint of the Sign in with Apple `.p8` private key; the key itself is never returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientSecret { get; set; }
+        public string? ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
+        private string? _explicitNullValueClientSecret = default!;
 #nullable restore
 #else
-        public string ClientSecret { get; set; }
+        public string ClientSecret { get => _explicitNullValueClientSecret; set { _explicitNullValueClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_secret"); else _explicitNullProperties?.Remove("client_secret"); } }
+        private string _explicitNullValueClientSecret = default!;
 #endif
         /// <summary>The id property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? Id { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId? _explicitNullValueId = default!;
         /// <summary>Tenant ID of the Microsoft OAuth provider. Present only for the Microsoft OAuth provider when a tenant is configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MicrosoftTenantId { get; set; }
+        public string? MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
+        private string? _explicitNullValueMicrosoftTenantId = default!;
 #nullable restore
 #else
-        public string MicrosoftTenantId { get; set; }
+        public string MicrosoftTenantId { get => _explicitNullValueMicrosoftTenantId; set { _explicitNullValueMicrosoftTenantId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("microsoft_tenant_id"); else _explicitNullProperties?.Remove("microsoft_tenant_id"); } }
+        private string _explicitNullValueMicrosoftTenantId = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType? Type { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider"/> and sets the default values.
         /// </summary>
@@ -73,7 +99,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,6 +132,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderId>("id", Id);
             writer.WriteStringValue("microsoft_tenant_id", MicrosoftTenantId);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

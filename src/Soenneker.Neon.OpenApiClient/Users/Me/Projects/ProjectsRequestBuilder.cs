@@ -16,6 +16,7 @@ namespace Soenneker.Neon.OpenApiClient.Users.Me.Projects
     public partial class ProjectsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The transfer property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer.TransferRequestBuilder Transfer
         {
             get => new global::Soenneker.Neon.OpenApiClient.Users.Me.Projects.Transfer.TransferRequestBuilder(PathParameters, RequestAdapter);

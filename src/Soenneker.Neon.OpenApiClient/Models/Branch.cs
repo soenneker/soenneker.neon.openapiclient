@@ -11,163 +11,247 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Branch : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_time_seconds") is { } nullNodeActiveTimeSeconds && nullNodeActiveTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveTimeSeconds = null;
+            if (parseNode.GetChildNode("compute_time_seconds") is { } nullNodeComputeTimeSeconds && nullNodeComputeTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeTimeSeconds = null;
+            if (parseNode.GetChildNode("cpu_used_sec") is { } nullNodeCpuUsedSec && nullNodeCpuUsedSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuUsedSec = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
+            if (parseNode.GetChildNode("creation_source") is { } nullNodeCreationSource && nullNodeCreationSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreationSource = null;
+            if (parseNode.GetChildNode("current_state") is { } nullNodeCurrentState && nullNodeCurrentState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentState = null;
+            if (parseNode.GetChildNode("data_transfer_bytes") is { } nullNodeDataTransferBytes && nullNodeDataTransferBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataTransferBytes = null;
+            if (parseNode.GetChildNode("default") is { } nullNodeDefault && nullNodeDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Default = null;
+            if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("init_source") is { } nullNodeInitSource && nullNodeInitSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitSource = null;
+            if (parseNode.GetChildNode("last_reset_at") is { } nullNodeLastResetAt && nullNodeLastResetAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastResetAt = null;
+            if (parseNode.GetChildNode("logical_size") is { } nullNodeLogicalSize && nullNodeLogicalSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogicalSize = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("parent_id") is { } nullNodeParentId && nullNodeParentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentId = null;
+            if (parseNode.GetChildNode("parent_lsn") is { } nullNodeParentLsn && nullNodeParentLsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentLsn = null;
+            if (parseNode.GetChildNode("parent_timestamp") is { } nullNodeParentTimestamp && nullNodeParentTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentTimestamp = null;
+            if (parseNode.GetChildNode("pending_state") is { } nullNodePendingState && nullNodePendingState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingState = null;
+            if (parseNode.GetChildNode("primary") is { } nullNodePrimary && nullNodePrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Primary = null;
+            if (parseNode.GetChildNode("project_id") is { } nullNodeProjectId && nullNodeProjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectId = null;
+            if (parseNode.GetChildNode("protected") is { } nullNodeProtected && nullNodeProtected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Protected = null;
+            if (parseNode.GetChildNode("recovery") is { } nullNodeRecovery && nullNodeRecovery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recovery = null;
+            if (parseNode.GetChildNode("restored_as") is { } nullNodeRestoredAs && nullNodeRestoredAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestoredAs = null;
+            if (parseNode.GetChildNode("restored_from") is { } nullNodeRestoredFrom && nullNodeRestoredFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestoredFrom = null;
+            if (parseNode.GetChildNode("restore_status") is { } nullNodeRestoreStatus && nullNodeRestoreStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestoreStatus = null;
+            if (parseNode.GetChildNode("restricted_actions") is { } nullNodeRestrictedActions && nullNodeRestrictedActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedActions = null;
+            if (parseNode.GetChildNode("state_changed_at") is { } nullNodeStateChangedAt && nullNodeStateChangedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateChangedAt = null;
+            if (parseNode.GetChildNode("ttl_interval_seconds") is { } nullNodeTtlIntervalSeconds && nullNodeTtlIntervalSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TtlIntervalSeconds = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("written_data_bytes") is { } nullNodeWrittenDataBytes && nullNodeWrittenDataBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WrittenDataBytes = null;
+        }
+
         /// <summary>Total time this branch&apos;s compute has been active during the current billing period, in seconds (not weighted by compute size). Distinct from `compute_time_seconds`, which is CU-weighted.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
-        public long? ActiveTimeSeconds { get; set; }
+        public long? ActiveTimeSeconds { get => _explicitNullValueActiveTimeSeconds; set { _explicitNullValueActiveTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time_seconds"); else _explicitNullProperties?.Remove("active_time_seconds"); } }
+        private long? _explicitNullValueActiveTimeSeconds = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total Postgres compute time consumed by this branch during the current billing period, in CU-seconds (weighted by compute size). Divide by 3600 for CU-hours.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
-        public long? ComputeTimeSeconds { get; set; }
+        public long? ComputeTimeSeconds { get => _explicitNullValueComputeTimeSeconds; set { _explicitNullValueComputeTimeSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_time_seconds"); else _explicitNullProperties?.Remove("compute_time_seconds"); } }
+        private long? _explicitNullValueComputeTimeSeconds = default!;
         /// <summary>Deprecated. Use `compute_time_seconds` instead. CPU seconds used by all of the branch&apos;s compute endpoints, including deleted ones. This value is reset at the beginning of each billing period.</summary>
         [Obsolete("")]
-        public long? CpuUsedSec { get; set; }
+        public long? CpuUsedSec { get => _explicitNullValueCpuUsedSec; set { _explicitNullValueCpuUsedSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_used_sec"); else _explicitNullProperties?.Remove("cpu_used_sec"); } }
+        private long? _explicitNullValueCpuUsedSec = default!;
         /// <summary>A timestamp indicating when the branch was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The resolved user model that contains details of the user/org/integration/api_key used for branch creation. This field is filled only in listing/get/create/get/update/delete methods, if it is empty when calling other handlers, it does not mean that it is empty in the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy? CreatedBy { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy? _explicitNullValueCreatedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy CreatedBy { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_by"); else _explicitNullProperties?.Remove("created_by"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchCreatedBy _explicitNullValueCreatedBy = default!;
 #endif
         /// <summary>The branch creation source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreationSource { get; set; }
+        public string? CreationSource { get => _explicitNullValueCreationSource; set { _explicitNullValueCreationSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creation_source"); else _explicitNullProperties?.Remove("creation_source"); } }
+        private string? _explicitNullValueCreationSource = default!;
 #nullable restore
 #else
-        public string CreationSource { get; set; }
+        public string CreationSource { get => _explicitNullValueCreationSource; set { _explicitNullValueCreationSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creation_source"); else _explicitNullProperties?.Remove("creation_source"); } }
+        private string _explicitNullValueCreationSource = default!;
 #endif
         /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentState { get; set; }
+        public string? CurrentState { get => _explicitNullValueCurrentState; set { _explicitNullValueCurrentState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_state"); else _explicitNullProperties?.Remove("current_state"); } }
+        private string? _explicitNullValueCurrentState = default!;
 #nullable restore
 #else
-        public string CurrentState { get; set; }
+        public string CurrentState { get => _explicitNullValueCurrentState; set { _explicitNullValueCurrentState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_state"); else _explicitNullProperties?.Remove("current_state"); } }
+        private string _explicitNullValueCurrentState = default!;
 #endif
         /// <summary>Total data transferred out of the branch, in bytes. Used as a consumption metric.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
-        public long? DataTransferBytes { get; set; }
+        public long? DataTransferBytes { get => _explicitNullValueDataTransferBytes; set { _explicitNullValueDataTransferBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_transfer_bytes"); else _explicitNullProperties?.Remove("data_transfer_bytes"); } }
+        private long? _explicitNullValueDataTransferBytes = default!;
         /// <summary>Whether the branch is the project&apos;s default branch</summary>
-        public bool? Default { get; set; }
+        public bool? Default { get => _explicitNullValueDefault; set { _explicitNullValueDefault = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default"); else _explicitNullProperties?.Remove("default"); } }
+        private bool? _explicitNullValueDefault = default!;
         /// <summary>The timestamp when the branch is scheduled to expire and be automatically deleted. Must be set by the client following the [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) format with precision up to seconds (such as 2025-06-09T18:02:16Z). Deletion is performed by a background job and may not occur exactly at the specified time.Access to this feature is currently limited to participants in the Early Access Program.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>The branch ID. This value is generated when a branch is created. A `branch_id` value has a `br` prefix. For example: `br-small-term-683261`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>Source of initialization for the branch. `parent-data` (default) copies schema and data from the parent. `parent-schema` copies schema only from the parent. `schema-only` creates a root branch with schema only. `import` initializes from an external import.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InitSource { get; set; }
+        public string? InitSource { get => _explicitNullValueInitSource; set { _explicitNullValueInitSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("init_source"); else _explicitNullProperties?.Remove("init_source"); } }
+        private string? _explicitNullValueInitSource = default!;
 #nullable restore
 #else
-        public string InitSource { get; set; }
+        public string InitSource { get => _explicitNullValueInitSource; set { _explicitNullValueInitSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("init_source"); else _explicitNullProperties?.Remove("init_source"); } }
+        private string _explicitNullValueInitSource = default!;
 #endif
         /// <summary>A timestamp indicating when the branch was last reset</summary>
-        public DateTimeOffset? LastResetAt { get; set; }
+        public DateTimeOffset? LastResetAt { get => _explicitNullValueLastResetAt; set { _explicitNullValueLastResetAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_reset_at"); else _explicitNullProperties?.Remove("last_reset_at"); } }
+        private DateTimeOffset? _explicitNullValueLastResetAt = default!;
         /// <summary>The logical size of the branch, in bytes</summary>
-        public long? LogicalSize { get; set; }
+        public long? LogicalSize { get => _explicitNullValueLogicalSize; set { _explicitNullValueLogicalSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size"); else _explicitNullProperties?.Remove("logical_size"); } }
+        private long? _explicitNullValueLogicalSize = default!;
         /// <summary>The branch name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The `branch_id` of the parent branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentId { get; set; }
+        public string? ParentId { get => _explicitNullValueParentId; set { _explicitNullValueParentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_id"); else _explicitNullProperties?.Remove("parent_id"); } }
+        private string? _explicitNullValueParentId = default!;
 #nullable restore
 #else
-        public string ParentId { get; set; }
+        public string ParentId { get => _explicitNullValueParentId; set { _explicitNullValueParentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_id"); else _explicitNullProperties?.Remove("parent_id"); } }
+        private string _explicitNullValueParentId = default!;
 #endif
         /// <summary>The Log Sequence Number (LSN) on the parent branch from which this branch was created.When restoring a branch using the `POST /projects/{project_id}/branches/{branch_id}/restore` endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentLsn { get; set; }
+        public string? ParentLsn { get => _explicitNullValueParentLsn; set { _explicitNullValueParentLsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_lsn"); else _explicitNullProperties?.Remove("parent_lsn"); } }
+        private string? _explicitNullValueParentLsn = default!;
 #nullable restore
 #else
-        public string ParentLsn { get; set; }
+        public string ParentLsn { get => _explicitNullValueParentLsn; set { _explicitNullValueParentLsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_lsn"); else _explicitNullProperties?.Remove("parent_lsn"); } }
+        private string _explicitNullValueParentLsn = default!;
 #endif
         /// <summary>The point in time on the parent branch from which this branch was created.When restoring a branch using the `POST /projects/{project_id}/branches/{branch_id}/restore` endpoint,this value isn’t finalized until all operations related to the restore have completed successfully.After all the operations completed, this value might stay empty.</summary>
-        public DateTimeOffset? ParentTimestamp { get; set; }
+        public DateTimeOffset? ParentTimestamp { get => _explicitNullValueParentTimestamp; set { _explicitNullValueParentTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_timestamp"); else _explicitNullProperties?.Remove("parent_timestamp"); } }
+        private DateTimeOffset? _explicitNullValueParentTimestamp = default!;
         /// <summary>The branch’s state, indicating if it is initializing, ready for use, or archived.  * &apos;init&apos; - the branch is being created but is not available for querying.  * &apos;resetting&apos; - the branch is being reset to a specific point in time or LSN and is not yet available for querying.  * &apos;ready&apos; - the branch is fully operational and ready for querying. Expect normal query response times.  * &apos;archived&apos; - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PendingState { get; set; }
+        public string? PendingState { get => _explicitNullValuePendingState; set { _explicitNullValuePendingState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_state"); else _explicitNullProperties?.Remove("pending_state"); } }
+        private string? _explicitNullValuePendingState = default!;
 #nullable restore
 #else
-        public string PendingState { get; set; }
+        public string PendingState { get => _explicitNullValuePendingState; set { _explicitNullValuePendingState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_state"); else _explicitNullProperties?.Remove("pending_state"); } }
+        private string _explicitNullValuePendingState = default!;
 #endif
         /// <summary>Deprecated. Use the `default` field. Whether the branch is the project&apos;s primary branch.</summary>
         [Obsolete("")]
-        public bool? Primary { get; set; }
+        public bool? Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
+        private bool? _explicitNullValuePrimary = default!;
         /// <summary>The ID of the project this branch belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProjectId { get; set; }
+        public string? ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        private string? _explicitNullValueProjectId = default!;
 #nullable restore
 #else
-        public string ProjectId { get; set; }
+        public string ProjectId { get => _explicitNullValueProjectId; set { _explicitNullValueProjectId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("project_id"); else _explicitNullProperties?.Remove("project_id"); } }
+        private string _explicitNullValueProjectId = default!;
 #endif
         /// <summary>Whether the branch is protected. Protected branches (and their computes) cannot be deleted, archived, or reset, and block deletion of the project.</summary>
-        public bool? Protected { get; set; }
+        public bool? Protected { get => _explicitNullValueProtected; set { _explicitNullValueProtected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protected"); else _explicitNullProperties?.Remove("protected"); } }
+        private bool? _explicitNullValueProtected = default!;
         /// <summary>Recovery information for a deleted branch. Only present when listing deleted brancheswith `include_deleted=true`.This is part of the Branch Recovery feature, which is in preview and not available to all users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo? Recovery { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo? Recovery { get => _explicitNullValueRecovery; set { _explicitNullValueRecovery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery"); else _explicitNullProperties?.Remove("recovery"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo? _explicitNullValueRecovery = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo Recovery { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo Recovery { get => _explicitNullValueRecovery; set { _explicitNullValueRecovery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recovery"); else _explicitNullProperties?.Remove("recovery"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchRecoveryInfo _explicitNullValueRecovery = default!;
 #endif
         /// <summary>ID of the target branch which was replaced when this branch was restored</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RestoredAs { get; set; }
+        public string? RestoredAs { get => _explicitNullValueRestoredAs; set { _explicitNullValueRestoredAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restored_as"); else _explicitNullProperties?.Remove("restored_as"); } }
+        private string? _explicitNullValueRestoredAs = default!;
 #nullable restore
 #else
-        public string RestoredAs { get; set; }
+        public string RestoredAs { get => _explicitNullValueRestoredAs; set { _explicitNullValueRestoredAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restored_as"); else _explicitNullProperties?.Remove("restored_as"); } }
+        private string _explicitNullValueRestoredAs = default!;
 #endif
         /// <summary>ID of the snapshot that was the restore source for this branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RestoredFrom { get; set; }
+        public string? RestoredFrom { get => _explicitNullValueRestoredFrom; set { _explicitNullValueRestoredFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restored_from"); else _explicitNullProperties?.Remove("restored_from"); } }
+        private string? _explicitNullValueRestoredFrom = default!;
 #nullable restore
 #else
-        public string RestoredFrom { get; set; }
+        public string RestoredFrom { get => _explicitNullValueRestoredFrom; set { _explicitNullValueRestoredFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restored_from"); else _explicitNullProperties?.Remove("restored_from"); } }
+        private string _explicitNullValueRestoredFrom = default!;
 #endif
         /// <summary>Could be `restored`, `finalized` or `detaching`.A `restored` branch becomes permanently `finalized` when you call `finalizeRestoreBranch`A `restored` or `finalized` branch may begin `detaching` as a one-time performance optimisation, after which it will continue in its original state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RestoreStatus { get; set; }
+        public string? RestoreStatus { get => _explicitNullValueRestoreStatus; set { _explicitNullValueRestoreStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restore_status"); else _explicitNullProperties?.Remove("restore_status"); } }
+        private string? _explicitNullValueRestoreStatus = default!;
 #nullable restore
 #else
-        public string RestoreStatus { get; set; }
+        public string RestoreStatus { get => _explicitNullValueRestoreStatus; set { _explicitNullValueRestoreStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restore_status"); else _explicitNullProperties?.Remove("restore_status"); } }
+        private string _explicitNullValueRestoreStatus = default!;
 #endif
         /// <summary>A list of actions that are currently restricted for this branch and the reason why.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction>? RestrictedActions { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction>? RestrictedActions { get => _explicitNullValueRestrictedActions; set { _explicitNullValueRestrictedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_actions"); else _explicitNullProperties?.Remove("restricted_actions"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction>? _explicitNullValueRestrictedActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction> RestrictedActions { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction> RestrictedActions { get => _explicitNullValueRestrictedActions; set { _explicitNullValueRestrictedActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_actions"); else _explicitNullProperties?.Remove("restricted_actions"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.BranchRestrictedAction> _explicitNullValueRestrictedActions = default!;
 #endif
         /// <summary>A UTC timestamp indicating when the `current_state` began</summary>
-        public DateTimeOffset? StateChangedAt { get; set; }
+        public DateTimeOffset? StateChangedAt { get => _explicitNullValueStateChangedAt; set { _explicitNullValueStateChangedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state_changed_at"); else _explicitNullProperties?.Remove("state_changed_at"); } }
+        private DateTimeOffset? _explicitNullValueStateChangedAt = default!;
         /// <summary>The time-to-live (TTL) duration originally configured for the branch, in seconds. This read-only value represents the interval between the time `expires_at` was set and the expiration timestamp itself. It is preserved to ensure the same TTL duration is reapplied when resetting the branch from its parent, and only updates when a new `expires_at` value is set.Access to this feature is currently limited to participants in the Early Access Program.</summary>
-        public int? TtlIntervalSeconds { get; set; }
+        public int? TtlIntervalSeconds { get => _explicitNullValueTtlIntervalSeconds; set { _explicitNullValueTtlIntervalSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ttl_interval_seconds"); else _explicitNullProperties?.Remove("ttl_interval_seconds"); } }
+        private int? _explicitNullValueTtlIntervalSeconds = default!;
         /// <summary>A timestamp indicating when the branch was last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Data written by this branch during the current billing period, in bytes.Not intended for billing or metering. For billing, use `/consumption_history/v2/branches`.</summary>
-        public long? WrittenDataBytes { get; set; }
+        public long? WrittenDataBytes { get => _explicitNullValueWrittenDataBytes; set { _explicitNullValueWrittenDataBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("written_data_bytes"); else _explicitNullProperties?.Remove("written_data_bytes"); } }
+        private long? _explicitNullValueWrittenDataBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.Branch"/> and sets the default values.
         /// </summary>
@@ -183,7 +267,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.Branch CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.Branch();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.Branch(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -264,6 +348,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteIntValue("ttl_interval_seconds", TtlIntervalSeconds);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteLongValue("written_data_bytes", WrittenDataBytes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

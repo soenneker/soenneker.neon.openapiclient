@@ -12,83 +12,124 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectCreateRequestProject : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autoscaling_limit_max_cu") is { } nullNodeAutoscalingLimitMaxCu && nullNodeAutoscalingLimitMaxCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMaxCu = null;
+            if (parseNode.GetChildNode("autoscaling_limit_min_cu") is { } nullNodeAutoscalingLimitMinCu && nullNodeAutoscalingLimitMinCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMinCu = null;
+            if (parseNode.GetChildNode("branch") is { } nullNodeBranch && nullNodeBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branch = null;
+            if (parseNode.GetChildNode("default_endpoint_settings") is { } nullNodeDefaultEndpointSettings && nullNodeDefaultEndpointSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultEndpointSettings = null;
+            if (parseNode.GetChildNode("history_retention_seconds") is { } nullNodeHistoryRetentionSeconds && nullNodeHistoryRetentionSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryRetentionSeconds = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("org_id") is { } nullNodeOrgId && nullNodeOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgId = null;
+            if (parseNode.GetChildNode("pg_version") is { } nullNodePgVersion && nullNodePgVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgVersion = null;
+            if (parseNode.GetChildNode("provisioner") is { } nullNodeProvisioner && nullNodeProvisioner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provisioner = null;
+            if (parseNode.GetChildNode("realtime") is { } nullNodeRealtime && nullNodeRealtime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Realtime = null;
+            if (parseNode.GetChildNode("region_id") is { } nullNodeRegionId && nullNodeRegionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionId = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+            if (parseNode.GetChildNode("store_passwords") is { } nullNodeStorePasswords && nullNodeStorePasswords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorePasswords = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The autoscaling_limit_max_cu property</summary>
-        public double? AutoscalingLimitMaxCu { get; set; }
+        public double? AutoscalingLimitMaxCu { get => _explicitNullValueAutoscalingLimitMaxCu; set { _explicitNullValueAutoscalingLimitMaxCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_max_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_max_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMaxCu = default!;
         /// <summary>The autoscaling_limit_min_cu property</summary>
-        public double? AutoscalingLimitMinCu { get; set; }
+        public double? AutoscalingLimitMinCu { get => _explicitNullValueAutoscalingLimitMinCu; set { _explicitNullValueAutoscalingLimitMinCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_min_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_min_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMinCu = default!;
         /// <summary>Configuration for the initial branch created with the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch? Branch { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch? Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch? _explicitNullValueBranch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch Branch { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch Branch { get => _explicitNullValueBranch; set { _explicitNullValueBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch"); else _explicitNullProperties?.Remove("branch"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranch _explicitNullValueBranch = default!;
 #endif
         /// <summary>A collection of settings for a Neon endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? DefaultEndpointSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? DefaultEndpointSettings { get => _explicitNullValueDefaultEndpointSettings; set { _explicitNullValueDefaultEndpointSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_endpoint_settings"); else _explicitNullProperties?.Remove("default_endpoint_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? _explicitNullValueDefaultEndpointSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get => _explicitNullValueDefaultEndpointSettings; set { _explicitNullValueDefaultEndpointSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_endpoint_settings"); else _explicitNullProperties?.Remove("default_endpoint_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings _explicitNullValueDefaultEndpointSettings = default!;
 #endif
         /// <summary>History window (point-in-time restore range) for all branches, in seconds. `0` disables it. Default 1 day (Free: 6 hours). Maximum depends on plan: Free 6 hours (21600), Launch 7 days (604800), Scale 30 days (2592000).</summary>
-        public int? HistoryRetentionSeconds { get; set; }
+        public int? HistoryRetentionSeconds { get => _explicitNullValueHistoryRetentionSeconds; set { _explicitNullValueHistoryRetentionSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_retention_seconds"); else _explicitNullProperties?.Remove("history_retention_seconds"); } }
+        private int? _explicitNullValueHistoryRetentionSeconds = default!;
         /// <summary>The project name. If not specified, the name will be identical to the generated project ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>ID of the organization that will own the project. If omitted when using an organization API key, it is inferred from the key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgId { get; set; }
+        public string? OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        private string? _explicitNullValueOrgId = default!;
 #nullable restore
 #else
-        public string OrgId { get; set; }
+        public string OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        private string _explicitNullValueOrgId = default!;
 #endif
         /// <summary>The major Postgres version number. Supported versions are `14`, `15`, `16`, `17`, and `18`. `19` is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.</summary>
-        public int? PgVersion { get; set; }
+        public int? PgVersion { get => _explicitNullValuePgVersion; set { _explicitNullValuePgVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_version"); else _explicitNullProperties?.Remove("pg_version"); } }
+        private int? _explicitNullValuePgVersion = default!;
         /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provisioner { get; set; }
+        public string? Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string? _explicitNullValueProvisioner = default!;
 #nullable restore
 #else
-        public string Provisioner { get; set; }
+        public string Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string _explicitNullValueProvisioner = default!;
 #endif
         /// <summary>The realtime property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions? Realtime { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions? Realtime { get => _explicitNullValueRealtime; set { _explicitNullValueRealtime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("realtime"); else _explicitNullProperties?.Remove("realtime"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions? _explicitNullValueRealtime = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions Realtime { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions Realtime { get => _explicitNullValueRealtime; set { _explicitNullValueRealtime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("realtime"); else _explicitNullProperties?.Remove("realtime"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.RealtimeOptions _explicitNullValueRealtime = default!;
 #endif
         /// <summary>The region identifier. Refer to our [Regions](https://neon.com/docs/introduction/regions) documentation for supported regions. Values are specified in this format: `aws-us-east-1`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionId { get; set; }
+        public string? RegionId { get => _explicitNullValueRegionId; set { _explicitNullValueRegionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_id"); else _explicitNullProperties?.Remove("region_id"); } }
+        private string? _explicitNullValueRegionId = default!;
 #nullable restore
 #else
-        public string RegionId { get; set; }
+        public string RegionId { get => _explicitNullValueRegionId; set { _explicitNullValueRegionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_id"); else _explicitNullProperties?.Remove("region_id"); } }
+        private string _explicitNullValueRegionId = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData _explicitNullValueSettings = default!;
 #endif
         /// <summary>Whether or not passwords are stored for roles in the Neon project. Storing passwords facilitates access to Neon features that require authorization.</summary>
-        public bool? StorePasswords { get; set; }
+        public bool? StorePasswords { get => _explicitNullValueStorePasswords; set { _explicitNullValueStorePasswords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("store_passwords"); else _explicitNullProperties?.Remove("store_passwords"); } }
+        private bool? _explicitNullValueStorePasswords = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProject"/> and sets the default values.
         /// </summary>
@@ -105,7 +146,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProject();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProject(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,6 +191,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("region_id", RegionId);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData>("settings", Settings);
             writer.WriteBoolValue("store_passwords", StorePasswords);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

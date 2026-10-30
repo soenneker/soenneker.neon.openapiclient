@@ -69,6 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins.PluginsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The send_test_email property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email.Send_test_emailRequestBuilder Send_test_email
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Send_test_email.Send_test_emailRequestBuilder(PathParameters, RequestAdapter);

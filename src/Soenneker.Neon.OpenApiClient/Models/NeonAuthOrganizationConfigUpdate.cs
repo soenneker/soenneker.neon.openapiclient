@@ -11,19 +11,36 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class NeonAuthOrganizationConfigUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("creator_role") is { } nullNodeCreatorRole && nullNodeCreatorRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatorRole = null;
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("membership_limit") is { } nullNodeMembershipLimit && nullNodeMembershipLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MembershipLimit = null;
+            if (parseNode.GetChildNode("organization_limit") is { } nullNodeOrganizationLimit && nullNodeOrganizationLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationLimit = null;
+            if (parseNode.GetChildNode("send_invitation_email") is { } nullNodeSendInvitationEmail && nullNodeSendInvitationEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendInvitationEmail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Role of the organization&apos;s creator. `owner`: full control, including deleting the org and transferring ownership. `admin`: manage members and settings only.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdateCreatorRole? CreatorRole { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdateCreatorRole? CreatorRole { get => _explicitNullValueCreatorRole; set { _explicitNullValueCreatorRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator_role"); else _explicitNullProperties?.Remove("creator_role"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdateCreatorRole? _explicitNullValueCreatorRole = default!;
         /// <summary>Controls whether the organization plugin is active for the organization.</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Maximum members per organization.</summary>
-        public int? MembershipLimit { get; set; }
+        public int? MembershipLimit { get => _explicitNullValueMembershipLimit; set { _explicitNullValueMembershipLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("membership_limit"); else _explicitNullProperties?.Remove("membership_limit"); } }
+        private int? _explicitNullValueMembershipLimit = default!;
         /// <summary>Maximum organizations a user can belong to (created or joined). At the limit, the user cannot create or join more.</summary>
-        public int? OrganizationLimit { get; set; }
+        public int? OrganizationLimit { get => _explicitNullValueOrganizationLimit; set { _explicitNullValueOrganizationLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization_limit"); else _explicitNullProperties?.Remove("organization_limit"); } }
+        private int? _explicitNullValueOrganizationLimit = default!;
         /// <summary>When true, invited users receive an email containing an accept link. Requires that the invited user has a verified email address.</summary>
-        public bool? SendInvitationEmail { get; set; }
+        public bool? SendInvitationEmail { get => _explicitNullValueSendInvitationEmail; set { _explicitNullValueSendInvitationEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_invitation_email"); else _explicitNullProperties?.Remove("send_invitation_email"); } }
+        private bool? _explicitNullValueSendInvitationEmail = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdate"/> and sets the default values.
         /// </summary>
@@ -39,7 +56,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteIntValue("membership_limit", MembershipLimit);
             writer.WriteIntValue("organization_limit", OrganizationLimit);
             writer.WriteBoolValue("send_invitation_email", SendInvitationEmail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

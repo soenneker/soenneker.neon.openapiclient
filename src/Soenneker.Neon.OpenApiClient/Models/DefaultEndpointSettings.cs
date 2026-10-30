@@ -12,32 +12,51 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DefaultEndpointSettings : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autoscaling_limit_max_cu") is { } nullNodeAutoscalingLimitMaxCu && nullNodeAutoscalingLimitMaxCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMaxCu = null;
+            if (parseNode.GetChildNode("autoscaling_limit_min_cu") is { } nullNodeAutoscalingLimitMinCu && nullNodeAutoscalingLimitMinCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMinCu = null;
+            if (parseNode.GetChildNode("pgbouncer_settings") is { } nullNodePgbouncerSettings && nullNodePgbouncerSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgbouncerSettings = null;
+            if (parseNode.GetChildNode("pg_settings") is { } nullNodePgSettings && nullNodePgSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgSettings = null;
+            if (parseNode.GetChildNode("suspend_timeout_seconds") is { } nullNodeSuspendTimeoutSeconds && nullNodeSuspendTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuspendTimeoutSeconds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The autoscaling_limit_max_cu property</summary>
-        public double? AutoscalingLimitMaxCu { get; set; }
+        public double? AutoscalingLimitMaxCu { get => _explicitNullValueAutoscalingLimitMaxCu; set { _explicitNullValueAutoscalingLimitMaxCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_max_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_max_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMaxCu = default!;
         /// <summary>The autoscaling_limit_min_cu property</summary>
-        public double? AutoscalingLimitMinCu { get; set; }
+        public double? AutoscalingLimitMinCu { get => _explicitNullValueAutoscalingLimitMinCu; set { _explicitNullValueAutoscalingLimitMinCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_min_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_min_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMinCu = default!;
         /// <summary>Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings? PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings? PgbouncerSettings { get => _explicitNullValuePgbouncerSettings; set { _explicitNullValuePgbouncerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer_settings"); else _explicitNullProperties?.Remove("pgbouncer_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings? _explicitNullValuePgbouncerSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings PgbouncerSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings PgbouncerSettings { get => _explicitNullValuePgbouncerSettings; set { _explicitNullValuePgbouncerSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pgbouncer_settings"); else _explicitNullProperties?.Remove("pgbouncer_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings _explicitNullValuePgbouncerSettings = default!;
 #endif
         /// <summary>A raw representation of Postgres settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings? PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings? PgSettings { get => _explicitNullValuePgSettings; set { _explicitNullValuePgSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_settings"); else _explicitNullProperties?.Remove("pg_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings? _explicitNullValuePgSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings PgSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings PgSettings { get => _explicitNullValuePgSettings; set { _explicitNullValuePgSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_settings"); else _explicitNullProperties?.Remove("pg_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings _explicitNullValuePgSettings = default!;
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
-        public long? SuspendTimeoutSeconds { get; set; }
+        public long? SuspendTimeoutSeconds { get => _explicitNullValueSuspendTimeoutSeconds; set { _explicitNullValueSuspendTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspend_timeout_seconds"); else _explicitNullProperties?.Remove("suspend_timeout_seconds"); } }
+        private long? _explicitNullValueSuspendTimeoutSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings"/> and sets the default values.
         /// </summary>
@@ -53,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgbouncerSettings>("pgbouncer_settings", PgbouncerSettings);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettingsPgSettings>("pg_settings", PgSettings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

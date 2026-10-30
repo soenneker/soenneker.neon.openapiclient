@@ -19,6 +19,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Auth
     public partial class AuthRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The create property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Auth.Create.CreateRequestBuilder Create
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Auth.Create.CreateRequestBuilder(PathParameters, RequestAdapter);
@@ -34,6 +35,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Auth
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Auth.Transfer_ownership.Transfer_ownershipRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user property</summary>
+        [Obsolete("")]
         public global::Soenneker.Neon.OpenApiClient.Projects.Auth.User.UserRequestBuilder User
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Auth.User.UserRequestBuilder(PathParameters, RequestAdapter);

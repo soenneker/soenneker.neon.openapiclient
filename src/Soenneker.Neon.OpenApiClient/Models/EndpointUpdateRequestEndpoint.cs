@@ -12,58 +12,91 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EndpointUpdateRequestEndpoint : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autoscaling_limit_max_cu") is { } nullNodeAutoscalingLimitMaxCu && nullNodeAutoscalingLimitMaxCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMaxCu = null;
+            if (parseNode.GetChildNode("autoscaling_limit_min_cu") is { } nullNodeAutoscalingLimitMinCu && nullNodeAutoscalingLimitMinCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMinCu = null;
+            if (parseNode.GetChildNode("branch_id") is { } nullNodeBranchId && nullNodeBranchId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchId = null;
+            if (parseNode.GetChildNode("disabled") is { } nullNodeDisabled && nullNodeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disabled = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("passwordless_access") is { } nullNodePasswordlessAccess && nullNodePasswordlessAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PasswordlessAccess = null;
+            if (parseNode.GetChildNode("pooler_enabled") is { } nullNodePoolerEnabled && nullNodePoolerEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolerEnabled = null;
+            if (parseNode.GetChildNode("pooler_mode") is { } nullNodePoolerMode && nullNodePoolerMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolerMode = null;
+            if (parseNode.GetChildNode("provisioner") is { } nullNodeProvisioner && nullNodeProvisioner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provisioner = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+            if (parseNode.GetChildNode("suspend_timeout_seconds") is { } nullNodeSuspendTimeoutSeconds && nullNodeSuspendTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuspendTimeoutSeconds = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The autoscaling_limit_max_cu property</summary>
-        public double? AutoscalingLimitMaxCu { get; set; }
+        public double? AutoscalingLimitMaxCu { get => _explicitNullValueAutoscalingLimitMaxCu; set { _explicitNullValueAutoscalingLimitMaxCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_max_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_max_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMaxCu = default!;
         /// <summary>The autoscaling_limit_min_cu property</summary>
-        public double? AutoscalingLimitMinCu { get; set; }
+        public double? AutoscalingLimitMinCu { get => _explicitNullValueAutoscalingLimitMinCu; set { _explicitNullValueAutoscalingLimitMinCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_min_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_min_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMinCu = default!;
         /// <summary>Deprecated. The destination branch ID; must not have an existing read-write endpoint.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BranchId { get; set; }
+        public string? BranchId { get => _explicitNullValueBranchId; set { _explicitNullValueBranchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_id"); else _explicitNullProperties?.Remove("branch_id"); } }
+        private string? _explicitNullValueBranchId = default!;
 #nullable restore
 #else
-        public string BranchId { get; set; }
+        public string BranchId { get => _explicitNullValueBranchId; set { _explicitNullValueBranchId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_id"); else _explicitNullProperties?.Remove("branch_id"); } }
+        private string _explicitNullValueBranchId = default!;
 #endif
         /// <summary>Whether to restrict connections to the compute endpoint.Enabling this option schedules a suspend compute operation.A disabled compute endpoint cannot be enabled by a connection orconsole action. However, the compute endpoint is periodicallyenabled by check_availability operations.</summary>
-        public bool? Disabled { get; set; }
+        public bool? Disabled { get => _explicitNullValueDisabled; set { _explicitNullValueDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disabled"); else _explicitNullProperties?.Remove("disabled"); } }
+        private bool? _explicitNullValueDisabled = default!;
         /// <summary>Optional name of the compute endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>NOT YET IMPLEMENTED. Whether to permit passwordless access to the compute endpoint.</summary>
-        public bool? PasswordlessAccess { get; set; }
+        public bool? PasswordlessAccess { get => _explicitNullValuePasswordlessAccess; set { _explicitNullValuePasswordlessAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passwordless_access"); else _explicitNullProperties?.Remove("passwordless_access"); } }
+        private bool? _explicitNullValuePasswordlessAccess = default!;
         /// <summary>Deprecated. To enable connection pooling, append `-pooler` to the endpoint ID in the connection string.See [How to use connection pooling](https://neon.com/docs/connect/connection-pooling#how-to-use-connection-pooling)</summary>
         [Obsolete("")]
-        public bool? PoolerEnabled { get; set; }
+        public bool? PoolerEnabled { get => _explicitNullValuePoolerEnabled; set { _explicitNullValuePoolerEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pooler_enabled"); else _explicitNullProperties?.Remove("pooler_enabled"); } }
+        private bool? _explicitNullValuePoolerEnabled = default!;
         /// <summary>Deprecated. The connection pooler mode. Neon supports PgBouncer in `transaction` mode only. Removal scheduled for June 20, 2026.</summary>
         [Obsolete("")]
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? PoolerMode { get => _explicitNullValuePoolerMode; set { _explicitNullValuePoolerMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pooler_mode"); else _explicitNullProperties?.Remove("pooler_mode"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointPoolerMode? _explicitNullValuePoolerMode = default!;
         /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provisioner { get; set; }
+        public string? Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string? _explicitNullValueProvisioner = default!;
 #nullable restore
 #else
-        public string Provisioner { get; set; }
+        public string Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string _explicitNullValueProvisioner = default!;
 #endif
         /// <summary>A collection of settings for a compute endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData _explicitNullValueSettings = default!;
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
-        public long? SuspendTimeoutSeconds { get; set; }
+        public long? SuspendTimeoutSeconds { get => _explicitNullValueSuspendTimeoutSeconds; set { _explicitNullValueSuspendTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspend_timeout_seconds"); else _explicitNullProperties?.Remove("suspend_timeout_seconds"); } }
+        private long? _explicitNullValueSuspendTimeoutSeconds = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint"/> and sets the default values.
         /// </summary>
@@ -79,7 +112,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.EndpointUpdateRequestEndpoint(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,6 +153,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("provisioner", Provisioner);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData>("settings", Settings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

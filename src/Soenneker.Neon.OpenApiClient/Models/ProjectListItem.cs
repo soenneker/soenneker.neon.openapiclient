@@ -12,142 +12,219 @@ namespace Soenneker.Neon.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProjectListItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active_time") is { } nullNodeActiveTime && nullNodeActiveTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveTime = null;
+            if (parseNode.GetChildNode("branch_logical_size_limit") is { } nullNodeBranchLogicalSizeLimit && nullNodeBranchLogicalSizeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchLogicalSizeLimit = null;
+            if (parseNode.GetChildNode("branch_logical_size_limit_bytes") is { } nullNodeBranchLogicalSizeLimitBytes && nullNodeBranchLogicalSizeLimitBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchLogicalSizeLimitBytes = null;
+            if (parseNode.GetChildNode("compute_last_active_at") is { } nullNodeComputeLastActiveAt && nullNodeComputeLastActiveAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComputeLastActiveAt = null;
+            if (parseNode.GetChildNode("cpu_used_sec") is { } nullNodeCpuUsedSec && nullNodeCpuUsedSec.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CpuUsedSec = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("creation_source") is { } nullNodeCreationSource && nullNodeCreationSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreationSource = null;
+            if (parseNode.GetChildNode("default_endpoint_settings") is { } nullNodeDefaultEndpointSettings && nullNodeDefaultEndpointSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultEndpointSettings = null;
+            if (parseNode.GetChildNode("deleted_at") is { } nullNodeDeletedAt && nullNodeDeletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletedAt = null;
+            if (parseNode.GetChildNode("effective_project_permission") is { } nullNodeEffectiveProjectPermission && nullNodeEffectiveProjectPermission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveProjectPermission = null;
+            if (parseNode.GetChildNode("hipaa_enabled_at") is { } nullNodeHipaaEnabledAt && nullNodeHipaaEnabledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HipaaEnabledAt = null;
+            if (parseNode.GetChildNode("history_retention_seconds") is { } nullNodeHistoryRetentionSeconds && nullNodeHistoryRetentionSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HistoryRetentionSeconds = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("maintenance_starts_at") is { } nullNodeMaintenanceStartsAt && nullNodeMaintenanceStartsAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaintenanceStartsAt = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("org_id") is { } nullNodeOrgId && nullNodeOrgId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgId = null;
+            if (parseNode.GetChildNode("org_name") is { } nullNodeOrgName && nullNodeOrgName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrgName = null;
+            if (parseNode.GetChildNode("owner_id") is { } nullNodeOwnerId && nullNodeOwnerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerId = null;
+            if (parseNode.GetChildNode("pg_version") is { } nullNodePgVersion && nullNodePgVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PgVersion = null;
+            if (parseNode.GetChildNode("platform_id") is { } nullNodePlatformId && nullNodePlatformId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlatformId = null;
+            if (parseNode.GetChildNode("provisioner") is { } nullNodeProvisioner && nullNodeProvisioner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provisioner = null;
+            if (parseNode.GetChildNode("proxy_host") is { } nullNodeProxyHost && nullNodeProxyHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyHost = null;
+            if (parseNode.GetChildNode("quota_reset_at") is { } nullNodeQuotaResetAt && nullNodeQuotaResetAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaResetAt = null;
+            if (parseNode.GetChildNode("recoverable_until") is { } nullNodeRecoverableUntil && nullNodeRecoverableUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecoverableUntil = null;
+            if (parseNode.GetChildNode("region_id") is { } nullNodeRegionId && nullNodeRegionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionId = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+            if (parseNode.GetChildNode("store_passwords") is { } nullNodeStorePasswords && nullNodeStorePasswords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorePasswords = null;
+            if (parseNode.GetChildNode("synthetic_storage_size") is { } nullNodeSyntheticStorageSize && nullNodeSyntheticStorageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyntheticStorageSize = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Control plane observed endpoints of this project being active this amount of wall-clock time.Not intended for billing or metering. For billing, use `/consumption_history/v2/projects`.</summary>
-        public long? ActiveTime { get; set; }
+        public long? ActiveTime { get => _explicitNullValueActiveTime; set { _explicitNullValueActiveTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time"); else _explicitNullProperties?.Remove("active_time"); } }
+        private long? _explicitNullValueActiveTime = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The logical size limit for a branch. The value is in MiB.</summary>
-        public long? BranchLogicalSizeLimit { get; set; }
+        public long? BranchLogicalSizeLimit { get => _explicitNullValueBranchLogicalSizeLimit; set { _explicitNullValueBranchLogicalSizeLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_logical_size_limit"); else _explicitNullProperties?.Remove("branch_logical_size_limit"); } }
+        private long? _explicitNullValueBranchLogicalSizeLimit = default!;
         /// <summary>The logical size limit for a branch. The value is in B.</summary>
-        public long? BranchLogicalSizeLimitBytes { get; set; }
+        public long? BranchLogicalSizeLimitBytes { get => _explicitNullValueBranchLogicalSizeLimitBytes; set { _explicitNullValueBranchLogicalSizeLimitBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_logical_size_limit_bytes"); else _explicitNullProperties?.Remove("branch_logical_size_limit_bytes"); } }
+        private long? _explicitNullValueBranchLogicalSizeLimitBytes = default!;
         /// <summary>The most recent time when any endpoint of this project was active.Omitted when observed no activity for endpoints of this project.</summary>
-        public DateTimeOffset? ComputeLastActiveAt { get; set; }
+        public DateTimeOffset? ComputeLastActiveAt { get => _explicitNullValueComputeLastActiveAt; set { _explicitNullValueComputeLastActiveAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_last_active_at"); else _explicitNullProperties?.Remove("compute_last_active_at"); } }
+        private DateTimeOffset? _explicitNullValueComputeLastActiveAt = default!;
         /// <summary>Deprecated. Use `compute_time_seconds` from `GET /projects/{project_id}` instead.</summary>
         [Obsolete("")]
-        public long? CpuUsedSec { get; set; }
+        public long? CpuUsedSec { get => _explicitNullValueCpuUsedSec; set { _explicitNullValueCpuUsedSec = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cpu_used_sec"); else _explicitNullProperties?.Remove("cpu_used_sec"); } }
+        private long? _explicitNullValueCpuUsedSec = default!;
         /// <summary>A timestamp indicating when the project was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The project creation source</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreationSource { get; set; }
+        public string? CreationSource { get => _explicitNullValueCreationSource; set { _explicitNullValueCreationSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creation_source"); else _explicitNullProperties?.Remove("creation_source"); } }
+        private string? _explicitNullValueCreationSource = default!;
 #nullable restore
 #else
-        public string CreationSource { get; set; }
+        public string CreationSource { get => _explicitNullValueCreationSource; set { _explicitNullValueCreationSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creation_source"); else _explicitNullProperties?.Remove("creation_source"); } }
+        private string _explicitNullValueCreationSource = default!;
 #endif
         /// <summary>A collection of settings for a Neon endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? DefaultEndpointSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? DefaultEndpointSettings { get => _explicitNullValueDefaultEndpointSettings; set { _explicitNullValueDefaultEndpointSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_endpoint_settings"); else _explicitNullProperties?.Remove("default_endpoint_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings? _explicitNullValueDefaultEndpointSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings DefaultEndpointSettings { get => _explicitNullValueDefaultEndpointSettings; set { _explicitNullValueDefaultEndpointSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_endpoint_settings"); else _explicitNullProperties?.Remove("default_endpoint_settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings _explicitNullValueDefaultEndpointSettings = default!;
 #endif
         /// <summary>A timestamp indicating when the project was deleted</summary>
-        public DateTimeOffset? DeletedAt { get; set; }
+        public DateTimeOffset? DeletedAt { get => _explicitNullValueDeletedAt; set { _explicitNullValueDeletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_at"); else _explicitNullProperties?.Remove("deleted_at"); } }
+        private DateTimeOffset? _explicitNullValueDeletedAt = default!;
         /// <summary>The caller&apos;s effective permission for a project whenper-project permissions are enabled. `VIEWER` grants read access,`EDITOR` adds update access, and `ADMIN` grants full management.Omitted for personal projects, flag-off organizations, and non-usersubjects.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission? EffectiveProjectPermission { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission? EffectiveProjectPermission { get => _explicitNullValueEffectiveProjectPermission; set { _explicitNullValueEffectiveProjectPermission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_project_permission"); else _explicitNullProperties?.Remove("effective_project_permission"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectListItemEffectiveProjectPermission? _explicitNullValueEffectiveProjectPermission = default!;
         /// <summary>A timestamp indicating when HIPAA was enabled for this project</summary>
-        public DateTimeOffset? HipaaEnabledAt { get; set; }
+        public DateTimeOffset? HipaaEnabledAt { get => _explicitNullValueHipaaEnabledAt; set { _explicitNullValueHipaaEnabledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hipaa_enabled_at"); else _explicitNullProperties?.Remove("hipaa_enabled_at"); } }
+        private DateTimeOffset? _explicitNullValueHipaaEnabledAt = default!;
         /// <summary>The number of seconds to retain the shared history for all branches in this project.</summary>
-        public int? HistoryRetentionSeconds { get; set; }
+        public int? HistoryRetentionSeconds { get => _explicitNullValueHistoryRetentionSeconds; set { _explicitNullValueHistoryRetentionSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("history_retention_seconds"); else _explicitNullProperties?.Remove("history_retention_seconds"); } }
+        private int? _explicitNullValueHistoryRetentionSeconds = default!;
         /// <summary>The Neon project ID. Use as the `project_id` path parameter in other endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>A timestamp indicating when project maintenance begins. If set, the project is placed into maintenance mode at this time.</summary>
-        public DateTimeOffset? MaintenanceStartsAt { get; set; }
+        public DateTimeOffset? MaintenanceStartsAt { get => _explicitNullValueMaintenanceStartsAt; set { _explicitNullValueMaintenanceStartsAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maintenance_starts_at"); else _explicitNullProperties?.Remove("maintenance_starts_at"); } }
+        private DateTimeOffset? _explicitNullValueMaintenanceStartsAt = default!;
         /// <summary>The project name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>ID of the organization that owns the project. Project permissions are granted to organization members as configured by the organization&apos;s admins, independent of which member created the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgId { get; set; }
+        public string? OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        private string? _explicitNullValueOrgId = default!;
 #nullable restore
 #else
-        public string OrgId { get; set; }
+        public string OrgId { get => _explicitNullValueOrgId; set { _explicitNullValueOrgId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_id"); else _explicitNullProperties?.Remove("org_id"); } }
+        private string _explicitNullValueOrgId = default!;
 #endif
         /// <summary>Name of the organization that owns the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrgName { get; set; }
+        public string? OrgName { get => _explicitNullValueOrgName; set { _explicitNullValueOrgName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_name"); else _explicitNullProperties?.Remove("org_name"); } }
+        private string? _explicitNullValueOrgName = default!;
 #nullable restore
 #else
-        public string OrgName { get; set; }
+        public string OrgName { get => _explicitNullValueOrgName; set { _explicitNullValueOrgName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("org_name"); else _explicitNullProperties?.Remove("org_name"); } }
+        private string _explicitNullValueOrgName = default!;
 #endif
         /// <summary>ID of the organization that owns the project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OwnerId { get; set; }
+        public string? OwnerId { get => _explicitNullValueOwnerId; set { _explicitNullValueOwnerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_id"); else _explicitNullProperties?.Remove("owner_id"); } }
+        private string? _explicitNullValueOwnerId = default!;
 #nullable restore
 #else
-        public string OwnerId { get; set; }
+        public string OwnerId { get => _explicitNullValueOwnerId; set { _explicitNullValueOwnerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_id"); else _explicitNullProperties?.Remove("owner_id"); } }
+        private string _explicitNullValueOwnerId = default!;
 #endif
         /// <summary>The major Postgres version number. Supported versions are `14`, `15`, `16`, `17`, and `18`. `19` is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.</summary>
-        public int? PgVersion { get; set; }
+        public int? PgVersion { get => _explicitNullValuePgVersion; set { _explicitNullValuePgVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pg_version"); else _explicitNullProperties?.Remove("pg_version"); } }
+        private int? _explicitNullValuePgVersion = default!;
         /// <summary>The cloud platform identifier. Currently, only AWS is supported, for which the identifier is `aws`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlatformId { get; set; }
+        public string? PlatformId { get => _explicitNullValuePlatformId; set { _explicitNullValuePlatformId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform_id"); else _explicitNullProperties?.Remove("platform_id"); } }
+        private string? _explicitNullValuePlatformId = default!;
 #nullable restore
 #else
-        public string PlatformId { get; set; }
+        public string PlatformId { get => _explicitNullValuePlatformId; set { _explicitNullValuePlatformId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("platform_id"); else _explicitNullProperties?.Remove("platform_id"); } }
+        private string _explicitNullValuePlatformId = default!;
 #endif
         /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provisioner { get; set; }
+        public string? Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string? _explicitNullValueProvisioner = default!;
 #nullable restore
 #else
-        public string Provisioner { get; set; }
+        public string Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string _explicitNullValueProvisioner = default!;
 #endif
         /// <summary>The proxy host for the project. This value combines the `region_id`, the `platform_id`, and the Neon domain (`neon.tech`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyHost { get; set; }
+        public string? ProxyHost { get => _explicitNullValueProxyHost; set { _explicitNullValueProxyHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_host"); else _explicitNullProperties?.Remove("proxy_host"); } }
+        private string? _explicitNullValueProxyHost = default!;
 #nullable restore
 #else
-        public string ProxyHost { get; set; }
+        public string ProxyHost { get => _explicitNullValueProxyHost; set { _explicitNullValueProxyHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_host"); else _explicitNullProperties?.Remove("proxy_host"); } }
+        private string _explicitNullValueProxyHost = default!;
 #endif
         /// <summary>Deprecated. Use `consumption_period_end` from `GET /projects/{project_id}` instead. A timestamp indicating when the project quota resets.</summary>
         [Obsolete("")]
-        public DateTimeOffset? QuotaResetAt { get; set; }
+        public DateTimeOffset? QuotaResetAt { get => _explicitNullValueQuotaResetAt; set { _explicitNullValueQuotaResetAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota_reset_at"); else _explicitNullProperties?.Remove("quota_reset_at"); } }
+        private DateTimeOffset? _explicitNullValueQuotaResetAt = default!;
         /// <summary>A timestamp indicating the project will be recoverable until this date and time.</summary>
-        public DateTimeOffset? RecoverableUntil { get; set; }
+        public DateTimeOffset? RecoverableUntil { get => _explicitNullValueRecoverableUntil; set { _explicitNullValueRecoverableUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recoverable_until"); else _explicitNullProperties?.Remove("recoverable_until"); } }
+        private DateTimeOffset? _explicitNullValueRecoverableUntil = default!;
         /// <summary>Cloud region where the project&apos;s Postgres compute and storage reside (for example, `aws-us-east-2`). Valid values are returned by `GET /regions`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionId { get; set; }
+        public string? RegionId { get => _explicitNullValueRegionId; set { _explicitNullValueRegionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_id"); else _explicitNullProperties?.Remove("region_id"); } }
+        private string? _explicitNullValueRegionId = default!;
 #nullable restore
 #else
-        public string RegionId { get; set; }
+        public string RegionId { get => _explicitNullValueRegionId; set { _explicitNullValueRegionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region_id"); else _explicitNullProperties?.Remove("region_id"); } }
+        private string _explicitNullValueRegionId = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.ProjectSettingsData _explicitNullValueSettings = default!;
 #endif
         /// <summary>Whether or not passwords are stored for roles in the Neon project. Storing passwords facilitates access to Neon features that require authorization.</summary>
-        public bool? StorePasswords { get; set; }
+        public bool? StorePasswords { get => _explicitNullValueStorePasswords; set { _explicitNullValueStorePasswords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("store_passwords"); else _explicitNullProperties?.Remove("store_passwords"); } }
+        private bool? _explicitNullValueStorePasswords = default!;
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.The current space occupied by the project in Postgres storage, in bytes. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches in a project.</summary>
         [Obsolete("")]
-        public long? SyntheticStorageSize { get; set; }
+        public long? SyntheticStorageSize { get => _explicitNullValueSyntheticStorageSize; set { _explicitNullValueSyntheticStorageSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("synthetic_storage_size"); else _explicitNullProperties?.Remove("synthetic_storage_size"); } }
+        private long? _explicitNullValueSyntheticStorageSize = default!;
         /// <summary>A timestamp indicating when the project was last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem"/> and sets the default values.
         /// </summary>
@@ -164,7 +241,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ProjectListItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -241,6 +318,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteBoolValue("store_passwords", StorePasswords);
             writer.WriteLongValue("synthetic_storage_size", SyntheticStorageSize);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

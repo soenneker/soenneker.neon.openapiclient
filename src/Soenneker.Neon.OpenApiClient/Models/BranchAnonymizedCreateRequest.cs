@@ -11,35 +11,53 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BranchAnonymizedCreateRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annotation_value") is { } nullNodeAnnotationValue && nullNodeAnnotationValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnotationValue = null;
+            if (parseNode.GetChildNode("branch_create") is { } nullNodeBranchCreate && nullNodeBranchCreate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchCreate = null;
+            if (parseNode.GetChildNode("masking_rules") is { } nullNodeMaskingRules && nullNodeMaskingRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaskingRules = null;
+            if (parseNode.GetChildNode("start_anonymization") is { } nullNodeStartAnonymization && nullNodeStartAnonymization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartAnonymization = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue? AnnotationValue { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue? AnnotationValue { get => _explicitNullValueAnnotationValue; set { _explicitNullValueAnnotationValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation_value"); else _explicitNullProperties?.Remove("annotation_value"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue? _explicitNullValueAnnotationValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue AnnotationValue { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue AnnotationValue { get => _explicitNullValueAnnotationValue; set { _explicitNullValueAnnotationValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annotation_value"); else _explicitNullProperties?.Remove("annotation_value"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequestAnnotationValue _explicitNullValueAnnotationValue = default!;
 #endif
         /// <summary>The branch_create property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest? BranchCreate { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest? BranchCreate { get => _explicitNullValueBranchCreate; set { _explicitNullValueBranchCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_create"); else _explicitNullProperties?.Remove("branch_create"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest? _explicitNullValueBranchCreate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest BranchCreate { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest BranchCreate { get => _explicitNullValueBranchCreate; set { _explicitNullValueBranchCreate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_create"); else _explicitNullProperties?.Remove("branch_create"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest _explicitNullValueBranchCreate = default!;
 #endif
         /// <summary>List of masking rules to apply to the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? MaskingRules { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>? _explicitNullValueMaskingRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> MaskingRules { get; set; }
+        public List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> MaskingRules { get => _explicitNullValueMaskingRules; set { _explicitNullValueMaskingRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("masking_rules"); else _explicitNullProperties?.Remove("masking_rules"); } }
+        private List<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule> _explicitNullValueMaskingRules = default!;
 #endif
         /// <summary>If true, automatically start anonymization after the branch is created.Defaults to false.</summary>
-        public bool? StartAnonymization { get; set; }
+        public bool? StartAnonymization { get => _explicitNullValueStartAnonymization; set { _explicitNullValueStartAnonymization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_anonymization"); else _explicitNullProperties?.Remove("start_anonymization"); } }
+        private bool? _explicitNullValueStartAnonymization = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest"/> and sets the default values.
         /// </summary>
@@ -56,7 +74,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.BranchAnonymizedCreateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequest>("branch_create", BranchCreate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.MaskingRule>("masking_rules", MaskingRules);
             writer.WriteBoolValue("start_anonymization", StartAnonymization);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

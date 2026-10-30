@@ -11,33 +11,54 @@ namespace Soenneker.Neon.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BranchCreateRequestEndpointOptions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autoscaling_limit_max_cu") is { } nullNodeAutoscalingLimitMaxCu && nullNodeAutoscalingLimitMaxCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMaxCu = null;
+            if (parseNode.GetChildNode("autoscaling_limit_min_cu") is { } nullNodeAutoscalingLimitMinCu && nullNodeAutoscalingLimitMinCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoscalingLimitMinCu = null;
+            if (parseNode.GetChildNode("provisioner") is { } nullNodeProvisioner && nullNodeProvisioner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Provisioner = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+            if (parseNode.GetChildNode("suspend_timeout_seconds") is { } nullNodeSuspendTimeoutSeconds && nullNodeSuspendTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuspendTimeoutSeconds = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The autoscaling_limit_max_cu property</summary>
-        public double? AutoscalingLimitMaxCu { get; set; }
+        public double? AutoscalingLimitMaxCu { get => _explicitNullValueAutoscalingLimitMaxCu; set { _explicitNullValueAutoscalingLimitMaxCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_max_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_max_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMaxCu = default!;
         /// <summary>The autoscaling_limit_min_cu property</summary>
-        public double? AutoscalingLimitMinCu { get; set; }
+        public double? AutoscalingLimitMinCu { get => _explicitNullValueAutoscalingLimitMinCu; set { _explicitNullValueAutoscalingLimitMinCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoscaling_limit_min_cu"); else _explicitNullProperties?.Remove("autoscaling_limit_min_cu"); } }
+        private double? _explicitNullValueAutoscalingLimitMinCu = default!;
         /// <summary>The provisioner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Provisioner { get; set; }
+        public string? Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string? _explicitNullValueProvisioner = default!;
 #nullable restore
 #else
-        public string Provisioner { get; set; }
+        public string Provisioner { get => _explicitNullValueProvisioner; set { _explicitNullValueProvisioner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provisioner"); else _explicitNullProperties?.Remove("provisioner"); } }
+        private string _explicitNullValueProvisioner = default!;
 #endif
         /// <summary>A collection of settings for a compute endpoint</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData Settings { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData _explicitNullValueSettings = default!;
 #endif
         /// <summary>Duration of inactivity in seconds after which the compute endpoint isautomatically suspended. The value `0` means use the default value.The value `-1` means never suspend. The default value is `300` seconds (5 minutes).The minimum value is `60` seconds (1 minute).The maximum value is `604800` seconds (1 week). For more information, see[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).</summary>
-        public long? SuspendTimeoutSeconds { get; set; }
+        public long? SuspendTimeoutSeconds { get => _explicitNullValueSuspendTimeoutSeconds; set { _explicitNullValueSuspendTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspend_timeout_seconds"); else _explicitNullProperties?.Remove("suspend_timeout_seconds"); } }
+        private long? _explicitNullValueSuspendTimeoutSeconds = default!;
         /// <summary>Compute endpoint type. `read_write`: the primary read-write endpoint (one per branch). `read_only`: a read replica endpoint (multiple allowed per branch).</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.EndpointType? Type { get; set; }
+        public global::Soenneker.Neon.OpenApiClient.Models.EndpointType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.EndpointType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions"/> and sets the default values.
         /// </summary>
@@ -53,7 +74,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public static global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.BranchCreateRequestEndpointOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,6 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointSettingsData>("settings", Settings);
             writer.WriteLongValue("suspend_timeout_seconds", SuspendTimeoutSeconds);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.EndpointType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
