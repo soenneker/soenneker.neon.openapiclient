@@ -464,6 +464,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a project.\nThe project includes a connection URI with a database, password, and role.\nAt least one non-protected role is created with a password.\nWait until the operations are finished before attempting to connect to a project database.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedProjectResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -1203,6 +1214,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Project transfer request created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectTransferRequestResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -1332,6 +1354,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "The JWKS URL was added to the project\u0027s authentication connections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwksCreationOperation"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -1424,6 +1457,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Creates a new app",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataApiCreateResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -1456,6 +1500,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Updated the Neon Data API configuration and refreshed the schema cache",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateProjectBranchDataApi201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -1568,6 +1623,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Creates Neon Auth integration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateIntegrationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -1629,6 +1695,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Enables Neon Auth integration for the branch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateIntegrationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -1910,6 +1987,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Creates Auth Provider SDK keys",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateIntegrationResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -1945,6 +2033,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Creates new user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateNewUserResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "deprecated": true,
@@ -1982,6 +2081,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Creates new user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthCreateNewUserResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -3555,6 +3665,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "The OAuth client has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonAuthOAuthClientCreated"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -3879,6 +4000,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a branch. An endpoint is only created if it was specified in the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedBranchResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -4061,6 +4193,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a branch. An endpoint is only created if it was specified in the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedBranchResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -5068,6 +5211,53 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a database in the specified branch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabaseOperations"
+                },
+                "example": {
+                  "database": {
+                    "id": 876692,
+                    "branch_id": "br-aged-salad-637688",
+                    "name": "mydb",
+                    "owner_name": "casey",
+                    "created_at": "2022-12-04T00:15:04Z",
+                    "updated_at": "2022-12-04T00:15:04Z"
+                  },
+                  "operations": [
+                    {
+                      "id": "39426015-db00-40fa-85c5-1c7072df46d0",
+                      "project_id": "shiny-wind-028834",
+                      "branch_id": "br-aged-salad-637688",
+                      "endpoint_id": "ep-little-smoke-851426",
+                      "action": "apply_config",
+                      "status": "running",
+                      "failures_count": 0,
+                      "created_at": "2022-12-04T00:15:04Z",
+                      "updated_at": "2022-12-04T00:15:04Z",
+                      "total_duration_ms": 100
+                    },
+                    {
+                      "id": "b7483d4e-33da-4d40-b319-ac858d4d3e69",
+                      "project_id": "shiny-wind-028834",
+                      "branch_id": "br-aged-salad-637688",
+                      "endpoint_id": "ep-little-smoke-851426",
+                      "action": "suspend_compute",
+                      "status": "scheduling",
+                      "failures_count": 0,
+                      "created_at": "2022-12-04T00:15:04Z",
+                      "updated_at": "2022-12-04T00:15:04Z",
+                      "total_duration_ms": 100
+                    }
+                  ]
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -5398,6 +5588,41 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a role in the specified branch",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleOperations"
+                },
+                "example": {
+                  "role": {
+                    "branch_id": "br-noisy-sunset-458773",
+                    "name": "sally",
+                    "password": "Onf1AjayKwe0",
+                    "protected": false,
+                    "created_at": "2022-12-03T11:58:29Z",
+                    "updated_at": "2022-12-03T11:58:29Z"
+                  },
+                  "operations": [
+                    {
+                      "id": "2c2be371-d5ac-4db5-8b68-79f05e8bc287",
+                      "project_id": "shiny-wind-028834",
+                      "branch_id": "br-noisy-sunset-458773",
+                      "endpoint_id": "ep-small-pine-767857",
+                      "action": "apply_config",
+                      "status": "running",
+                      "failures_count": 0,
+                      "created_at": "2022-12-03T11:58:29Z",
+                      "updated_at": "2022-12-03T11:58:29Z",
+                      "total_duration_ms": 100
+                    }
+                  ]
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -6114,6 +6339,58 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Created a compute endpoint",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EndpointOperations"
+                },
+                "example": {
+                  "endpoint": {
+                    "host": "ep-shrill-thunder-454069.us-east-2.aws.neon.tech",
+                    "id": "ep-shrill-thunder-454069",
+                    "project_id": "bitter-meadow-966132",
+                    "branch_id": "br-proud-paper-090813",
+                    "autoscaling_limit_min_cu": 1,
+                    "autoscaling_limit_max_cu": 1,
+                    "region_id": "aws-us-east-2",
+                    "type": "read_write",
+                    "current_state": "init",
+                    "pending_state": "active",
+                    "settings": {
+                      "pg_settings": {}
+                    },
+                    "pooler_enabled": false,
+                    "pooler_mode": "transaction",
+                    "disabled": false,
+                    "passwordless_access": true,
+                    "created_at": "2022-12-03T15:37:07Z",
+                    "updated_at": "2022-12-03T15:37:07Z",
+                    "proxy_host": "us-east-2.aws.neon.tech",
+                    "creation_source": "console",
+                    "suspend_timeout_seconds": 10800,
+                    "provisioner": "k8s-pod"
+                  },
+                  "operations": [
+                    {
+                      "id": "874f8bfe-f51d-4c61-85af-a29bea73e0e2",
+                      "project_id": "bitter-meadow-966132",
+                      "branch_id": "br-proud-paper-090813",
+                      "endpoint_id": "ep-shrill-thunder-454069",
+                      "action": "start_compute",
+                      "status": "running",
+                      "failures_count": 0,
+                      "created_at": "2022-12-03T15:37:07Z",
+                      "updated_at": "2022-12-03T15:37:07Z",
+                      "total_duration_ms": 100
+                    }
+                  ]
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -8361,6 +8638,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationsResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       },
@@ -8589,6 +8877,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Bucket created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BucketResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -9562,6 +9861,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Credential issued \u2014 secrets shown once.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCredentialResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -10010,6 +10320,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "The created deployment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NeonFunctionDeploymentResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -10102,6 +10423,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "Trigger created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
@@ -10272,6 +10604,17 @@
           },
           "default": {
             "$ref": "#/components/responses/GeneralError"
+          },
+          "200": {
+            "description": "The registered custom domain",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomDomain"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-stability-level": "beta"
