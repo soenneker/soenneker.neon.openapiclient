@@ -70,7 +70,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Advisors
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Neon.OpenApiClient.Projects.Item.Advisors.AdvisorsRequestBuilder.AdvisorsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/projects/{projectId}/advisors", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

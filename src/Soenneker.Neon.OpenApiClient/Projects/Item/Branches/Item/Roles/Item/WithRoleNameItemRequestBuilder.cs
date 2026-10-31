@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles.Item
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/projects/{projectId}/branches/{branchId}/roles/{roleName}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -124,7 +124,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Roles.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/projects/{projectId}/branches/{branchId}/roles/{roleName}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

@@ -83,7 +83,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Vpc_endpoints
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/projects/{projectId}/vpc_endpoints", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

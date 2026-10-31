@@ -66,9 +66,6 @@ namespace Soenneker.Neon.OpenApiClient
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public NeonOpenApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
-            // Preserve declared operation service roots.
-            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) RequestAdapter.BaseUrl = "https://console.neon.tech/api/v2";
-            PathParameters["baseurl"] = RequestAdapter.BaseUrl;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();

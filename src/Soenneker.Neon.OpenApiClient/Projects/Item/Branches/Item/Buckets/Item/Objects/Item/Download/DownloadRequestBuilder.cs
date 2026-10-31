@@ -72,7 +72,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/projects/{projectId}/branches/{branchId}/buckets/{bucketName}/objects/{objectKey}/download", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/octet-stream, application/json");
             return requestInfo;

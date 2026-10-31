@@ -118,7 +118,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/organizations/{orgId}/billing/spending_limit", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -137,7 +137,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/organizations/{orgId}/billing/spending_limit", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -158,7 +158,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://console.neon.tech/api/v2", "/organizations/{orgId}/billing/spending_limit", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
