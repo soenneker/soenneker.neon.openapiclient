@@ -38,27 +38,27 @@ namespace Soenneker.Neon.OpenApiClient.Models
         }
 
         /// <summary>Seconds. The amount of time the compute endpoints have been active.</summary>
-        public int? ActiveTimeSeconds { get => _explicitNullValueActiveTimeSeconds; set { _explicitNullValueActiveTimeSeconds = value; AdditionalData?.Remove("active_time_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time_seconds"); else _explicitNullProperties?.Remove("active_time_seconds"); } }
-        private int? _explicitNullValueActiveTimeSeconds = default!;
+        public decimal? ActiveTimeSeconds { get => _explicitNullValueActiveTimeSeconds; set { _explicitNullValueActiveTimeSeconds = value; AdditionalData?.Remove("active_time_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active_time_seconds"); else _explicitNullProperties?.Remove("active_time_seconds"); } }
+        private decimal? _explicitNullValueActiveTimeSeconds = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Seconds. The number of CPU seconds used by compute endpoints, including compute endpoints that have been deleted.</summary>
-        public int? ComputeTimeSeconds { get => _explicitNullValueComputeTimeSeconds; set { _explicitNullValueComputeTimeSeconds = value; AdditionalData?.Remove("compute_time_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_time_seconds"); else _explicitNullProperties?.Remove("compute_time_seconds"); } }
-        private int? _explicitNullValueComputeTimeSeconds = default!;
+        public decimal? ComputeTimeSeconds { get => _explicitNullValueComputeTimeSeconds; set { _explicitNullValueComputeTimeSeconds = value; AdditionalData?.Remove("compute_time_seconds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compute_time_seconds"); else _explicitNullProperties?.Remove("compute_time_seconds"); } }
+        private decimal? _explicitNullValueComputeTimeSeconds = default!;
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes-Hour. The amount of Postgres storage consumed hourly.</summary>
         [Obsolete("")]
-        public int? DataStorageBytesHour { get => _explicitNullValueDataStorageBytesHour; set { _explicitNullValueDataStorageBytesHour = value; AdditionalData?.Remove("data_storage_bytes_hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_storage_bytes_hour"); else _explicitNullProperties?.Remove("data_storage_bytes_hour"); } }
-        private int? _explicitNullValueDataStorageBytesHour = default!;
+        public decimal? DataStorageBytesHour { get => _explicitNullValueDataStorageBytesHour; set { _explicitNullValueDataStorageBytesHour = value; AdditionalData?.Remove("data_storage_bytes_hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_storage_bytes_hour"); else _explicitNullProperties?.Remove("data_storage_bytes_hour"); } }
+        private decimal? _explicitNullValueDataStorageBytesHour = default!;
         /// <summary>Bytes. The amount of logical size consumed.</summary>
-        public int? LogicalSizeBytes { get => _explicitNullValueLogicalSizeBytes; set { _explicitNullValueLogicalSizeBytes = value; AdditionalData?.Remove("logical_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes"); else _explicitNullProperties?.Remove("logical_size_bytes"); } }
-        private int? _explicitNullValueLogicalSizeBytes = default!;
+        public decimal? LogicalSizeBytes { get => _explicitNullValueLogicalSizeBytes; set { _explicitNullValueLogicalSizeBytes = value; AdditionalData?.Remove("logical_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes"); else _explicitNullProperties?.Remove("logical_size_bytes"); } }
+        private decimal? _explicitNullValueLogicalSizeBytes = default!;
         /// <summary>Bytes-Hour. The amount of logical size consumed hourly.</summary>
-        public int? LogicalSizeBytesHour { get => _explicitNullValueLogicalSizeBytesHour; set { _explicitNullValueLogicalSizeBytesHour = value; AdditionalData?.Remove("logical_size_bytes_hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes_hour"); else _explicitNullProperties?.Remove("logical_size_bytes_hour"); } }
-        private int? _explicitNullValueLogicalSizeBytesHour = default!;
+        public decimal? LogicalSizeBytesHour { get => _explicitNullValueLogicalSizeBytesHour; set { _explicitNullValueLogicalSizeBytesHour = value; AdditionalData?.Remove("logical_size_bytes_hour"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logical_size_bytes_hour"); else _explicitNullProperties?.Remove("logical_size_bytes_hour"); } }
+        private decimal? _explicitNullValueLogicalSizeBytesHour = default!;
         /// <summary>Deprecated: always returns 0. Use the consumption history v2 endpoints (`/consumption_history/v2/projects`, `/consumption_history/v2/branches`) instead.Bytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.</summary>
         [Obsolete("")]
-        public int? SyntheticStorageSizeBytes { get => _explicitNullValueSyntheticStorageSizeBytes; set { _explicitNullValueSyntheticStorageSizeBytes = value; AdditionalData?.Remove("synthetic_storage_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("synthetic_storage_size_bytes"); else _explicitNullProperties?.Remove("synthetic_storage_size_bytes"); } }
-        private int? _explicitNullValueSyntheticStorageSizeBytes = default!;
+        public decimal? SyntheticStorageSizeBytes { get => _explicitNullValueSyntheticStorageSizeBytes; set { _explicitNullValueSyntheticStorageSizeBytes = value; AdditionalData?.Remove("synthetic_storage_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("synthetic_storage_size_bytes"); else _explicitNullProperties?.Remove("synthetic_storage_size_bytes"); } }
+        private decimal? _explicitNullValueSyntheticStorageSizeBytes = default!;
         /// <summary>The specified end date-time for the reported consumption.</summary>
         public DateTimeOffset? TimeframeEnd { get => _explicitNullValueTimeframeEnd; set { _explicitNullValueTimeframeEnd = value; AdditionalData?.Remove("timeframe_end"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_end"); else _explicitNullProperties?.Remove("timeframe_end"); } }
         private DateTimeOffset? _explicitNullValueTimeframeEnd = default!;
@@ -66,8 +66,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public DateTimeOffset? TimeframeStart { get => _explicitNullValueTimeframeStart; set { _explicitNullValueTimeframeStart = value; AdditionalData?.Remove("timeframe_start"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeframe_start"); else _explicitNullProperties?.Remove("timeframe_start"); } }
         private DateTimeOffset? _explicitNullValueTimeframeStart = default!;
         /// <summary>Bytes. The amount of written data for all branches.</summary>
-        public int? WrittenDataBytes { get => _explicitNullValueWrittenDataBytes; set { _explicitNullValueWrittenDataBytes = value; AdditionalData?.Remove("written_data_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("written_data_bytes"); else _explicitNullProperties?.Remove("written_data_bytes"); } }
-        private int? _explicitNullValueWrittenDataBytes = default!;
+        public decimal? WrittenDataBytes { get => _explicitNullValueWrittenDataBytes; set { _explicitNullValueWrittenDataBytes = value; AdditionalData?.Remove("written_data_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("written_data_bytes"); else _explicitNullProperties?.Remove("written_data_bytes"); } }
+        private decimal? _explicitNullValueWrittenDataBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe"/> and sets the default values.
         /// </summary>
@@ -93,15 +93,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "active_time_seconds", n => { ActiveTimeSeconds = n.GetIntValue(); } },
-                { "compute_time_seconds", n => { ComputeTimeSeconds = n.GetIntValue(); } },
-                { "data_storage_bytes_hour", n => { DataStorageBytesHour = n.GetIntValue(); } },
-                { "logical_size_bytes", n => { LogicalSizeBytes = n.GetIntValue(); } },
-                { "logical_size_bytes_hour", n => { LogicalSizeBytesHour = n.GetIntValue(); } },
-                { "synthetic_storage_size_bytes", n => { SyntheticStorageSizeBytes = n.GetIntValue(); } },
+                { "active_time_seconds", n => { ActiveTimeSeconds = n.GetDecimalValue(); } },
+                { "compute_time_seconds", n => { ComputeTimeSeconds = n.GetDecimalValue(); } },
+                { "data_storage_bytes_hour", n => { DataStorageBytesHour = n.GetDecimalValue(); } },
+                { "logical_size_bytes", n => { LogicalSizeBytes = n.GetDecimalValue(); } },
+                { "logical_size_bytes_hour", n => { LogicalSizeBytesHour = n.GetDecimalValue(); } },
+                { "synthetic_storage_size_bytes", n => { SyntheticStorageSizeBytes = n.GetDecimalValue(); } },
                 { "timeframe_end", n => { TimeframeEnd = n.GetDateTimeOffsetValue(); } },
                 { "timeframe_start", n => { TimeframeStart = n.GetDateTimeOffsetValue(); } },
-                { "written_data_bytes", n => { WrittenDataBytes = n.GetIntValue(); } },
+                { "written_data_bytes", n => { WrittenDataBytes = n.GetDecimalValue(); } },
             };
         }
         /// <summary>
@@ -111,15 +111,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("active_time_seconds", ActiveTimeSeconds);
-            writer.WriteIntValue("compute_time_seconds", ComputeTimeSeconds);
-            writer.WriteIntValue("data_storage_bytes_hour", DataStorageBytesHour);
-            writer.WriteIntValue("logical_size_bytes", LogicalSizeBytes);
-            writer.WriteIntValue("logical_size_bytes_hour", LogicalSizeBytesHour);
-            writer.WriteIntValue("synthetic_storage_size_bytes", SyntheticStorageSizeBytes);
+            writer.WriteDecimalValue("active_time_seconds", ActiveTimeSeconds);
+            writer.WriteDecimalValue("compute_time_seconds", ComputeTimeSeconds);
+            writer.WriteDecimalValue("data_storage_bytes_hour", DataStorageBytesHour);
+            writer.WriteDecimalValue("logical_size_bytes", LogicalSizeBytes);
+            writer.WriteDecimalValue("logical_size_bytes_hour", LogicalSizeBytesHour);
+            writer.WriteDecimalValue("synthetic_storage_size_bytes", SyntheticStorageSizeBytes);
             writer.WriteDateTimeOffsetValue("timeframe_end", TimeframeEnd);
             writer.WriteDateTimeOffsetValue("timeframe_start", TimeframeStart);
-            writer.WriteIntValue("written_data_bytes", WrittenDataBytes);
+            writer.WriteDecimalValue("written_data_bytes", WrittenDataBytes);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

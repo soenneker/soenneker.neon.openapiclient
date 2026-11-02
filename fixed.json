@@ -10737,23 +10737,6 @@
   },
   "components": {
     "schemas": {
-      "ComputeUnit": {
-        "minimum": 0.25,
-        "type": "number"
-      },
-      "Provisioner": {
-        "type": "string",
-        "description": "",
-        "example": "k8s-neonvm"
-      },
-      "PaginationResponse": {
-        "type": "object",
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/Pagination"
-          }
-        }
-      },
       "Pagination": {
         "required": [
           "cursor"
@@ -10770,10 +10753,6 @@
         "example": {
           "cursor": "2022-12-07T00:45:05.262011Z"
         }
-      },
-      "EmptyResponse": {
-        "type": "object",
-        "description": "Empty response."
       },
       "PlanDetails": {
         "required": [
@@ -12224,29 +12203,6 @@
           }
         }
       },
-      "ProjectsResponse": {
-        "required": [
-          "projects"
-        ],
-        "type": "object",
-        "properties": {
-          "projects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProjectListItem"
-            },
-            "description": "List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in \u0060unavailable_project_ids\u0060."
-          },
-          "unavailable_project_ids": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z0-9-]{1,60}$",
-              "type": "string"
-            },
-            "description": "A list of project IDs indicating which projects are known to exist, but whose details could not\nbe fetched within the requested (or implicit) time limit\n"
-          }
-        }
-      },
       "ProjectsCountResponse": {
         "required": [
           "count"
@@ -12278,7 +12234,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the user who has been granted access to the project.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "granted_at": {
             "type": "string",
@@ -12320,7 +12276,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the user to grant project access to.",
-            "format": "email"
+            "x-client-original-format": "email"
           }
         },
         "x-sensitive": [
@@ -12473,7 +12429,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the user who has been granted access to the project.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "name": {
             "type": "string",
@@ -12557,7 +12513,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the user who has been granted access to the project.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "name": {
             "type": "string",
@@ -12591,36 +12547,6 @@
           "email",
           "name"
         ]
-      },
-      "ConsumptionHistoryPerProjectResponse": {
-        "required": [
-          "projects"
-        ],
-        "type": "object",
-        "properties": {
-          "projects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsumptionHistoryPerProject"
-            },
-            "description": "Per-project consumption history records included in the response."
-          }
-        }
-      },
-      "ConsumptionHistoryPerProjectV2Response": {
-        "required": [
-          "projects"
-        ],
-        "type": "object",
-        "properties": {
-          "projects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsumptionHistoryPerProjectV2"
-            },
-            "description": "Per-project consumption history entries for the requested time range."
-          }
-        }
       },
       "ConsumptionHistoryPerProject": {
         "required": [
@@ -12661,21 +12587,6 @@
               "$ref": "#/components/schemas/ConsumptionHistoryPerPeriodV2"
             },
             "description": "Consumption periods recorded for this project."
-          }
-        }
-      },
-      "ConsumptionHistoryPerBranchV2Response": {
-        "required": [
-          "branches"
-        ],
-        "type": "object",
-        "properties": {
-          "branches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConsumptionHistoryPerBranchV2"
-            },
-            "description": "Per-branch consumption history records returned for the requested time range."
           }
         }
       },
@@ -12854,41 +12765,62 @@
             "format": "date-time"
           },
           "active_time_seconds": {
-            "type": "integer",
+            "type": "number",
             "description": "Seconds. The amount of time the compute endpoints have been active.\n",
-            "format": "uint64"
+            "format": "decimal",
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "compute_time_seconds": {
-            "type": "integer",
+            "type": "number",
             "description": "Seconds. The number of CPU seconds used by compute endpoints, including compute endpoints that have been deleted.\n",
-            "format": "uint64"
+            "format": "decimal",
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "written_data_bytes": {
-            "type": "integer",
+            "type": "number",
             "description": "Bytes. The amount of written data for all branches.\n",
-            "format": "uint64"
+            "format": "decimal",
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "synthetic_storage_size_bytes": {
-            "type": "integer",
+            "type": "number",
             "description": "Deprecated: always returns 0. Use the consumption history v2 endpoints (\u0060/consumption_history/v2/projects\u0060, \u0060/consumption_history/v2/branches\u0060) instead.\nBytes. The space occupied in Postgres storage. Synthetic Postgres storage size combines the logical data size and Write-Ahead Log (WAL) size for all branches.\n",
-            "format": "uint64",
-            "deprecated": true
+            "format": "decimal",
+            "deprecated": true,
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "data_storage_bytes_hour": {
-            "type": "integer",
+            "type": "number",
             "description": "Deprecated: always returns 0. Use the consumption history v2 endpoints (\u0060/consumption_history/v2/projects\u0060, \u0060/consumption_history/v2/branches\u0060) instead.\nBytes-Hour. The amount of Postgres storage consumed hourly.\n",
-            "format": "uint64",
-            "deprecated": true
+            "format": "decimal",
+            "deprecated": true,
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "logical_size_bytes": {
-            "type": "integer",
+            "type": "number",
             "description": "Bytes. The amount of logical size consumed.\n",
-            "format": "uint64"
+            "format": "decimal",
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           },
           "logical_size_bytes_hour": {
-            "type": "integer",
+            "type": "number",
             "description": "Bytes-Hour. The amount of logical size consumed hourly.\n",
-            "format": "uint64"
+            "format": "decimal",
+            "x-client-original-format": "uint64",
+            "x-client-original-type": "integer",
+            "multipleOf": 1
           }
         }
       },
@@ -12955,12 +12887,6 @@
               "name": "Monthly"
             }
           ]
-        }
-      },
-      "ConsumptionHistoryQueryMetrics": {
-        "type": "array",
-        "items": {
-          "type": "string"
         }
       },
       "ProjectAuditLogLevel": {
@@ -13220,14 +13146,6 @@
           "cpu_used_sec": 461100
         }
       },
-      "BranchState": {
-        "type": "string",
-        "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.\n"
-      },
-      "BranchRestoreStatus": {
-        "type": "string",
-        "description": "Could be \u0060restored\u0060, \u0060finalized\u0060 or \u0060detaching\u0060.\nA \u0060restored\u0060 branch becomes permanently \u0060finalized\u0060 when you call \u0060finalizeRestoreBranch\u0060\nA \u0060restored\u0060 or \u0060finalized\u0060 branch may begin \u0060detaching\u0060 as a one-time performance optimisation, after which it will continue in its original state\n"
-      },
       "BranchRestrictedAction": {
         "required": [
           "name",
@@ -13381,17 +13299,6 @@
           }
         }
       },
-      "BranchResponse": {
-        "required": [
-          "branch"
-        ],
-        "type": "object",
-        "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          }
-        }
-      },
       "BranchSchemaResponse": {
         "type": "object",
         "properties": {
@@ -13410,34 +13317,6 @@
           "diff": {
             "type": "string",
             "description": "Unified diff of the SQL schema changes between the compared branches."
-          }
-        }
-      },
-      "BranchesResponse": {
-        "required": [
-          "branches"
-        ],
-        "type": "object",
-        "properties": {
-          "branches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Branch"
-            },
-            "description": "Branches in the project. Each includes \u0060id\u0060, \u0060name\u0060, \u0060current_state\u0060, and \u0060created_at\u0060."
-          }
-        }
-      },
-      "BranchesCountResponse": {
-        "required": [
-          "count"
-        ],
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "Total number of branches in the project.",
-            "format": "int"
           }
         }
       },
@@ -13922,13 +13801,6 @@
           ]
         }
       },
-      "SuspendTimeoutSeconds": {
-        "maximum": 604800,
-        "minimum": -1,
-        "type": "integer",
-        "description": "Duration of inactivity in seconds after which the compute endpoint is\nautomatically suspended. The value \u00600\u0060 means use the default value.\nThe value \u0060-1\u0060 means never suspend. The default value is \u0060300\u0060 seconds (5 minutes).\nThe minimum value is \u006060\u0060 seconds (1 minute).\nThe maximum value is \u0060604800\u0060 seconds (1 week). For more information, see\n[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).\n",
-        "format": "int64"
-      },
       "AllowedIps": {
         "type": "object",
         "properties": {
@@ -14019,36 +13891,6 @@
         "properties": {
           "endpoint": {
             "$ref": "#/components/schemas/Endpoint"
-          }
-        }
-      },
-      "ConnectionUrIsResponse": {
-        "required": [
-          "connection_uris"
-        ],
-        "type": "object",
-        "properties": {
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
-            },
-            "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
-          }
-        },
-        "x-sensitive": [
-          "connection_uris"
-        ]
-      },
-      "ConnectionUrIsOptionalResponse": {
-        "type": "object",
-        "properties": {
-          "connection_uris": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDetails"
-            },
-            "description": "Connection URIs for the compute endpoint, including credentials."
           }
         }
       },
@@ -14184,18 +14026,6 @@
               "$ref": "#/components/schemas/Endpoint"
             },
             "description": "Compute endpoints in the project. Each includes \u0060id\u0060, \u0060branch_id\u0060, \u0060host\u0060, and \u0060type\u0060."
-          }
-        }
-      },
-      "EndpointsOptionalResponse": {
-        "type": "object",
-        "properties": {
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints associated with the project."
           }
         }
       },
@@ -14343,17 +14173,6 @@
           }
         }
       },
-      "JwksResponse": {
-        "required": [
-          "jwks"
-        ],
-        "type": "object",
-        "properties": {
-          "jwks": {
-            "$ref": "#/components/schemas/Jwks"
-          }
-        }
-      },
       "RolesResponse": {
         "required": [
           "roles"
@@ -14471,7 +14290,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Billing email, to receive emails related to invoices and subscriptions.\n",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "address_city": {
             "type": "string",
@@ -14872,7 +14691,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email of the invited user",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "org_id": {
             "pattern": "^[a-z0-9-]{1,60}$",
@@ -14980,7 +14799,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the organization member\u0027s user account.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "has_mfa": {
             "type": "boolean",
@@ -15106,7 +14925,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the person to invite to the organization.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "role": {
             "$ref": "#/components/schemas/MemberRole"
@@ -15139,21 +14958,6 @@
         "properties": {
           "role": {
             "$ref": "#/components/schemas/MemberRole"
-          }
-        }
-      },
-      "OrganizationMembersResponse": {
-        "required": [
-          "members"
-        ],
-        "type": "object",
-        "properties": {
-          "members": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MemberWithUser"
-            },
-            "description": "Members of the organization, each combining membership details (role, status) with the associated user\u0027s identity."
           }
         }
       },
@@ -15220,7 +15024,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address associated with this auth account.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "image": {
             "type": "string",
@@ -15282,7 +15086,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the authenticated user.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "id": {
             "type": "string",
@@ -15505,30 +15309,6 @@
         },
         "description": "A collection of settings for a Neon endpoint"
       },
-      "PgSettingsData": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A raw representation of Postgres settings"
-      },
-      "PgbouncerSettingsData": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n",
-        "deprecated": true,
-        "x-sunset": "2026-06-20"
-      },
-      "PgVersion": {
-        "maximum": 19,
-        "minimum": 14,
-        "type": "integer",
-        "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
-        "default": 18,
-        "example": 18
-      },
       "ProjectOwnerData": {
         "required": [
           "email",
@@ -15543,7 +15323,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the project owner.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "name": {
             "type": "string",
@@ -15683,7 +15463,7 @@
           "jwks_url": {
             "type": "string",
             "description": "URL of the JWKS endpoint used to verify JWTs for this Data API. Required when configuring JWT-based authentication; omit when using a non-JWT auth provider.",
-            "format": "uri"
+            "x-client-original-format": "uri"
           },
           "provider_name": {
             "type": "string",
@@ -15721,7 +15501,7 @@
           "url": {
             "type": "string",
             "description": "URL of the created Data API endpoint.",
-            "format": "uri"
+            "x-client-original-format": "uri"
           }
         },
         "description": "Neon Data API created successfully",
@@ -15739,7 +15519,7 @@
           "url": {
             "type": "string",
             "description": "The URL of the Neon Data API",
-            "format": "uri"
+            "x-client-original-format": "uri"
           },
           "status": {
             "type": "string",
@@ -15889,7 +15669,7 @@
           "domain": {
             "type": "string",
             "description": "URI to add to the redirect URI allowlist for the auth provider.",
-            "format": "uri"
+            "x-client-original-format": "uri"
           },
           "auth_provider": {
             "$ref": "#/components/schemas/NeonAuthSupportedAuthProvider"
@@ -15924,7 +15704,7 @@
           "domain": {
             "type": "string",
             "description": "URI to remove from the redirect URI whitelist.",
-            "format": "uri"
+            "x-client-original-format": "uri"
           }
         }
       },
@@ -16071,7 +15851,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the new user.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "name": {
             "maxLength": 255,
@@ -16096,7 +15876,7 @@
             "minLength": 1,
             "type": "string",
             "description": "Email address of the new Neon Auth user to create.",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           "name": {
             "maxLength": 255,
@@ -16960,95 +16740,6 @@
           "client_secret"
         ]
       },
-      "SharedEmailServer": {
-        "type": "object",
-        "properties": {
-          "sender_email": {
-            "type": "string",
-            "description": "Email address used as the sender for outgoing messages from this shared email server."
-          },
-          "sender_name": {
-            "type": "string",
-            "description": "Display name shown as the sender in outgoing emails."
-          }
-        }
-      },
-      "StandardEmailServer": {
-        "type": "object",
-        "properties": {
-          "host": {
-            "type": "string",
-            "description": "Hostname of the email server."
-          },
-          "port": {
-            "type": "integer",
-            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
-          },
-          "username": {
-            "type": "string",
-            "description": "Username for authenticating with the SMTP server."
-          },
-          "password": {
-            "type": "string",
-            "description": "Password for authenticating with the SMTP server."
-          },
-          "sender_email": {
-            "type": "string",
-            "description": "Email address used as the From address on outgoing auth emails."
-          },
-          "sender_name": {
-            "type": "string",
-            "description": "Display name shown as the sender in outgoing emails."
-          }
-        },
-        "x-sensitive": [
-          "host",
-          "password",
-          "username"
-        ]
-      },
-      "StandardEmailServerResponse": {
-        "required": [
-          "host",
-          "port",
-          "username",
-          "password",
-          "sender_email",
-          "sender_name"
-        ],
-        "type": "object",
-        "properties": {
-          "host": {
-            "type": "string",
-            "description": "Hostname of the email server."
-          },
-          "port": {
-            "type": "integer",
-            "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
-          },
-          "username": {
-            "type": "string",
-            "description": "Username for authenticating with the SMTP server."
-          },
-          "password": {
-            "type": "string",
-            "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
-          },
-          "sender_email": {
-            "type": "string",
-            "description": "Email address used as the From address on outgoing auth emails."
-          },
-          "sender_name": {
-            "type": "string",
-            "description": "Display name shown as the sender in outgoing emails."
-          }
-        },
-        "x-sensitive": [
-          "host",
-          "password",
-          "username"
-        ]
-      },
       "NeonAuthEmailServerConfig": {
         "oneOf": [
           {
@@ -17124,7 +16815,7 @@
             "minLength": 1,
             "type": "string",
             "description": "The email address to send the test email to.",
-            "format": "email"
+            "x-client-original-format": "email"
           }
         },
         "x-sensitive": [
@@ -17144,7 +16835,7 @@
             "minLength": 1,
             "type": "string",
             "description": "The email address to send the test email to.",
-            "format": "email"
+            "x-client-original-format": "email"
           }
         },
         "description": "Request to test the branch\u0027s saved email provider. Only the recipient is supplied; the stored\nSMTP settings and password are used server-side.\n"
@@ -17367,10 +17058,6 @@
           }
         }
       },
-      "ErrorCode": {
-        "type": "string",
-        "default": ""
-      },
       "BranchOperations": {
         "required": [
           "branch",
@@ -17386,24 +17073,6 @@
             "items": {
               "$ref": "#/components/schemas/Operation"
             }
-          }
-        }
-      },
-      "BranchRecoverResponse": {
-        "required": [
-          "branch"
-        ],
-        "type": "object",
-        "properties": {
-          "branch": {
-            "$ref": "#/components/schemas/Branch"
-          },
-          "endpoints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Endpoint"
-            },
-            "description": "Compute endpoints associated with the project."
           }
         }
       },
@@ -17509,20 +17178,6 @@
           "Branch"
         ]
       },
-      "AnnotationValueData": {
-        "maxProperties": 50,
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
-        "example": {
-          "github-commit-ref": "github-branch-name"
-        },
-        "x-tags": [
-          "Branch"
-        ]
-      },
       "AnnotationObjectData": {
         "required": [
           "type",
@@ -17537,45 +17192,6 @@
           "id": {
             "type": "string",
             "description": "The annotated object\u0027s ID."
-          }
-        },
-        "x-tags": [
-          "Branch"
-        ]
-      },
-      "AnnotationCreateValueRequest": {
-        "type": "object",
-        "properties": {
-          "annotation_value": {
-            "$ref": "#/components/schemas/AnnotationCreateValueRequestAnnotationValue"
-          }
-        },
-        "x-tags": [
-          "Branch"
-        ]
-      },
-      "AnnotationResponse": {
-        "required": [
-          "annotation"
-        ],
-        "type": "object",
-        "properties": {
-          "annotation": {
-            "$ref": "#/components/schemas/AnnotationData"
-          }
-        },
-        "x-tags": [
-          "Branch"
-        ]
-      },
-      "AnnotationsMapResponse": {
-        "required": [
-          "annotations"
-        ],
-        "type": "object",
-        "properties": {
-          "annotations": {
-            "$ref": "#/components/schemas/AnnotationsMapResponseAnnotationsProperty"
           }
         },
         "x-tags": [
@@ -17612,64 +17228,6 @@
               "name": "Opentelemetry"
             }
           ]
-        }
-      },
-      "ProjectsApplicationsMapResponse": {
-        "required": [
-          "applications"
-        ],
-        "type": "object",
-        "properties": {
-          "applications": {
-            "$ref": "#/components/schemas/ProjectsApplicationsMapResponseApplicationsProperty"
-          }
-        },
-        "description": "A map where key is a project ID and a value is a list of installed applications.\n",
-        "example": {
-          "applications": {
-            "winter-boat-259881": [
-              "vercel",
-              "github",
-              "datadog",
-              "opentelemetry"
-            ]
-          }
-        },
-        "x-tags": [
-          "Project"
-        ]
-      },
-      "ProjectsIntegrationsMapResponse": {
-        "required": [
-          "integrations"
-        ],
-        "type": "object",
-        "properties": {
-          "integrations": {
-            "$ref": "#/components/schemas/ProjectsIntegrationsMapResponseIntegrationsProperty"
-          }
-        },
-        "description": "A map where key is a project ID and a value is a list of installed integrations.\n",
-        "example": {
-          "integrations": {
-            "winter-boat-259881": [
-              "vercel",
-              "github",
-              "datadog",
-              "opentelemetry"
-            ]
-          }
-        },
-        "x-tags": [
-          "Project"
-        ]
-      },
-      "CursorPaginationResponse": {
-        "type": "object",
-        "properties": {
-          "pagination": {
-            "$ref": "#/components/schemas/CursorPagination"
-          }
         }
       },
       "CursorPagination": {
@@ -17926,8 +17484,8 @@
           "s3_endpoint": {
             "type": "string",
             "description": "The S3-compatible endpoint URL for this branch.",
-            "format": "uri",
-            "example": "https://br-cool-moon-42.storage.c-2.local.neon.build"
+            "example": "https://br-cool-moon-42.storage.c-2.local.neon.build",
+            "x-client-original-format": "uri"
           },
           "region": {
             "type": "string",
@@ -18029,12 +17587,6 @@
             }
           ]
         }
-      },
-      "ProjectBranchLogDuration": {
-        "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
-        "type": "string",
-        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
-        "example": "1h"
       },
       "ProjectBranchLogsNotAvailable": {
         "required": [
@@ -18283,8 +17835,8 @@
           "base_url": {
             "type": "string",
             "description": "The AI-gateway endpoint root for this branch \u2014 an OpenAI-compatible\nbase URL. No dialect path is included; clients append the route\n(e.g. \u0060/ai-gateway/openai/v1/responses\u0060) themselves.\n",
-            "format": "uri",
-            "example": "https://br-cool-moon-42-api.ai.c-2.local.neon.build"
+            "example": "https://br-cool-moon-42-api.ai.c-2.local.neon.build",
+            "x-client-original-format": "uri"
           }
         }
       },
@@ -18838,27 +18390,6 @@
           }
         }
       },
-      "NeonFunctionsListResponse": {
-        "required": [
-          "functions"
-        ],
-        "type": "object",
-        "properties": {
-          "functions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NeonFunction"
-            }
-          }
-        }
-      },
-      "TriggerId": {
-        "maxLength": 128,
-        "minLength": 1,
-        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
-        "type": "string",
-        "description": "Opaque, server-minted project-wide trigger identifier."
-      },
       "FunctionTriggerSchedule": {
         "required": [
           "cron"
@@ -18900,14 +18431,6 @@
         "description": "Matches successful uploads to one exact bucket and, when configured, an\nobject-key prefix. The Function receives a JSON request body with\n\u0060type\u0060 set to \u0060storage_object_created\u0060 and a \u0060data\u0060 object containing\nexactly \u0060bucket_name\u0060 and \u0060object_key\u0060.\n"
       },
       "TriggerCreateRequest": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ScheduleTriggerCreateRequest"
-          },
-          {
-            "$ref": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
-          }
-        ],
         "description": "Trigger creation payload discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
         "x-client-original-discriminator": {
           "propertyName": "type",
@@ -18915,99 +18438,50 @@
             "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
             "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
           }
-        }
-      },
-      "ScheduleTriggerCreateRequest": {
-        "required": [
-          "type",
-          "function_slug",
-          "name",
-          "schedule"
-        ],
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/TriggerCreateRequestScheduleTriggerCreateRequest",
+            "storage_object_created": "#/components/schemas/TriggerCreateRequestStorageObjectCreatedTriggerCreateRequest"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/ScheduleTriggerCreateRequest"
+            },
+            {
+              "$ref": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
+            }
+          ],
+          "description": "Trigger creation payload discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
+          "x-client-original-discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
+            }
+          },
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTriggerCreateRequest",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerCreateRequest"
+            }
+          }
+        },
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ScheduleType"
-          },
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "The branch-local Function slug to invoke."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string",
-            "description": "Human-readable name, unique among triggers visible on the branch."
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string",
-            "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
-            "default": "/"
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether future occurrences should be scheduled.",
-            "default": true
+            "type": "string"
           }
         },
-        "additionalProperties": false
-      },
-      "StorageObjectCreatedTriggerCreateRequest": {
         "required": [
-          "type",
-          "function_slug",
-          "name",
-          "storage_object_created"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/StorageObjectCreatedType"
-          },
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "The branch-local Function slug to invoke."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string",
-            "description": "Human-readable name, unique among triggers visible on the branch."
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string",
-            "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
-            "default": "/"
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "Whether successful matching uploads should invoke the Function.",
-            "default": true
-          }
-        },
-        "additionalProperties": false
+          "type"
+        ]
       },
       "TriggerUpdateRequest": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ScheduleTriggerUpdateRequest"
-          },
-          {
-            "$ref": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
-          }
-        ],
         "description": "Partial trigger update discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
         "x-client-original-discriminator": {
           "propertyName": "type",
@@ -19015,87 +18489,50 @@
             "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
             "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
           }
-        }
-      },
-      "ScheduleTriggerUpdateRequest": {
-        "minProperties": 2,
-        "required": [
-          "type"
-        ],
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/TriggerUpdateRequestScheduleTriggerUpdateRequest",
+            "storage_object_created": "#/components/schemas/TriggerUpdateRequestStorageObjectCreatedTriggerUpdateRequest"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/ScheduleTriggerUpdateRequest"
+            },
+            {
+              "$ref": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
+            }
+          ],
+          "description": "Partial trigger update discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
+          "x-client-original-discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
+            }
+          },
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTriggerUpdateRequest",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTriggerUpdateRequest"
+            }
+          }
+        },
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ScheduleType"
-          },
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "Replacement branch-local Function slug."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
             "type": "string"
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string"
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "True enables and false disables future scheduling."
           }
         },
-        "additionalProperties": false
-      },
-      "StorageObjectCreatedTriggerUpdateRequest": {
-        "minProperties": 2,
         "required": [
           "type"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/StorageObjectCreatedType"
-          },
-          "function_slug": {
-            "pattern": "^[a-z0-9]{1,20}$",
-            "type": "string",
-            "description": "Replacement branch-local Function slug."
-          },
-          "name": {
-            "maxLength": 256,
-            "minLength": 1,
-            "type": "string"
-          },
-          "function_path": {
-            "maxLength": 2048,
-            "minLength": 1,
-            "type": "string"
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "True enables and false disables future matching uploads."
-          }
-        },
-        "additionalProperties": false
+        ]
       },
       "Trigger": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ScheduleTrigger"
-          },
-          {
-            "$ref": "#/components/schemas/StorageObjectCreatedTrigger"
-          }
-        ],
         "description": "A branch-effective trigger discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
         "x-client-original-discriminator": {
           "propertyName": "type",
@@ -19103,125 +18540,48 @@
             "schedule": "#/components/schemas/ScheduleTrigger",
             "storage_object_created": "#/components/schemas/StorageObjectCreatedTrigger"
           }
-        }
-      },
-      "ScheduleTrigger": {
-        "required": [
-          "type",
-          "trigger_id",
-          "function_slug",
-          "name",
-          "function_path",
-          "schedule",
-          "enabled",
-          "version",
-          "next_run_at",
-          "inherited"
-        ],
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "schedule": "#/components/schemas/TriggerScheduleTrigger",
+            "storage_object_created": "#/components/schemas/TriggerStorageObjectCreatedTrigger"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/ScheduleTrigger"
+            },
+            {
+              "$ref": "#/components/schemas/StorageObjectCreatedTrigger"
+            }
+          ],
+          "description": "A branch-effective trigger discriminated by \u0060type\u0060. The supported trigger\ntypes are \u0060schedule\u0060 and \u0060storage_object_created\u0060.\n",
+          "x-client-original-discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTrigger",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTrigger"
+            }
+          },
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "schedule": "#/components/schemas/ScheduleTrigger",
+              "storage_object_created": "#/components/schemas/StorageObjectCreatedTrigger"
+            }
+          }
+        },
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ScheduleType"
-          },
-          "trigger_id": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
-            "type": "string",
-            "description": "Opaque, server-minted project-wide trigger identifier."
-          },
-          "function_slug": {
-            "type": "string",
-            "description": "The branch-local Function slug resolved when an occurrence is consumed."
-          },
-          "name": {
-            "type": "string",
-            "description": "Human-readable trigger name."
-          },
-          "function_path": {
-            "type": "string",
-            "description": "Path passed to the target Function."
-          },
-          "schedule": {
-            "$ref": "#/components/schemas/FunctionTriggerSchedule"
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "version": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "Monotonic configuration version.",
-            "format": "int64"
-          },
-          "next_run_at": {
-            "type": "string",
-            "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
-            "nullable": true
-          },
-          "inherited": {
-            "type": "boolean",
-            "description": "True when the effective configuration was authored on an ancestor branch."
+            "type": "string"
           }
         },
-        "additionalProperties": false,
-        "description": "A branch-effective schedule trigger for a Function."
-      },
-      "StorageObjectCreatedTrigger": {
         "required": [
-          "type",
-          "trigger_id",
-          "function_slug",
-          "name",
-          "function_path",
-          "storage_object_created",
-          "enabled",
-          "version",
-          "inherited"
-        ],
-        "type": "object",
-        "properties": {
-          "type": {
-            "$ref": "#/components/schemas/StorageObjectCreatedType"
-          },
-          "trigger_id": {
-            "maxLength": 128,
-            "minLength": 1,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
-            "type": "string",
-            "description": "Opaque, server-minted project-wide trigger identifier."
-          },
-          "function_slug": {
-            "type": "string",
-            "description": "The branch-local Function slug resolved when an invocation is consumed."
-          },
-          "name": {
-            "type": "string",
-            "description": "Human-readable trigger name."
-          },
-          "function_path": {
-            "type": "string",
-            "description": "Path passed to the target Function."
-          },
-          "storage_object_created": {
-            "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
-          },
-          "enabled": {
-            "type": "boolean"
-          },
-          "version": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "Monotonic configuration version.",
-            "format": "int64"
-          },
-          "inherited": {
-            "type": "boolean",
-            "description": "True when the effective configuration was authored on an ancestor branch."
-          }
-        },
-        "additionalProperties": false,
-        "description": "A branch-effective trigger that invokes a Function after a successful\nupload matching its exact bucket and optional object-key prefix.\n"
+          "type"
+        ]
       },
       "TriggerResponse": {
         "required": [
@@ -19317,20 +18677,6 @@
             "minLength": 1,
             "type": "string",
             "description": "The target entity\u0027s identifier within the branch. For \u0060function\u0060 this\nis the function slug (which must already exist on the branch).\n"
-          }
-        }
-      },
-      "CustomDomainsListResponse": {
-        "required": [
-          "custom_domains"
-        ],
-        "type": "object",
-        "properties": {
-          "custom_domains": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomDomain"
-            }
           }
         }
       },
@@ -19522,46 +18868,6 @@
           }
         }
       },
-      "OrgApiKeyCreateRequestAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
-      },
-      "OrgApiKeyCreateResponseAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
-      },
-      "OrgApiKeyRevokeResponseAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
-      },
-      "OrgApiKeysListResponseItemAllOf2": {
-        "type": "object",
-        "properties": {
-          "project_id": {
-            "pattern": "^[a-z0-9-]{1,60}$",
-            "type": "string",
-            "description": "If set, the API key can access only this project"
-          }
-        }
-      },
       "ProjectListItemEffectiveProjectPermission": {
         "enum": [
           "VIEWER",
@@ -19618,38 +18924,6 @@
           ]
         }
       },
-      "BranchAnonymizedCreateRequestAllOf2": {
-        "type": "object",
-        "properties": {
-          "branch_create": {
-            "$ref": "#/components/schemas/BranchCreateRequest"
-          },
-          "masking_rules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MaskingRule"
-            },
-            "description": "List of masking rules to apply to the branch.\n"
-          },
-          "start_anonymization": {
-            "type": "boolean",
-            "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n",
-            "default": false
-          }
-        }
-      },
-      "VpcEndpointWithRegionAllOf2": {
-        "required": [
-          "region_id"
-        ],
-        "type": "object",
-        "properties": {
-          "region_id": {
-            "type": "string",
-            "description": "The region where the VPC endpoint is located"
-          }
-        }
-      },
       "DataApiReponseSettings": {
         "type": "object",
         "properties": {
@@ -19702,24 +18976,6 @@
           }
         },
         "description": "Configuration settings for the Data API (SubZero only)"
-      },
-      "NeonAuthOAuthClientCreatedAllOf2": {
-        "type": "object",
-        "properties": {
-          "client_secret": {
-            "type": "string",
-            "description": "The client secret. Returned only for confidential clients and only in this response."
-          }
-        },
-        "x-sensitive": [
-          "client_secret"
-        ]
-      },
-      "ProjectBranchLogsQueryRequestSince": {
-        "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
-        "type": "string",
-        "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
-        "example": "1h"
       },
       "NeonFunctionCurrentDeployment": {
         "required": [
@@ -19804,10 +19060,6 @@
           }
         },
         "description": "The most recent deployment whose build completed successfully.\nThis is the deployment that serves invocations. Omitted until a\ndeployment succeeds.\n"
-      },
-      "AdvisorIssueMetadata": {
-        "type": "object",
-        "description": "Additional context-specific metadata"
       },
       "ProjectCreateRequestProject": {
         "type": "object",
@@ -20215,33 +19467,6 @@
           }
         }
       },
-      "AnnotationsMapResponseAnnotations": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/AnnotationData"
-        },
-        "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
-      },
-      "ProjectsApplicationsMapResponseApplications": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/ApplicationType"
-          }
-        },
-        "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
-      },
-      "ProjectsIntegrationsMapResponseIntegrations": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/ApplicationType"
-          }
-        },
-        "description": "Map of project IDs to their associated integration details."
-      },
       "SnapshotUpdateRequestSnapshot": {
         "type": "object",
         "properties": {
@@ -20290,17 +19515,6 @@
             "description": "Table constraints defined in the branch schema, such as primary key, foreign key, unique, and check constraints."
           }
         }
-      },
-      "ProjectBranchLogRecordAttributes": {
-        "type": "object",
-        "description": "Customer-defined OpenTelemetry log and resource attributes."
-      },
-      "PresignResponseHeaders": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Headers the caller MUST send verbatim on the request (e.g.\n\u0060Content-Type\u0060 when it was signed on an upload). May be empty.\n"
       },
       "ProjectCreateRequestProjectBranch": {
         "type": "object",
@@ -20403,38 +19617,6 @@
           }
         },
         "description": "For foreign keys - the referenced table information"
-      },
-      "ListApiKeys200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ApiKeysListResponseItem"
-        },
-        "example": [
-          {
-            "id": 165432,
-            "name": "mykey_1",
-            "created_at": "2022-11-15T20:13:35Z",
-            "created_by": {
-              "id": "629982cc-de05-43db-ae16-28f2399c4910",
-              "name": "John Smith",
-              "image": "http://link.to.image"
-            },
-            "last_used_at": "2022-11-15T20:22:51Z",
-            "last_used_from_addr": "192.0.2.255"
-          },
-          {
-            "id": 165433,
-            "name": "mykey_2",
-            "created_at": "2022-11-15T20:12:36Z",
-            "created_by": {
-              "id": "629982cc-de05-43db-ae16-28f2399c4910",
-              "name": "John Smith",
-              "image": "http://link.to.image"
-            },
-            "last_used_at": "2022-11-15T20:15:04Z",
-            "last_used_from_addr": "192.0.2.255"
-          }
-        ]
       },
       "ListProjects200Response": {
         "required": [
@@ -20605,7 +19787,8 @@
           "count": {
             "type": "integer",
             "description": "Total number of branches in the project.",
-            "format": "int"
+            "format": "int64",
+            "x-client-original-format": "int"
           }
         }
       },
@@ -20687,38 +19870,6 @@
           }
         }
       },
-      "ListOrgApiKeys200Response": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/OrgApiKeysListResponseItem"
-        },
-        "example": [
-          {
-            "id": 165432,
-            "name": "orgkey_1",
-            "created_at": "2022-11-15T20:13:35Z",
-            "created_by": {
-              "id": "629982cc-de05-43db-ae16-28f2399c4910",
-              "name": "John Smith",
-              "image": "http://link.to.image"
-            },
-            "last_used_at": "2022-11-15T20:22:51Z",
-            "last_used_from_addr": "192.0.2.255"
-          },
-          {
-            "id": 165433,
-            "name": "orgkey_2",
-            "created_at": "2022-11-15T20:12:36Z",
-            "created_by": {
-              "id": "629982cc-de05-43db-ae16-28f2399c4910",
-              "name": "John Smith",
-              "image": "http://link.to.image"
-            },
-            "last_used_at": "2022-11-15T20:15:04Z",
-            "last_used_from_addr": "192.0.2.255"
-          }
-        ]
-      },
       "GetOrganizationMembers200Response": {
         "required": [
           "members"
@@ -20773,10 +19924,6 @@
           }
         }
       },
-      "GetProjectBranchBucketObject200OctetStreamResponse": {
-        "type": "string",
-        "format": "binary"
-      },
       "ListProjectBranchFunctions200Response": {
         "required": [
           "functions"
@@ -20810,10 +19957,6 @@
             "$ref": "#/components/schemas/CursorPagination"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "GetProjectAdvisorSecurityIssues200Response": {
         "required": [
@@ -21013,47 +20156,6 @@
         "x-tags": [
           "Branch"
         ]
-      },
-      "AnnotationCreateValueRequestAnnotationValue": {
-        "maxProperties": 50,
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
-        "example": {
-          "github-commit-ref": "github-branch-name"
-        },
-        "x-tags": [
-          "Branch"
-        ]
-      },
-      "AnnotationsMapResponseAnnotationsProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/AnnotationData"
-        },
-        "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
-      },
-      "ProjectsApplicationsMapResponseApplicationsProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/ApplicationType"
-          }
-        },
-        "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
-      },
-      "ProjectsIntegrationsMapResponseIntegrationsProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/ApplicationType"
-          }
-        },
-        "description": "Map of project IDs to their associated integration details."
       },
       "ProjectBranchLogRecordAttributesProperty": {
         "type": "object",
@@ -21867,6 +20969,318 @@
         "required": [
           "type"
         ]
+      },
+      "TriggerCreateRequestScheduleTriggerCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TriggerCreateRequest"
+          },
+          {
+            "required": [
+              "type",
+              "function_slug",
+              "name",
+              "schedule"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ScheduleType"
+              },
+              "function_slug": {
+                "pattern": "^[a-z0-9]{1,20}$",
+                "type": "string",
+                "description": "The branch-local Function slug to invoke."
+              },
+              "name": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string",
+                "description": "Human-readable name, unique among triggers visible on the branch."
+              },
+              "function_path": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "type": "string",
+                "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+                "default": "/"
+              },
+              "schedule": {
+                "$ref": "#/components/schemas/FunctionTriggerSchedule"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "Whether future occurrences should be scheduled.",
+                "default": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TriggerCreateRequestStorageObjectCreatedTriggerCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TriggerCreateRequest"
+          },
+          {
+            "required": [
+              "type",
+              "function_slug",
+              "name",
+              "storage_object_created"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/StorageObjectCreatedType"
+              },
+              "function_slug": {
+                "pattern": "^[a-z0-9]{1,20}$",
+                "type": "string",
+                "description": "The branch-local Function slug to invoke."
+              },
+              "name": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string",
+                "description": "Human-readable name, unique among triggers visible on the branch."
+              },
+              "function_path": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "type": "string",
+                "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+                "default": "/"
+              },
+              "storage_object_created": {
+                "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "Whether successful matching uploads should invoke the Function.",
+                "default": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TriggerUpdateRequestScheduleTriggerUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TriggerUpdateRequest"
+          },
+          {
+            "minProperties": 2,
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ScheduleType"
+              },
+              "function_slug": {
+                "pattern": "^[a-z0-9]{1,20}$",
+                "type": "string",
+                "description": "Replacement branch-local Function slug."
+              },
+              "name": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "function_path": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "type": "string"
+              },
+              "schedule": {
+                "$ref": "#/components/schemas/FunctionTriggerSchedule"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "True enables and false disables future scheduling."
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TriggerUpdateRequestStorageObjectCreatedTriggerUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TriggerUpdateRequest"
+          },
+          {
+            "minProperties": 2,
+            "required": [
+              "type"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/StorageObjectCreatedType"
+              },
+              "function_slug": {
+                "pattern": "^[a-z0-9]{1,20}$",
+                "type": "string",
+                "description": "Replacement branch-local Function slug."
+              },
+              "name": {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              "function_path": {
+                "maxLength": 2048,
+                "minLength": 1,
+                "type": "string"
+              },
+              "storage_object_created": {
+                "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+              },
+              "enabled": {
+                "type": "boolean",
+                "description": "True enables and false disables future matching uploads."
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TriggerScheduleTrigger": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Trigger"
+          },
+          {
+            "required": [
+              "type",
+              "trigger_id",
+              "function_slug",
+              "name",
+              "function_path",
+              "schedule",
+              "enabled",
+              "version",
+              "next_run_at",
+              "inherited"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/ScheduleType"
+              },
+              "trigger_id": {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+                "type": "string",
+                "description": "Opaque, server-minted project-wide trigger identifier."
+              },
+              "function_slug": {
+                "type": "string",
+                "description": "The branch-local Function slug resolved when an occurrence is consumed."
+              },
+              "name": {
+                "type": "string",
+                "description": "Human-readable trigger name."
+              },
+              "function_path": {
+                "type": "string",
+                "description": "Path passed to the target Function."
+              },
+              "schedule": {
+                "$ref": "#/components/schemas/FunctionTriggerSchedule"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "minimum": 1,
+                "type": "integer",
+                "description": "Monotonic configuration version.",
+                "format": "int64"
+              },
+              "next_run_at": {
+                "type": "string",
+                "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
+                "nullable": true
+              },
+              "inherited": {
+                "type": "boolean",
+                "description": "True when the effective configuration was authored on an ancestor branch."
+              }
+            },
+            "additionalProperties": false,
+            "description": "A branch-effective schedule trigger for a Function."
+          }
+        ]
+      },
+      "TriggerStorageObjectCreatedTrigger": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Trigger"
+          },
+          {
+            "required": [
+              "type",
+              "trigger_id",
+              "function_slug",
+              "name",
+              "function_path",
+              "storage_object_created",
+              "enabled",
+              "version",
+              "inherited"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/StorageObjectCreatedType"
+              },
+              "trigger_id": {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+                "type": "string",
+                "description": "Opaque, server-minted project-wide trigger identifier."
+              },
+              "function_slug": {
+                "type": "string",
+                "description": "The branch-local Function slug resolved when an invocation is consumed."
+              },
+              "name": {
+                "type": "string",
+                "description": "Human-readable trigger name."
+              },
+              "function_path": {
+                "type": "string",
+                "description": "Path passed to the target Function."
+              },
+              "storage_object_created": {
+                "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "version": {
+                "minimum": 1,
+                "type": "integer",
+                "description": "Monotonic configuration version.",
+                "format": "int64"
+              },
+              "inherited": {
+                "type": "boolean",
+                "description": "True when the effective configuration was authored on an ancestor branch."
+              }
+            },
+            "additionalProperties": false,
+            "description": "A branch-effective trigger that invokes a Function after a successful\nupload matching its exact bucket and optional object-key prefix.\n"
+          }
+        ]
       }
     },
     "responses": {
@@ -22094,5 +21508,1027 @@
     "samples-languages": [
       "shell"
     ]
+  },
+  "x-client-unused-schemas": {
+    "ComputeUnit": {
+      "minimum": 0.25,
+      "type": "number"
+    },
+    "Provisioner": {
+      "type": "string",
+      "description": "",
+      "example": "k8s-neonvm"
+    },
+    "PaginationResponse": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "$ref": "#/components/schemas/Pagination"
+        }
+      }
+    },
+    "EmptyResponse": {
+      "type": "object",
+      "description": "Empty response."
+    },
+    "ProjectsResponse": {
+      "required": [
+        "projects"
+      ],
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProjectListItem"
+          },
+          "description": "List of projects accessible to the caller. Projects that exist but could not be retrieved are identified in \u0060unavailable_project_ids\u0060."
+        },
+        "unavailable_project_ids": {
+          "type": "array",
+          "items": {
+            "pattern": "^[a-z0-9-]{1,60}$",
+            "type": "string"
+          },
+          "description": "A list of project IDs indicating which projects are known to exist, but whose details could not\nbe fetched within the requested (or implicit) time limit\n"
+        }
+      }
+    },
+    "ConsumptionHistoryPerProjectResponse": {
+      "required": [
+        "projects"
+      ],
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ConsumptionHistoryPerProject"
+          },
+          "description": "Per-project consumption history records included in the response."
+        }
+      }
+    },
+    "ConsumptionHistoryPerProjectV2Response": {
+      "required": [
+        "projects"
+      ],
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ConsumptionHistoryPerProjectV2"
+          },
+          "description": "Per-project consumption history entries for the requested time range."
+        }
+      }
+    },
+    "ConsumptionHistoryPerBranchV2Response": {
+      "required": [
+        "branches"
+      ],
+      "type": "object",
+      "properties": {
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ConsumptionHistoryPerBranchV2"
+          },
+          "description": "Per-branch consumption history records returned for the requested time range."
+        }
+      }
+    },
+    "ConsumptionHistoryQueryMetrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "BranchState": {
+      "type": "string",
+      "description": "The branch\u2019s state, indicating if it is initializing, ready for use, or archived.\n  * \u0027init\u0027 - the branch is being created but is not available for querying.\n  * \u0027resetting\u0027 - the branch is being reset to a specific point in time or LSN and is not yet available for querying.\n  * \u0027ready\u0027 - the branch is fully operational and ready for querying. Expect normal query response times.\n  * \u0027archived\u0027 - the branch is stored in cost-effective archival Postgres storage. Expect slow query response times.\n"
+    },
+    "BranchRestoreStatus": {
+      "type": "string",
+      "description": "Could be \u0060restored\u0060, \u0060finalized\u0060 or \u0060detaching\u0060.\nA \u0060restored\u0060 branch becomes permanently \u0060finalized\u0060 when you call \u0060finalizeRestoreBranch\u0060\nA \u0060restored\u0060 or \u0060finalized\u0060 branch may begin \u0060detaching\u0060 as a one-time performance optimisation, after which it will continue in its original state\n"
+    },
+    "BranchResponse": {
+      "required": [
+        "branch"
+      ],
+      "type": "object",
+      "properties": {
+        "branch": {
+          "$ref": "#/components/schemas/Branch"
+        }
+      }
+    },
+    "BranchesResponse": {
+      "required": [
+        "branches"
+      ],
+      "type": "object",
+      "properties": {
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "description": "Branches in the project. Each includes \u0060id\u0060, \u0060name\u0060, \u0060current_state\u0060, and \u0060created_at\u0060."
+        }
+      }
+    },
+    "BranchesCountResponse": {
+      "required": [
+        "count"
+      ],
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "description": "Total number of branches in the project.",
+          "format": "int64",
+          "x-client-original-format": "int"
+        }
+      }
+    },
+    "SuspendTimeoutSeconds": {
+      "maximum": 604800,
+      "minimum": -1,
+      "type": "integer",
+      "description": "Duration of inactivity in seconds after which the compute endpoint is\nautomatically suspended. The value \u00600\u0060 means use the default value.\nThe value \u0060-1\u0060 means never suspend. The default value is \u0060300\u0060 seconds (5 minutes).\nThe minimum value is \u006060\u0060 seconds (1 minute).\nThe maximum value is \u0060604800\u0060 seconds (1 week). For more information, see\n[Scale to zero configuration](https://neon.com/docs/manage/endpoints#scale-to-zero-configuration).\n",
+      "format": "int64"
+    },
+    "ConnectionUrIsResponse": {
+      "required": [
+        "connection_uris"
+      ],
+      "type": "object",
+      "properties": {
+        "connection_uris": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ConnectionDetails"
+          },
+          "description": "Connection URIs for the project. Each entry contains credentials and should be treated as sensitive."
+        }
+      },
+      "x-sensitive": [
+        "connection_uris"
+      ]
+    },
+    "ConnectionUrIsOptionalResponse": {
+      "type": "object",
+      "properties": {
+        "connection_uris": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ConnectionDetails"
+          },
+          "description": "Connection URIs for the compute endpoint, including credentials."
+        }
+      }
+    },
+    "EndpointsOptionalResponse": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Endpoint"
+          },
+          "description": "Compute endpoints associated with the project."
+        }
+      }
+    },
+    "JwksResponse": {
+      "required": [
+        "jwks"
+      ],
+      "type": "object",
+      "properties": {
+        "jwks": {
+          "$ref": "#/components/schemas/Jwks"
+        }
+      }
+    },
+    "OrganizationMembersResponse": {
+      "required": [
+        "members"
+      ],
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/MemberWithUser"
+          },
+          "description": "Members of the organization, each combining membership details (role, status) with the associated user\u0027s identity."
+        }
+      }
+    },
+    "PgSettingsData": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "A raw representation of Postgres settings"
+    },
+    "PgbouncerSettingsData": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Deprecated. A raw representation of PgBouncer settings. Removal scheduled for June 20, 2026.\n",
+      "deprecated": true,
+      "x-sunset": "2026-06-20"
+    },
+    "PgVersion": {
+      "maximum": 19,
+      "minimum": 14,
+      "type": "integer",
+      "description": "The major Postgres version number. Supported versions are \u006014\u0060, \u006015\u0060, \u006016\u0060, \u006017\u0060, and \u006018\u0060. \u006019\u0060 is rolling out and is accepted only in regions where it is enabled; requesting it elsewhere returns an error.",
+      "default": 18,
+      "example": 18
+    },
+    "SharedEmailServer": {
+      "type": "object",
+      "properties": {
+        "sender_email": {
+          "type": "string",
+          "description": "Email address used as the sender for outgoing messages from this shared email server."
+        },
+        "sender_name": {
+          "type": "string",
+          "description": "Display name shown as the sender in outgoing emails."
+        }
+      }
+    },
+    "StandardEmailServer": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "Hostname of the email server."
+        },
+        "port": {
+          "type": "integer",
+          "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+        },
+        "username": {
+          "type": "string",
+          "description": "Username for authenticating with the SMTP server."
+        },
+        "password": {
+          "type": "string",
+          "description": "Password for authenticating with the SMTP server."
+        },
+        "sender_email": {
+          "type": "string",
+          "description": "Email address used as the From address on outgoing auth emails."
+        },
+        "sender_name": {
+          "type": "string",
+          "description": "Display name shown as the sender in outgoing emails."
+        }
+      },
+      "x-sensitive": [
+        "host",
+        "password",
+        "username"
+      ]
+    },
+    "StandardEmailServerResponse": {
+      "required": [
+        "host",
+        "port",
+        "username",
+        "password",
+        "sender_email",
+        "sender_name"
+      ],
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "Hostname of the email server."
+        },
+        "port": {
+          "type": "integer",
+          "description": "TCP port of the SMTP server. Common values: 25 (SMTP), 465 (SMTPS), 587 (submission)."
+        },
+        "username": {
+          "type": "string",
+          "description": "Username for authenticating with the SMTP server."
+        },
+        "password": {
+          "type": "string",
+          "description": "On GET, returned redacted (empty) for ordinary callers, while callers with project-credential read permission receive the stored password \u2014 do not assume this field is empty. Update (PATCH) responses always return it redacted (empty) regardless of permission. Provide a value on update to set or rotate the password."
+        },
+        "sender_email": {
+          "type": "string",
+          "description": "Email address used as the From address on outgoing auth emails."
+        },
+        "sender_name": {
+          "type": "string",
+          "description": "Display name shown as the sender in outgoing emails."
+        }
+      },
+      "x-sensitive": [
+        "host",
+        "password",
+        "username"
+      ]
+    },
+    "ErrorCode": {
+      "type": "string",
+      "default": ""
+    },
+    "BranchRecoverResponse": {
+      "required": [
+        "branch"
+      ],
+      "type": "object",
+      "properties": {
+        "branch": {
+          "$ref": "#/components/schemas/Branch"
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Endpoint"
+          },
+          "description": "Compute endpoints associated with the project."
+        }
+      }
+    },
+    "AnnotationValueData": {
+      "maxProperties": 50,
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+      "example": {
+        "github-commit-ref": "github-branch-name"
+      },
+      "x-tags": [
+        "Branch"
+      ]
+    },
+    "AnnotationCreateValueRequest": {
+      "type": "object",
+      "properties": {
+        "annotation_value": {
+          "$ref": "#/components/schemas/AnnotationCreateValueRequestAnnotationValue"
+        }
+      },
+      "x-tags": [
+        "Branch"
+      ]
+    },
+    "AnnotationResponse": {
+      "required": [
+        "annotation"
+      ],
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "$ref": "#/components/schemas/AnnotationData"
+        }
+      },
+      "x-tags": [
+        "Branch"
+      ]
+    },
+    "AnnotationsMapResponse": {
+      "required": [
+        "annotations"
+      ],
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "$ref": "#/components/schemas/AnnotationsMapResponseAnnotationsProperty"
+        }
+      },
+      "x-tags": [
+        "Branch"
+      ]
+    },
+    "ProjectsApplicationsMapResponse": {
+      "required": [
+        "applications"
+      ],
+      "type": "object",
+      "properties": {
+        "applications": {
+          "$ref": "#/components/schemas/ProjectsApplicationsMapResponseApplicationsProperty"
+        }
+      },
+      "description": "A map where key is a project ID and a value is a list of installed applications.\n",
+      "example": {
+        "applications": {
+          "winter-boat-259881": [
+            "vercel",
+            "github",
+            "datadog",
+            "opentelemetry"
+          ]
+        }
+      },
+      "x-tags": [
+        "Project"
+      ]
+    },
+    "ProjectsIntegrationsMapResponse": {
+      "required": [
+        "integrations"
+      ],
+      "type": "object",
+      "properties": {
+        "integrations": {
+          "$ref": "#/components/schemas/ProjectsIntegrationsMapResponseIntegrationsProperty"
+        }
+      },
+      "description": "A map where key is a project ID and a value is a list of installed integrations.\n",
+      "example": {
+        "integrations": {
+          "winter-boat-259881": [
+            "vercel",
+            "github",
+            "datadog",
+            "opentelemetry"
+          ]
+        }
+      },
+      "x-tags": [
+        "Project"
+      ]
+    },
+    "CursorPaginationResponse": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "$ref": "#/components/schemas/CursorPagination"
+        }
+      }
+    },
+    "ProjectBranchLogDuration": {
+      "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+      "type": "string",
+      "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+      "example": "1h"
+    },
+    "NeonFunctionsListResponse": {
+      "required": [
+        "functions"
+      ],
+      "type": "object",
+      "properties": {
+        "functions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/NeonFunction"
+          }
+        }
+      }
+    },
+    "TriggerId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+      "type": "string",
+      "description": "Opaque, server-minted project-wide trigger identifier."
+    },
+    "ScheduleTriggerCreateRequest": {
+      "required": [
+        "type",
+        "function_slug",
+        "name",
+        "schedule"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ScheduleType"
+        },
+        "function_slug": {
+          "pattern": "^[a-z0-9]{1,20}$",
+          "type": "string",
+          "description": "The branch-local Function slug to invoke."
+        },
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string",
+          "description": "Human-readable name, unique among triggers visible on the branch."
+        },
+        "function_path": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string",
+          "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+          "default": "/"
+        },
+        "schedule": {
+          "$ref": "#/components/schemas/FunctionTriggerSchedule"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether future occurrences should be scheduled.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "StorageObjectCreatedTriggerCreateRequest": {
+      "required": [
+        "type",
+        "function_slug",
+        "name",
+        "storage_object_created"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/StorageObjectCreatedType"
+        },
+        "function_slug": {
+          "pattern": "^[a-z0-9]{1,20}$",
+          "type": "string",
+          "description": "The branch-local Function slug to invoke."
+        },
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string",
+          "description": "Human-readable name, unique among triggers visible on the branch."
+        },
+        "function_path": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string",
+          "description": "Path passed to the target Function. Defaults to \u0060/\u0060.",
+          "default": "/"
+        },
+        "storage_object_created": {
+          "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether successful matching uploads should invoke the Function.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ScheduleTriggerUpdateRequest": {
+      "minProperties": 2,
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ScheduleType"
+        },
+        "function_slug": {
+          "pattern": "^[a-z0-9]{1,20}$",
+          "type": "string",
+          "description": "Replacement branch-local Function slug."
+        },
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "function_path": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string"
+        },
+        "schedule": {
+          "$ref": "#/components/schemas/FunctionTriggerSchedule"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "True enables and false disables future scheduling."
+        }
+      },
+      "additionalProperties": false
+    },
+    "StorageObjectCreatedTriggerUpdateRequest": {
+      "minProperties": 2,
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/StorageObjectCreatedType"
+        },
+        "function_slug": {
+          "pattern": "^[a-z0-9]{1,20}$",
+          "type": "string",
+          "description": "Replacement branch-local Function slug."
+        },
+        "name": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "function_path": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string"
+        },
+        "storage_object_created": {
+          "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "True enables and false disables future matching uploads."
+        }
+      },
+      "additionalProperties": false
+    },
+    "ScheduleTrigger": {
+      "required": [
+        "type",
+        "trigger_id",
+        "function_slug",
+        "name",
+        "function_path",
+        "schedule",
+        "enabled",
+        "version",
+        "next_run_at",
+        "inherited"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ScheduleType"
+        },
+        "trigger_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+          "type": "string",
+          "description": "Opaque, server-minted project-wide trigger identifier."
+        },
+        "function_slug": {
+          "type": "string",
+          "description": "The branch-local Function slug resolved when an occurrence is consumed."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable trigger name."
+        },
+        "function_path": {
+          "type": "string",
+          "description": "Path passed to the target Function."
+        },
+        "schedule": {
+          "$ref": "#/components/schemas/FunctionTriggerSchedule"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "version": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Monotonic configuration version.",
+          "format": "int64"
+        },
+        "next_run_at": {
+          "type": "string",
+          "description": "Next scheduled occurrence as an RFC 3339 UTC timestamp, or null\nwhile disabled or inherited and not explicitly enabled on this branch.\n",
+          "nullable": true
+        },
+        "inherited": {
+          "type": "boolean",
+          "description": "True when the effective configuration was authored on an ancestor branch."
+        }
+      },
+      "additionalProperties": false,
+      "description": "A branch-effective schedule trigger for a Function."
+    },
+    "StorageObjectCreatedTrigger": {
+      "required": [
+        "type",
+        "trigger_id",
+        "function_slug",
+        "name",
+        "function_path",
+        "storage_object_created",
+        "enabled",
+        "version",
+        "inherited"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/StorageObjectCreatedType"
+        },
+        "trigger_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.\\-]{0,127}$",
+          "type": "string",
+          "description": "Opaque, server-minted project-wide trigger identifier."
+        },
+        "function_slug": {
+          "type": "string",
+          "description": "The branch-local Function slug resolved when an invocation is consumed."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable trigger name."
+        },
+        "function_path": {
+          "type": "string",
+          "description": "Path passed to the target Function."
+        },
+        "storage_object_created": {
+          "$ref": "#/components/schemas/FunctionTriggerStorageObjectCreated"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "version": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Monotonic configuration version.",
+          "format": "int64"
+        },
+        "inherited": {
+          "type": "boolean",
+          "description": "True when the effective configuration was authored on an ancestor branch."
+        }
+      },
+      "additionalProperties": false,
+      "description": "A branch-effective trigger that invokes a Function after a successful\nupload matching its exact bucket and optional object-key prefix.\n"
+    },
+    "CustomDomainsListResponse": {
+      "required": [
+        "custom_domains"
+      ],
+      "type": "object",
+      "properties": {
+        "custom_domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CustomDomain"
+          }
+        }
+      }
+    },
+    "OrgApiKeyCreateRequestAllOf2": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "type": "string",
+          "description": "If set, the API key can access only this project"
+        }
+      }
+    },
+    "OrgApiKeyCreateResponseAllOf2": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "type": "string",
+          "description": "If set, the API key can access only this project"
+        }
+      }
+    },
+    "OrgApiKeyRevokeResponseAllOf2": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "type": "string",
+          "description": "If set, the API key can access only this project"
+        }
+      }
+    },
+    "OrgApiKeysListResponseItemAllOf2": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "pattern": "^[a-z0-9-]{1,60}$",
+          "type": "string",
+          "description": "If set, the API key can access only this project"
+        }
+      }
+    },
+    "BranchAnonymizedCreateRequestAllOf2": {
+      "type": "object",
+      "properties": {
+        "branch_create": {
+          "$ref": "#/components/schemas/BranchCreateRequest"
+        },
+        "masking_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/MaskingRule"
+          },
+          "description": "List of masking rules to apply to the branch.\n"
+        },
+        "start_anonymization": {
+          "type": "boolean",
+          "description": "If true, automatically start anonymization after the branch is created.\nDefaults to false.\n",
+          "default": false
+        }
+      }
+    },
+    "VpcEndpointWithRegionAllOf2": {
+      "required": [
+        "region_id"
+      ],
+      "type": "object",
+      "properties": {
+        "region_id": {
+          "type": "string",
+          "description": "The region where the VPC endpoint is located"
+        }
+      }
+    },
+    "NeonAuthOAuthClientCreatedAllOf2": {
+      "type": "object",
+      "properties": {
+        "client_secret": {
+          "type": "string",
+          "description": "The client secret. Returned only for confidential clients and only in this response."
+        }
+      },
+      "x-sensitive": [
+        "client_secret"
+      ]
+    },
+    "ProjectBranchLogsQueryRequestSince": {
+      "pattern": "^[0-9]{1,6}(ms|s|m|h|d)$",
+      "type": "string",
+      "description": "A length of time as a count and a unit, for example \u006030m\u0060, \u00606h\u0060, or\n\u00607d\u0060. Valid units are \u0060ms\u0060, \u0060s\u0060, \u0060m\u0060, \u0060h\u0060, and \u0060d\u0060.\n",
+      "example": "1h"
+    },
+    "AdvisorIssueMetadata": {
+      "type": "object",
+      "description": "Additional context-specific metadata"
+    },
+    "AnnotationsMapResponseAnnotations": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AnnotationData"
+      },
+      "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
+    },
+    "ProjectsApplicationsMapResponseApplications": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ApplicationType"
+        }
+      },
+      "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
+    },
+    "ProjectsIntegrationsMapResponseIntegrations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ApplicationType"
+        }
+      },
+      "description": "Map of project IDs to their associated integration details."
+    },
+    "ProjectBranchLogRecordAttributes": {
+      "type": "object",
+      "description": "Customer-defined OpenTelemetry log and resource attributes."
+    },
+    "PresignResponseHeaders": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Headers the caller MUST send verbatim on the request (e.g.\n\u0060Content-Type\u0060 when it was signed on an upload). May be empty.\n"
+    },
+    "ListApiKeys200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiKeysListResponseItem"
+      },
+      "example": [
+        {
+          "id": 165432,
+          "name": "mykey_1",
+          "created_at": "2022-11-15T20:13:35Z",
+          "created_by": {
+            "id": "629982cc-de05-43db-ae16-28f2399c4910",
+            "name": "John Smith",
+            "image": "http://link.to.image"
+          },
+          "last_used_at": "2022-11-15T20:22:51Z",
+          "last_used_from_addr": "192.0.2.255"
+        },
+        {
+          "id": 165433,
+          "name": "mykey_2",
+          "created_at": "2022-11-15T20:12:36Z",
+          "created_by": {
+            "id": "629982cc-de05-43db-ae16-28f2399c4910",
+            "name": "John Smith",
+            "image": "http://link.to.image"
+          },
+          "last_used_at": "2022-11-15T20:15:04Z",
+          "last_used_from_addr": "192.0.2.255"
+        }
+      ]
+    },
+    "ListOrgApiKeys200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/OrgApiKeysListResponseItem"
+      },
+      "example": [
+        {
+          "id": 165432,
+          "name": "orgkey_1",
+          "created_at": "2022-11-15T20:13:35Z",
+          "created_by": {
+            "id": "629982cc-de05-43db-ae16-28f2399c4910",
+            "name": "John Smith",
+            "image": "http://link.to.image"
+          },
+          "last_used_at": "2022-11-15T20:22:51Z",
+          "last_used_from_addr": "192.0.2.255"
+        },
+        {
+          "id": 165433,
+          "name": "orgkey_2",
+          "created_at": "2022-11-15T20:12:36Z",
+          "created_by": {
+            "id": "629982cc-de05-43db-ae16-28f2399c4910",
+            "name": "John Smith",
+            "image": "http://link.to.image"
+          },
+          "last_used_at": "2022-11-15T20:15:04Z",
+          "last_used_from_addr": "192.0.2.255"
+        }
+      ]
+    },
+    "GetProjectBranchBucketObject200OctetStreamResponse": {
+      "type": "string",
+      "format": "binary"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    },
+    "AnnotationCreateValueRequestAnnotationValue": {
+      "maxProperties": 50,
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "A free-form map of string key-value pairs for attaching metadata to a resource (for example, a git commit reference). Maximum 50 entries.",
+      "example": {
+        "github-commit-ref": "github-branch-name"
+      },
+      "x-tags": [
+        "Branch"
+      ]
+    },
+    "AnnotationsMapResponseAnnotationsProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AnnotationData"
+      },
+      "description": "Map of annotations keyed by resource identifier, where each value contains the annotation data for that resource."
+    },
+    "ProjectsApplicationsMapResponseApplicationsProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ApplicationType"
+        }
+      },
+      "description": "Map of project IDs to their installed applications. Each key is a project ID; each value is an array of application types (for example, \u0060vercel\u0060, \u0060github\u0060)."
+    },
+    "ProjectsIntegrationsMapResponseIntegrationsProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ApplicationType"
+        }
+      },
+      "description": "Map of project IDs to their associated integration details."
+    }
   }
 }

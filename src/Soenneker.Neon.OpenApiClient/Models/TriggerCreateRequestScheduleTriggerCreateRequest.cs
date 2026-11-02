@@ -9,14 +9,15 @@ namespace Soenneker.Neon.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ScheduleTriggerUpdateRequest : IParsable
+    public partial class TriggerCreateRequestScheduleTriggerCreateRequest : global::Soenneker.Neon.OpenApiClient.Models.TriggerCreateRequest, IParsable
     #pragma warning restore CS1591
-    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+    {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
 
-        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            base.CaptureExplicitNulls(parseNode);
             if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
             else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
             if (parseNode.GetChildNode("function_path") is null) { _explicitNullValueFunctionPath = default!; _explicitNullProperties?.Remove("function_path"); }
@@ -27,14 +28,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("schedule") is null) { _explicitNullValueSchedule = default!; _explicitNullProperties?.Remove("schedule"); }
             else if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
-            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
-            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
-        /// <summary>True enables and false disables future scheduling.</summary>
+        /// <summary>Whether future occurrences should be scheduled.</summary>
         public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
-        /// <summary>The function_path property</summary>
+        /// <summary>Path passed to the target Function. Defaults to `/`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FunctionPath { get => _explicitNullValueFunctionPath; set { _explicitNullValueFunctionPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_path"); else _explicitNullProperties?.Remove("function_path"); } }
@@ -44,7 +43,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string FunctionPath { get => _explicitNullValueFunctionPath; set { _explicitNullValueFunctionPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_path"); else _explicitNullProperties?.Remove("function_path"); } }
         private string _explicitNullValueFunctionPath = default!;
 #endif
-        /// <summary>Replacement branch-local Function slug.</summary>
+        /// <summary>The branch-local Function slug to invoke.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FunctionSlug { get => _explicitNullValueFunctionSlug; set { _explicitNullValueFunctionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_slug"); else _explicitNullProperties?.Remove("function_slug"); } }
@@ -54,7 +53,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public string FunctionSlug { get => _explicitNullValueFunctionSlug; set { _explicitNullValueFunctionSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("function_slug"); else _explicitNullProperties?.Remove("function_slug"); } }
         private string _explicitNullValueFunctionSlug = default!;
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Human-readable name, unique among triggers visible on the branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
@@ -74,48 +73,52 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule _explicitNullValueSchedule = default!;
 #endif
-        /// <summary>Trigger type discriminator.</summary>
-        public global::Soenneker.Neon.OpenApiClient.Models.ScheduleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
-        private global::Soenneker.Neon.OpenApiClient.Models.ScheduleType? _explicitNullValueType = default!;
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerCreateRequestScheduleTriggerCreateRequest"/> and sets the default values.
+        /// </summary>
+        public TriggerCreateRequestScheduleTriggerCreateRequest() : base()
+        {
+            Enabled = true;
+            FunctionPath = "/";
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.TriggerCreateRequestScheduleTriggerCreateRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Neon.OpenApiClient.Models.TriggerCreateRequestScheduleTriggerCreateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.ScheduleTriggerUpdateRequest(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Neon.OpenApiClient.Models.TriggerCreateRequestScheduleTriggerCreateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "function_path", n => { FunctionPath = n.GetStringValue(); } },
                 { "function_slug", n => { FunctionSlug = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>(global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer)
+        public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            base.Serialize(writer);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("function_path", FunctionPath);
             writer.WriteStringValue("function_slug", FunctionSlug);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>("schedule", Schedule);
-            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ScheduleType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.FunctionTriggerSchedule>("schedule", Schedule);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }
