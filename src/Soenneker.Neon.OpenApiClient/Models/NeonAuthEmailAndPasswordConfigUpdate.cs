@@ -27,6 +27,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
             else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
             if (parseNode.GetChildNode("require_email_verification") is null) { _explicitNullValueRequireEmailVerification = default!; _explicitNullProperties?.Remove("require_email_verification"); }
             else if (parseNode.GetChildNode("require_email_verification") is { } nullNodeRequireEmailVerification && nullNodeRequireEmailVerification.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireEmailVerification = null;
+            if (parseNode.GetChildNode("revoke_sessions_on_password_reset") is null) { _explicitNullValueRevokeSessionsOnPasswordReset = default!; _explicitNullProperties?.Remove("revoke_sessions_on_password_reset"); }
+            else if (parseNode.GetChildNode("revoke_sessions_on_password_reset") is { } nullNodeRevokeSessionsOnPasswordReset && nullNodeRevokeSessionsOnPasswordReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevokeSessionsOnPasswordReset = null;
             if (parseNode.GetChildNode("send_verification_email_on_sign_in") is null) { _explicitNullValueSendVerificationEmailOnSignIn = default!; _explicitNullProperties?.Remove("send_verification_email_on_sign_in"); }
             else if (parseNode.GetChildNode("send_verification_email_on_sign_in") is { } nullNodeSendVerificationEmailOnSignIn && nullNodeSendVerificationEmailOnSignIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SendVerificationEmailOnSignIn = null;
             if (parseNode.GetChildNode("send_verification_email_on_sign_up") is null) { _explicitNullValueSendVerificationEmailOnSignUp = default!; _explicitNullProperties?.Remove("send_verification_email_on_sign_up"); }
@@ -50,6 +52,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>When true, users must verify their email address before they can sign in. Omitting this field from an update request leaves the current value unchanged.</summary>
         public bool? RequireEmailVerification { get => _explicitNullValueRequireEmailVerification; set { _explicitNullValueRequireEmailVerification = value; AdditionalData?.Remove("require_email_verification"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_email_verification"); else _explicitNullProperties?.Remove("require_email_verification"); } }
         private bool? _explicitNullValueRequireEmailVerification = default!;
+        /// <summary>Whether all of a user&apos;s sessions are revoked when their password is reset. When omitted, the current setting is not changed.</summary>
+        public bool? RevokeSessionsOnPasswordReset { get => _explicitNullValueRevokeSessionsOnPasswordReset; set { _explicitNullValueRevokeSessionsOnPasswordReset = value; AdditionalData?.Remove("revoke_sessions_on_password_reset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revoke_sessions_on_password_reset"); else _explicitNullProperties?.Remove("revoke_sessions_on_password_reset"); } }
+        private bool? _explicitNullValueRevokeSessionsOnPasswordReset = default!;
         /// <summary>Whether to send a verification email when a user with an unverified email signs in.</summary>
         public bool? SendVerificationEmailOnSignIn { get => _explicitNullValueSendVerificationEmailOnSignIn; set { _explicitNullValueSendVerificationEmailOnSignIn = value; AdditionalData?.Remove("send_verification_email_on_sign_in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("send_verification_email_on_sign_in"); else _explicitNullProperties?.Remove("send_verification_email_on_sign_in"); } }
         private bool? _explicitNullValueSendVerificationEmailOnSignIn = default!;
@@ -86,6 +91,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "email_verification_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEmailVerificationMethod = default; _explicitNullProperties?.Remove("email_verification_method"); AdditionalData["email_verification_method"] = unknown; } else { EmailVerificationMethod = parsed; AdditionalData.Remove("email_verification_method"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "require_email_verification", n => { RequireEmailVerification = n.GetBoolValue(); } },
+                { "revoke_sessions_on_password_reset", n => { RevokeSessionsOnPasswordReset = n.GetBoolValue(); } },
                 { "send_verification_email_on_sign_in", n => { SendVerificationEmailOnSignIn = n.GetBoolValue(); } },
                 { "send_verification_email_on_sign_up", n => { SendVerificationEmailOnSignUp = n.GetBoolValue(); } },
             };
@@ -102,6 +108,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailVerificationMethod>("email_verification_method", EmailVerificationMethod);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("require_email_verification", RequireEmailVerification);
+            writer.WriteBoolValue("revoke_sessions_on_password_reset", RevokeSessionsOnPasswordReset);
             writer.WriteBoolValue("send_verification_email_on_sign_in", SendVerificationEmailOnSignIn);
             writer.WriteBoolValue("send_verification_email_on_sign_up", SendVerificationEmailOnSignUp);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
