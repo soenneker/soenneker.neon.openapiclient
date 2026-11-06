@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
-        /// <summary>Access level for the bucket. Defaults to `private`. Set to `public_read`to allow anonymous `GetObject`/`HeadObject` on objects in this bucket.</summary>
+        /// <summary>Access level for the bucket. Defaults to `private`. Set to `public_read`to allow anonymous `GetObject`/`HeadObject` on objects in this bucket.For organizations on the per-project role model, creating a`public_read` bucket requires the project Admin role or anorganization API key.</summary>
         public global::Soenneker.Neon.OpenApiClient.Models.BucketCreateRequestAccessLevel? AccessLevel { get => _explicitNullValueAccessLevel; set { _explicitNullValueAccessLevel = value; AdditionalData?.Remove("access_level"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("access_level"); else _explicitNullProperties?.Remove("access_level"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.BucketCreateRequestAccessLevel? _explicitNullValueAccessLevel = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>

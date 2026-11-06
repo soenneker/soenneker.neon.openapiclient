@@ -18,10 +18,18 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("auth_provider") is null) { _explicitNullValueAuthProvider = default!; _explicitNullProperties?.Remove("auth_provider"); }
+            else if (parseNode.GetChildNode("auth_provider") is { } nullNodeAuthProvider && nullNodeAuthProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthProvider = null;
             if (parseNode.GetChildNode("available_schemas") is null) { _explicitNullValueAvailableSchemas = default!; _explicitNullProperties?.Remove("available_schemas"); }
             else if (parseNode.GetChildNode("available_schemas") is { } nullNodeAvailableSchemas && nullNodeAvailableSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableSchemas = null;
+            if (parseNode.GetChildNode("jwks_url") is null) { _explicitNullValueJwksUrl = default!; _explicitNullProperties?.Remove("jwks_url"); }
+            else if (parseNode.GetChildNode("jwks_url") is { } nullNodeJwksUrl && nullNodeJwksUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwksUrl = null;
+            if (parseNode.GetChildNode("jwt_audience") is null) { _explicitNullValueJwtAudience = default!; _explicitNullProperties?.Remove("jwt_audience"); }
+            else if (parseNode.GetChildNode("jwt_audience") is { } nullNodeJwtAudience && nullNodeJwtAudience.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtAudience = null;
             if (parseNode.GetChildNode("observed_at") is null) { _explicitNullValueObservedAt = default!; _explicitNullProperties?.Remove("observed_at"); }
             else if (parseNode.GetChildNode("observed_at") is { } nullNodeObservedAt && nullNodeObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservedAt = null;
+            if (parseNode.GetChildNode("provider_name") is null) { _explicitNullValueProviderName = default!; _explicitNullProperties?.Remove("provider_name"); }
+            else if (parseNode.GetChildNode("provider_name") is { } nullNodeProviderName && nullNodeProviderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProviderName = null;
             if (parseNode.GetChildNode("settings") is null) { _explicitNullValueSettings = default!; _explicitNullProperties?.Remove("settings"); }
             else if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
             if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
@@ -32,6 +40,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>How this Data API verifies JWTs, as recorded by the last create that named a provider. `neon_auth` verifies Neon Auth tokens; `external` verifies tokens from a third-party identity provider via `jwks_url`. Absent when no provider is recorded: the Data API was created before providers were recorded, or it was created without naming one. Treat an absent value as unknown and fall back to the branch&apos;s Neon Auth state (`GET /projects/{project_id}/branches/{branch_id}/auth`). The value can differ from the current setup (for example, a JWKS added later), and it is also absent in responses served from the state cache while the compute is suspended. A child branch inherits its parent&apos;s Data API and reports the parent&apos;s provider.</summary>
+        public global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseAuthProvider? AuthProvider { get => _explicitNullValueAuthProvider; set { _explicitNullValueAuthProvider = value; AdditionalData?.Remove("auth_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth_provider"); else _explicitNullProperties?.Remove("auth_provider"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseAuthProvider? _explicitNullValueAuthProvider = default!;
         /// <summary>List of available database schemas (SubZero only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,9 +53,39 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public List<string> AvailableSchemas { get => _explicitNullValueAvailableSchemas; set { _explicitNullValueAvailableSchemas = value; AdditionalData?.Remove("available_schemas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_schemas"); else _explicitNullProperties?.Remove("available_schemas"); } }
         private List<string> _explicitNullValueAvailableSchemas = default!;
 #endif
+        /// <summary>URL of the JWKS endpoint the Data API verifies JWTs against. Only set when `auth_provider` is `external`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JwksUrl { get => _explicitNullValueJwksUrl; set { _explicitNullValueJwksUrl = value; AdditionalData?.Remove("jwks_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks_url"); else _explicitNullProperties?.Remove("jwks_url"); } }
+        private string? _explicitNullValueJwksUrl = default!;
+#nullable restore
+#else
+        public string JwksUrl { get => _explicitNullValueJwksUrl; set { _explicitNullValueJwksUrl = value; AdditionalData?.Remove("jwks_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwks_url"); else _explicitNullProperties?.Remove("jwks_url"); } }
+        private string _explicitNullValueJwksUrl = default!;
+#endif
+        /// <summary>Expected `aud` claim in incoming JWTs, as given at creation. Only set when `auth_provider` is `external` and an audience was given.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JwtAudience { get => _explicitNullValueJwtAudience; set { _explicitNullValueJwtAudience = value; AdditionalData?.Remove("jwt_audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_audience"); else _explicitNullProperties?.Remove("jwt_audience"); } }
+        private string? _explicitNullValueJwtAudience = default!;
+#nullable restore
+#else
+        public string JwtAudience { get => _explicitNullValueJwtAudience; set { _explicitNullValueJwtAudience = value; AdditionalData?.Remove("jwt_audience"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_audience"); else _explicitNullProperties?.Remove("jwt_audience"); } }
+        private string _explicitNullValueJwtAudience = default!;
+#endif
         /// <summary>When `settings` and `available_schemas` were read from the database. While thecompute is suspended they are served from that read, so a change made directly inthe database since then shows up in the first response served while the compute isactive.</summary>
         public DateTimeOffset? ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; AdditionalData?.Remove("observed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observed_at"); else _explicitNullProperties?.Remove("observed_at"); } }
         private DateTimeOffset? _explicitNullValueObservedAt = default!;
+        /// <summary>Display name of the external authentication provider, as given at creation (for example &quot;Clerk&quot;). Only set when `auth_provider` is `external` and a name was given.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProviderName { get => _explicitNullValueProviderName; set { _explicitNullValueProviderName = value; AdditionalData?.Remove("provider_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_name"); else _explicitNullProperties?.Remove("provider_name"); } }
+        private string? _explicitNullValueProviderName = default!;
+#nullable restore
+#else
+        public string ProviderName { get => _explicitNullValueProviderName; set { _explicitNullValueProviderName = value; AdditionalData?.Remove("provider_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("provider_name"); else _explicitNullProperties?.Remove("provider_name"); } }
+        private string _explicitNullValueProviderName = default!;
+#endif
         /// <summary>Configuration settings for the Data API (SubZero only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,8 +141,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auth_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseAuthProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthProvider = default; _explicitNullProperties?.Remove("auth_provider"); AdditionalData["auth_provider"] = unknown; } else { AuthProvider = parsed; AdditionalData.Remove("auth_provider"); } } },
                 { "available_schemas", n => { AvailableSchemas = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "jwks_url", n => { JwksUrl = n.GetStringValue(); } },
+                { "jwt_audience", n => { JwtAudience = n.GetStringValue(); } },
                 { "observed_at", n => { ObservedAt = n.GetDateTimeOffsetValue(); } },
+                { "provider_name", n => { ProviderName = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings>(global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -114,8 +159,12 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseAuthProvider>("auth_provider", AuthProvider);
             writer.WriteCollectionOfPrimitiveValues<string>("available_schemas", AvailableSchemas);
+            writer.WriteStringValue("jwks_url", JwksUrl);
+            writer.WriteStringValue("jwt_audience", JwtAudience);
             writer.WriteDateTimeOffsetValue("observed_at", ObservedAt);
+            writer.WriteStringValue("provider_name", ProviderName);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DataApiReponseSettings>("settings", Settings);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("url", Url);

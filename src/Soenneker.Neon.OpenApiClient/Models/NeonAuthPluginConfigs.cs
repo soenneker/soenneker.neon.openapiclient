@@ -24,6 +24,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
             else if (parseNode.GetChildNode("email_and_password") is { } nullNodeEmailAndPassword && nullNodeEmailAndPassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAndPassword = null;
             if (parseNode.GetChildNode("email_provider") is null) { _explicitNullValueEmailProvider = default!; _explicitNullProperties?.Remove("email_provider"); }
             else if (parseNode.GetChildNode("email_provider") is { } nullNodeEmailProvider && nullNodeEmailProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailProvider = null;
+            if (parseNode.GetChildNode("logs_export") is null) { _explicitNullValueLogsExport = default!; _explicitNullProperties?.Remove("logs_export"); }
+            else if (parseNode.GetChildNode("logs_export") is { } nullNodeLogsExport && nullNodeLogsExport.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogsExport = null;
             if (parseNode.GetChildNode("magic_link") is null) { _explicitNullValueMagicLink = default!; _explicitNullProperties?.Remove("magic_link"); }
             else if (parseNode.GetChildNode("magic_link") is { } nullNodeMagicLink && nullNodeMagicLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MagicLink = null;
             if (parseNode.GetChildNode("oauth_provider") is null) { _explicitNullValueOauthProvider = default!; _explicitNullProperties?.Remove("oauth_provider"); }
@@ -60,6 +62,16 @@ namespace Soenneker.Neon.OpenApiClient.Models
 #else
         public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse EmailProvider { get => _explicitNullValueEmailProvider; set { _explicitNullValueEmailProvider = value; AdditionalData?.Remove("email_provider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_provider"); else _explicitNullProperties?.Remove("email_provider"); } }
         private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse _explicitNullValueEmailProvider = default!;
+#endif
+        /// <summary>The logs_export property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig? LogsExport { get => _explicitNullValueLogsExport; set { _explicitNullValueLogsExport = value; AdditionalData?.Remove("logs_export"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs_export"); else _explicitNullProperties?.Remove("logs_export"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig? _explicitNullValueLogsExport = default!;
+#nullable restore
+#else
+        public global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig LogsExport { get => _explicitNullValueLogsExport; set { _explicitNullValueLogsExport = value; AdditionalData?.Remove("logs_export"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs_export"); else _explicitNullProperties?.Remove("logs_export"); } }
+        private global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig _explicitNullValueLogsExport = default!;
 #endif
         /// <summary>The magic_link property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,6 +151,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "allow_localhost", n => { AllowLocalhost = n.GetBoolValue(); } },
                 { "email_and_password", n => { EmailAndPassword = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue); } },
                 { "email_provider", n => { EmailProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse.CreateFromDiscriminatorValue); } },
+                { "logs_export", n => { LogsExport = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig.CreateFromDiscriminatorValue); } },
                 { "magic_link", n => { MagicLink = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig.CreateFromDiscriminatorValue); } },
                 { "oauth_provider", n => { OauthProvider = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig.CreateFromDiscriminatorValue); } },
                 { "oauth_providers", n => { OauthProviders = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -156,6 +169,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteBoolValue("allow_localhost", AllowLocalhost);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>("email_and_password", EmailAndPassword);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailServerConfigResponse>("email_provider", EmailProvider);
+            writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthLogsExportConfig>("logs_export", LogsExport);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthMagicLinkConfig>("magic_link", MagicLink);
             writer.WriteObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProviderConfig>("oauth_provider", OauthProvider);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOAuthProvider>("oauth_providers", OauthProviders);

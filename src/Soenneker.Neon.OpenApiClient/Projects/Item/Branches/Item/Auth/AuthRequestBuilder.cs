@@ -9,6 +9,7 @@ using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Config;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Domains;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_and_password;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider;
+using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Logs_export;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.OauthProvider;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers;
 using Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Plugins;
@@ -52,6 +53,11 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Email_providerRequestBuilder Email_provider
         {
             get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Email_provider.Email_providerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The logs_export property</summary>
+        public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Logs_export.Logs_exportRequestBuilder Logs_export
+        {
+            get => new global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Logs_export.Logs_exportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oauth_providers property</summary>
         public global::Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Auth.Oauth_providers.Oauth_providersRequestBuilder Oauth_providers

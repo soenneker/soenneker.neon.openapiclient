@@ -34,12 +34,13 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
         {
         }
         /// <summary>
-        /// Returns a presigned URL that transfers bytes directly to or from theobject&apos;s bucket on the specified branch, without the caller everhandling S3 credentials. The `operation` field selects the direction:- `upload` returns a presigned `PUT` URL (the caller `PUT`s the file  bytes straight to `url` with the returned `headers`). Authorized with  project write access.- `download` returns a presigned `GET` URL (the caller `GET`s the  bytes straight from `url`). Authorized with project read access.The platform mints a short-lived credential and builds the SigV4-signedURL against the branch&apos;s S3 data-plane host, returning it together withthe HTTP method, any headers the caller must echo, and the URL&apos;s expiry.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.
+        /// Returns a presigned URL that transfers bytes directly to or from theobject&apos;s bucket on the specified branch, without the caller everhandling S3 credentials. The `operation` field selects the direction:- `upload` returns a presigned `PUT` URL (the caller `PUT`s the file  bytes straight to `url` with the returned `headers`). Authorized with  project write access.- `download` returns a presigned `GET` URL (the caller `GET`s the  bytes straight from `url`). Authorized with project read access.  For organizations on the per-project role model, it also requires  the Editor role or higher, because the URL grants access to the  object&apos;s bytes.The platform mints a short-lived credential and builds the SigV4-signedURL against the branch&apos;s S3 data-plane host, returning it together withthe HTTP method, any headers the caller must echo, and the URL&apos;s expiry.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.PresignResponse"/></returns>
         /// <param name="body">Options for the presigned URL. The `operation` selects upload (`PUT`)or download (`GET`); the remaining fields are optional.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,13 +56,14 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "403", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.PresignResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.PresignResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a presigned URL that transfers bytes directly to or from theobject&apos;s bucket on the specified branch, without the caller everhandling S3 credentials. The `operation` field selects the direction:- `upload` returns a presigned `PUT` URL (the caller `PUT`s the file  bytes straight to `url` with the returned `headers`). Authorized with  project write access.- `download` returns a presigned `GET` URL (the caller `GET`s the  bytes straight from `url`). Authorized with project read access.The platform mints a short-lived credential and builds the SigV4-signedURL against the branch&apos;s S3 data-plane host, returning it together withthe HTTP method, any headers the caller must echo, and the URL&apos;s expiry.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.
+        /// Returns a presigned URL that transfers bytes directly to or from theobject&apos;s bucket on the specified branch, without the caller everhandling S3 credentials. The `operation` field selects the direction:- `upload` returns a presigned `PUT` URL (the caller `PUT`s the file  bytes straight to `url` with the returned `headers`). Authorized with  project write access.- `download` returns a presigned `GET` URL (the caller `GET`s the  bytes straight from `url`). Authorized with project read access.  For organizations on the per-project role model, it also requires  the Editor role or higher, because the URL grants access to the  object&apos;s bytes.The platform mints a short-lived credential and builds the SigV4-signedURL against the branch&apos;s S3 data-plane host, returning it together withthe HTTP method, any headers the caller must echo, and the URL&apos;s expiry.Served by the user&apos;s session (no customer S3 credentials required).**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Options for the presigned URL. The `operation` selects upload (`PUT`)or download (`GET`); the remaining fields are optional.</param>

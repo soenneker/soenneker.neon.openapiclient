@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Neon.OpenApiClient.Models
 {
-    /// <summary>Access level for the bucket. Defaults to `private`. Set to `public_read`to allow anonymous `GetObject`/`HeadObject` on objects in this bucket.</summary>
+    /// <summary>Access level for the bucket. Defaults to `private`. Set to `public_read`to allow anonymous `GetObject`/`HeadObject` on objects in this bucket.For organizations on the per-project role model, creating a`public_read` bucket requires the project Admin role or anorganization API key.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BucketCreateRequestAccessLevel
     {

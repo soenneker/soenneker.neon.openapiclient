@@ -34,11 +34,12 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
         {
         }
         /// <summary>
-        /// Streams the raw bytes of the named object from the bucket on thespecified branch, including objects inherited from ancestor branches.Served by the user&apos;s session (no customer S3 credentials required).The body is returned as `application/octet-stream` so a browser treatsit as a download; the `Content-Length` and `ETag` response headers echothe stored object metadata.BINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): thesuccessful 200 body is the raw object stream, proxied verbatim from theplatform object storage admin endpoint. It is modeled as an`application/octet-stream` binary body (not a JSON response schema) andis streamed without buffering the whole object in memory. Errorresponses still use the generated `GeneralError` shape.**Note**: This endpoint is currently in Beta.
+        /// Streams the raw bytes of the named object from the bucket on thespecified branch, including objects inherited from ancestor branches.Served by the user&apos;s session (no customer S3 credentials required).For organizations on the per-project role model, downloading objectbytes requires the Editor role or higher. Viewers can list objectsbut not download them.The body is returned as `application/octet-stream` so a browser treatsit as a download; the `Content-Length` and `ETag` response headers echothe stored object metadata.BINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): thesuccessful 200 body is the raw object stream, proxied verbatim from theplatform object storage admin endpoint. It is modeled as an`application/octet-stream` binary body (not a JSON response schema) andis streamed without buffering the whole object in memory. Errorresponses still use the generated `GeneralError` shape.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Neon.OpenApiClient.Models.GeneralError">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,13 +54,14 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Buckets.Item.
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "403", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Neon.OpenApiClient.Models.GeneralError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Streams the raw bytes of the named object from the bucket on thespecified branch, including objects inherited from ancestor branches.Served by the user&apos;s session (no customer S3 credentials required).The body is returned as `application/octet-stream` so a browser treatsit as a download; the `Content-Length` and `ETag` response headers echothe stored object metadata.BINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): thesuccessful 200 body is the raw object stream, proxied verbatim from theplatform object storage admin endpoint. It is modeled as an`application/octet-stream` binary body (not a JSON response schema) andis streamed without buffering the whole object in memory. Errorresponses still use the generated `GeneralError` shape.**Note**: This endpoint is currently in Beta.
+        /// Streams the raw bytes of the named object from the bucket on thespecified branch, including objects inherited from ancestor branches.Served by the user&apos;s session (no customer S3 credentials required).For organizations on the per-project role model, downloading objectbytes requires the Editor role or higher. Viewers can list objectsbut not download them.The body is returned as `application/octet-stream` so a browser treatsit as a download; the `Content-Length` and `ETag` response headers echothe stored object metadata.BINARY-STREAM EXCEPTION TO THE BUILD-GENERATED-TYPES RULE (#7029): thesuccessful 200 body is the raw object stream, proxied verbatim from theplatform object storage admin endpoint. It is modeled as an`application/octet-stream` binary body (not a JSON response schema) andis streamed without buffering the whole object in memory. Errorresponses still use the generated `GeneralError` shape.**Note**: This endpoint is currently in Beta.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
