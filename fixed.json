@@ -16746,7 +16746,8 @@
           "github",
           "microsoft",
           "vercel",
-          "apple"
+          "apple",
+          "discord"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -16772,6 +16773,10 @@
             {
               "value": "apple",
               "name": "Apple"
+            },
+            {
+              "value": "discord",
+              "name": "Discord"
             }
           ]
         }
