@@ -9191,7 +9191,7 @@
           "Logs"
         ],
         "summary": "Query branch logs",
-        "description": "Returns logs emitted by services running on the specified branch,\nordered by timestamp according to \u0060sort_order\u0060.\n\nAll supplied filters are combined with \u0060AND\u0060: a record is returned only\nwhen it matches every filter. \u0060minimum_severity\u0060 and \u0060severity_text\u0060 are\nindependent filters, so setting both requires a record to clear the\nseverity floor *and* match the exact severity text.\n\nSupply \u0060logql\u0060 instead of the structured filters to run a raw LogQL\nexpression. Combining it with any structured filter is rejected rather\nthan silently ignored; \u0060limit\u0060, \u0060sort_order\u0060, and the time window still\napply, because those bound the query rather than form part of the\nexpression.\n\nGive the window either as \u0060since\u0060 \u2014 a duration ending at \u0060end_time\u0060, or\nat the current time when \u0060end_time\u0060 is omitted \u2014 or as an explicit\n\u0060start_time\u0060. Supplying both is rejected.\n\nA single response holds at most 1,000 records. When \u0060is_truncated\u0060 is\n\u0060true\u0060, pass the returned \u0060next_cursor\u0060 back as \u0060cursor\u0060 to fetch the\nnext page, repeating the time range and every filter unchanged.\n\nIf no time range is supplied, the query covers the previous hour. The\nmaximum supported time range is seven days. \u0060end_time\u0060 is exclusive.\n\n**Note**: This endpoint is currently in Private Beta.\n",
+        "description": "Returns logs emitted by services running on the specified branch,\nordered by timestamp according to \u0060sort_order\u0060.\n\nAll supplied filters are combined with \u0060AND\u0060: a record is returned only\nwhen it matches every filter. \u0060minimum_severity\u0060 and \u0060severity_text\u0060 are\nindependent filters, so setting both requires a record to clear the\nseverity floor *and* match the exact severity text.\n\nSupply \u0060logql\u0060 instead of the structured filters to run a raw LogQL\nexpression. Combining it with any structured filter is rejected rather\nthan silently ignored; \u0060limit\u0060, \u0060sort_order\u0060, and the time window still\napply, because those bound the query rather than form part of the\nexpression.\n\n\u0060source=neon_auth\u0060 returns a 404 \u0060telemetry_not_enabled\u0060 response when\nNeon Auth logs are not enabled for this project.\n\nGive the window either as \u0060since\u0060 \u2014 a duration ending at \u0060end_time\u0060, or\nat the current time when \u0060end_time\u0060 is omitted \u2014 or as an explicit\n\u0060start_time\u0060. Supplying both is rejected.\n\nA single response holds at most 1,000 records. When \u0060is_truncated\u0060 is\n\u0060true\u0060, pass the returned \u0060next_cursor\u0060 back as \u0060cursor\u0060 to fetch the\nnext page, repeating the time range and every filter unchanged.\n\nIf no time range is supplied, the query covers the previous hour. The\nmaximum supported time range is seven days. \u0060end_time\u0060 is exclusive.\n\n**Note**: This endpoint is currently in Private Beta.\n",
         "operationId": "QueryProjectBranchLogs",
         "requestBody": {
           "content": {
@@ -9362,7 +9362,7 @@
           {
             "name": "source",
             "in": "query",
-            "description": "Only consider records emitted by this Neon service.",
+            "description": "Only consider records emitted by this Neon service. \u0060neon_auth\u0060 returns\na 404 \u0060telemetry_not_enabled\u0060 response when Neon Auth logs are not enabled\nfor this project.\n",
             "schema": {
               "$ref": "#/components/schemas/ProjectBranchLogSource"
             }
@@ -17656,7 +17656,8 @@
         "enum": [
           "function",
           "storage",
-          "pg_endpoint"
+          "pg_endpoint",
+          "neon_auth"
         ],
         "type": "string",
         "description": "The Neon service that emitted the log record.",
@@ -17675,6 +17676,10 @@
             {
               "value": "pg_endpoint",
               "name": "PgEndpoint"
+            },
+            {
+              "value": "neon_auth",
+              "name": "NeonAuth"
             }
           ]
         }
@@ -18214,6 +18219,11 @@
           },
           "principal_type": {
             "$ref": "#/components/schemas/UserPrincipalType"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "When the credential stops working. Omit it for a credential that\ndoesn\u0027t expire. Must be at least 1 minute and at most 365 days from\nnow. Rotating the credential keeps the same expiry, and an expired\ncredential can\u0027t be rotated.\n",
+            "format": "date-time"
           }
         }
       },

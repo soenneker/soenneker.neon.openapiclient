@@ -19,5 +19,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         PgEndpoint,
         #pragma warning restore CS1591
+        [EnumMember(Value = "neon_auth")]
+        #pragma warning disable CS1591
+        NeonAuth,
+        #pragma warning restore CS1591
     }
 }

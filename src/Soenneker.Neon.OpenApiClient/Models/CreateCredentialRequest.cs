@@ -17,6 +17,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("expires_at") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expires_at"); }
+            else if (parseNode.GetChildNode("expires_at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("principal_type") is null) { _explicitNullValuePrincipalType = default!; _explicitNullProperties?.Remove("principal_type"); }
@@ -27,6 +29,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When the credential stops working. Omit it for a credential thatdoesn&apos;t expire. Must be at least 1 minute and at most 365 days fromnow. Rotating the credential keeps the same expiry, and an expiredcredential can&apos;t be rotated.</summary>
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_at"); else _explicitNullProperties?.Remove("expires_at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>Free-form customer label for the credential.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "principal_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePrincipalType = default; _explicitNullProperties?.Remove("principal_type"); AdditionalData["principal_type"] = unknown; } else { PrincipalType = parsed; AdditionalData.Remove("principal_type"); } } },
                 { "scopes", n => { Scopes = n.GetCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>()?.AsList(); } },
@@ -87,6 +93,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Neon.OpenApiClient.Models.UserPrincipalType>("principal_type", PrincipalType);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Neon.OpenApiClient.Models.CredentialScope>("scopes", Scopes);

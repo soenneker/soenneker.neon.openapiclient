@@ -110,7 +110,7 @@ namespace Soenneker.Neon.OpenApiClient.Projects.Item.Branches.Item.Logs.Fields.I
             [QueryParameter("since")]
             public string Since { get; set; }
 #endif
-            /// <summary>Only consider records emitted by this Neon service.</summary>
+            /// <summary>Only consider records emitted by this Neon service. `neon_auth` returnsa 404 `telemetry_not_enabled` response when Neon Auth logs are not enabledfor this project.</summary>
             [QueryParameter("source")]
             public global::Soenneker.Neon.OpenApiClient.Models.ProjectBranchLogSource? Source { get; set; }
             /// <summary>Inclusive beginning of the lookup window. Mutually exclusive with`since`.</summary>
