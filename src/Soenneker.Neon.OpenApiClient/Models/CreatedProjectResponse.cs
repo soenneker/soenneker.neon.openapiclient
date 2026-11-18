@@ -128,7 +128,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "branch", n => { Branch = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.Branch>(global::Soenneker.Neon.OpenApiClient.Models.Branch.CreateFromDiscriminatorValue); } },
                 { "connection_uris", n => { ConnectionUris = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ConnectionDetails>(global::Soenneker.Neon.OpenApiClient.Models.ConnectionDetails.CreateFromDiscriminatorValue)?.AsList(); } },

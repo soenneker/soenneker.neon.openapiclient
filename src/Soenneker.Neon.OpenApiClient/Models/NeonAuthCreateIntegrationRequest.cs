@@ -98,7 +98,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "auth_provider", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthSupportedAuthProvider>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuthProvider = default; _explicitNullProperties?.Remove("auth_provider"); AdditionalData["auth_provider"] = unknown; } else { AuthProvider = parsed; AdditionalData.Remove("auth_provider"); } } },
                 { "branch_id", n => { BranchId = n.GetStringValue(); } },

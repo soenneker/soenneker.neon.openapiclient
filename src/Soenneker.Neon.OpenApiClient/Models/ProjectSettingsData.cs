@@ -117,7 +117,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "allowed_ips", n => { AllowedIps = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.AllowedIps>(global::Soenneker.Neon.OpenApiClient.Models.AllowedIps.CreateFromDiscriminatorValue); } },
                 { "audit_log_level", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectAuditLogLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAuditLogLevel = default; _explicitNullProperties?.Remove("audit_log_level"); AdditionalData["audit_log_level"] = unknown; } else { AuditLogLevel = parsed; AdditionalData.Remove("audit_log_level"); } } },

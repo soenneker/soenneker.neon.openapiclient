@@ -146,7 +146,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "allow_localhost", n => { AllowLocalhost = n.GetBoolValue(); } },
                 { "email_and_password", n => { EmailAndPassword = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig>(global::Soenneker.Neon.OpenApiClient.Models.NeonAuthEmailAndPasswordConfig.CreateFromDiscriminatorValue); } },

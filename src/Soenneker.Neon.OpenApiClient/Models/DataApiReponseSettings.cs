@@ -141,7 +141,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "db_aggregates_enabled", n => { DbAggregatesEnabled = n.GetBoolValue(); } },
                 { "db_anon_role", n => { DbAnonRole = n.GetStringValue(); } },

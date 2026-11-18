@@ -93,7 +93,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations>(global::Soenneker.Neon.OpenApiClient.Models.ProjectCreateRequestProjectBranchAnnotations.CreateFromDiscriminatorValue); } },
                 { "database_name", n => { DatabaseName = n.GetStringValue(); } },

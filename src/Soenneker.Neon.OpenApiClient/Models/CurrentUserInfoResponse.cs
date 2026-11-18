@@ -178,7 +178,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "active_seconds_limit", n => { ActiveSecondsLimit = n.GetLongValue(); } },
                 { "auth_accounts", n => { AuthAccounts = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.CurrentUserAuthAccount>(global::Soenneker.Neon.OpenApiClient.Models.CurrentUserAuthAccount.CreateFromDiscriminatorValue)?.AsList(); } },

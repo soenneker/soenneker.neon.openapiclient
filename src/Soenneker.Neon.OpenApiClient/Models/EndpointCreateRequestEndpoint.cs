@@ -147,7 +147,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "autoscaling_limit_max_cu", n => { AutoscalingLimitMaxCu = n.GetDoubleValue(); } },
                 { "autoscaling_limit_min_cu", n => { AutoscalingLimitMinCu = n.GetDoubleValue(); } },

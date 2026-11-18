@@ -33,6 +33,8 @@ namespace Soenneker.Neon.OpenApiClient.Models
             else if (parseNode.GetChildNode("plan") is { } nullNodePlan && nullNodePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Plan = null;
             if (parseNode.GetChildNode("require_mfa") is null) { _explicitNullValueRequireMfa = default!; _explicitNullProperties?.Remove("require_mfa"); }
             else if (parseNode.GetChildNode("require_mfa") is { } nullNodeRequireMfa && nullNodeRequireMfa.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireMfa = null;
+            if (parseNode.GetChildNode("sso_enforcement_grace_until") is null) { _explicitNullValueSsoEnforcementGraceUntil = default!; _explicitNullProperties?.Remove("sso_enforcement_grace_until"); }
+            else if (parseNode.GetChildNode("sso_enforcement_grace_until") is { } nullNodeSsoEnforcementGraceUntil && nullNodeSsoEnforcementGraceUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsoEnforcementGraceUntil = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
             else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
@@ -98,6 +100,9 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>If true, all members must have MFA enabled to access this organization</summary>
         public bool? RequireMfa { get => _explicitNullValueRequireMfa; set { _explicitNullValueRequireMfa = value; AdditionalData?.Remove("require_mfa"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_mfa"); else _explicitNullProperties?.Remove("require_mfa"); } }
         private bool? _explicitNullValueRequireMfa = default!;
+        /// <summary>When this organization&apos;s SSO enforcement grace period ends, if enforcement was recentlyenabled. Present only while the grace window is still open — sessions established beforeenforcement keep working until then. Lets members see the deadline for signing in throughthe organization&apos;s identity provider before enforcement applies to them.</summary>
+        public DateTimeOffset? SsoEnforcementGraceUntil { get => _explicitNullValueSsoEnforcementGraceUntil; set { _explicitNullValueSsoEnforcementGraceUntil = value; AdditionalData?.Remove("sso_enforcement_grace_until"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sso_enforcement_grace_until"); else _explicitNullProperties?.Remove("sso_enforcement_grace_until"); } }
+        private DateTimeOffset? _explicitNullValueSsoEnforcementGraceUntil = default!;
         /// <summary>A timestamp indicating when the organization was updated</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
@@ -124,7 +129,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "allow_hipaa_projects", n => { AllowHipaaProjects = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -134,6 +139,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "plan", n => { Plan = n.GetStringValue(); } },
                 { "require_mfa", n => { RequireMfa = n.GetBoolValue(); } },
+                { "sso_enforcement_grace_until", n => { SsoEnforcementGraceUntil = n.GetDateTimeOffsetValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -152,6 +158,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("plan", Plan);
             writer.WriteBoolValue("require_mfa", RequireMfa);
+            writer.WriteDateTimeOffsetValue("sso_enforcement_grace_until", SsoEnforcementGraceUntil);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

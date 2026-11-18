@@ -83,7 +83,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "consumption", n => { Consumption = n.GetCollectionOfObjectValues<global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe>(global::Soenneker.Neon.OpenApiClient.Models.ConsumptionHistoryPerTimeframe.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "period_end", n => { PeriodEnd = n.GetDateTimeOffsetValue(); } },

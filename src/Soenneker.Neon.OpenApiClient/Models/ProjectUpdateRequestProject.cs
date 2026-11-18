@@ -85,7 +85,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "default_endpoint_settings", n => { DefaultEndpointSettings = n.GetObjectValue<global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings>(global::Soenneker.Neon.OpenApiClient.Models.DefaultEndpointSettings.CreateFromDiscriminatorValue); } },
                 { "history_retention_seconds", n => { HistoryRetentionSeconds = n.GetIntValue(); } },

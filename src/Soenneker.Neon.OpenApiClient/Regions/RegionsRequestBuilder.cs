@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Neon.OpenApiClient.Models;
+using Soenneker.Neon.OpenApiClient.Regions.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,18 @@ namespace Soenneker.Neon.OpenApiClient.Regions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RegionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Neon.OpenApiClient.regions.item collection</summary>
+        /// <param name="position">Cloud region (for example, `aws-us-east-1`).</param>
+        /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Regions.Item.WithRegionItemRequestBuilder"/></returns>
+        public global::Soenneker.Neon.OpenApiClient.Regions.Item.WithRegionItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("regionId", position);
+                return new global::Soenneker.Neon.OpenApiClient.Regions.Item.WithRegionItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Neon.OpenApiClient.Regions.RegionsRequestBuilder"/> and sets the default values.
         /// </summary>

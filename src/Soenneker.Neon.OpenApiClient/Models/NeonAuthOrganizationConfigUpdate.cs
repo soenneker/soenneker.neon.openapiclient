@@ -69,7 +69,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "creator_role", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.NeonAuthOrganizationConfigUpdateCreatorRole>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCreatorRole = default; _explicitNullProperties?.Remove("creator_role"); AdditionalData["creator_role"] = unknown; } else { CreatorRole = parsed; AdditionalData.Remove("creator_role"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },

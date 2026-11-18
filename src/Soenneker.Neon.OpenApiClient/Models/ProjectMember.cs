@@ -108,7 +108,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "effective_project_permission", n => { var parsed = n.GetEnumValue<global::Soenneker.Neon.OpenApiClient.Models.ProjectPermissionLevel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEffectiveProjectPermission = default; _explicitNullProperties?.Remove("effective_project_permission"); AdditionalData["effective_project_permission"] = unknown; } else { EffectiveProjectPermission = parsed; AdditionalData.Remove("effective_project_permission"); } } },
                 { "email", n => { Email = n.GetStringValue(); } },

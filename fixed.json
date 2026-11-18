@@ -7239,7 +7239,7 @@
           "Consumption"
         ],
         "summary": "Retrieve project consumption metrics",
-        "description": "Returns consumption metrics for up to \u0060limit\u0060 projects per page. If \u0060project_ids\u0060 is omitted,\nprojects in the organization are included across pages (use \u0060cursor\u0060). If \u0060project_ids\u0060 is\nprovided, the response is limited to those projects (up to 100). Available for accounts on\nLaunch, Scale, Agent, Business, and Enterprise plans.\n\nHistory starts when the account upgrades to an eligible plan.\n\nThe \u0060metrics\u0060 query parameter is required. Supported values:\n\u0060compute_unit_seconds\u0060, \u0060root_branch_bytes_month\u0060, \u0060child_branch_bytes_month\u0060,\n\u0060instant_restore_bytes_month\u0060, \u0060public_network_transfer_bytes\u0060, \u0060private_network_transfer_bytes\u0060,\n\u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060,\n\u0060functions_active_capacity_microseconds\u0060, \u0060functions_waiting_capacity_microseconds\u0060,\n\u0060functions_invocations\u0060, \u0060functions_egress_bytes\u0060.\n\nConsumption metrics within each project are returned in ascending time order (oldest first).\nThis request does not wake project computes.\n",
+        "description": "Returns consumption metrics for up to \u0060limit\u0060 projects per page. If \u0060project_ids\u0060 is omitted,\nprojects in the organization are included across pages (use \u0060cursor\u0060). If \u0060project_ids\u0060 is\nprovided, the response is limited to those projects (up to 100). Available for accounts on\nLaunch, Scale, Agent, Business, and Enterprise plans.\n\nHistory starts when the account upgrades to an eligible plan.\n\nThe \u0060metrics\u0060 query parameter is required. Supported values:\n\u0060compute_unit_seconds\u0060, \u0060root_branch_bytes_month\u0060, \u0060child_branch_bytes_month\u0060,\n\u0060instant_restore_bytes_month\u0060, \u0060public_network_transfer_bytes\u0060, \u0060private_network_transfer_bytes\u0060,\n\u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060,\n\u0060functions_active_capacity_microseconds\u0060, \u0060functions_waiting_capacity_microseconds\u0060,\n\u0060functions_invocations\u0060, \u0060functions_egress_bytes\u0060,\n\u0060ai_gateway_input_tokens\u0060, \u0060ai_gateway_output_tokens\u0060, \u0060ai_gateway_total_tokens\u0060,\n\u0060ai_gateway_cached_input_tokens\u0060, \u0060ai_gateway_cache_creation_tokens\u0060, \u0060ai_gateway_reasoning_tokens\u0060.\n\nConsumption metrics within each project are returned in ascending time order (oldest first).\nThis request does not wake project computes.\n",
         "operationId": "GetConsumptionHistoryPerProjectV2",
         "parameters": [
           {
@@ -7317,7 +7317,7 @@
           {
             "name": "metrics",
             "in": "query",
-            "description": "Required. List the metrics to return. Supported values:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n- \u0060extra_branches_month\u0060\n- \u0060snapshot_storage_bytes_month\u0060\n- \u0060functions_active_capacity_microseconds\u0060\n- \u0060functions_waiting_capacity_microseconds\u0060\n- \u0060functions_invocations\u0060\n- \u0060functions_egress_bytes\u0060\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=extra_branches_month\u0060\n- \u0060metrics=compute_unit_seconds,extra_branches_month\u0060\n",
+            "description": "Required. List the metrics to return. Supported values:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n- \u0060extra_branches_month\u0060\n- \u0060snapshot_storage_bytes_month\u0060\n- \u0060functions_active_capacity_microseconds\u0060\n- \u0060functions_waiting_capacity_microseconds\u0060\n- \u0060functions_invocations\u0060\n- \u0060functions_egress_bytes\u0060\n- \u0060ai_gateway_input_tokens\u0060\n- \u0060ai_gateway_output_tokens\u0060\n- \u0060ai_gateway_total_tokens\u0060\n- \u0060ai_gateway_cached_input_tokens\u0060\n- \u0060ai_gateway_cache_creation_tokens\u0060\n- \u0060ai_gateway_reasoning_tokens\u0060\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=extra_branches_month\u0060\n- \u0060metrics=compute_unit_seconds,extra_branches_month\u0060\n",
             "required": true,
             "schema": {
               "type": "array",
@@ -7390,7 +7390,7 @@
           "Consumption"
         ],
         "summary": "Retrieve branch consumption metrics",
-        "description": "Returns consumption metrics for each branch across one or more projects listed in\n\u0060project_ids\u0060 (1 to 100 projects). Available for accounts on paid usage-based Launch, Scale,\nAgent, and Enterprise plans.\n\nHistory starts when the account first ingests branch-level consumption data.\n\nThe \u0060metrics\u0060 query parameter is required. These values are supported on this\nendpoint:\n\u0060compute_unit_seconds\u0060, \u0060root_branch_bytes_month\u0060, \u0060child_branch_bytes_month\u0060,\n\u0060instant_restore_bytes_month\u0060, \u0060public_network_transfer_bytes\u0060, \u0060private_network_transfer_bytes\u0060,\n\u0060functions_active_capacity_microseconds\u0060, \u0060functions_waiting_capacity_microseconds\u0060,\n\u0060functions_invocations\u0060, \u0060functions_egress_bytes\u0060.\n\nThis endpoint does not support \u0060extra_branches_month\u0060 or \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nConsumption metrics within each branch are returned in ascending time order (oldest first).\nThis request does not wake project computes.\n",
+        "description": "Returns consumption metrics for each branch across one or more projects listed in\n\u0060project_ids\u0060 (1 to 100 projects). Available for accounts on paid usage-based Launch, Scale,\nAgent, and Enterprise plans.\n\nHistory starts when the account first ingests branch-level consumption data.\n\nThe \u0060metrics\u0060 query parameter is required. These values are supported on this\nendpoint:\n\u0060compute_unit_seconds\u0060, \u0060root_branch_bytes_month\u0060, \u0060child_branch_bytes_month\u0060,\n\u0060instant_restore_bytes_month\u0060, \u0060public_network_transfer_bytes\u0060, \u0060private_network_transfer_bytes\u0060,\n\u0060functions_active_capacity_microseconds\u0060, \u0060functions_waiting_capacity_microseconds\u0060,\n\u0060functions_invocations\u0060, \u0060functions_egress_bytes\u0060,\n\u0060ai_gateway_input_tokens\u0060, \u0060ai_gateway_output_tokens\u0060, \u0060ai_gateway_total_tokens\u0060,\n\u0060ai_gateway_cached_input_tokens\u0060, \u0060ai_gateway_cache_creation_tokens\u0060, \u0060ai_gateway_reasoning_tokens\u0060.\n\nThis endpoint does not support \u0060extra_branches_month\u0060 or \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nConsumption metrics within each branch are returned in ascending time order (oldest first).\nThis request does not wake project computes.\n",
         "operationId": "GetConsumptionHistoryPerBranchV2",
         "parameters": [
           {
@@ -7483,7 +7483,7 @@
           {
             "name": "metrics",
             "in": "query",
-            "description": "Required. List the metrics to return. Only these values are supported:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n- \u0060functions_active_capacity_microseconds\u0060\n- \u0060functions_waiting_capacity_microseconds\u0060\n- \u0060functions_invocations\u0060\n- \u0060functions_egress_bytes\u0060\n\nNot supported on this endpoint: \u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=public_network_transfer_bytes\u0060\n- \u0060metrics=compute_unit_seconds,public_network_transfer_bytes\u0060\n",
+            "description": "Required. List the metrics to return. Only these values are supported:\n- \u0060compute_unit_seconds\u0060\n- \u0060root_branch_bytes_month\u0060\n- \u0060child_branch_bytes_month\u0060\n- \u0060instant_restore_bytes_month\u0060\n- \u0060public_network_transfer_bytes\u0060\n- \u0060private_network_transfer_bytes\u0060\n- \u0060functions_active_capacity_microseconds\u0060\n- \u0060functions_waiting_capacity_microseconds\u0060\n- \u0060functions_invocations\u0060\n- \u0060functions_egress_bytes\u0060\n- \u0060ai_gateway_input_tokens\u0060\n- \u0060ai_gateway_output_tokens\u0060\n- \u0060ai_gateway_total_tokens\u0060\n- \u0060ai_gateway_cached_input_tokens\u0060\n- \u0060ai_gateway_cache_creation_tokens\u0060\n- \u0060ai_gateway_reasoning_tokens\u0060\n\nNot supported on this endpoint: \u0060extra_branches_month\u0060, \u0060snapshot_storage_bytes_month\u0060.\nUse \u0060GET /consumption_history/v2/projects\u0060 for those.\n\nPass multiple values as repeated query parameters or a comma-separated list:\n- \u0060metrics=compute_unit_seconds\u0026metrics=public_network_transfer_bytes\u0060\n- \u0060metrics=compute_unit_seconds,public_network_transfer_bytes\u0060\n",
             "required": true,
             "schema": {
               "type": "array",
@@ -8385,6 +8385,53 @@
           }
         }
       ]
+    },
+    "/regions/{regionId}/vpc_endpoint_services": {
+      "get": {
+        "tags": [
+          "Region"
+        ],
+        "summary": "List VPC endpoint service names for a region",
+        "description": "Lists the AWS VPC endpoint service names Neon currently offers in the\ngiven region, for PrivateLink / Neon Private Networking. Add every name\nreturned for your region when configuring your VPC endpoint.\nThe list is always empty for non-AWS regions, and for AWS regions without PrivateLink.\n\n**Note:** Not all regions are available to all organizations. Pass the \u0060org_id\u0060\nparameter to check region availability for your organization. Unknown regions,\nand regions not available to the caller, return 404.\n",
+        "operationId": "GetRegionVpcEndpointServices",
+        "parameters": [
+          {
+            "name": "regionId",
+            "in": "path",
+            "description": "Cloud region (for example, \u0060aws-us-east-1\u0060).",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-z0-9-]{1,60}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "org_id",
+            "in": "query",
+            "description": "Organization ID. When provided, the region must be available to this organization.\nRecommended for accurate region availability.\n",
+            "schema": {
+              "pattern": "^[a-z0-9-]{1,60}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The region\u0027s VPC endpoint service names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionVpcEndpointServicesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "x-stability-level": "beta"
+      }
     },
     "/regions": {
       "get": {
@@ -14968,6 +15015,12 @@
           "require_mfa": {
             "type": "boolean",
             "description": "If true, all members must have MFA enabled to access this organization"
+          },
+          "sso_enforcement_grace_until": {
+            "type": "string",
+            "description": "When this organization\u0027s SSO enforcement grace period ends, if enforcement was recently\nenabled. Present only while the grace window is still open \u2014 sessions established before\nenforcement keep working until then. Lets members see the deadline for signing in through\nthe organization\u0027s identity provider before enforcement applies to them.\n",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -15046,6 +15099,29 @@
         "properties": {
           "role": {
             "$ref": "#/components/schemas/MemberRole"
+          }
+        }
+      },
+      "RegionVpcEndpointServicesResponse": {
+        "required": [
+          "region_id",
+          "vpc_endpoint_service_names"
+        ],
+        "type": "object",
+        "properties": {
+          "region_id": {
+            "type": "string",
+            "example": "aws-us-east-1"
+          },
+          "vpc_endpoint_service_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Fully-qualified AWS VPC endpoint service names. Always empty for non-AWS regions, and for AWS regions without PrivateLink.",
+            "example": [
+              "com.amazonaws.vpce.us-east-1.vpce-svc-01aeec2f4b558bc22"
+            ]
           }
         }
       },
