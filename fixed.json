@@ -7547,8 +7547,7 @@
           "default": {
             "$ref": "#/components/responses/GeneralError"
           }
-        },
-        "x-stability-level": "beta"
+        }
       }
     },
     "/organizations/{orgId}": {
@@ -15018,7 +15017,7 @@
           },
           "sso_enforcement_grace_until": {
             "type": "string",
-            "description": "When this organization\u0027s SSO enforcement grace period ends, if enforcement was recently\nenabled. Present only while the grace window is still open \u2014 sessions established before\nenforcement keep working until then. Lets members see the deadline for signing in through\nthe organization\u0027s identity provider before enforcement applies to them.\n",
+            "description": "When this organization\u0027s SSO enforcement grace period ends, if enforcement was recently\nenabled. Present only while the grace window is still open \u2014 sessions established before\nenforcement keep working until then. Lets members see the deadline for signing in through\nthe organization\u0027s identity provider before enforcement applies to them.\nOmitted for browser sessions that already satisfy the organization\u0027s SSO requirements.\nAn absent value does not mean that SSO enforcement is disabled.\n",
             "format": "date-time",
             "nullable": true
           }
