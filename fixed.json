@@ -7740,12 +7740,12 @@
         "tags": [
           "Organizations"
         ],
-        "summary": "Retrieve organization spending limit",
-        "description": "Returns the configured monthly spending limit for the specified organization.\n\u0060spending_limit_cents: null\u0060 indicates that no limit is currently set.\nAvailable to organization members with read access on Launch and Scale plans only.\n",
+        "summary": "Retrieve organization spending notification threshold",
+        "description": "Returns the organization\u0027s monthly spending notification threshold, in cents.\nNeon emails organization admins when monthly charges reach 80% and 100% of the threshold.\nThe threshold is an alert only: it doesn\u0027t cap spending or suspend computes.\n\u0060spending_limit_cents: null\u0060 indicates that no threshold is set.\nAvailable to organization members with read access on Launch and Scale plans only. Other plans return \u0060422\u0060.\nSee [Spending notifications](https://neon.com/docs/introduction/spending-notifications).\n",
         "operationId": "GetOrganizationSpendingLimit",
         "responses": {
           "200": {
-            "description": "The organization\u0027s current spending limit.",
+            "description": "The organization\u0027s current spending notification threshold.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7764,8 +7764,8 @@
         "tags": [
           "Organizations"
         ],
-        "summary": "Set organization spending limit",
-        "description": "Sets the monthly spending limit for the specified organization.\nTo remove a previously configured limit, send a DELETE request to this endpoint.\nWhen a limit is configured, email notifications are sent at 80% and 100% of the limit.\nComputes are not suspended when the limit is reached.\nAvailable to organization admins on Launch and Scale plans only.\n",
+        "summary": "Set organization spending notification threshold",
+        "description": "Sets a monthly spending notification threshold for the organization, in cents.\nNeon emails organization admins when monthly charges reach 80% and 100% of the threshold.\nThe threshold is an alert only: computes keep running when it\u0027s reached.\nTo remove the threshold, send a DELETE request to this endpoint.\nAvailable to organization admins on Launch and Scale plans only. Other plans return \u0060422\u0060.\nSee [Spending notifications](https://neon.com/docs/introduction/spending-notifications).\n",
         "operationId": "SetOrganizationSpendingLimit",
         "requestBody": {
           "content": {
@@ -7779,7 +7779,7 @@
         },
         "responses": {
           "200": {
-            "description": "The updated spending limit value.",
+            "description": "The updated spending notification threshold.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7798,12 +7798,12 @@
         "tags": [
           "Organizations"
         ],
-        "summary": "Remove organization spending limit",
-        "description": "Removes the configured monthly spending limit for the specified organization.\nIdempotent \u2014 removing an already-unset limit still succeeds.\nAvailable to organization admins on Launch and Scale plans only.\n",
+        "summary": "Remove organization spending notification threshold",
+        "description": "Removes the organization\u0027s monthly spending notification threshold, which stops the spending notification emails.\nIdempotent: removing an already-unset threshold still succeeds.\nAvailable to organization admins on Launch and Scale plans only. Other plans return \u0060422\u0060.\n",
         "operationId": "DeleteOrganizationSpendingLimit",
         "responses": {
           "200": {
-            "description": "The spending limit has been cleared.",
+            "description": "The spending notification threshold has been removed.",
             "content": {
               "application/json": {
                 "schema": {
@@ -14471,7 +14471,7 @@
           },
           "spending_limit_cents": {
             "type": "integer",
-            "description": "Monthly spending cap in cents for V3 paid plans. When set,\nnotifications are sent at 80% and 100% of this limit. \u0060null\u0060\nmeans no limit is configured.\n",
+            "description": "Monthly spending notification threshold in cents, on Launch and\nScale plans. When set, Neon sends email notifications at 80% and\n100% of this threshold; computes are not suspended. \u0060null\u0060 means no\nthreshold is configured.\n",
             "format": "int64",
             "nullable": true
           }
@@ -14498,7 +14498,7 @@
           "spending_limit_cents": {
             "minimum": 1,
             "type": "integer",
-            "description": "Monthly spending cap in cents. Must be positive. To remove a\npreviously configured limit, send a DELETE request to the\nspending_limit endpoint \u2014 \u00600\u0060 and \u0060null\u0060 are rejected here.\nThe cap is alert-only: notifications fire at 80% and 100%, but\ncomputes are not suspended. Setting a cap below the period\u0027s\nalready-accrued spend is permitted and will trigger the\nover-limit notification on the next worker run.\n",
+            "description": "Monthly spending notification threshold in cents. Must be positive.\nTo remove a previously configured threshold, send a DELETE request\nto the spending_limit endpoint \u2014 \u00600\u0060 and \u0060null\u0060 are rejected here.\nThe threshold is alert-only: notifications are sent at 80% and 100%,\nbut computes are not suspended. Setting a threshold below the\nperiod\u0027s already-accrued spend is permitted and triggers the\nover-limit notification on the next worker run.\n",
             "format": "int64"
           }
         }
@@ -14511,7 +14511,7 @@
         "properties": {
           "spending_limit_cents": {
             "type": "integer",
-            "description": "Monthly spending cap in cents. \u0060null\u0060 indicates that no limit\nis currently configured.\n",
+            "description": "Monthly spending notification threshold in cents. \u0060null\u0060 indicates\nthat no threshold is currently configured.\n",
             "format": "int64",
             "nullable": true
           }
@@ -15354,6 +15354,7 @@
           "hasura",
           "microsoft",
           "microsoftv2",
+          "chatgpt",
           "vercelmp",
           "keycloak"
         ],
@@ -15382,6 +15383,10 @@
             {
               "value": "microsoftv2",
               "name": "Microsoftv2"
+            },
+            {
+              "value": "chatgpt",
+              "name": "Chatgpt"
             },
             {
               "value": "vercelmp",

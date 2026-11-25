@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Monthly spending cap in cents. Must be positive. To remove apreviously configured limit, send a DELETE request to thespending_limit endpoint — `0` and `null` are rejected here.The cap is alert-only: notifications fire at 80% and 100%, butcomputes are not suspended. Setting a cap below the period&apos;salready-accrued spend is permitted and will trigger theover-limit notification on the next worker run.</summary>
+        /// <summary>Monthly spending notification threshold in cents. Must be positive.To remove a previously configured threshold, send a DELETE requestto the spending_limit endpoint — `0` and `null` are rejected here.The threshold is alert-only: notifications are sent at 80% and 100%,but computes are not suspended. Setting a threshold below theperiod&apos;s already-accrued spend is permitted and triggers theover-limit notification on the next worker run.</summary>
         public long? SpendingLimitCents { get => _explicitNullValueSpendingLimitCents; set { _explicitNullValueSpendingLimitCents = value; AdditionalData?.Remove("spending_limit_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spending_limit_cents"); else _explicitNullProperties?.Remove("spending_limit_cents"); } }
         private long? _explicitNullValueSpendingLimitCents = default!;
         /// <summary>

@@ -23,7 +23,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Monthly spending cap in cents. `null` indicates that no limitis currently configured.</summary>
+        /// <summary>Monthly spending notification threshold in cents. `null` indicatesthat no threshold is currently configured.</summary>
         public long? SpendingLimitCents { get => _explicitNullValueSpendingLimitCents; set { _explicitNullValueSpendingLimitCents = value; AdditionalData?.Remove("spending_limit_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spending_limit_cents"); else _explicitNullProperties?.Remove("spending_limit_cents"); } }
         private long? _explicitNullValueSpendingLimitCents = default!;
         /// <summary>

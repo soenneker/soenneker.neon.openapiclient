@@ -185,7 +185,7 @@ namespace Soenneker.Neon.OpenApiClient.Models
         /// <summary>Timestamp of the last quota reset. Set to the account creation time when the account is first created.</summary>
         public DateTimeOffset? QuotaResetAtLast { get => _explicitNullValueQuotaResetAtLast; set { _explicitNullValueQuotaResetAtLast = value; AdditionalData?.Remove("quota_reset_at_last"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota_reset_at_last"); else _explicitNullProperties?.Remove("quota_reset_at_last"); } }
         private DateTimeOffset? _explicitNullValueQuotaResetAtLast = default!;
-        /// <summary>Monthly spending cap in cents for V3 paid plans. When set,notifications are sent at 80% and 100% of this limit. `null`means no limit is configured.</summary>
+        /// <summary>Monthly spending notification threshold in cents, on Launch andScale plans. When set, Neon sends email notifications at 80% and100% of this threshold; computes are not suspended. `null` means nothreshold is configured.</summary>
         public long? SpendingLimitCents { get => _explicitNullValueSpendingLimitCents; set { _explicitNullValueSpendingLimitCents = value; AdditionalData?.Remove("spending_limit_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spending_limit_cents"); else _explicitNullProperties?.Remove("spending_limit_cents"); } }
         private long? _explicitNullValueSpendingLimitCents = default!;
         /// <summary>State of the billing account.</summary>

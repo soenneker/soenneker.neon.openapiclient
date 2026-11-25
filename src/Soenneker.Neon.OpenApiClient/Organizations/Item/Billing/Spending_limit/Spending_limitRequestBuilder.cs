@@ -34,7 +34,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
         {
         }
         /// <summary>
-        /// Removes the configured monthly spending limit for the specified organization.Idempotent — removing an already-unset limit still succeeds.Available to organization admins on Launch and Scale plans only.
+        /// Removes the organization&apos;s monthly spending notification threshold, which stops the spending notification emails.Idempotent: removing an already-unset threshold still succeeds.Available to organization admins on Launch and Scale plans only. Other plans return `422`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.DeleteOrganizationSpendingLimit200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
+        /// Returns the organization&apos;s monthly spending notification threshold, in cents.Neon emails organization admins when monthly charges reach 80% and 100% of the threshold.The threshold is an alert only: it doesn&apos;t cap spending or suspend computes.`spending_limit_cents: null` indicates that no threshold is set.Available to organization members with read access on Launch and Scale plans only. Other plans return `422`.See [Spending notifications](https://neon.com/docs/introduction/spending-notifications).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Sets the monthly spending limit for the specified organization.To remove a previously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and 100% of the limit.Computes are not suspended when the limit is reached.Available to organization admins on Launch and Scale plans only.
+        /// Sets a monthly spending notification threshold for the organization, in cents.Neon emails organization admins when monthly charges reach 80% and 100% of the threshold.The threshold is an alert only: computes keep running when it&apos;s reached.To remove the threshold, send a DELETE request to this endpoint.Available to organization admins on Launch and Scale plans only. Other plans return `422`.See [Spending notifications](https://neon.com/docs/introduction/spending-notifications).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return await RequestAdapter.SendAsync<global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse>(requestInfo, global::Soenneker.Neon.OpenApiClient.Models.SpendingLimitResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes the configured monthly spending limit for the specified organization.Idempotent — removing an already-unset limit still succeeds.Available to organization admins on Launch and Scale plans only.
+        /// Removes the organization&apos;s monthly spending notification threshold, which stops the spending notification emails.Idempotent: removing an already-unset threshold still succeeds.Available to organization admins on Launch and Scale plans only. Other plans return `422`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return requestInfo;
         }
         /// <summary>
-        /// Returns the configured monthly spending limit for the specified organization.`spending_limit_cents: null` indicates that no limit is currently set.Available to organization members with read access on Launch and Scale plans only.
+        /// Returns the organization&apos;s monthly spending notification threshold, in cents.Neon emails organization admins when monthly charges reach 80% and 100% of the threshold.The threshold is an alert only: it doesn&apos;t cap spending or suspend computes.`spending_limit_cents: null` indicates that no threshold is set.Available to organization members with read access on Launch and Scale plans only. Other plans return `422`.See [Spending notifications](https://neon.com/docs/introduction/spending-notifications).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Neon.OpenApiClient.Organizations.Item.Billing.Spending_limit
             return requestInfo;
         }
         /// <summary>
-        /// Sets the monthly spending limit for the specified organization.To remove a previously configured limit, send a DELETE request to this endpoint.When a limit is configured, email notifications are sent at 80% and 100% of the limit.Computes are not suspended when the limit is reached.Available to organization admins on Launch and Scale plans only.
+        /// Sets a monthly spending notification threshold for the organization, in cents.Neon emails organization admins when monthly charges reach 80% and 100% of the threshold.The threshold is an alert only: computes keep running when it&apos;s reached.To remove the threshold, send a DELETE request to this endpoint.Available to organization admins on Launch and Scale plans only. Other plans return `422`.See [Spending notifications](https://neon.com/docs/introduction/spending-notifications).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

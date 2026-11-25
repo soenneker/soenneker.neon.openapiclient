@@ -27,6 +27,10 @@ namespace Soenneker.Neon.OpenApiClient.Models
         #pragma warning disable CS1591
         Microsoftv2,
         #pragma warning restore CS1591
+        [EnumMember(Value = "chatgpt")]
+        #pragma warning disable CS1591
+        Chatgpt,
+        #pragma warning restore CS1591
         [EnumMember(Value = "vercelmp")]
         #pragma warning disable CS1591
         Vercelmp,
